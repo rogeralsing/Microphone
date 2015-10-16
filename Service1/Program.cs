@@ -16,7 +16,12 @@ namespace Service1
     {
         public MyService()
         {
-            Get["/"] = _ => "Hello";            
+            Get["/"] = _ =>
+            {
+                var instances = FindService("OtherService");
+
+                return "Hello";
+            };            
         }
     }
 }
