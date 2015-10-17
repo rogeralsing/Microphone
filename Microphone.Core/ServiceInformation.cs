@@ -1,4 +1,4 @@
-namespace Microphone.Nancy
+namespace Microphone.Core
 {
     public class ServiceInformation
     {

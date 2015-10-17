@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Consul;
+using Microphone.Core;
 using Nancy;
 
 namespace Microphone.Nancy

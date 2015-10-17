@@ -63,6 +63,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Microphone.Core\Microphone.Core.csproj">
+      <Project>{1ba1342f-7375-4851-ac70-cc56cadcc9ef}</Project>
+      <Name>Microphone.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NancyBotstrapper\Microphone.Nancy.csproj">
       <Project>{d6f19216-dd25-450d-9d25-fdf091e55a6e}</Project>
       <Name>Microphone.Nancy</Name>

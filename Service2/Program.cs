@@ -1,5 +1,6 @@
 ﻿using System;
-using Microphone.Nancy;
+using System.Web.Http;
+using Microphone.WebApi;
 
 namespace Service2
 {
@@ -12,11 +13,13 @@ namespace Service2
         }
     }
 
-    public class OtherService : AutoRegisterModule
+    
+    public class DefaultController : AutoRegisterApiController
     {
-        public OtherService()
+        [Route("/")]
+        public string Get()
         {
-            Get["/"] = _ => "Other Service!!!";
+            return "Service2";
         }
     }
 }

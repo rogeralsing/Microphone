@@ -1,7 +1,7 @@
 using Serilog;
 using Serilog.Events;
 
-namespace Microphone.Nancy
+namespace Microphone.Core
 {
     public class Logger
     {
