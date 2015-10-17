@@ -11,7 +11,7 @@ Each service will start out by allocating a free port to run on, once the servic
     {
         static void Main(string[] args)
         {
-            Bootstrap.Start("OtherService","v1");
+            Bootstrap.Start("WebApiService","v1");
             Console.ReadLine();
         }
     }
@@ -20,7 +20,7 @@ Each service will start out by allocating a free port to run on, once the servic
     {
         public string Get()
         {
-            return "Service2";
+            return "WebApi Service";
         }
     }
 ```
@@ -32,7 +32,7 @@ Each service will start out by allocating a free port to run on, once the servic
     {
         private static void Main(string[] args)
         {
-            Bootstrap.Start("MyService","v1");           
+            Bootstrap.Start("NancyService","v1");           
             Console.ReadLine();
         }
     }
@@ -41,7 +41,7 @@ Each service will start out by allocating a free port to run on, once the servic
     {
         public MyService()
         {
-            Get["/"] = _ => "Hello";
+            Get["/"] = _ => "Nancy Service";
         }
     }
 ```
