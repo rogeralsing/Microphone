@@ -46,3 +46,7 @@ Each service will start out by allocating a free port to run on, once the servic
         }
     }
 ```
+
+## Running your services
+
+Before you start your services, make sure you have an active Consul cluster running on the host machine.
