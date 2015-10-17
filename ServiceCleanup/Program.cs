@@ -15,8 +15,6 @@ namespace ServiceCleanup
             var lookup = new HashSet<string>();
             while (true)
             {
-                var allServices = client.Catalog.Services();
-
                 var checks = client.Agent.Checks();
                 foreach (var check in checks.Response)
                 {
@@ -26,7 +24,6 @@ namespace ServiceCleanup
                         if (lookup.Contains(check.Value.ServiceID))
                         {
                             client.Agent.ServiceDeregister(check.Value.ServiceID);
-                            client.Agent.CheckDeregister(check.Key);
                             Console.WriteLine("Unregistering service {0}", check.Value.ServiceID);
                         }
                         else
@@ -37,7 +34,7 @@ namespace ServiceCleanup
                     }
                 }
 
-                Task.Delay(3000).Wait();
+                Task.Delay(1000).Wait();
             }
 
             //var client = new Client();
