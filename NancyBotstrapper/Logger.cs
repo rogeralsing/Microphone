@@ -1,7 +1,7 @@
 using Serilog;
 using Serilog.Events;
 
-namespace NancyBotstrapper
+namespace Microphone.Nancy
 {
     public class Logger
     {

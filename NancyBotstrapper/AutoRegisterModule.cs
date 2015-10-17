@@ -3,7 +3,7 @@ using System.Linq;
 using Consul;
 using Nancy;
 
-namespace NancyBotstrapper
+namespace Microphone.Nancy
 {
     public abstract class AutoRegisterModule : NancyModule
     {
@@ -21,6 +21,15 @@ namespace NancyBotstrapper
             };
 
             Get["/status"] = _ => "ok";
+        }
+
+        protected string GetConfig()
+        {
+            var client = new Client();
+            var key = "ServiceConfig:" + Bootstrap.ServiceName;
+            var response = client.KV.Get(key);
+            var res = System.Text.Encoding.UTF8.GetString(response.Response.Value);
+            return res;
         }
 
         protected IEnumerable<ServiceInformation> FindService(string name)

@@ -1,4 +1,4 @@
-namespace NancyBotstrapper
+namespace Microphone.Nancy
 {
     public class ServiceInformation
     {

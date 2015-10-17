@@ -7,8 +7,8 @@
     <ProjectGuid>{D6F19216-DD25-450D-9D25-FDF091E55A6E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NancyBotstrapper</RootNamespace>
-    <AssemblyName>NancyBotstrapper</AssemblyName>
+    <RootNamespace>Microphone.Nancy</RootNamespace>
+    <AssemblyName>Microphone.Nancy</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

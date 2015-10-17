@@ -6,7 +6,7 @@ using Consul;
 using Nancy;
 using Nancy.Hosting.Self;
 
-namespace NancyBotstrapper
+namespace Microphone.Nancy
 {
     public class Bootstrap
     {
