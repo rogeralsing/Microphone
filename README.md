@@ -51,6 +51,8 @@ Each service will start out by allocating a free port to run on, once the servic
 If one of your services needs to communicate with another of service in the same Consul cluster you can it query for active instances.
 
 ```csharp
+//inside some WebApi/Nancy endpoint:
+
 var instances = FindService("Service2");
 var instance = instances.First(); //or use random index to spread load
 
