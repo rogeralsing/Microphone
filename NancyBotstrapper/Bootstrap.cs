@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading.Tasks;
 using Consul;
 using Nancy;
 using Nancy.Hosting.Self;
@@ -9,8 +10,13 @@ namespace NancyBotstrapper
 {
     public class Bootstrap
     {
+        public static string ServiceName { get;  private set; }
+        public static string Version { get; private set; }
+
         public static void Start(string serviceName, string version)
         {
+            ServiceName = serviceName;
+            Version = version;
             var serviceId = serviceName + Guid.NewGuid();
             var uri = GetUri();
             var conf = GetConfiguration();
@@ -48,6 +54,7 @@ namespace NancyBotstrapper
                 }
                 catch
                 {
+                    Task.Delay(1000).Wait();
                     Console.WriteLine("Port allocation failed, retrying.");
                 }
             }

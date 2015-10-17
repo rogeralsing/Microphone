@@ -23,24 +23,13 @@ namespace NancyBotstrapper
             Get["/status"] = _ => "ok";
         }
 
-        protected IEnumerable<ServiceDiscoveryEntry> FindService(string name)
+        protected IEnumerable<ServiceInformation> FindService(string name)
         {
+            Logger.Information("{ServiceName} lookup {OtherServiceName}",Bootstrap.ServiceName,name);
             var client = new Client();
             var others = client.Catalog.Service(name);
 
-            return others.Response.Select(other => new ServiceDiscoveryEntry(other.ServiceAddress,other.ServicePort));
+            return others.Response.Select(other => new ServiceInformation(other.ServiceAddress,other.ServicePort));
         }
-    }
-
-    public class ServiceDiscoveryEntry
-    {
-        public ServiceDiscoveryEntry(string serviceAddress, int servicePort)
-        {
-            ServiceAddress = serviceAddress;
-            ServicePort = servicePort;
-        }
-
-        public string ServiceAddress { get; }
-        public int ServicePort { get; }
     }
 }
