@@ -15,13 +15,17 @@ namespace Microphone.Nancy
         protected AutoRegisterModule()
         {
             _logger = new Logger();
-            Before += ctx =>
-            {
-                _logger.Information("{Url} - {Method}", ctx.Request.Url , ctx.Request.Method );
-                return null;
-            };
+            //Before += ctx =>
+            //{
+            //    _logger.Information("{Url} - {Method}", ctx.Request.Url , ctx.Request.Method );
+            //    return null;
+            //};
 
-            Get["/status"] = _ => "ok";
+            Get["/status"] = _ =>
+            {
+                Logger.Information("OK");
+                return "ok";
+            };
         }
 
         protected string GetConfig()
