@@ -49,3 +49,10 @@ Each service will start out by allocating a free port to run on, once the servic
 ## Running your services
 
 Before you start your services, make sure you have an active Consul cluster running on the host machine.
+
+If you are new to Consul, you can bootstrap your test environment using this command:
+```
+consul agent -server -bootstrap -data-dir /tmp/consul
+```
+
+This will give you a single server Consul cluster, this is not recommended for production usage, but it will allow you to use service discovery on your dev machine.
