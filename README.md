@@ -48,7 +48,7 @@ Each service will start out by allocating a free port to run on, once the servic
 
 ## Service Discovery
 
-If one of your services needs to communicate with another of service in the same Consul cluster you can it query for active instances.
+If one of your services needs to communicate with another service in the same Consul cluster you can query it for active instances.
 
 ```csharp
 //inside some WebApi/Nancy endpoint:
