@@ -46,6 +46,18 @@ Each service will start out by allocating a free port to run on, once the servic
     }
 ```
 
+## Service Discovery
+
+If one of your services needs to communicate with another of service in the same Consul cluster you can it query for active instances.
+
+```
+var instances = FindService("Service2");
+var instance = instances.First(); //or use random index for load balancing
+
+//Use Rest# or similar to call into the remote service
+MakeSomeCall("/api/orders",instance.ServiceAddress, instance.ServicePort);
+```
+
 ## Running your services
 
 Before you start your services, make sure you have an active Consul cluster running on the host machine.
