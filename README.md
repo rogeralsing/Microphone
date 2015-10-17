@@ -52,7 +52,7 @@ If one of your services needs to communicate with another of service in the same
 
 ```csharp
 var instances = FindService("Service2");
-var instance = instances.First(); //or use random index for load balancing
+var instance = instances.First(); //or use random index to spread load
 
 //Use Rest# or similar to call into the remote service
 MakeSomeCall("/api/orders",instance.ServiceAddress, instance.ServicePort);
