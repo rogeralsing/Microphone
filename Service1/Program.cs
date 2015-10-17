@@ -7,7 +7,7 @@ namespace Service1
     {
         private static void Main(string[] args)
         {
-            Bootstrap.Start("MyService","v1");           
+            Bootstrap.Start("Service1","v1");           
             Console.ReadLine();
         }
     }
@@ -18,7 +18,7 @@ namespace Service1
         {
             Get["/"] = _ =>
             {
-                var instances = FindService("OtherService");
+                var instances = FindService("Service2");
 
                 return "Hello";
             };            

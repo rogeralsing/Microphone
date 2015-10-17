@@ -8,7 +8,7 @@ namespace Service2
     {
         static void Main(string[] args)
         {
-            Bootstrap.Start("OtherService","v1");
+            Bootstrap.Start("Service2","v1");
             Console.ReadLine();
         }
     }
@@ -16,7 +16,6 @@ namespace Service2
     
     public class DefaultController : AutoRegisterApiController
     {
-        [Route("/")]
         public string Get()
         {
             return "Service2";
