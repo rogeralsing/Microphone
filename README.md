@@ -16,7 +16,6 @@ Each service will start out by allocating a free port to run on, once the servic
         }
     }
 
-    
     public class DefaultController : AutoRegisterApiController
     {
         public string Get()
