@@ -53,6 +53,7 @@
     <Compile Include="ServiceInformation.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Microphone.Core.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

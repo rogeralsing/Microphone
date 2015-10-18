@@ -19,13 +19,15 @@ namespace Microphone.WebApi
             return res;
         }
 
-        protected IEnumerable<ServiceInformation> FindService(string name)
+        protected ServiceInformation[] FindService(string name)
         {
             Logger.Information("{ServiceName} lookup {OtherServiceName}", Bootstrap.ServiceName, name);
             var client = new Client();
             var others = client.Catalog.Service(name);
 
-            return others.Response.Select(other => new ServiceInformation(other.ServiceAddress, other.ServicePort));
+            return
+                others.Response.Select(other => new ServiceInformation(other.ServiceAddress, other.ServicePort))
+                    .ToArray();
         }
     }
 

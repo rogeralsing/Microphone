@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Management.Instrumentation;
 using Microphone.Nancy;
 
 namespace Service1
@@ -18,7 +20,10 @@ namespace Service1
         {
             Get["/"] = _ =>
             {
-                var instances = FindService("Service2");
+                //var instances = FindService("Service2");
+                //var instance = instances.First(); //or use random index for load balancing
+
+                //MakeSomeCall("/api/orders",instance.ServiceAddress, instance.ServicePort);
 
                 return "Hello";
             };            
