@@ -60,7 +60,7 @@ namespace Microphone.Core
             Task.Factory.StartNew(async () =>
             {
                 await Task.Delay(1000).ConfigureAwait(false);
-                Logger.Information("Reaper started..");
+                Logger.Information("Reaper: started..");
                 var client = new Client();
                 var lookup = new HashSet<string>();
                 while (true)
@@ -76,14 +76,19 @@ namespace Microphone.Core
                                 if (lookup.Contains(check.Value.ServiceID))
                                 {
                                     client.Agent.ServiceDeregister(check.Value.ServiceID);
-                                    Logger.Information("Unregistering {ServiceId}", check.Value.ServiceID);
+                                    Logger.Information("Reaper: Removing {ServiceId}", check.Value.ServiceID);
                                 }
                                 else
                                 {
-                                    Logger.Information("Marking {ServiceId} as up for reaping", check.Value.ServiceID);
+                                    Logger.Information("Reaper: Marking {ServiceId}", check.Value.ServiceID);
                                     lookup.Add(check.Value.ServiceID);
                                 }
 
+                            }
+                            else
+                            {
+                                //if service is ok, remove it from reaper set
+                                lookup.Remove(check.Value.ServiceID);
                             }
                         }
                     }
