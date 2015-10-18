@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24606.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceCleanup", "ServiceCleanup\ServiceCleanup.csproj", "{002E03ED-098F-4CEF-B575-2FE143119F29}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{8A71EDB4-5188-4605-8C5D-C78860B8D28B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service1", "Service1\Service1.csproj", "{B50B2E8E-E92A-49D4-A4C8-BA09AC89C4A6}"
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{002E03ED-098F-4CEF-B575-2FE143119F29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{002E03ED-098F-4CEF-B575-2FE143119F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{002E03ED-098F-4CEF-B575-2FE143119F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{002E03ED-098F-4CEF-B575-2FE143119F29}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B50B2E8E-E92A-49D4-A4C8-BA09AC89C4A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B50B2E8E-E92A-49D4-A4C8-BA09AC89C4A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B50B2E8E-E92A-49D4-A4C8-BA09AC89C4A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,7 +48,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{002E03ED-098F-4CEF-B575-2FE143119F29} = {8A71EDB4-5188-4605-8C5D-C78860B8D28B}
 		{B50B2E8E-E92A-49D4-A4C8-BA09AC89C4A6} = {CCC5CCD5-8319-4C68-B867-689DCA530008}
 		{C937DCE3-19BF-459C-A14F-348AAED672C7} = {CCC5CCD5-8319-4C68-B867-689DCA530008}
 		{C630E7CE-C207-46FD-9C75-FA6FB27353D2} = {8A71EDB4-5188-4605-8C5D-C78860B8D28B}

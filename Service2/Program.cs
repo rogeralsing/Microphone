@@ -12,9 +12,8 @@ namespace Service2
             Console.ReadLine();
         }
     }
-
     
-    public class DefaultController : AutoRegisterApiController
+    public class DefaultController : ApiController
     {
         public string Get()
         {
