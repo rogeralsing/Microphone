@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="build.bat" />
     <None Include="Microphone.WebApi.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>

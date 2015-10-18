@@ -63,6 +63,7 @@
     <Compile Include="ServiceInformation.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="build.bat" />
     <None Include="Microphone.Core.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
