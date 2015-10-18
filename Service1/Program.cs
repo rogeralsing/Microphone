@@ -1,4 +1,5 @@
 ﻿using System;
+using Microphone.Core;
 using Microphone.Nancy;
 using Nancy;
 
@@ -18,7 +19,7 @@ namespace Service1
         public MyService()
         {
             Get["/"] = _ =>
-            {
+            {                
                 return "Hello";
             };            
         }
