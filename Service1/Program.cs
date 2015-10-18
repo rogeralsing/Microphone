@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
-using System.Management.Instrumentation;
 using Microphone.Nancy;
+using Nancy;
 
 namespace Service1
 {
@@ -14,17 +13,12 @@ namespace Service1
         }
     }
 
-    public class MyService : AutoRegisterModule
+    public class MyService : NancyModule
     {
         public MyService()
         {
             Get["/"] = _ =>
             {
-                //var instances = FindService("Service2");
-                //var instance = instances.First(); //or use random index for load balancing
-
-                //MakeSomeCall("/api/orders",instance.ServiceAddress, instance.ServicePort);
-
                 return "Hello";
             };            
         }
