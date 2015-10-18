@@ -32,7 +32,7 @@ PM> Install-Package Microphone.Nancy
         }
     }
 
-    public class DefaultController : AutoRegisterApiController
+    public class DefaultController : ApiController
     {
         public string Get()
         {
@@ -53,7 +53,7 @@ PM> Install-Package Microphone.Nancy
         }
     }
 
-    public class MyService : AutoRegisterModule
+    public class MyService : NancyModule
     {
         public MyService()
         {
@@ -69,7 +69,7 @@ If one of your services needs to communicate with another service in the same Co
 ```csharp
 //inside some WebApi/Nancy endpoint:
 
-var instances = FindService("Service2");
+var instances = Cluster.FindService("Service2");
 var instance = instances.First(); //or use random index to spread load
 
 //Use Rest# or similar to call into the remote service
