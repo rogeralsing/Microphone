@@ -19,7 +19,8 @@ namespace Service1
         public MyService()
         {
             Get["/"] = _ =>
-            {                
+            {
+                var res = Cluster.FindService("Service2");                
                 return "Hello";
             };            
         }
