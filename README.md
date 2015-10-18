@@ -1,3 +1,5 @@
+<img src="/Resources/microphone.png" height="80">
+
 # Microphone - Self announcing services
 
 **Microphone** is a lightweight framework to run self hosting REST services using **Web Api** or **NancyFx** ontop of a **Consul** cluster.
