@@ -6,7 +6,7 @@ using Nancy.Hosting.Self;
 
 namespace Microphone.Nancy
 {
-    public class NancyProvider : IWebFrameworkProvider
+    public class NancyProvider : IFrameworkProvider
     {
 
         public Uri Start(string serviceName, string version)

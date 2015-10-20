@@ -4,13 +4,13 @@ using Microphone.Core;
 using Microphone.Core.ClusterProviders;
 using Microphone.WebApi;
 
-namespace Service2
+namespace WebApiServiceExample
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Cluster.Bootstrap<WebApiProvider, ConsulProvider>("Service2", "v1");
+            Cluster.Bootstrap<WebApiProvider, ConsulProvider>("WebApiServiceExample", "v1");
             Console.ReadLine();
         }
     }

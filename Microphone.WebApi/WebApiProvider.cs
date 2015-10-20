@@ -5,7 +5,7 @@ using Microphone.Core;
 
 namespace Microphone.WebApi
 {
-    public class WebApiProvider : IWebFrameworkProvider
+    public class WebApiProvider : IFrameworkProvider
     {
         public Uri Start(string serviceName, string version)
         {

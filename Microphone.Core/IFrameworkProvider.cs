@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Microphone.Core
 {
-    public interface IWebFrameworkProvider
+    public interface IFrameworkProvider
     {
         Uri Start(string serviceName, string version);
     }

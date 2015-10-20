@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -19,6 +18,7 @@ namespace Microphone.Core.ClusterProviders
                 Name = serviceName,
                 Tags = new string[] {},
                 Address = address.Host,
+                // ReSharper disable once RedundantAnonymousTypePropertyName
                 Port = address.Port,
                 Check = new
                 {
@@ -31,8 +31,7 @@ namespace Microphone.Core.ClusterProviders
             var json = JsonConvert.SerializeObject(payload);
             var content = new StringContent(json);
 
-            var res =
-                await client.PostAsync("http://localhost:8500/v1/agent/service/register", content).ConfigureAwait(false);
+            var res = await client.PostAsync("http://localhost:8500/v1/agent/service/register", content).ConfigureAwait(false);
             if (res.StatusCode != HttpStatusCode.OK)
             {
                 throw new Exception("Could not register service");

@@ -6,7 +6,7 @@ namespace Microphone.Core
     public static class Cluster
     {
         private static IClusterProvider clusterProvider;
-        private static IWebFrameworkProvider webFrameworkProvider;
+        private static IFrameworkProvider _frameworkProvider;
 
         public static string GetConfig()
         {
@@ -19,11 +19,11 @@ namespace Microphone.Core
         }
 
         public static void Bootstrap<TFramework, TProvider>(string serviceName, string version)
-            where TFramework : IWebFrameworkProvider, new()
+            where TFramework : IFrameworkProvider, new()
             where TProvider : IClusterProvider, new()
         {
-            webFrameworkProvider = new TFramework();
-            var uri = webFrameworkProvider.Start(serviceName, version);
+            _frameworkProvider = new TFramework();
+            var uri = _frameworkProvider.Start(serviceName, version);
             var serviceId = serviceName + Guid.NewGuid();
             clusterProvider = new TProvider();
             clusterProvider.RegisterService(serviceName, serviceId, version, uri);

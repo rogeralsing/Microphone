@@ -1,6 +1,8 @@
 ﻿using System;
+using Microphone.Core;
+using Microphone.Core.ClusterProviders;
 
-namespace Microphone.Core.ClusterProviders
+namespace Microphone.Etcd
 {
     public class EtcdProvider : IClusterProvider
     {
