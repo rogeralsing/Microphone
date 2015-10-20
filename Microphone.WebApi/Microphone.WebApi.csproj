@@ -56,8 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoRegisterApiController.cs" />
-    <Compile Include="Bootstrap.cs" />
+    <Compile Include="StatusController.cs" />
+    <Compile Include="WebApiProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,19 +6,15 @@ using Nancy.Hosting.Self;
 
 namespace Microphone.Nancy
 {
-    public class Bootstrap
+    public class NancyProvider : IWebFrameworkProvider
     {
 
-        public static void Start(string serviceName, string version)
-        {
-            var serviceId = serviceName + Guid.NewGuid();
+        public Uri Start(string serviceName, string version)
+        {            
             var uri = Configuration.GetUri();
             var conf = GetConfiguration();
-            var host = GetHost(uri, conf);
-
-            Console.WriteLine("{0} running on {1}", serviceId, uri);
-
-            Cluster.RegisterService(serviceName, serviceId, version, uri);
+            var host = GetHost(uri, conf);            
+            return uri;
         }
 
         private static NancyHost GetHost(Uri uri, HostConfiguration hostConfigs)

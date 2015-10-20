@@ -67,6 +67,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Microphone.Core\Microphone.Core.csproj">
+      <Project>{1BA1342F-7375-4851-AC70-CC56CADCC9EF}</Project>
+      <Name>Microphone.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Microphone.WebApi\Microphone.WebApi.csproj">
       <Project>{c630e7ce-c207-46fd-9c75-fa6fb27353d2}</Project>
       <Name>Microphone.WebApi</Name>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Web.Http;
+using Microphone.Core;
+using Microphone.Core.ClusterProviders;
 using Microphone.WebApi;
 
 namespace Service2
@@ -8,7 +10,7 @@ namespace Service2
     {
         static void Main(string[] args)
         {
-            Bootstrap.Start("Service2","v1");
+            Cluster.Bootstrap<WebApiProvider, ConsulProvider>("Service2", "v1");
             Console.ReadLine();
         }
     }

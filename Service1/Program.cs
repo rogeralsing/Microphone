@@ -1,5 +1,6 @@
 ﻿using System;
 using Microphone.Core;
+using Microphone.Core.ClusterProviders;
 using Microphone.Nancy;
 using Nancy;
 
@@ -9,7 +10,7 @@ namespace Service1
     {
         private static void Main(string[] args)
         {
-            Bootstrap.Start("Service1","v1");           
+            Cluster.Bootstrap<NancyProvider,ConsulProvider>("Service1","v1");           
             Console.ReadLine();
         }
     }
