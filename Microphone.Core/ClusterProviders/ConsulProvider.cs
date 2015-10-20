@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Consul;
 
 namespace Microphone.Core.ClusterProviders
 {
@@ -16,13 +15,10 @@ namespace Microphone.Core.ClusterProviders
 
         public ServiceInformation[] FindService(string name)
         {
+            var x = new ConsulRestClient();
+            var res = x.FindServiceAsync(name).Result;
             Logger.Information("{ServiceName} lookup {OtherServiceName}", _serviceName, name);
-            var client = new Client();
-            var others = client.Health.Service(name, null, true);
-
-            return
-                others.Response.Select(other => new ServiceInformation(other.Service.Address, other.Service.Port))
-                    .ToArray();
+            return res;
         }
 
         public void RegisterService(string serviceName, string serviceId, string version, Uri uri)
@@ -31,32 +27,20 @@ namespace Microphone.Core.ClusterProviders
             _serviceId = serviceId;
             _version = version;
             _uri = uri;
-            var client = new Client();
-            client.Agent.ServiceRegister(new AgentServiceRegistration
-            {
-                Address = uri.Host,
-                ID = serviceId,
-                Name = serviceName,
-                Port = uri.Port,
-                Tags = new[] { version },
-                Check = new AgentServiceCheck
-                {
-                    HTTP = uri + "status",
-                    Interval = TimeSpan.FromSeconds(1),
-                    TTL = TimeSpan.Zero,
-                    Timeout = TimeSpan.Zero
-                }
-            });
+            var x = new ConsulRestClient();
+            x.RegisterServiceAsync(serviceName, serviceId, uri).Wait();
             StartReaper();
         }
 
         public string GetConfig()
         {
-            var client = new Client();
-            var key = "ServiceConfig:" + _serviceName;
-            var response = client.KV.Get(key);
-            var res = Encoding.UTF8.GetString(response.Response.Value);
-            return res;
+
+            //var client = new Client();
+            //var key = "ServiceConfig:" + _serviceName;
+            //var response = client.KV.Get(key);
+            //var res = Encoding.UTF8.GetString(response.Response.Value);
+            //return res;
+            return "";
         }
 
         private void StartReaper()
@@ -65,36 +49,28 @@ namespace Microphone.Core.ClusterProviders
             {
                 await Task.Delay(1000).ConfigureAwait(false);
                 Logger.Information("Reaper: started..");
-                var client = new Client();
-                var lookup = new HashSet<string>();
+                var c = new ConsulRestClient();
+                HashSet<string> lookup = new HashSet<string>();
                 while (true)
                 {
                     try
                     {
-                        var checks = client.Agent.Checks();
-                        foreach (var check in checks.Response)
+                        var res = await c.GetCriticalServicesAsync().ConfigureAwait(false);
+                        foreach (var criticalServiceId in res)
                         {
-                            if (Equals(check.Value.Status, CheckStatus.Critical))
+                            if (lookup.Contains(criticalServiceId))
                             {
-                                //dont delete new services
-                                if (lookup.Contains(check.Value.ServiceID))
-                                {
-                                    client.Agent.ServiceDeregister(check.Value.ServiceID);
-                                    Logger.Information("Reaper: Removing {ServiceId}", check.Value.ServiceID);
-                                }
-                                else
-                                {
-                                    Logger.Information("Reaper: Marking {ServiceId}", check.Value.ServiceID);
-                                    lookup.Add(check.Value.ServiceID);
-                                }
-
+                                await c.DeregisterServiceAsync(criticalServiceId).ConfigureAwait(false);
+                                Logger.Information("Reaper: Removing {ServiceId}", criticalServiceId);
                             }
                             else
                             {
-                                //if service is ok, remove it from reaper set
-                                lookup.Remove(check.Value.ServiceID);
+                                lookup.Add(criticalServiceId);
+                                Logger.Information("Reaper: Marking {ServiceId}", criticalServiceId);
                             }
                         }
+                        //remove entries that are no longer critical
+                        lookup.RemoveWhere(i => !res.Contains(i));
                     }
                     catch (Exception x)
                     {
