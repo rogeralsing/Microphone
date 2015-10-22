@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microphone.Core.ClusterProviders;
 
 namespace Microphone.Core
@@ -8,14 +9,9 @@ namespace Microphone.Core
         private static IClusterProvider clusterProvider;
         private static IFrameworkProvider _frameworkProvider;
 
-        public static string GetConfig()
+        public static Task<ServiceInformation[]> FindServiceAsync(string name)
         {
-            return clusterProvider.GetConfig();
-        }
-
-        public static ServiceInformation[] FindService(string name)
-        {
-            return clusterProvider.FindService(name);
+            return clusterProvider.FindServiceAsync(name);
         }
 
         public static void Bootstrap<TFramework, TProvider>(string serviceName, string version)
@@ -26,7 +22,7 @@ namespace Microphone.Core
             var uri = _frameworkProvider.Start(serviceName, version);
             var serviceId = serviceName + Guid.NewGuid();
             clusterProvider = new TProvider();
-            clusterProvider.RegisterService(serviceName, serviceId, version, uri);
+            clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri);
         }          
     }
 }

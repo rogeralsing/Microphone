@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Microphone.Core.ClusterProviders
 {
     public interface IClusterProvider
     {
-        ServiceInformation[] FindService(string name);
-        void RegisterService(string serviceName, string serviceId, string version, Uri uri);
-        string GetConfig();
+        Task<ServiceInformation[]> FindServiceAsync(string name);
+        Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri);
     }
 }

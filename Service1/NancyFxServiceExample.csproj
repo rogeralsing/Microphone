@@ -67,6 +67,10 @@
       <Project>{1ba1342f-7375-4851-ac70-cc56cadcc9ef}</Project>
       <Name>Microphone.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Microphone.Etcd\Microphone.Etcd.csproj">
+      <Project>{f0f01fcb-d6f3-43d6-b522-b343be65fc11}</Project>
+      <Name>Microphone.Etcd</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Microphone.Nancy\Microphone.Nancy.csproj">
       <Project>{d6f19216-dd25-450d-9d25-fdf091e55a6e}</Project>
       <Name>Microphone.Nancy</Name>

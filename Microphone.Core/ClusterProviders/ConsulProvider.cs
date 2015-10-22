@@ -1,46 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Microphone.Core.ClusterProviders
 {
     public class ConsulProvider : IClusterProvider
     {
-        private string _serviceName;
         private string _serviceId;
-        private string _version;
+        private string _serviceName;
         private Uri _uri;
+        private string _version;
 
-        public ServiceInformation[] FindService(string name)
+        public async Task<ServiceInformation[]> FindServiceAsync(string name)
         {
             var x = new ConsulRestClient();
-            var res = x.FindServiceAsync(name).Result;
+            var res = await x.FindServiceAsync(name).ConfigureAwait(false);
             Logger.Information("{ServiceName} lookup {OtherServiceName}", _serviceName, name);
             return res;
         }
 
-        public void RegisterService(string serviceName, string serviceId, string version, Uri uri)
+        public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
         {
             _serviceName = serviceName;
             _serviceId = serviceId;
             _version = version;
             _uri = uri;
             var x = new ConsulRestClient();
-            x.RegisterServiceAsync(serviceName, serviceId, uri).Wait();
+            await x.RegisterServiceAsync(serviceName, serviceId, uri).ConfigureAwait(false);
             StartReaper();
-        }
-
-        public string GetConfig()
-        {
-
-            //var client = new Client();
-            //var key = "ServiceConfig:" + _serviceName;
-            //var response = client.KV.Get(key);
-            //var res = Encoding.UTF8.GetString(response.Response.Value);
-            //return res;
-            return "";
         }
 
         private void StartReaper()
@@ -50,7 +38,7 @@ namespace Microphone.Core.ClusterProviders
                 await Task.Delay(1000).ConfigureAwait(false);
                 Logger.Information("Reaper: started..");
                 var c = new ConsulRestClient();
-                HashSet<string> lookup = new HashSet<string>();
+                var lookup = new HashSet<string>();
                 while (true)
                 {
                     try

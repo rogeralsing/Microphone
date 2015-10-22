@@ -1,6 +1,7 @@
 ﻿using System;
 using Microphone.Core;
 using Microphone.Core.ClusterProviders;
+using Microphone.Etcd;
 using Microphone.Nancy;
 using Nancy;
 
@@ -10,9 +11,9 @@ namespace NancyFxServiceExample
     {
         private static void Main(string[] args)
         {
-            Cluster.Bootstrap<NancyProvider, ConsulProvider>("NancyFxServiceExample", "v1");
+            Cluster.Bootstrap<NancyProvider, EtcdProvider>("NancyFxServiceExample", "v1");
             Console.ReadLine();
-            var res = Cluster.FindService("WebApiServiceExample");
+            var res = Cluster.FindServiceAsync("WebApiServiceExample").Result;
             foreach (var instance in res)
             {
                 Console.WriteLine("{0} {1}", instance.ServiceAddress, instance.ServicePort);

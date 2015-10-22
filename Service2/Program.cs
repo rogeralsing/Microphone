@@ -2,6 +2,7 @@
 using System.Web.Http;
 using Microphone.Core;
 using Microphone.Core.ClusterProviders;
+using Microphone.Etcd;
 using Microphone.WebApi;
 
 namespace WebApiServiceExample
@@ -10,7 +11,7 @@ namespace WebApiServiceExample
     {
         static void Main(string[] args)
         {
-            Cluster.Bootstrap<WebApiProvider, ConsulProvider>("WebApiServiceExample", "v1");
+            Cluster.Bootstrap<WebApiProvider, EtcdProvider>("WebApiServiceExample", "v1");
             Console.ReadLine();
         }
     }
