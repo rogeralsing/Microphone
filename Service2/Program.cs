@@ -2,7 +2,6 @@
 using System.Web.Http;
 using Microphone.Core;
 using Microphone.Core.ClusterProviders;
-using Microphone.Etcd;
 using Microphone.WebApi;
 
 namespace WebApiServiceExample
