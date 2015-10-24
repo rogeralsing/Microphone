@@ -11,16 +11,28 @@ namespace WebApiServiceExample
     {
         static void Main(string[] args)
         {
-            Cluster.Bootstrap<WebApiProvider, EtcdProvider>("WebApiServiceExample", "v1");
+            Cluster.Bootstrap(new WebApiProvider(), new ConsulProvider(useEbayFabio: false), "orders", "v1");
             Console.ReadLine();
         }
     }
-    
-    public class DefaultController : ApiController
+
+    public class OrdersController : ApiController
     {
-        public string Get()
+
+        public Order Get()
         {
-            return "Service2";
+            return new Order
+            {
+                CustomerId = 123,
+                OrderDate = DateTime.Now,
+            };
         }
+    }
+
+    public class Order
+    {
+        public DateTime OrderDate { get; set; }
+        public int CustomerId { get; set; }
+
     }
 }

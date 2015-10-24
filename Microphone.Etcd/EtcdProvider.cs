@@ -15,7 +15,7 @@ namespace Microphone.Etcd
 
         private string _serviceName;
 
-        public async Task<ServiceInformation[]> FindServiceAsync(string serviceName)
+        public async Task<ServiceInformation[]> FindServiceInstancesAsync(string serviceName)
         {
             var url = $"http://127.0.0.1:2379/v2/keys/services/{serviceName}";
             var client = new HttpClient();

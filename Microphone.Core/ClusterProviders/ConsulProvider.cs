@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microphone.Core.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,12 +12,24 @@ namespace Microphone.Core.ClusterProviders
         private string _serviceName;
         private Uri _uri;
         private string _version;
+        private bool _useEbayFabio;
 
-        public async Task<ServiceInformation[]> FindServiceAsync(string name)
+        public ConsulProvider(bool useEbayFabio=false)
         {
+            _useEbayFabio = useEbayFabio;
+        }
+
+        public async Task<ServiceInformation[]> FindServiceInstancesAsync(string name)
+        {
+            if (_useEbayFabio)
+            {
+                return new ServiceInformation[] { new ServiceInformation("http://localhost", 9999) };
+            }
+
             var x = new ConsulRestClient();
             var res = await x.FindServiceAsync(name).ConfigureAwait(false);
             Logger.Information("{ServiceName} lookup {OtherServiceName}", _serviceName, name);
+
             return res;
         }
 

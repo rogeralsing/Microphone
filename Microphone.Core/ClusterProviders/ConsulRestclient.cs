@@ -16,8 +16,8 @@ namespace Microphone.Core.ClusterProviders
             {
                 ID = serviceId,
                 Name = serviceName,
-                Tags = new string[] {},
-                Address = address.Host,
+                Tags = new[] { $"urlprefix-/{serviceName}" },
+                Address = Dns.GetHostName(),
                 // ReSharper disable once RedundantAnonymousTypePropertyName
                 Port = address.Port,
                 Check = new
@@ -46,10 +46,15 @@ namespace Microphone.Core.ClusterProviders
             {
                 throw new Exception("Could not find services");
             }
+
             var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             var res = JArray.Parse(body);
 
-            return res.Select(entry => new ServiceInformation(entry["Service"]["Address"].Value<string>(), entry["Service"]["Port"].Value<int>())).ToArray();
+            return res.Select(entry =>
+            {
+                return new ServiceInformation(entry["Service"]["Address"].Value<string>(), entry["Service"]["Port"].Value<int>());
+            }
+            ).ToArray();
         }
 
         public async Task<string[]> GetCriticalServicesAsync()
