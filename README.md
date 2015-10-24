@@ -90,7 +90,7 @@ consul agent -server -bootstrap -data-dir /tmp/consul
 This will give you a single server Consul cluster, this is not recommended for production usage, but it will allow you to use service discovery on your dev machine.
 
 
-## Diagnostics using Consul REST API
+### Diagnostics using Consul REST API
 
 Check service health on Consul agent:
 
