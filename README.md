@@ -80,7 +80,7 @@ MakeSomeCall("/api/orders",instance.ServiceAddress, instance.ServicePort);
 
 Before you start your services, make sure you have an active cluster running on the host machine.
 
-### Consul Cluster
+#### Consul Cluster
 
 If you are new to Consul, you can bootstrap your test environment using this command:
 ```
@@ -90,7 +90,7 @@ consul agent -server -bootstrap -data-dir /tmp/consul
 This will give you a single server Consul cluster, this is not recommended for production usage, but it will allow you to use service discovery on your dev machine.
 
 
-### Diagnostics using Consul REST API
+#### Diagnostics using Consul REST API
 
 Check service health on Consul agent:
 
@@ -106,7 +106,7 @@ Check all services registered on Consul agent:
 http://localhost:8500/v1/agent/services
 ```
 
-### ETCD Cluster
+#### ETCD Cluster
 
 If you are using the ETCD cluster provider, make sure you have a local ETCD cluster running on your dev machine.
 
