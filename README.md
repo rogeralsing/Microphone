@@ -62,6 +62,23 @@ PM> Install-Package Microphone.Nancy
     }
 ```
 
+## Cluster providers
+
+**Consul**
+```
+Cluster.Bootstrap(new WebApiProvider(), new ConsulProvider(), "my-service", "v1");
+```
+
+The Consul provider also works together with Ebays "Fabio" load balancer https://github.com/eBay/fabio
+```
+Cluster.Bootstrap(new WebApiProvider(), new ConsulProvider(useEbayFabio:true), "my-service", "v1");
+```
+
+**ETCD**
+```
+Cluster.Bootstrap(new WebApiProvider(), new EtcdProvider(), "my-service", "v1");
+```
+
 ## Service Discovery
 
 If one of your services needs to communicate with another service in the same Consul cluster you can query it for active instances.
