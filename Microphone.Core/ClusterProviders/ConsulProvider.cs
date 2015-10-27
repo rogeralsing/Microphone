@@ -12,7 +12,7 @@ namespace Microphone.Core.ClusterProviders
         private string _serviceName;
         private Uri _uri;
         private string _version;
-        private bool _useEbayFabio;
+        private readonly bool _useEbayFabio;
 
         public ConsulProvider(bool useEbayFabio=false)
         {
@@ -23,12 +23,11 @@ namespace Microphone.Core.ClusterProviders
         {
             if (_useEbayFabio)
             {
-                return new ServiceInformation[] { new ServiceInformation("http://localhost", 9999) };
+                return new[] { new ServiceInformation("http://localhost", 9999) };
             }
 
             var x = new ConsulRestClient();
             var res = await x.FindServiceAsync(name).ConfigureAwait(false);
-            Logger.Information("{ServiceName} lookup {OtherServiceName}", _serviceName, name);
 
             return res;
         }
@@ -42,6 +41,12 @@ namespace Microphone.Core.ClusterProviders
             var x = new ConsulRestClient();
             await x.RegisterServiceAsync(serviceName, serviceId, uri).ConfigureAwait(false);
             StartReaper();
+        }
+
+        public Task BootstrapClientAsync()
+        {
+            StartReaper();
+            return Task.FromResult(0);
         }
 
         private void StartReaper()

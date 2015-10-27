@@ -63,6 +63,11 @@ namespace Microphone.Etcd
             StartHeartbeat(registerService);
         }
 
+        public Task BootstrapClientAsync()
+        {
+            return Task.FromResult(0);
+        }
+
         private static void StartHeartbeat(Func<Task> registerService)
         {
             Task.Factory.StartNew(async () =>

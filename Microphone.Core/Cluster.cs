@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microphone.Core.ClusterProviders;
-using Microphone.Core.ClusterProviders;
+
 namespace Microphone.Core
 {
     public static class Cluster
@@ -19,13 +19,19 @@ namespace Microphone.Core
             return _clusterProvider.FindServiceInstanceAsync(name);
         }
 
+        public static void BootstrapClient(IClusterProvider clusterProvider)
+        {
+            _clusterProvider = clusterProvider;
+            _clusterProvider.BootstrapClientAsync().Wait();
+        }
+
         public static void Bootstrap(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider, string serviceName, string version)
         {
             _frameworkProvider = frameworkProvider;
             var uri = _frameworkProvider.Start(serviceName, version);
             var serviceId = serviceName + Guid.NewGuid();
             _clusterProvider = clusterProvider;
-            _clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri);
+            _clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri).Wait();
         }          
     }
 }
