@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Microphone.Etcd")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Microservice framework with powerful service discovery using Consul")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Roger Johansson")]
 [assembly: AssemblyProduct("Microphone.Etcd")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
@@ -21,6 +21,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("f0f01fcb-d6f3-43d6-b522-b343be65fc11")]
+
 
 // Version information for an assembly consists of the following four values:
 //
