@@ -1,7 +1,9 @@
+<img src="/Resources/microphone.png" height="80">
+
 # Microphone - Self announcing services
 
-**Microphone** is a lightweight framework to run self hosting REST services using **Web Api** or **NancyFx** ontop of a **Consul** cluster.
-Each service will start out by allocating a free port to run on, once the service is started, it will register itself in the local Consul agent.
+**Microphone** is a lightweight framework to run self hosting REST services using **Web Api** or **NancyFx** ontop of a **Consul** or **ETCD** cluster.
+Each service will start out by allocating a free port to run on, once the service is started, it will register itself in the local cluster provider.
 
 ## Install from Nuget
 
@@ -25,12 +27,12 @@ PM> Install-Package Microphone.Nancy
     {
         static void Main(string[] args)
         {
-            Bootstrap.Start("WebApiService","v1");
+            Cluster.Bootstrap(new WebApiProvider(), new ConsulProvider(), "orders", "v1");
             Console.ReadLine();
         }
     }
 
-    public class DefaultController : AutoRegisterApiController
+    public class OrdersController : ApiController
     {
         public string Get()
         {
@@ -46,18 +48,35 @@ PM> Install-Package Microphone.Nancy
     {
         private static void Main(string[] args)
         {
-            Bootstrap.Start("NancyService","v1");           
+            Cluster.Bootstrap(new NancyProvider(), new ConsulProvider(), "customers", "v1");
             Console.ReadLine();
         }
     }
 
-    public class MyService : AutoRegisterModule
+    public class CustomersService : NancyModule
     {
         public MyService()
         {
             Get["/"] = _ => "Nancy Service";
         }
     }
+```
+
+## Cluster providers
+
+**Consul**
+```
+Cluster.Bootstrap(new WebApiProvider(), new ConsulProvider(), "my-service", "v1");
+```
+
+The Consul provider also works together with Ebays "Fabio" load balancer https://github.com/eBay/fabio
+```
+Cluster.Bootstrap(new WebApiProvider(), new ConsulProvider(useEbayFabio:true), "my-service", "v1");
+```
+
+**ETCD**
+```
+Cluster.Bootstrap(new WebApiProvider(), new EtcdProvider(), "my-service", "v1");
 ```
 
 ## Service Discovery
@@ -67,8 +86,8 @@ If one of your services needs to communicate with another service in the same Co
 ```csharp
 //inside some WebApi/Nancy endpoint:
 
-var instances = FindService("Service2");
-var instance = instances.First(); //or use random index to spread load
+//automatically load balanced over service instances
+var instance = await Cluster.FindServiceInstanceAsync("orders"); 
 
 //Use Rest# or similar to call into the remote service
 MakeSomeCall("/api/orders",instance.ServiceAddress, instance.ServicePort);
@@ -76,7 +95,9 @@ MakeSomeCall("/api/orders",instance.ServiceAddress, instance.ServicePort);
 
 ## Running your services
 
-Before you start your services, make sure you have an active Consul cluster running on the host machine.
+Before you start your services, make sure you have an active cluster running on the host machine.
+
+#### Consul Cluster
 
 If you are new to Consul, you can bootstrap your test environment using this command:
 ```
@@ -86,7 +107,7 @@ consul agent -server -bootstrap -data-dir /tmp/consul
 This will give you a single server Consul cluster, this is not recommended for production usage, but it will allow you to use service discovery on your dev machine.
 
 
-## Diagnostics using Consul REST API
+#### Diagnostics using Consul REST API
 
 Check service health on Consul agent:
 
@@ -100,4 +121,12 @@ Check all services registered on Consul agent:
 **GET**
 ```
 http://localhost:8500/v1/agent/services
+```
+
+#### ETCD Cluster
+
+If you are using the ETCD cluster provider, make sure you have a local ETCD cluster running on your dev machine.
+
+```
+etcd.exe
 ```
