@@ -5,7 +5,7 @@ namespace Microphone.Nancy
 {
     public class StatusModule : NancyModule
     {
-        protected StatusModule()
+        public StatusModule()
         {
             Get["/status"] = _ =>
             {

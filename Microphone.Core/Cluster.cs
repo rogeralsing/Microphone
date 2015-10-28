@@ -1,55 +1,37 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
-using Consul;
+using System.Threading.Tasks;
+using Microphone.Core.ClusterProviders;
 
 namespace Microphone.Core
 {
     public static class Cluster
     {
-        private static string ServiceName;
-        private static string ServiceId;
+        private static IClusterProvider _clusterProvider;
+        private static IFrameworkProvider _frameworkProvider;
 
-        public static string GetConfig()
+        public static Task<ServiceInformation[]> FindServiceInstancesAsync(string name)
         {
-            var client = new Client();
-            var key = "ServiceConfig:" + ServiceName;
-            var response = client.KV.Get(key);
-            var res = Encoding.UTF8.GetString(response.Response.Value);
-            return res;
+            return _clusterProvider.FindServiceInstancesAsync(name);
         }
 
-        public static ServiceInformation[] FindService(string name)
+        public static Task<ServiceInformation> FindServiceInstanceAsync(string name)
         {
-            Logger.Information("{ServiceName} lookup {OtherServiceName}", ServiceName, name);
-            var client = new Client();
-            var others = client.Health.Service(name, null, true);
-
-            return
-                others.Response.Select(other => new ServiceInformation(other.Service.Address, other.Service.Port))
-                    .ToArray();
+            return _clusterProvider.FindServiceInstanceAsync(name);
         }
 
-        public static void RegisterService(string serviceName, string serviceId, string version, Uri uri)
+        public static void BootstrapClient(IClusterProvider clusterProvider)
         {
-            ServiceName = serviceName;
-            ServiceId = serviceId;
-            var client = new Client();
-            client.Agent.ServiceRegister(new AgentServiceRegistration
-            {
-                Address = uri.Host,
-                ID = serviceId,
-                Name = serviceName,
-                Port = uri.Port,
-                Tags = new[] {version},
-                Check = new AgentServiceCheck
-                {
-                    HTTP = uri + "status",
-                    Interval = TimeSpan.FromSeconds(1),
-                    TTL = TimeSpan.Zero,
-                    Timeout = TimeSpan.Zero
-                }
-            });
+            _clusterProvider = clusterProvider;
+            _clusterProvider.BootstrapClientAsync().Wait();
         }
+
+        public static void Bootstrap(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider, string serviceName, string version)
+        {
+            _frameworkProvider = frameworkProvider;
+            var uri = _frameworkProvider.Start(serviceName, version);
+            var serviceId = serviceName + Guid.NewGuid();
+            _clusterProvider = clusterProvider;
+            _clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri).Wait();
+        }          
     }
 }

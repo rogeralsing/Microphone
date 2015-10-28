@@ -1,3 +1,4 @@
+using System;
 using Serilog;
 using Serilog.Events;
 
@@ -25,6 +26,11 @@ namespace Microphone.Core
         public static void Error(string template, params object[] args)
         {
             _logger.Error(template, args);
+        }
+
+        public static void Error(Exception cause, string template, params object[] args)
+        {
+            _logger.Error(cause,template, args);
         }
 
         public static void Warning(string template, params object[] args)

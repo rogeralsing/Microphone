@@ -15,7 +15,7 @@
     <copyright>Copyright 2015</copyright>
     <tags>Nancy WebApi Microservices Services ServiceDiscovery</tags>
     <dependencies>
-      <dependency id="Microphone.Core" version="0.1.0.0" />
+      <dependency id="Microphone.Core" version="0.1.3.0" />
     </dependencies>
   </metadata>
 </package>

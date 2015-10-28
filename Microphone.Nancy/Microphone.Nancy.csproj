@@ -60,11 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoRegisterModule.cs" />
-    <Compile Include="Bootstrap.cs" />
+    <Compile Include="StatusModule.cs" />
+    <Compile Include="NancyProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="build.bat" />
     <None Include="Microphone.Nancy.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>

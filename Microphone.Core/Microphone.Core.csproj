@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Consul, Version=0.5.2.65, Culture=neutral, PublicKeyToken=20a6ad9a81df1d95, processorArchitecture=MSIL">
-      <HintPath>..\packages\Consul.0.5.2.65\lib\net45\Consul.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -58,14 +54,21 @@
   <ItemGroup>
     <Compile Include="Cluster.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="IFrameworkProvider.cs" />
+    <Compile Include="ClusterProviders\ConsulProvider.cs" />
+    <Compile Include="ClusterProviders\IClusterProvider.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ClusterProviders\ConsulRestclient.cs" />
     <Compile Include="ServiceInformation.cs" />
+    <Compile Include="Util\ThreadLocalRandom.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="build.bat" />
     <None Include="Microphone.Core.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
