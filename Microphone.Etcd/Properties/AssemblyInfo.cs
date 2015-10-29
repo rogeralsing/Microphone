@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Microphone.WebApi")]
+[assembly: AssemblyTitle("Microphone.Etcd")]
 [assembly: AssemblyDescription("Microservice framework with powerful service discovery using Consul")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Roger Johansson")]
-[assembly: AssemblyProduct("Microphone.WebApi")]
+[assembly: AssemblyProduct("Microphone.Etcd")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,8 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c630e7ce-c207-46fd-9c75-fa6fb27353d2")]
+[assembly: Guid("f0f01fcb-d6f3-43d6-b522-b343be65fc11")]
+
 
 // Version information for an assembly consists of the following four values:
 //

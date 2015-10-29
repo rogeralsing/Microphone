@@ -1,23 +1,37 @@
 ﻿using System;
 using System.Web.Http;
+using Microphone.Core;
+using Microphone.Core.ClusterProviders;
 using Microphone.WebApi;
 
-namespace Service2
+namespace WebApiServiceExample
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Bootstrap.Start("Service2","v1");
+            Cluster.Bootstrap(new WebApiProvider(), new ConsulProvider(useEbayFabio: false), "orders", "v1");
             Console.ReadLine();
         }
     }
-    
-    public class DefaultController : ApiController
+
+    public class OrdersController : ApiController
     {
-        public string Get()
+
+        public Order Get()
         {
-            return "Service2";
+            return new Order
+            {
+                CustomerId = 123,
+                OrderDate = DateTime.Now,
+            };
         }
+    }
+
+    public class Order
+    {
+        public DateTime OrderDate { get; set; }
+        public int CustomerId { get; set; }
+
     }
 }
