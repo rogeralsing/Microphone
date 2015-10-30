@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -9,7 +10,6 @@ using Newtonsoft.Json.Linq;
 
 namespace Microphone.Etcd
 {
-  using System.Configuration;
 
   public class EtcdProvider : IClusterProvider
     {
@@ -38,6 +38,22 @@ namespace Microphone.Etcd
 
             Int32.TryParse(ConfigurationManager.AppSettings["etcd:Heartbeat"], out ectdHeartbeart);
             ectdHeartbeart = ectdHeartbeart == 0 ? 1 : ectdHeartbeart;
+        }
+
+        public EtcdProvider(int ttl, int heartBeat)
+        {
+            etcdHost = "127.0.0.1";
+            etcdPort = 2379;
+            ectdTtl = ttl;
+            ectdHeartbeart = heartBeat;
+        }
+
+        public EtcdProvider(string host, int port, int ttl, int heartBeat)
+        {
+            etcdHost = host;
+            etcdPort = port;
+            ectdTtl = ttl;
+            ectdHeartbeart = heartBeat;
         }
 
         public async Task<ServiceInformation[]> FindServiceInstancesAsync(string serviceName)
