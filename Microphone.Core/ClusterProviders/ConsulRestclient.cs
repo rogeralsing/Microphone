@@ -5,11 +5,20 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Configuration;
 
 namespace Microphone.Core.ClusterProviders
 {
     public class ConsulRestClient
     {
+        private readonly int consulPort = 8500;
+
+        public ConsulRestClient()
+        {
+            Int32.TryParse(ConfigurationManager.AppSettings["Consul:Port"], out consulPort);
+            consulPort = consulPort == 0 ? 8500 : consulPort;
+        }
+
         public async Task RegisterServiceAsync(string serviceName,string serviceId,Uri address)
         {
             var payload = new
@@ -31,7 +40,7 @@ namespace Microphone.Core.ClusterProviders
             var json = JsonConvert.SerializeObject(payload);
             var content = new StringContent(json);
 
-            var res = await client.PostAsync("http://localhost:8500/v1/agent/service/register", content).ConfigureAwait(false);
+            var res = await client.PostAsync($"http://localhost:{consulPort}/v1/agent/service/register", content).ConfigureAwait(false);
             if (res.StatusCode != HttpStatusCode.OK)
             {
                 throw new Exception("Could not register service");
@@ -41,7 +50,7 @@ namespace Microphone.Core.ClusterProviders
         public async Task<ServiceInformation[]> FindServiceAsync(string serviceName)
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetAsync("http://localhost:8500/v1/health/service/" + serviceName).ConfigureAwait(false);
+            var response = await client.GetAsync($"http://localhost:{consulPort}/v1/health/service/" + serviceName).ConfigureAwait(false);
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 throw new Exception("Could not find services");
@@ -60,7 +69,7 @@ namespace Microphone.Core.ClusterProviders
         public async Task<string[]> GetCriticalServicesAsync()
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetAsync("http://localhost:8500/v1/health/state/critical").ConfigureAwait(false);
+            var response = await client.GetAsync($"http://localhost:{consulPort}/v1/health/state/critical").ConfigureAwait(false);
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 throw new Exception("Could not get service health");
@@ -74,7 +83,7 @@ namespace Microphone.Core.ClusterProviders
         {
             var client = new HttpClient();
             var response =
-                await client.GetAsync("http://localhost:8500/v1/agent/service/deregister/" + serviceId).ConfigureAwait(false);
+                await client.GetAsync($"http://localhost:{consulPort}/v1/agent/service/deregister/" + serviceId).ConfigureAwait(false);
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 throw new Exception("Could not de register service");
