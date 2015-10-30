@@ -9,15 +9,40 @@ using Newtonsoft.Json.Linq;
 
 namespace Microphone.Etcd
 {
-    public class EtcdProvider : IClusterProvider
+  using System.Configuration;
+
+  public class EtcdProvider : IClusterProvider
     {
+        private readonly string etcdHost;
+
+        private readonly int etcdPort;
+
+        private readonly int ectdTtl;
+
+        private readonly int ectdHeartbeart;
+
         private string _serviceId;
 
         private string _serviceName;
 
+        public EtcdProvider()
+        {
+            etcdHost = ConfigurationManager.AppSettings["etcd:Host"].ToString();
+            etcdHost = etcdHost == string.Empty ? @"127.0.0.1" : etcdHost;
+
+            Int32.TryParse(ConfigurationManager.AppSettings["etcd:Port"], out etcdPort);
+            etcdPort = etcdPort == 0 ? 2379 : etcdPort;
+
+            Int32.TryParse(ConfigurationManager.AppSettings["etcd:Ttl"], out ectdTtl);
+            ectdTtl = ectdTtl == 0 ? 5 : ectdTtl;
+
+            Int32.TryParse(ConfigurationManager.AppSettings["etcd:Heartbeat"], out ectdHeartbeart);
+            ectdHeartbeart = ectdHeartbeart == 0 ? 1 : ectdHeartbeart;
+        }
+
         public async Task<ServiceInformation[]> FindServiceInstancesAsync(string serviceName)
         {
-            var url = $"http://127.0.0.1:2379/v2/keys/services/{serviceName}";
+            var url = $"http://{etcdHost}:{etcdPort}/v2/keys/services/{serviceName}";
             var client = new HttpClient();
             var response = await client.GetAsync(url).ConfigureAwait(false);
             if (response.StatusCode != HttpStatusCode.OK)
@@ -48,12 +73,12 @@ namespace Microphone.Etcd
 
             Func<Task> registerService = async () =>
             {
-                var url = $"http://127.0.0.1:2379/v2/keys/services/{serviceName}/{serviceId}";
+                var url = $"http://{etcdHost}:{etcdPort}/v2/keys/services/{serviceName}/{serviceId}";
                 var client = new HttpClient();
                 var content = new FormUrlEncodedContent(new[]
                 {
                     new KeyValuePair<string, string>("value", uri.ToString()),
-                    new KeyValuePair<string, string>("ttl", "5")
+                    new KeyValuePair<string, string>("ttl", ectdTtl.ToString())
                 });
                 var response = await client.PutAsync(url, content).ConfigureAwait(false);
             };
@@ -68,14 +93,14 @@ namespace Microphone.Etcd
             return Task.FromResult(0);
         }
 
-        private static void StartHeartbeat(Func<Task> registerService)
+        private void StartHeartbeat(Func<Task> registerService)
         {
             Task.Factory.StartNew(async () =>
             {
                 while (true)
                 {
                     await registerService().ConfigureAwait(false);
-                    await Task.Delay(TimeSpan.FromSeconds(1)).ConfigureAwait(false);
+                    await Task.Delay(TimeSpan.FromSeconds(ectdHeartbeart)).ConfigureAwait(false);
                     Logger.Information("OK");
                 }
             });
