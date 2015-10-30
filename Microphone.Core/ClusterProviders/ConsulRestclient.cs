@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Configuration;
 
 namespace Microphone.Core.ClusterProviders
 {
@@ -17,6 +17,11 @@ namespace Microphone.Core.ClusterProviders
         {
             Int32.TryParse(ConfigurationManager.AppSettings["Consul:Port"], out consulPort);
             consulPort = consulPort == 0 ? 8500 : consulPort;
+        }
+
+        public ConsulRestClient(int port)
+        {
+            consulPort = port;
         }
 
         public async Task RegisterServiceAsync(string serviceName,string serviceId,Uri address)

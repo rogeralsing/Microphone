@@ -12,10 +12,12 @@ namespace Microphone.Core.ClusterProviders
         private string _serviceName;
         private Uri _uri;
         private string _version;
+        private readonly int _consulPort = 0;
         private readonly bool _useEbayFabio;
 
-        public ConsulProvider(bool useEbayFabio=false)
+        public ConsulProvider(int port = 0, bool useEbayFabio = false)
         {
+            _consulPort = port;
             _useEbayFabio = useEbayFabio;
         }
 
@@ -55,7 +57,9 @@ namespace Microphone.Core.ClusterProviders
             {
                 await Task.Delay(1000).ConfigureAwait(false);
                 Logger.Information("Reaper: started..");
-                var c = new ConsulRestClient();
+
+                var c = _consulPort > 0 ? new ConsulRestClient(_consulPort) : new ConsulRestClient();
+
                 var lookup = new HashSet<string>();
                 while (true)
                 {

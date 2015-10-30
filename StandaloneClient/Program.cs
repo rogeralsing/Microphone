@@ -12,7 +12,7 @@ namespace StandaloneClient
     {
         static void Main(string[] args)
         {
-            Cluster.BootstrapClient(new ConsulProvider(false));
+            Cluster.BootstrapClient(new ConsulProvider(useEbayFabio: false));
 
             while (true)
             {
