@@ -41,57 +41,72 @@ namespace Microphone.Core.ClusterProviders
                 }
             };
 
-            HttpClient client = new HttpClient();
-            var json = JsonConvert.SerializeObject(payload);
-            var content = new StringContent(json);
-
-            var res = await client.PostAsync($"http://localhost:{consulPort}/v1/agent/service/register", content).ConfigureAwait(false);
-            if (res.StatusCode != HttpStatusCode.OK)
+            using (HttpClient client = new HttpClient())
             {
-                throw new Exception("Could not register service");
+                var json = JsonConvert.SerializeObject(payload);
+                var content = new StringContent(json);
+
+                var res =
+                    await
+                        client.PostAsync($"http://localhost:{consulPort}/v1/agent/service/register", content)
+                            .ConfigureAwait(false);
+                if (res.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not register service");
+                }
             }
         }
 
         public async Task<ServiceInformation[]> FindServiceAsync(string serviceName)
         {
-            HttpClient client = new HttpClient();
-            var response = await client.GetAsync($"http://localhost:{consulPort}/v1/health/service/" + serviceName).ConfigureAwait(false);
-            if (response.StatusCode != HttpStatusCode.OK)
+            using (HttpClient client = new HttpClient())
             {
-                throw new Exception("Could not find services");
-            }
+                var response =
+                    await
+                        client.GetAsync($"http://localhost:{consulPort}/v1/health/service/" + serviceName)
+                            .ConfigureAwait(false);
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not find services");
+                }
 
-            var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            var res = JArray.Parse(body);
+                var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var res = JArray.Parse(body);
 
-            return res.Select(entry =>
-            {
-                return new ServiceInformation(entry["Service"]["Address"].Value<string>(), entry["Service"]["Port"].Value<int>());
+                return res.Select(entry => new ServiceInformation(entry["Service"]["Address"].Value<string>(),
+                    entry["Service"]["Port"].Value<int>())).ToArray();
             }
-            ).ToArray();
         }
 
         public async Task<string[]> GetCriticalServicesAsync()
         {
-            HttpClient client = new HttpClient();
-            var response = await client.GetAsync($"http://localhost:{consulPort}/v1/health/state/critical").ConfigureAwait(false);
-            if (response.StatusCode != HttpStatusCode.OK)
+            using (HttpClient client = new HttpClient())
             {
-                throw new Exception("Could not get service health");
+                var response =
+                    await
+                        client.GetAsync($"http://localhost:{consulPort}/v1/health/state/critical").ConfigureAwait(false);
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not get service health");
+                }
+                var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var res = JArray.Parse(body);
+                return res.Cast<JObject>().Select(service => service["ServiceID"].Value<string>()).ToArray();
             }
-            var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            var res = JArray.Parse(body);
-            return res.Cast<JObject>().Select(service => service["ServiceID"].Value<string>()).ToArray();
         }
 
         public async Task DeregisterServiceAsync(string serviceId)
         {
-            var client = new HttpClient();
-            var response =
-                await client.GetAsync($"http://localhost:{consulPort}/v1/agent/service/deregister/" + serviceId).ConfigureAwait(false);
-            if (response.StatusCode != HttpStatusCode.OK)
+            using (var client = new HttpClient())
             {
-                throw new Exception("Could not de register service");
+                var response =
+                    await
+                        client.GetAsync($"http://localhost:{consulPort}/v1/agent/service/deregister/" + serviceId)
+                            .ConfigureAwait(false);
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not de register service");
+                }
             }
         }
     }

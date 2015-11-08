@@ -59,27 +59,29 @@ namespace Microphone.Etcd
         public async Task<ServiceInformation[]> FindServiceInstancesAsync(string serviceName)
         {
             var url = $"http://{etcdHost}:{etcdPort}/v2/keys/services/{serviceName}";
-            var client = new HttpClient();
-            var response = await client.GetAsync(url).ConfigureAwait(false);
-            if (response.StatusCode != HttpStatusCode.OK)
+            using (var client = new HttpClient())
             {
-                throw new Exception("Could not find services");
-            }
-            Logger.Information("{ServiceName} lookup {OtherServiceName}", _serviceName, serviceName);
-            var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            var res = JObject.Parse(body);
-            var nodes = res["node"]["nodes"];
-            var list = new List<ServiceInformation>();
-            foreach (var node in nodes)
-            {
-                var uriStr = node["value"].Value<string>();
-                if (string.IsNullOrEmpty(uriStr))
-                    continue;
+                var response = await client.GetAsync(url).ConfigureAwait(false);
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not find services");
+                }
+                Logger.Information("{ServiceName} lookup {OtherServiceName}", _serviceName, serviceName);
+                var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var res = JObject.Parse(body);
+                var nodes = res["node"]["nodes"];
+                var list = new List<ServiceInformation>();
+                foreach (var node in nodes)
+                {
+                    var uriStr = node["value"].Value<string>();
+                    if (string.IsNullOrEmpty(uriStr))
+                        continue;
 
-                var uri = new Uri(uriStr);
-                list.Add(new ServiceInformation(uri.AbsoluteUri, uri.Port));
+                    var uri = new Uri(uriStr);
+                    list.Add(new ServiceInformation(uri.AbsoluteUri, uri.Port));
+                }
+                return list.ToArray();
             }
-            return list.ToArray();
         }
 
         public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
@@ -90,13 +92,15 @@ namespace Microphone.Etcd
             Func<Task> registerService = async () =>
             {
                 var url = $"http://{etcdHost}:{etcdPort}/v2/keys/services/{serviceName}/{serviceId}";
-                var client = new HttpClient();
-                var content = new FormUrlEncodedContent(new[]
+                using (var client = new HttpClient())
                 {
-                    new KeyValuePair<string, string>("value", uri.ToString()),
-                    new KeyValuePair<string, string>("ttl", ectdTtl.ToString())
-                });
-                var response = await client.PutAsync(url, content).ConfigureAwait(false);
+                    var content = new FormUrlEncodedContent(new[]
+                    {
+                        new KeyValuePair<string, string>("value", uri.ToString()),
+                        new KeyValuePair<string, string>("ttl", ectdTtl.ToString())
+                    });
+                    var response = await client.PutAsync(url, content).ConfigureAwait(false);
+                }
             };
 
             await registerService().ConfigureAwait(false);
