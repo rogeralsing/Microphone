@@ -22,15 +22,15 @@ namespace Microphone.Nancy
             {
                 try
                 {
-                  var bootstrapper = Activator.CreateInstance<TBootstrapper>();
-                  var host = new NancyHost(uri, bootstrapper, hostConfigs);
-                  host.Start();
-                  return host;
+                    var bootstrapper = Activator.CreateInstance<TBootstrapper>();
+                    var host = new NancyHost(uri, bootstrapper, hostConfigs);
+                    host.Start();
+                    return host;
                 }
                 catch
                 {
-                  Task.Delay(1000).Wait();
-                  Console.WriteLine("Port allocation failed, retrying.");
+                    Task.Delay(1000).Wait();
+                    Console.WriteLine("Port allocation failed, retrying.");
                 }
             }
         }
