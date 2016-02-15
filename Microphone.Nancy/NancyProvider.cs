@@ -3,10 +3,11 @@ using System.Threading.Tasks;
 using Microphone.Core;
 using Nancy;
 using Nancy.Hosting.Self;
+using Nancy.Bootstrapper;
 
 namespace Microphone.Nancy
 {
-    public class NancyProvider<TBootstrapper> : IFrameworkProvider where TBootstrapper : DefaultNancyBootstrapper
+    public class NancyProvider<TBootstrapper> : IFrameworkProvider where TBootstrapper : INancyBootstrapper
     {
         public Uri Start(string serviceName, string version)
         {
