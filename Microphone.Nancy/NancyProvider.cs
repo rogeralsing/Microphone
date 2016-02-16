@@ -3,17 +3,17 @@ using System.Threading.Tasks;
 using Microphone.Core;
 using Nancy;
 using Nancy.Hosting.Self;
+using Nancy.Bootstrapper;
 
 namespace Microphone.Nancy
 {
-    public class NancyProvider : IFrameworkProvider
+    public class NancyProvider<TBootstrapper> : IFrameworkProvider where TBootstrapper : INancyBootstrapper
     {
-
         public Uri Start(string serviceName, string version)
-        {            
+        {
             var uri = Configuration.GetUri();
             var conf = GetConfiguration();
-            var host = GetHost(uri, conf);            
+            var host = GetHost(uri, conf);
             return uri;
         }
 
@@ -23,7 +23,8 @@ namespace Microphone.Nancy
             {
                 try
                 {
-                    var host = new NancyHost(uri, new DefaultNancyBootstrapper(), hostConfigs);
+                    var bootstrapper = Activator.CreateInstance<TBootstrapper>();
+                    var host = new NancyHost(uri, bootstrapper, hostConfigs);
                     host.Start();
                     return host;
                 }
@@ -46,5 +47,9 @@ namespace Microphone.Nancy
             };
             return hostConfigs;
         }
+    }
+
+    public class NancyProvider : NancyProvider<DefaultNancyBootstrapper>
+    {
     }
 }
