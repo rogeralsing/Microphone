@@ -30,7 +30,7 @@ namespace Microphone.Core.ClusterProviders
                 ID = serviceId,
                 Name = serviceName,
                 Tags = new[] { $"urlprefix-/{serviceName}" },
-                Address = "127.0.0.1",// Dns.GetHostName(), //TODO: fix
+                Address = Dns.GetHostName(), 
                 // ReSharper disable once RedundantAnonymousTypePropertyName
                 Port = address.Port,
                 Check = new

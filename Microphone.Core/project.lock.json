@@ -278,6 +278,17 @@
           "ref/dotnet5.2/System.Net.Http.dll": {}
         }
       },
+      "System.Net.NameResolution/4.0.0-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.Net.Primitives": "4.0.10",
+          "System.Runtime": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet5.4/System.Net.NameResolution.dll": {}
+        }
+      },
       "System.Net.Primitives/4.0.10": {
         "type": "package",
         "dependencies": {
@@ -668,6 +679,12 @@
           "ref/dotnet/_._": {}
         }
       },
+      "runtime.win7.System.Net.NameResolution/4.0.0-beta-23516": {
+        "type": "package",
+        "compile": {
+          "ref/dotnet/_._": {}
+        }
+      },
       "runtime.win7.System.Net.Sockets/4.1.0-beta-23516": {
         "type": "package",
         "compile": {
@@ -885,6 +902,17 @@
         },
         "compile": {
           "ref/dotnet5.2/System.Net.Http.dll": {}
+        }
+      },
+      "System.Net.NameResolution/4.0.0-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.Net.Primitives": "4.0.10",
+          "System.Runtime": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet5.4/System.Net.NameResolution.dll": {}
         }
       },
       "System.Net.Primitives/4.0.10": {
@@ -1209,6 +1237,12 @@
           "ref/dotnet/_._": {}
         }
       },
+      "runtime.win7.System.Net.NameResolution/4.0.0-beta-23516": {
+        "type": "package",
+        "compile": {
+          "ref/dotnet/_._": {}
+        }
+      },
       "runtime.win7.System.Net.Sockets/4.1.0-beta-23516": {
         "type": "package",
         "compile": {
@@ -1426,6 +1460,17 @@
         },
         "compile": {
           "ref/dotnet5.2/System.Net.Http.dll": {}
+        }
+      },
+      "System.Net.NameResolution/4.0.0-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.Net.Primitives": "4.0.10",
+          "System.Runtime": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet5.4/System.Net.NameResolution.dll": {}
         }
       },
       "System.Net.Primitives/4.0.10": {
@@ -1707,7 +1752,6 @@
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
-        "Newtonsoft.Json.8.0.2.nupkg",
         "Newtonsoft.Json.8.0.2.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "tools/install.ps1"
@@ -1790,6 +1834,18 @@
         "runtimes/win7/lib/netcore50/System.Net.Http.dll"
       ]
     },
+    "runtime.win7.System.Net.NameResolution/4.0.0-beta-23516": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sjnMrhRMhiPcZN2VZY0RMTNoBJSwvmdvh1O1ngX7zAUY2zP1R5/5Db+NZcBM+WuoYXSiYoXeE65AR95hchmDlA==",
+      "files": [
+        "lib/DNXCore50/System.Net.NameResolution.dll",
+        "ref/dotnet/_._",
+        "runtime.win7.System.Net.NameResolution.4.0.0-beta-23516.nupkg",
+        "runtime.win7.System.Net.NameResolution.4.0.0-beta-23516.nupkg.sha512",
+        "runtime.win7.System.Net.NameResolution.nuspec"
+      ]
+    },
     "runtime.win7.System.Net.Sockets/4.1.0-beta-23516": {
       "type": "package",
       "serviceable": true,
@@ -1842,7 +1898,6 @@
         "lib/dotnet5.4/Serilog.xml",
         "lib/net45/Serilog.dll",
         "lib/net45/Serilog.xml",
-        "Serilog.2.0.0-beta-523.nupkg",
         "Serilog.2.0.0-beta-523.nupkg.sha512",
         "Serilog.nuspec"
       ]
@@ -2002,7 +2057,6 @@
     },
     "System.Diagnostics.Debug/4.0.10": {
       "type": "package",
-      "serviceable": true,
       "sha512": "pi2KthuvI2LWV2c2V+fwReDsDiKpNl040h6DcwFOb59SafsPT/V1fCy0z66OKwysurJkBMmp5j5CBe3Um+ub0g==",
       "files": [
         "lib/DNXCore50/System.Diagnostics.Debug.dll",
@@ -2029,14 +2083,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Diagnostics.Debug.dll",
-        "System.Diagnostics.Debug.4.0.10.nupkg",
         "System.Diagnostics.Debug.4.0.10.nupkg.sha512",
         "System.Diagnostics.Debug.nuspec"
       ]
     },
     "System.Diagnostics.Process/4.1.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "uXV0y5jByAnFDoQRHVpsMvqzjYeIhSSiKP0U++erIae/9DFULDlhxpzJsKVC2BU44QGyGoShUbgxBuFyMr3gPA==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -2074,7 +2126,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Diagnostics.Process.4.1.0-beta-23516.nupkg",
         "System.Diagnostics.Process.4.1.0-beta-23516.nupkg.sha512",
         "System.Diagnostics.Process.nuspec"
       ]
@@ -2113,7 +2164,6 @@
     },
     "System.Diagnostics.Tracing/4.0.20": {
       "type": "package",
-      "serviceable": true,
       "sha512": "gn/wexGHc35Fv++5L1gYHMY5g25COfiZ0PGrL+3PfwzoJd4X2LbTAm/U8d385SI6BKQBI/z4dQfvneS9J27+Tw==",
       "files": [
         "lib/DNXCore50/System.Diagnostics.Tracing.dll",
@@ -2140,7 +2190,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Diagnostics.Tracing.dll",
-        "System.Diagnostics.Tracing.4.0.20.nupkg",
         "System.Diagnostics.Tracing.4.0.20.nupkg.sha512",
         "System.Diagnostics.Tracing.nuspec"
       ]
@@ -2188,7 +2237,6 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Dynamic.Runtime.4.0.0.nupkg",
         "System.Dynamic.Runtime.4.0.0.nupkg.sha512",
         "System.Dynamic.Runtime.nuspec"
       ]
@@ -2351,7 +2399,6 @@
     },
     "System.IO.FileSystem.Primitives/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "7pJUvYi/Yq3A5nagqCCiOw3+aJp3xXc/Cjr8dnJDnER3/6kX3LEencfqmXUcPl9+7OvRNyPMNhqsLAcMK6K/KA==",
       "files": [
         "lib/dotnet/System.IO.FileSystem.Primitives.dll",
@@ -2376,7 +2423,6 @@
         "ref/net46/System.IO.FileSystem.Primitives.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.IO.FileSystem.Primitives.4.0.0.nupkg",
         "System.IO.FileSystem.Primitives.4.0.0.nupkg.sha512",
         "System.IO.FileSystem.Primitives.nuspec"
       ]
@@ -2466,7 +2512,6 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Linq.Expressions.4.0.0.nupkg",
         "System.Linq.Expressions.4.0.0.nupkg.sha512",
         "System.Linq.Expressions.nuspec"
       ]
@@ -2510,9 +2555,40 @@
         "System.Net.Http.nuspec"
       ]
     },
-    "System.Net.Primitives/4.0.10": {
+    "System.Net.NameResolution/4.0.0-beta-23516": {
       "type": "package",
       "serviceable": true,
+      "sha512": "sJZX/WaQhyJ5zT/TgTE8aosIsqdenog6ew9m9py9RvEyBJ9nt9zVCumr9Xas64u+dL9hUDrQL59XaywWKtpHkQ==",
+      "files": [
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Net.NameResolution.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "ref/dotnet5.4/de/System.Net.NameResolution.xml",
+        "ref/dotnet5.4/es/System.Net.NameResolution.xml",
+        "ref/dotnet5.4/fr/System.Net.NameResolution.xml",
+        "ref/dotnet5.4/it/System.Net.NameResolution.xml",
+        "ref/dotnet5.4/ja/System.Net.NameResolution.xml",
+        "ref/dotnet5.4/ko/System.Net.NameResolution.xml",
+        "ref/dotnet5.4/ru/System.Net.NameResolution.xml",
+        "ref/dotnet5.4/System.Net.NameResolution.dll",
+        "ref/dotnet5.4/System.Net.NameResolution.xml",
+        "ref/dotnet5.4/zh-hans/System.Net.NameResolution.xml",
+        "ref/dotnet5.4/zh-hant/System.Net.NameResolution.xml",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Net.NameResolution.dll",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "runtime.json",
+        "System.Net.NameResolution.4.0.0-beta-23516.nupkg",
+        "System.Net.NameResolution.4.0.0-beta-23516.nupkg.sha512",
+        "System.Net.NameResolution.nuspec"
+      ]
+    },
+    "System.Net.Primitives/4.0.10": {
+      "type": "package",
       "sha512": "YQqIpmMhnKjIbT7rl6dlf7xM5DxaMR+whduZ9wKb9OhMLjoueAJO3HPPJI+Naf3v034kb+xZqdc3zo44o3HWcg==",
       "files": [
         "lib/DNXCore50/System.Net.Primitives.dll",
@@ -2538,7 +2614,6 @@
         "ref/net46/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Net.Primitives.4.0.10.nupkg",
         "System.Net.Primitives.4.0.10.nupkg.sha512",
         "System.Net.Primitives.nuspec"
       ]
@@ -2588,7 +2663,6 @@
     },
     "System.ObjectModel/4.0.10": {
       "type": "package",
-      "serviceable": true,
       "sha512": "Djn1wb0vP662zxbe+c3mOhvC4vkQGicsFs1Wi0/GJJpp3Eqp+oxbJ+p2Sx3O0efYueggAI5SW+BqEoczjfr1cA==",
       "files": [
         "lib/dotnet/System.ObjectModel.dll",
@@ -2613,7 +2687,6 @@
         "ref/net46/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.ObjectModel.4.0.10.nupkg",
         "System.ObjectModel.4.0.10.nupkg.sha512",
         "System.ObjectModel.nuspec"
       ]
@@ -2646,7 +2719,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Reflection.dll",
-        "System.Reflection.4.0.10.nupkg",
         "System.Reflection.4.0.10.nupkg.sha512",
         "System.Reflection.nuspec"
       ]
@@ -2696,7 +2768,6 @@
     },
     "System.Reflection.Primitives/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "n9S0XpKv2ruc17FSnaiX6nV47VfHTZ1wLjKZlAirUZCvDQCH71mVp+Ohabn0xXLh5pK2PKp45HCxkqu5Fxn/lA==",
       "files": [
         "lib/DNXCore50/System.Reflection.Primitives.dll",
@@ -2723,14 +2794,12 @@
         "ref/wp80/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Reflection.Primitives.dll",
-        "System.Reflection.Primitives.4.0.0.nupkg",
         "System.Reflection.Primitives.4.0.0.nupkg.sha512",
         "System.Reflection.Primitives.nuspec"
       ]
     },
     "System.Reflection.TypeExtensions/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "YRM/msNAM86hdxPyXcuZSzmTO0RQFh7YMEPBLTY8cqXvFPYIx2x99bOyPkuU81wRYQem1c1HTkImQ2DjbOBfew==",
       "files": [
         "lib/DNXCore50/System.Reflection.TypeExtensions.dll",
@@ -2757,14 +2826,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Reflection.TypeExtensions.dll",
-        "System.Reflection.TypeExtensions.4.0.0.nupkg",
         "System.Reflection.TypeExtensions.4.0.0.nupkg.sha512",
         "System.Reflection.TypeExtensions.nuspec"
       ]
     },
     "System.Resources.ResourceManager/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "qmqeZ4BJgjfU+G2JbrZt4Dk1LsMxO4t+f/9HarNY6w8pBgweO6jT+cknUH7c3qIrGvyUqraBhU45Eo6UtA0fAw==",
       "files": [
         "lib/DNXCore50/System.Resources.ResourceManager.dll",
@@ -2791,7 +2858,6 @@
         "ref/wp80/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Resources.ResourceManager.dll",
-        "System.Resources.ResourceManager.4.0.0.nupkg",
         "System.Resources.ResourceManager.4.0.0.nupkg.sha512",
         "System.Resources.ResourceManager.nuspec"
       ]
@@ -2931,7 +2997,6 @@
     },
     "System.Runtime.Handles/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "638VhpRq63tVcQ6HDb3um3R/J2BtR1Sa96toHo6PcJGPXEPEsleCuqhBgX2gFCz0y0qkutANwW6VPPY5wQu1XQ==",
       "files": [
         "lib/DNXCore50/System.Runtime.Handles.dll",
@@ -2958,14 +3023,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Runtime.Handles.dll",
-        "System.Runtime.Handles.4.0.0.nupkg",
         "System.Runtime.Handles.4.0.0.nupkg.sha512",
         "System.Runtime.Handles.nuspec"
       ]
     },
     "System.Runtime.InteropServices/4.0.20": {
       "type": "package",
-      "serviceable": true,
       "sha512": "ZgDyBYfEnjWoz/viS6VOswA6XOkDSH2DzgbpczbW50RywhnCgTl+w3JEvtAiOGyIh8cyx1NJq80jsNBSUr8Pig==",
       "files": [
         "lib/DNXCore50/System.Runtime.InteropServices.dll",
@@ -2992,14 +3055,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Runtime.InteropServices.dll",
-        "System.Runtime.InteropServices.4.0.20.nupkg",
         "System.Runtime.InteropServices.4.0.20.nupkg.sha512",
         "System.Runtime.InteropServices.nuspec"
       ]
     },
     "System.Runtime.Serialization.Primitives/4.1.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "Dsl95PE2vyGIy9voclfTVKSqYD8O4PjsMS+TV0bM3N1xNraS2BBaChGk1stGmf04cn2/xA3cZyh80bkZL+v1/Q==",
       "files": [
         "lib/dotnet5.4/System.Runtime.Serialization.Primitives.dll",
@@ -3053,7 +3114,6 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Runtime.Serialization.Primitives.4.1.0-beta-23516.nupkg",
         "System.Runtime.Serialization.Primitives.4.1.0-beta-23516.nupkg.sha512",
         "System.Runtime.Serialization.Primitives.nuspec"
       ]
@@ -3101,7 +3161,6 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Text.Encoding.4.0.0.nupkg",
         "System.Text.Encoding.4.0.0.nupkg.sha512",
         "System.Text.Encoding.nuspec"
       ]
@@ -3320,7 +3379,6 @@
     },
     "System.Threading.Tasks/4.0.10": {
       "type": "package",
-      "serviceable": true,
       "sha512": "NOwJGDfk79jR0bnzosbXLVD/PdI8KzBeESoa3CofEM5v9R5EBfcI0Jyf18stx+0IYV9okmDIDxVtxq9TbnR9bQ==",
       "files": [
         "lib/DNXCore50/System.Threading.Tasks.dll",
@@ -3347,7 +3405,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Threading.Tasks.dll",
-        "System.Threading.Tasks.4.0.10.nupkg",
         "System.Threading.Tasks.4.0.10.nupkg.sha512",
         "System.Threading.Tasks.nuspec"
       ]
@@ -3398,7 +3455,8 @@
       "System.Linq >= 4.0.1-beta-23516",
       "System.Runtime >= 4.0.21-beta-23516",
       "System.Threading >= 4.0.11-beta-23516",
-      "System.Net.Sockets >= 4.1.0-beta-23516"
+      "System.Net.Sockets >= 4.1.0-beta-23516",
+      "System.Net.NameResolution >= 4.0.0-beta-23516"
     ]
   }
 }
