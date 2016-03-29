@@ -13,7 +13,7 @@ namespace Microphone.Core.ClusterProviders
 
     public static class ClusterProviderExtensions
     {
-        public async static Task<ServiceInformation> FindServiceInstanceAsync(this IClusterProvider self, string serviceName)
+        public static async Task<ServiceInformation> FindServiceInstanceAsync(this IClusterProvider self, string serviceName)
         {
             var res = await self.FindServiceInstancesAsync(serviceName).ConfigureAwait(false);
             if (res.Length == 0)

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,17 +10,17 @@ namespace Microphone.Core.ClusterProviders
 {
     public class ConsulRestClient
     {
-        private readonly int consulPort = 8500;
+        private readonly int _consulPort;
 
         public ConsulRestClient()
         {
-            Int32.TryParse(ConfigurationManager.AppSettings["Consul:Port"], out consulPort);
-            consulPort = consulPort == 0 ? 8500 : consulPort;
+            int.TryParse("8500" /*ConfigurationManager.AppSettings["Consul:Port"]*/, out _consulPort);
+            _consulPort = _consulPort == 0 ? 8500 : _consulPort;
         }
 
         public ConsulRestClient(int port)
         {
-            consulPort = port;
+            _consulPort = port;
         }
 
         public async Task RegisterServiceAsync(string serviceName,string serviceId,Uri address)
@@ -31,7 +30,7 @@ namespace Microphone.Core.ClusterProviders
                 ID = serviceId,
                 Name = serviceName,
                 Tags = new[] { $"urlprefix-/{serviceName}" },
-                Address = Dns.GetHostName(),
+                Address = "127.0.0.1",// Dns.GetHostName(), //TODO: fix
                 // ReSharper disable once RedundantAnonymousTypePropertyName
                 Port = address.Port,
                 Check = new
@@ -48,7 +47,7 @@ namespace Microphone.Core.ClusterProviders
 
                 var res =
                     await
-                        client.PostAsync($"http://localhost:{consulPort}/v1/agent/service/register", content)
+                        client.PostAsync($"http://localhost:{_consulPort}/v1/agent/service/register", content)
                             .ConfigureAwait(false);
                 if (res.StatusCode != HttpStatusCode.OK)
                 {
@@ -63,7 +62,7 @@ namespace Microphone.Core.ClusterProviders
             {
                 var response =
                     await
-                        client.GetAsync($"http://localhost:{consulPort}/v1/health/service/" + serviceName)
+                        client.GetAsync($"http://localhost:{_consulPort}/v1/health/service/" + serviceName)
                             .ConfigureAwait(false);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
@@ -84,7 +83,7 @@ namespace Microphone.Core.ClusterProviders
             {
                 var response =
                     await
-                        client.GetAsync($"http://localhost:{consulPort}/v1/health/state/critical").ConfigureAwait(false);
+                        client.GetAsync($"http://localhost:{_consulPort}/v1/health/state/critical").ConfigureAwait(false);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
                     throw new Exception("Could not get service health");
@@ -101,7 +100,7 @@ namespace Microphone.Core.ClusterProviders
             {
                 var response =
                     await
-                        client.GetAsync($"http://localhost:{consulPort}/v1/agent/service/deregister/" + serviceId)
+                        client.GetAsync($"http://localhost:{_consulPort}/v1/agent/service/deregister/" + serviceId)
                             .ConfigureAwait(false);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {

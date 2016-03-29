@@ -1,5 +1,4 @@
-﻿using Microphone.Core.Util;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,12 +7,12 @@ namespace Microphone.Core.ClusterProviders
 {
     public class ConsulProvider : IClusterProvider
     {
+        private readonly int _consulPort;
+        private readonly bool _useEbayFabio;
         private string _serviceId;
         private string _serviceName;
         private Uri _uri;
         private string _version;
-        private readonly int _consulPort = 0;
-        private readonly bool _useEbayFabio;
 
         public ConsulProvider(int port = 0, bool useEbayFabio = false)
         {
@@ -25,7 +24,7 @@ namespace Microphone.Core.ClusterProviders
         {
             if (_useEbayFabio)
             {
-                return new[] { new ServiceInformation("http://localhost", 9999) };
+                return new[] {new ServiceInformation("http://localhost", 9999)};
             }
 
             var x = new ConsulRestClient();

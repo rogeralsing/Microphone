@@ -10,7 +10,7 @@ namespace Microphone.Core
 
         static Logger()
         {
-            _logger = new LoggerConfiguration().WriteTo.ColoredConsole(LogEventLevel.Debug).CreateLogger();
+            _logger = new LoggerConfiguration().CreateLogger();//.WriteTo.ColoredConsole(LogEventLevel.Debug).CreateLogger();
         }
 
         public static void Debug(string template, params object[] args)
