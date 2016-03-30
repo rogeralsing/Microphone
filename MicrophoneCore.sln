@@ -7,9 +7,14 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microphone.Core", "Micropho
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microphone.Etcd", "Microphone.Etcd\Microphone.Etcd.xproj", "{9FFFC280-9A74-464C-B813-93D8B428B493}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Asp5Service", "Asp5Service\Asp5Service.xproj", "{2BD64650-24CC-4E15-82CB-65A10B0A057D}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetService", "Asp5Service\AspNetService.xproj", "{2BD64650-24CC-4E15-82CB-65A10B0A057D}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microphone.Asp5", "Microphone.Asp5\Microphone.Asp5.xproj", "{4839A4BB-B806-4B04-9F49-808A34DBA808}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microphone.AspNet", "Microphone.AspNet\Microphone.AspNet.xproj", "{4839A4BB-B806-4B04-9F49-808A34DBA808}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C75A87A5-4D43-42D2-9CEC-257079EE0186}"
+	ProjectSection(SolutionItems) = preProject
+		Microphone.AspNet\global.json = Microphone.AspNet\global.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

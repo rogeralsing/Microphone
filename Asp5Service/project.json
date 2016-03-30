@@ -5,7 +5,7 @@
   },
 
   "dependencies": {
-    "Microphone.Asp5": "1.0.0-*",
+    "Microphone.AspNet": "1.0.0-*",
     "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
     "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
     "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
@@ -33,5 +33,6 @@
   "publishExclude": [
     "**.user",
     "**.vspscc"
-  ]
+  ],
+  "userSecretsId": "aspnet5-AspNetService-20160330104049"
 }

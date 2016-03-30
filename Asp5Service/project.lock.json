@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "Microphone.Asp5/1.0.0": {
+      "Microphone.AspNet/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -1604,7 +1604,7 @@
       }
     },
     "DNXCore,Version=v5.0": {
-      "Microphone.Asp5/1.0.0": {
+      "Microphone.AspNet/1.0.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -3835,7 +3835,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "Microphone.Asp5/1.0.0": {
+      "Microphone.AspNet/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -5445,7 +5445,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "Microphone.Asp5/1.0.0": {
+      "Microphone.AspNet/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -7055,7 +7055,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
-      "Microphone.Asp5/1.0.0": {
+      "Microphone.AspNet/1.0.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -9797,7 +9797,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
-      "Microphone.Asp5/1.0.0": {
+      "Microphone.AspNet/1.0.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -12540,9 +12540,9 @@
     }
   },
   "libraries": {
-    "Microphone.Asp5/1.0.0": {
+    "Microphone.AspNet/1.0.0": {
       "type": "project",
-      "path": "../Microphone.Asp5/project.json"
+      "path": "../Microphone.AspNet/project.json"
     },
     "Microphone.Core/1.0.0": {
       "type": "project",
@@ -17741,7 +17741,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microphone.Asp5 >= 1.0.0-*",
+      "Microphone.AspNet >= 1.0.0-*",
       "Microsoft.AspNet.IISPlatformHandler >= 1.0.0-rc1-final",
       "Microsoft.AspNet.Mvc >= 6.0.0-rc1-final",
       "Microsoft.AspNet.Server.Kestrel >= 1.0.0-rc1-final",

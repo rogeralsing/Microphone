@@ -1,4 +1,7 @@
-﻿using Microphone.Asp5;
+﻿//using Microphone.Asp5;
+//using Microphone.Core;
+
+using Microphone.AspNet;
 using Microphone.Core;
 using Microphone.Core.ClusterProviders;
 using Microsoft.AspNet.Builder;
@@ -7,18 +10,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Asp5Service
+namespace AspNetService
 {
     public class Startup
     {
         public Startup(IHostingEnvironment env)
-        {
-        //    Cluster.Bootstrap(new Asp5Provider(), new ConsulProvider(), "Asp5Service", "1");
+        {        
             // Set up configuration sources.
             var builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+            Cluster.Bootstrap(new AspNetProvider(), new ConsulProvider(),"Asp5Service","1" );
         }
 
         public IConfigurationRoot Configuration { get; set; }
@@ -37,6 +40,7 @@ namespace Asp5Service
             loggerFactory.AddDebug();
             app.UseIISPlatformHandler();
             app.UseMvc();
+            
         }
 
         // Entry point for the application.
