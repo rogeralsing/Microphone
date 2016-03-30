@@ -14,8 +14,7 @@ namespace Microphone.Core.ClusterProviders
 
         public ConsulRestClient()
         {
-            int.TryParse("8500" /*ConfigurationManager.AppSettings["Consul:Port"]*/, out _consulPort);
-            _consulPort = _consulPort == 0 ? 8500 : _consulPort;
+            _consulPort = 8500;
         }
 
         public ConsulRestClient(int port)
@@ -45,10 +44,7 @@ namespace Microphone.Core.ClusterProviders
                 var json = JsonConvert.SerializeObject(payload);
                 var content = new StringContent(json);
 
-                var res =
-                    await
-                        client.PostAsync($"http://localhost:{_consulPort}/v1/agent/service/register", content)
-                            .ConfigureAwait(false);
+                var res = await client.PostAsync($"http://localhost:{_consulPort}/v1/agent/service/register", content).ConfigureAwait(false);
                 if (res.StatusCode != HttpStatusCode.OK)
                 {
                     throw new Exception("Could not register service");
@@ -60,10 +56,7 @@ namespace Microphone.Core.ClusterProviders
         {
             using (HttpClient client = new HttpClient())
             {
-                var response =
-                    await
-                        client.GetAsync($"http://localhost:{_consulPort}/v1/health/service/" + serviceName)
-                            .ConfigureAwait(false);
+                var response = await client.GetAsync($"http://localhost:{_consulPort}/v1/health/service/" + serviceName).ConfigureAwait(false);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
                     throw new Exception("Could not find services");
@@ -72,8 +65,7 @@ namespace Microphone.Core.ClusterProviders
                 var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                 var res = JArray.Parse(body);
 
-                return res.Select(entry => new ServiceInformation(entry["Service"]["Address"].Value<string>(),
-                    entry["Service"]["Port"].Value<int>())).ToArray();
+                return res.Select(entry => new ServiceInformation(entry["Service"]["Address"].Value<string>(),entry["Service"]["Port"].Value<int>())).ToArray();
             }
         }
 
@@ -81,9 +73,7 @@ namespace Microphone.Core.ClusterProviders
         {
             using (HttpClient client = new HttpClient())
             {
-                var response =
-                    await
-                        client.GetAsync($"http://localhost:{_consulPort}/v1/health/state/critical").ConfigureAwait(false);
+                var response = await client.GetAsync($"http://localhost:{_consulPort}/v1/health/state/critical").ConfigureAwait(false);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
                     throw new Exception("Could not get service health");
