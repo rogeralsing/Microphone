@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microphone.Asp5;
+using Microphone.Core;
+using Microphone.Core.ClusterProviders;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +13,7 @@ namespace Asp5Service
     {
         public Startup(IHostingEnvironment env)
         {
+        //    Cluster.Bootstrap(new Asp5Provider(), new ConsulProvider(), "Asp5Service", "1");
             // Set up configuration sources.
             var builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
@@ -35,15 +35,14 @@ namespace Asp5Service
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
             app.UseIISPlatformHandler();
-
-            app.UseStaticFiles();
-
             app.UseMvc();
         }
 
         // Entry point for the application.
-        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
+        public static void Main(string[] args)
+        {
+            WebApplication.Run<Startup>(args);
+        }
     }
 }

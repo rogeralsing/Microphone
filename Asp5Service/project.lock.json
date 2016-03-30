@@ -3,6 +3,13 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
+      "Microphone.Asp5/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microphone.Core": "1.0.0"
+        }
+      },
       "Microphone.Core/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
@@ -1597,6 +1604,18 @@
       }
     },
     "DNXCore,Version=v5.0": {
+      "Microphone.Asp5/1.0.0": {
+        "type": "project",
+        "framework": ".NETPlatform,Version=v5.4",
+        "dependencies": {
+          "Microphone.Core": "1.0.0",
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        }
+      },
       "Microphone.Core/1.0.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
@@ -3816,6 +3835,13 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
+      "Microphone.Asp5/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microphone.Core": "1.0.0"
+        }
+      },
       "Microphone.Core/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
@@ -5419,6 +5445,13 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
+      "Microphone.Asp5/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microphone.Core": "1.0.0"
+        }
+      },
       "Microphone.Core/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
@@ -7022,6 +7055,18 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
+      "Microphone.Asp5/1.0.0": {
+        "type": "project",
+        "framework": ".NETPlatform,Version=v5.4",
+        "dependencies": {
+          "Microphone.Core": "1.0.0",
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        }
+      },
       "Microphone.Core/1.0.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
@@ -9752,6 +9797,18 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
+      "Microphone.Asp5/1.0.0": {
+        "type": "project",
+        "framework": ".NETPlatform,Version=v5.4",
+        "dependencies": {
+          "Microphone.Core": "1.0.0",
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        }
+      },
       "Microphone.Core/1.0.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
@@ -12483,6 +12540,10 @@
     }
   },
   "libraries": {
+    "Microphone.Asp5/1.0.0": {
+      "type": "project",
+      "path": "../Microphone.Asp5/project.json"
+    },
     "Microphone.Core/1.0.0": {
       "type": "project",
       "path": "../Microphone.Core/project.json"
@@ -17680,7 +17741,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microphone.Core >= 1.0.0-*",
+      "Microphone.Asp5 >= 1.0.0-*",
       "Microsoft.AspNet.IISPlatformHandler >= 1.0.0-rc1-final",
       "Microsoft.AspNet.Mvc >= 6.0.0-rc1-final",
       "Microsoft.AspNet.Server.Kestrel >= 1.0.0-rc1-final",

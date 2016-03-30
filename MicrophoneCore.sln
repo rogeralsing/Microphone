@@ -9,6 +9,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microphone.Etcd", "Micropho
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Asp5Service", "Asp5Service\Asp5Service.xproj", "{2BD64650-24CC-4E15-82CB-65A10B0A057D}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microphone.Asp5", "Microphone.Asp5\Microphone.Asp5.xproj", "{4839A4BB-B806-4B04-9F49-808A34DBA808}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2BD64650-24CC-4E15-82CB-65A10B0A057D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BD64650-24CC-4E15-82CB-65A10B0A057D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BD64650-24CC-4E15-82CB-65A10B0A057D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4839A4BB-B806-4B04-9F49-808A34DBA808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4839A4BB-B806-4B04-9F49-808A34DBA808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4839A4BB-B806-4B04-9F49-808A34DBA808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4839A4BB-B806-4B04-9F49-808A34DBA808}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

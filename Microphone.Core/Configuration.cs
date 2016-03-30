@@ -6,8 +6,6 @@ namespace Microphone.Core
 {
     public static class Configuration
     {
-
-
         public static Uri GetUri(int port = 0)
         {
             port = port == 0 ? FreeTcpPort() : port;
