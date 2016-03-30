@@ -21,7 +21,7 @@ namespace AspNetService
                 .AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
-            Cluster.Bootstrap(new AspNetProvider(), new ConsulProvider(),"Asp5Service","1" );
+            
         }
 
         public IConfigurationRoot Configuration { get; set; }
@@ -39,8 +39,8 @@ namespace AspNetService
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
             app.UseIISPlatformHandler();
-            app.UseMvc();
-            
+            app.UseMvc();   
+            app.UseMicrophone(new ConsulProvider(), "Asp5Service", "1");
         }
 
         // Entry point for the application.
