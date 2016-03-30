@@ -9,6 +9,7 @@
         "dependencies": {
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
+          "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
           "System.Net.Http": "4.0.1-beta-23516"
         }
       },
@@ -36,6 +37,26 @@
           "lib/net45/Serilog.dll": {}
         }
       },
+      "Serilog.Sinks.ColoredConsole/2.0.0-beta-465": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.0.0-beta-465"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+        }
+      },
       "System.Net.Http/4.0.1-beta-23516": {
         "type": "package",
         "frameworkAssemblies": [
@@ -57,6 +78,7 @@
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
+          "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Net.Http": "4.0.1-beta-23516",
@@ -126,6 +148,21 @@
         },
         "runtime": {
           "lib/dotnet5.4/Serilog.dll": {}
+        }
+      },
+      "Serilog.Sinks.ColoredConsole/2.0.0-beta-465": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.0.0-beta-465",
+          "System.Console": "4.0.0-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.Collections/4.0.11-beta-23516": {
@@ -512,6 +549,7 @@
         "dependencies": {
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
+          "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
           "System.Net.Http": "4.0.1-beta-23516"
         }
       },
@@ -543,6 +581,26 @@
         },
         "runtime": {
           "lib/net45/Serilog.dll": {}
+        }
+      },
+      "Serilog.Sinks.ColoredConsole/2.0.0-beta-465": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.0.0-beta-465"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.Net.Http/4.0.1-beta-23516": {
@@ -565,6 +623,7 @@
         "dependencies": {
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
+          "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
           "System.Net.Http": "4.0.1-beta-23516"
         }
       },
@@ -596,6 +655,26 @@
         },
         "runtime": {
           "lib/net45/Serilog.dll": {}
+        }
+      },
+      "Serilog.Sinks.ColoredConsole/2.0.0-beta-465": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.0.0-beta-465"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.Net.Http/4.0.1-beta-23516": {
@@ -619,6 +698,7 @@
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
+          "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Net.Http": "4.0.1-beta-23516",
@@ -786,6 +866,21 @@
         },
         "runtime": {
           "lib/dotnet5.4/Serilog.dll": {}
+        }
+      },
+      "Serilog.Sinks.ColoredConsole/2.0.0-beta-465": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.0.0-beta-465",
+          "System.Console": "4.0.0-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.Collections/4.0.11-beta-23516": {
@@ -1193,6 +1288,7 @@
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
+          "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Net.Http": "4.0.1-beta-23516",
@@ -1360,6 +1456,21 @@
         },
         "runtime": {
           "lib/dotnet5.4/Serilog.dll": {}
+        }
+      },
+      "Serilog.Sinks.ColoredConsole/2.0.0-beta-465": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.0.0-beta-465",
+          "System.Console": "4.0.0-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.Collections/4.0.11-beta-23516": {
@@ -1981,6 +2092,23 @@
         "Serilog.2.0.0-beta-523.nupkg",
         "Serilog.2.0.0-beta-523.nupkg.sha512",
         "Serilog.nuspec"
+      ]
+    },
+    "Serilog.Sinks.ColoredConsole/2.0.0-beta-465": {
+      "type": "package",
+      "sha512": "BM7sYdva21ZciTKEFcHXtWgM5jlRsEoduFkXImLINsuapAaN10GMUfQTXlGl2Tjg8R5mZTXFMCvwHSsHWNj6Cw==",
+      "files": [
+        "lib/dotnet5.1/Serilog.dll",
+        "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll",
+        "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.xml",
+        "lib/dotnet5.1/Serilog.xml",
+        "lib/net45/Serilog.dll",
+        "lib/net45/Serilog.Sinks.ColoredConsole.dll",
+        "lib/net45/Serilog.Sinks.ColoredConsole.xml",
+        "lib/net45/Serilog.xml",
+        "Serilog.Sinks.ColoredConsole.2.0.0-beta-465.nupkg",
+        "Serilog.Sinks.ColoredConsole.2.0.0-beta-465.nupkg.sha512",
+        "Serilog.Sinks.ColoredConsole.nuspec"
       ]
     },
     "System.Collections/4.0.11-beta-23516": {
