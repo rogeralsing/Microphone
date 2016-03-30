@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using Microphone.Core.ClusterProviders;
 
@@ -28,8 +29,8 @@ namespace Microphone.Core
         public static void Bootstrap(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider, string serviceName, string version)
         {
             _frameworkProvider = frameworkProvider;
-            var uri = _frameworkProvider.Start(serviceName, version);
-            var serviceId = serviceName + Guid.NewGuid();
+            var uri = _frameworkProvider.Start(serviceName, version);            
+            var serviceId = serviceName + "_" + Dns.GetHostName() + "_" + uri.Port;
             _clusterProvider = clusterProvider;
             _clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri).Wait();
         }          

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using Microphone.Core;
+using Microsoft.AspNet.Mvc;
 
 namespace Microphone.AspNet
 {
@@ -8,6 +9,7 @@ namespace Microphone.AspNet
         [HttpGet]
         public string Get()
         {
+            Logger.Information("OK");
             return "OK";
         }
     }

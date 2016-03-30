@@ -5,14 +5,15 @@ namespace Microphone.AspNet
 {
     public class AspNetProvider : IFrameworkProvider
     {
-        public AspNetProvider()
+        private readonly int _port;
+        public AspNetProvider(int port)
         {
+            _port = port;
         }
 
         public Uri Start(string serviceName, string version)
         {
-            var uri = Configuration.GetUri();
-            return new Uri("http://localhost:5001");
+            return new Uri("http://localhost:" + _port);
         }
     }
 }

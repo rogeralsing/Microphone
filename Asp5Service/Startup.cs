@@ -1,11 +1,15 @@
 ﻿//using Microphone.Asp5;
 //using Microphone.Core;
 
+using System;
+using System.Linq;
 using Microphone.AspNet;
 using Microphone.Core;
 using Microphone.Core.ClusterProviders;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Http.Features;
+using Microsoft.AspNet.Server.Features;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -40,6 +44,7 @@ namespace AspNetService
             app.UseIISPlatformHandler();
             app.UseMvc();   
             app.UseMicrophone(new ConsulProvider(), "Asp5Service", "1");
+
         }
 
         // Entry point for the application.
