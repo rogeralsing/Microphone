@@ -20,8 +20,7 @@ namespace AspNetService
             var builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables();
-            Configuration = builder.Build();
-            
+            Configuration = builder.Build();            
         }
 
         public IConfigurationRoot Configuration { get; set; }
@@ -35,7 +34,7 @@ namespace AspNetService
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-        {
+        {            
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
             app.UseIISPlatformHandler();

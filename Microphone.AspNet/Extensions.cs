@@ -13,6 +13,7 @@ namespace Microphone.AspNet
     {
         public static IApplicationBuilder UseMicrophone(this IApplicationBuilder self, IClusterProvider clusterProvider, string serviceName, string version)
         {
+            //var port = self.Properties["port"];
             Cluster.Bootstrap(new AspNetProvider(), clusterProvider, serviceName, version);
             return self;
         }
