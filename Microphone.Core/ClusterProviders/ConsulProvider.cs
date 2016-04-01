@@ -51,6 +51,18 @@ namespace Microphone.Core.ClusterProviders
             return Task.FromResult(0);
         }
 
+        public async Task KVPutAsync(string key, object value)
+        {
+            var x = new ConsulRestClient();
+            await x.KVPutAsync(key, value).ConfigureAwait(false);
+        }
+
+        public async Task<T> KVGetAsync<T>(string key)
+        {
+            var x = new ConsulRestClient();
+            return await x.KVGetAsync<T>(key).ConfigureAwait(false);;
+        }
+
         private void StartReaper()
         {
             Task.Factory.StartNew(async () =>

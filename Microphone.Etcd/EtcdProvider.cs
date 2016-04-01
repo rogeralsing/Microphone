@@ -113,6 +113,16 @@ namespace Microphone.Etcd
             return Task.FromResult(0);
         }
 
+        public Task KVPutAsync(string key, object value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> KVGetAsync<T>(string key)
+        {
+           throw new NotImplementedException();
+        }
+
         private void StartHeartbeat(Func<Task> registerService)
         {
             Task.Factory.StartNew(async () =>
