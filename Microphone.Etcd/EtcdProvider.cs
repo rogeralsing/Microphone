@@ -50,11 +50,11 @@ namespace Microphone.Etcd
                 var res = JObject.Parse(body);
                 var nodes = res["node"]["nodes"];
                 return (from node in nodes
-                        let uriStr = node["value"].Value<string>()
-                        where !string.IsNullOrEmpty(uriStr)
-                        let uri = new Uri(uriStr)
-                        select new ServiceInformation(uri.AbsoluteUri, uri.Port))
-                        .ToArray();
+                    let uriStr = node["value"].Value<string>()
+                    where !string.IsNullOrEmpty(uriStr)
+                    let uri = new Uri(uriStr)
+                    select new ServiceInformation(uri.AbsoluteUri, uri.Port))
+                    .ToArray();
             }
         }
 

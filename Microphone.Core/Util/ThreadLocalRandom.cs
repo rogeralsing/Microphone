@@ -7,10 +7,11 @@ namespace Microphone.Core.Util
     {
         private static int _seed = Environment.TickCount;
 
-        private static readonly ThreadLocal<Random> _rnd = new ThreadLocal<Random>(() => new Random(Interlocked.Increment(ref _seed)));
+        private static readonly ThreadLocal<Random> _rnd =
+            new ThreadLocal<Random>(() => new Random(Interlocked.Increment(ref _seed)));
 
         /// <summary>
-        /// The current random number seed available to this thread
+        ///     The current random number seed available to this thread
         /// </summary>
         public static Random Current => _rnd.Value;
     }

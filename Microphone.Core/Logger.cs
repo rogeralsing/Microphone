@@ -15,7 +15,7 @@ namespace Microphone.Core
 
         public static void Debug(string template, params object[] args)
         {
-            _logger.Debug(template,args);
+            _logger.Debug(template, args);
         }
 
         public static void Information(string template, params object[] args)
@@ -30,7 +30,7 @@ namespace Microphone.Core
 
         public static void Error(Exception cause, string template, params object[] args)
         {
-            _logger.Error(cause,template, args);
+            _logger.Error(cause, template, args);
         }
 
         public static void Warning(string template, params object[] args)

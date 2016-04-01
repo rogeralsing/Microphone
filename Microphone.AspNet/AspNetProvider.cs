@@ -6,6 +6,7 @@ namespace Microphone.AspNet
     public class AspNetProvider : IFrameworkProvider
     {
         private readonly int _port;
+
         public AspNetProvider(int port)
         {
             _port = port;

@@ -1,6 +1,6 @@
-﻿using Microphone.Core.Util;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using Microphone.Core.Util;
 
 namespace Microphone.Core.ClusterProviders
 {
@@ -13,13 +13,14 @@ namespace Microphone.Core.ClusterProviders
 
     public static class ClusterProviderExtensions
     {
-        public static async Task<ServiceInformation> FindServiceInstanceAsync(this IClusterProvider self, string serviceName)
+        public static async Task<ServiceInformation> FindServiceInstanceAsync(this IClusterProvider self,
+            string serviceName)
         {
             var res = await self.FindServiceInstancesAsync(serviceName).ConfigureAwait(false);
             if (res.Length == 0)
                 throw new Exception("Could not find service");
 
-            return res[ThreadLocalRandom.Current.Next(0, res.Length )];
+            return res[ThreadLocalRandom.Current.Next(0, res.Length)];
         }
     }
 }
