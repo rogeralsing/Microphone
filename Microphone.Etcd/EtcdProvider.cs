@@ -99,5 +99,15 @@ namespace Microphone.Etcd
                 }
             });
         }
+
+        public Task KVPutAsync(string key, object value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> KVGetAsync<T>(string key)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

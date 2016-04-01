@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -165,6 +166,51 @@ namespace Microphone.Core.ClusterProviders
                     await Task.Delay(5000).ConfigureAwait(false);
                 }
             });
+        }
+
+        public async Task KVPutAsync(string key, object value)
+        {
+            using (var client = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(value);
+                var content = new StringContent(json);
+
+                var response =
+                    await
+                        client.PutAsync($"http://{_consulHost}:{_consulPort}/v1/kv/" + key, content)
+                            .ConfigureAwait(false);
+
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not put value");
+                }
+            }
+        }
+
+        public async Task<T> KVGetAsync<T>(string key)
+        {
+            using (var client = new HttpClient())
+            {
+                var response =
+                    await client.GetAsync($"http://{_consulHost}:{_consulPort}/v1/kv/" + key).ConfigureAwait(false);
+
+                if (response.StatusCode == HttpStatusCode.NotFound)
+                {
+                    throw new Exception($"There is no value for key \"{key}\"");
+                }
+
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not get value");
+                }
+
+                var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var deserializedBody = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(body);
+                var bytes = Convert.FromBase64String((string) deserializedBody[0]["Value"]);
+                var strValue = Encoding.UTF8.GetString(bytes,0,bytes.Length);
+
+                return JsonConvert.DeserializeObject<T>(strValue);
+            }
         }
     }
 }
