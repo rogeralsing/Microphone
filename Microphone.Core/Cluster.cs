@@ -25,6 +25,16 @@ namespace Microphone.Core
             _clusterProvider.BootstrapClientAsync().Wait();
         }
 
+        public static Task KVPutAsync(string key, object value)
+        {
+            return _clusterProvider.KVPutAsync(key, value);
+        }
+
+        public static Task<T> KVGetAsync<T>(string key)
+        {
+            return _clusterProvider.KVGetAsync<T>(key);
+        }
+
         public static void Bootstrap(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider, string serviceName, string version)
         {
             _frameworkProvider = frameworkProvider;
