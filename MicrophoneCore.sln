@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25029.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microphone.Core", "Microphone.Core\Microphone.Core.xproj", "{B12B6799-059F-42C3-9A81-81DC6CF18584}"
 EndProject
@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C75A87A5-4D43-42D2-9CEC-257079EE0186}"
 	ProjectSection(SolutionItems) = preProject
 		Microphone.AspNet\global.json = Microphone.AspNet\global.json
+		Asp5Service\global.json = Asp5Service\global.json
 	EndProjectSection
 EndProject
 Global

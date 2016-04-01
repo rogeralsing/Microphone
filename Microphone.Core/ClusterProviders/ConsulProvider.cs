@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Microphone.Core.ClusterProviders
 {
     public class ConsulProvider : IClusterProvider
     {
+        private readonly string _consulHost;
         private readonly int _consulPort;
         private readonly bool _useEbayFabio;
         private string _serviceId;
@@ -14,9 +19,10 @@ namespace Microphone.Core.ClusterProviders
         private Uri _uri;
         private string _version;
 
-        public ConsulProvider(int port = 0, bool useEbayFabio = false)
+        public ConsulProvider(string consulHost = "localhost", int consulPort = 8500, bool useEbayFabio = false)
         {
-            _consulPort = port;
+            _consulHost = consulHost;
+            _consulPort = consulPort;
             _useEbayFabio = useEbayFabio;
         }
 
@@ -24,13 +30,33 @@ namespace Microphone.Core.ClusterProviders
         {
             if (_useEbayFabio)
             {
-                return new[] {new ServiceInformation("http://localhost", 9999)};
+                return new[] {new ServiceInformation($"http://{_consulHost}", 9999)};
             }
 
-            var x = new ConsulRestClient();
-            var res = await x.FindServiceAsync(name).ConfigureAwait(false);
 
-            return res;
+            using (var client = new HttpClient())
+            {
+                var response =
+                    await
+                        client.GetAsync($"http://{_consulHost}:{_consulPort}/v1/health/service/" + name)
+                            .ConfigureAwait(false);
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not find services");
+                }
+
+                var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var res1 = JArray.Parse(body);
+                var res =
+                    res1.Select(
+                        entry =>
+                            new ServiceInformation(
+                                entry["Service"]["Address"].Value<string>(),
+                                entry["Service"]["Port"].Value<int>())
+                        ).ToArray();
+
+                return res;
+            }
         }
 
         public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
@@ -39,8 +65,35 @@ namespace Microphone.Core.ClusterProviders
             _serviceId = serviceId;
             _version = version;
             _uri = uri;
-            var x = new ConsulRestClient();
-            await x.RegisterServiceAsync(serviceName, serviceId, uri).ConfigureAwait(false);
+            var payload = new
+            {
+                ID = serviceId,
+                Name = serviceName,
+                Tags = new[] {$"urlprefix-/{serviceName}"},
+                Address = Dns.GetHostName(),
+                // ReSharper disable once RedundantAnonymousTypePropertyName
+                Port = uri.Port,
+                Check = new
+                {
+                    HTTP = uri + "status",
+                    Interval = "1s"
+                }
+            };
+
+            using (var client = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(payload);
+                var content = new StringContent(json);
+
+                var res =
+                    await
+                        client.PostAsync($"http://{_consulHost}:{_consulPort}/v1/agent/service/register", content)
+                            .ConfigureAwait(false);
+                if (res.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not register service");
+                }
+            }
             StartReaper();
         }
 
@@ -57,19 +110,42 @@ namespace Microphone.Core.ClusterProviders
                 await Task.Delay(1000).ConfigureAwait(false);
                 Logger.Information("Reaper: started..");
 
-                var c = _consulPort > 0 ? new ConsulRestClient(_consulPort) : new ConsulRestClient();
-
                 var lookup = new HashSet<string>();
                 while (true)
                 {
                     try
                     {
-                        var res = await c.GetCriticalServicesAsync().ConfigureAwait(false);
+                        IEnumerable<string> res;
+                        using (var client1 = new HttpClient())
+                        {
+                            var response1 =
+                                await
+                                    client1.GetAsync($"http://{_consulHost}:{_consulPort}/v1/health/state/critical")
+                                        .ConfigureAwait(false);
+                            if (response1.StatusCode != HttpStatusCode.OK)
+                            {
+                                throw new Exception("Could not get service health");
+                            }
+                            var body = await response1.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            var res1 = JArray.Parse(body);
+                            res = res1.Select(service => service["ServiceID"].Value<string>()).ToArray();
+                        }
                         foreach (var criticalServiceId in res)
                         {
                             if (lookup.Contains(criticalServiceId))
                             {
-                                await c.DeregisterServiceAsync(criticalServiceId).ConfigureAwait(false);
+                                using (var client = new HttpClient())
+                                {
+                                    var response =
+                                        await
+                                            client.GetAsync(
+                                                $"http://{_consulHost}:{_consulPort}/v1/agent/service/deregister/" +
+                                                criticalServiceId).ConfigureAwait(false);
+                                    if (response.StatusCode != HttpStatusCode.OK)
+                                    {
+                                        throw new Exception("Could not de register service");
+                                    }
+                                }
                                 Logger.Information("Reaper: Removing {ServiceId}", criticalServiceId);
                             }
                             else
