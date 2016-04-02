@@ -65,19 +65,6 @@ namespace Microphone.Core.ClusterProviders
             }
         }
 
-        public static string GetLocalIPAddress()
-        {
-            var host = Dns.GetHostEntryAsync(Dns.GetHostName()).Result;
-            foreach (var ip in host.AddressList)
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
-            }
-            throw new Exception("Local IP Address Not Found!");
-        }
-
         public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
         {
             _serviceName = serviceName;
@@ -85,7 +72,7 @@ namespace Microphone.Core.ClusterProviders
             _version = version;
             _uri = uri;
 
-            var localIp = GetLocalIPAddress();
+            var localIp = DnsUtils.GetLocalIPAddress();
             var check = "http://" + localIp + ":" + uri.Port + "/status";
 
             Logger.Information($"Registering service on {localIp} on Consul {_consulHost}:{_consulPort} with status check {check}");

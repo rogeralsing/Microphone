@@ -33,7 +33,7 @@ namespace Microphone.Core
             Logger.Information("Bootstrapping microphone..");
             _frameworkProvider = frameworkProvider;
             var uri = _frameworkProvider.Start(serviceName, version);
-            var serviceId = serviceName + "_" + Dns.GetHostName() + "_" + uri.Port;
+            var serviceId = serviceName + "_" + DnsUtils.GetLocalEscapedIPAddress() + "_" + uri.Port;
             _clusterProvider = clusterProvider;
             try
             {               
