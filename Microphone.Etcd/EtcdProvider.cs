@@ -14,15 +14,17 @@ namespace Microphone.Etcd
     public class EtcdProvider : IClusterProvider
     {
         private readonly int _ectdHeartbeart;
-
         private readonly int _ectdTtl;
         private readonly string _etcdHost;
-
         private readonly int _etcdPort;
-
         private string _serviceId;
-
         private string _serviceName;
+
+        private string RootUrl => $"http://{_etcdHost}:{_etcdPort}";
+        private string ServiceUrl(string serviceName) => RootUrl + $"/v2/keys/services/{serviceName}";
+        private string RegisterServiceUrl(string serviceName, string serviceId) => RootUrl + $"/v2/keys/services/{serviceName}/{serviceId}";
+        private string KeyValueUrl(string key) => RootUrl + $"/v2/keys/values/{key}";
+
 
         public EtcdProvider(int ttl, int heartBeat) : this("127.0.0.1", 2379, ttl, heartBeat)
         {
@@ -36,11 +38,9 @@ namespace Microphone.Etcd
             _ectdHeartbeart = heartBeat;
         }
 
-        private string RootUrl => $"http://{_etcdHost}:{_etcdPort}";
-
         public async Task<ServiceInformation[]> FindServiceInstancesAsync(string serviceName)
         {
-            var url =RootUrl + $"/v2/keys/services/{serviceName}";
+            var url = ServiceUrl(serviceName);
             using (var client = new HttpClient())
             {
                 var response = await client.GetAsync(url);
@@ -68,7 +68,7 @@ namespace Microphone.Etcd
 
             Func<Task> registerService = async () =>
             {
-                var url = RootUrl + $"/v2/keys/services/{serviceName}/{serviceId}";
+                var url = RegisterServiceUrl(serviceName, serviceId);
                 using (var client = new HttpClient())
                 {
                     var content = new FormUrlEncodedContent(new[]
@@ -90,28 +90,15 @@ namespace Microphone.Etcd
             return Task.FromResult(0);
         }
 
-        private void StartHeartbeat(Func<Task> registerService)
-        {
-            Task.Factory.StartNew(async () =>
-            {
-                while (true)
-                {
-                    await registerService();
-                    await Task.Delay(TimeSpan.FromSeconds(_ectdHeartbeart));
-                    Logger.Information("OK");
-                }
-            });
-        }
-
         public async Task KeyValuePutAsync(string key, object value)
         {
-            var url = RootUrl + $"/v2/keys/values/{key}";
+            var url = KeyValueUrl(key);
             var json = JsonConvert.SerializeObject(value);
             using (var client = new HttpClient())
             {
                 var content = new FormUrlEncodedContent(new[]
                 {
-                    new KeyValuePair<string, string>("value", json),
+                    new KeyValuePair<string, string>("value", json)
                 });
                 await client.PutAsync(url, content);
             }
@@ -119,7 +106,7 @@ namespace Microphone.Etcd
 
         public async Task<T> KeyValueGetAsync<T>(string key)
         {
-            var url = RootUrl + $"/v2/keys/values/{key}";
+            var url = KeyValueUrl(key);
             using (var client = new HttpClient())
             {
                 var response = await client.GetAsync(url);
@@ -131,6 +118,19 @@ namespace Microphone.Etcd
                 var obj = JsonConvert.DeserializeObject<T>(body);
                 return obj;
             }
+        }
+
+        private void StartHeartbeat(Func<Task> registerService)
+        {
+            Task.Factory.StartNew(async () =>
+            {
+                while (true)
+                {
+                    await registerService();
+                    await Task.Delay(TimeSpan.FromSeconds(_ectdHeartbeart));
+                    Logger.Information("OK");
+                }
+            });
         }
     }
 }
