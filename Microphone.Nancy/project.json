@@ -5,6 +5,7 @@
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
+  "iconUrl": "",
   "dependencies": {
     "Microphone.Core": "1.0.0-*",
     "Nancy": "1.4.3",
