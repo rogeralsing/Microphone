@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5.1": {
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -1384,12 +1384,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -1617,7 +1617,7 @@
       }
     },
     "DNXCore,Version=v5.0": {
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -2898,12 +2898,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -3851,7 +3851,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x86": {
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -5241,12 +5241,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -5474,7 +5474,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x64": {
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -6864,12 +6864,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -7097,7 +7097,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -8706,12 +8706,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -9842,7 +9842,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -11451,12 +11451,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -12588,7 +12588,7 @@
     }
   },
   "libraries": {
-    "Microphone.Core/0.5.5": {
+    "Microphone.Core/0.5.7": {
       "type": "project",
       "path": "../Microphone.Core/project.json"
     },
@@ -13081,6 +13081,7 @@
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.CSharp.Analyzers.dll",
         "analyzers/dotnet/vb/Microsoft.CodeAnalysis.Analyzers.dll",
         "analyzers/dotnet/vb/Microsoft.CodeAnalysis.VisualBasic.Analyzers.dll",
+        "Microsoft.CodeAnalysis.Analyzers.1.1.0.nupkg",
         "Microsoft.CodeAnalysis.Analyzers.1.1.0.nupkg.sha512",
         "Microsoft.CodeAnalysis.Analyzers.nuspec",
         "ThirdPartyNotices.rtf",
@@ -13096,6 +13097,7 @@
         "lib/net45/Microsoft.CodeAnalysis.xml",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.dll",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.xml",
+        "Microsoft.CodeAnalysis.Common.1.1.1.nupkg",
         "Microsoft.CodeAnalysis.Common.1.1.1.nupkg.sha512",
         "Microsoft.CodeAnalysis.Common.nuspec",
         "ThirdPartyNotices.rtf"
@@ -13109,6 +13111,7 @@
         "lib/net45/Microsoft.CodeAnalysis.CSharp.xml",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.dll",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.xml",
+        "Microsoft.CodeAnalysis.CSharp.1.1.1.nupkg",
         "Microsoft.CodeAnalysis.CSharp.1.1.1.nupkg.sha512",
         "Microsoft.CodeAnalysis.CSharp.nuspec",
         "ThirdPartyNotices.rtf"
@@ -17517,7 +17520,7 @@
       "Microsoft.Extensions.Logging >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
-      "Microphone.Core >= 0.5.5-*",
+      "Microphone.Core >= 0.5.7-*",
       "Microsoft.AspNet.Http.Abstractions >= 1.0.0-rc1-final"
     ],
     ".NETFramework,Version=v4.5.1": [],

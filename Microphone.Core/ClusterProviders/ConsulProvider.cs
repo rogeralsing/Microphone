@@ -84,8 +84,11 @@ namespace Microphone.Core.ClusterProviders
             _serviceId = serviceId;
             _version = version;
             _uri = uri;
+
             var localIp = GetLocalIPAddress();
-            Logger.Information($"Registering service on {localIp} on Consul {_consulHost}:{_consulPort} with status check {uri}status");
+            var check = "http://" + localIp + ":" + uri.Port + "/status";
+
+            Logger.Information($"Registering service on {localIp} on Consul {_consulHost}:{_consulPort} with status check {check}");
             var payload = new
             {
                 ID = serviceId,
@@ -96,7 +99,7 @@ namespace Microphone.Core.ClusterProviders
                 Port = uri.Port,
                 Check = new
                 {
-                    HTTP = uri + "status",
+                    HTTP = check,
                     Interval = "1s"
                 }
             };

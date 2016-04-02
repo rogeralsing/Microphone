@@ -3,11 +3,11 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "Microphone.AspNet/0.5.5": {
+      "Microphone.AspNet/0.5.7": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
-          "Microphone.Core": "0.5.5",
+          "Microphone.Core": "0.5.7",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -22,7 +22,7 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final"
         }
       },
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -1637,11 +1637,11 @@
       }
     },
     "DNXCore,Version=v5.0": {
-      "Microphone.AspNet/0.5.5": {
+      "Microphone.AspNet/0.5.7": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microphone.Core": "0.5.5",
+          "Microphone.Core": "0.5.7",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -1660,7 +1660,7 @@
           "System.Threading": "4.0.11-beta-23516"
         }
       },
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -3894,11 +3894,11 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "Microphone.AspNet/0.5.5": {
+      "Microphone.AspNet/0.5.7": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
-          "Microphone.Core": "0.5.5",
+          "Microphone.Core": "0.5.7",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -3913,7 +3913,7 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final"
         }
       },
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -5537,11 +5537,11 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "Microphone.AspNet/0.5.5": {
+      "Microphone.AspNet/0.5.7": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
-          "Microphone.Core": "0.5.5",
+          "Microphone.Core": "0.5.7",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -5556,7 +5556,7 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final"
         }
       },
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -7180,11 +7180,11 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
-      "Microphone.AspNet/0.5.5": {
+      "Microphone.AspNet/0.5.7": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microphone.Core": "0.5.5",
+          "Microphone.Core": "0.5.7",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -7203,7 +7203,7 @@
           "System.Threading": "4.0.11-beta-23516"
         }
       },
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -9948,11 +9948,11 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
-      "Microphone.AspNet/0.5.5": {
+      "Microphone.AspNet/0.5.7": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microphone.Core": "0.5.5",
+          "Microphone.Core": "0.5.7",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -9971,7 +9971,7 @@
           "System.Threading": "4.0.11-beta-23516"
         }
       },
-      "Microphone.Core/0.5.5": {
+      "Microphone.Core/0.5.7": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -12717,11 +12717,11 @@
     }
   },
   "libraries": {
-    "Microphone.AspNet/0.5.5": {
+    "Microphone.AspNet/0.5.7": {
       "type": "project",
       "path": "../Microphone.AspNet/project.json"
     },
-    "Microphone.Core/0.5.5": {
+    "Microphone.Core/0.5.7": {
       "type": "project",
       "path": "../Microphone.Core/project.json"
     },
@@ -13214,6 +13214,7 @@
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.CSharp.Analyzers.dll",
         "analyzers/dotnet/vb/Microsoft.CodeAnalysis.Analyzers.dll",
         "analyzers/dotnet/vb/Microsoft.CodeAnalysis.VisualBasic.Analyzers.dll",
+        "Microsoft.CodeAnalysis.Analyzers.1.1.0.nupkg",
         "Microsoft.CodeAnalysis.Analyzers.1.1.0.nupkg.sha512",
         "Microsoft.CodeAnalysis.Analyzers.nuspec",
         "ThirdPartyNotices.rtf",
@@ -13229,6 +13230,7 @@
         "lib/net45/Microsoft.CodeAnalysis.xml",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.dll",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.xml",
+        "Microsoft.CodeAnalysis.Common.1.1.1.nupkg",
         "Microsoft.CodeAnalysis.Common.1.1.1.nupkg.sha512",
         "Microsoft.CodeAnalysis.Common.nuspec",
         "ThirdPartyNotices.rtf"
@@ -13242,6 +13244,7 @@
         "lib/net45/Microsoft.CodeAnalysis.CSharp.xml",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.dll",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.xml",
+        "Microsoft.CodeAnalysis.CSharp.1.1.1.nupkg",
         "Microsoft.CodeAnalysis.CSharp.1.1.1.nupkg.sha512",
         "Microsoft.CodeAnalysis.CSharp.nuspec",
         "ThirdPartyNotices.rtf"
@@ -17639,7 +17642,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microphone.AspNet >= 0.5.5-*",
+      "Microphone.AspNet >= 0.5.7-*",
       "Microsoft.AspNet.IISPlatformHandler >= 1.0.0-rc1-final",
       "Microsoft.AspNet.Mvc >= 6.0.0-rc1-final",
       "Microsoft.AspNet.Server.Kestrel >= 1.0.0-rc1-final",
