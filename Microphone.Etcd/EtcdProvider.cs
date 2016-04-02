@@ -21,9 +21,9 @@ namespace Microphone.Etcd
         private string _serviceName;
 
         private string RootUrl => $"http://{_etcdHost}:{_etcdPort}";
-        private string ServiceUrl(string serviceName) => RootUrl + $"/v2/keys/services/{serviceName}";
-        private string RegisterServiceUrl(string serviceName, string serviceId) => RootUrl + $"/v2/keys/services/{serviceName}/{serviceId}";
-        private string KeyValueUrl(string key) => RootUrl + $"/v2/keys/values/{key}";
+        private string ServiceUrl(string serviceName) => RootUrl + $"/v2/keys/microphone/services/{serviceName}";
+        private string RegisterServiceUrl(string serviceName, string serviceId) => ServiceUrl(serviceName) + $"/{serviceId}";
+        private string KeyValueUrl(string key) => RootUrl + $"/v2/keys/microphone/values/{key}";
 
 
         public EtcdProvider(int ttl, int heartBeat) : this("127.0.0.1", 2379, ttl, heartBeat)
