@@ -1,11 +1,11 @@
 ﻿{
   "version": "1.0.0-*",
   "description": "Microphone.Nancy Class Library",
-  "authors": [ "ralsing" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
-  "iconUrl": "",
+  "authors": [ "Roger Johansson" ],
+  "tags": [ "service discovery", "consul", "etcd", "nancy", "asp.net" ],
+  "projectUrl": "https://github.com/rogeralsing/Microphone",
+  "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
+  "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png",
   "dependencies": {
     "Microphone.Core": "1.0.0-*",
     "Nancy": "1.4.3",

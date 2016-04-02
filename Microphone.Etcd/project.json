@@ -1,11 +1,11 @@
 ﻿{
   "version": "1.0.0-*",
   "description": "Microphone.Etcd Class Library",
-  "authors": [ "ralsing" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
-  "iconUrl": "",
+  "authors": [ "Roger Johansson" ],
+  "tags": [ "service discovery", "consul", "etcd", "nancy", "asp.net" ],
+  "projectUrl": "https://github.com/rogeralsing/Microphone",
+  "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
+  "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png",
   "frameworks": {
     "net451": { },
     "dotnet5.4": {

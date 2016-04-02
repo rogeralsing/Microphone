@@ -1,11 +1,11 @@
 {
-  "authors": [ "ralsing" ],
+  "authors": [ "Roger Johansson" ],
   "description": "Microphone.Asp5 Class Library",
-  "tags": [ "" ],
+  "tags": [ "service discovery", "consul", "etcd", "nancy", "asp.net" ],
   "version": "1.0.0-*",
-  "projectUrl": "",
-  "licenseUrl": "",
-  "iconUrl": "",
+  "projectUrl": "https://github.com/rogeralsing/Microphone",
+  "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
+  "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png",
   "dependencies": {
     "Microphone.Core": "1.0.0-*",
     "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",

@@ -1,11 +1,11 @@
 ﻿{
   "version": "1.0.0-*",
   "description": "Microphone.Core Class Library",
-  "authors": [ "ralsing" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
-  "iconUrl": "",
+  "authors": [ "Roger Johansson" ],
+  "tags": [ "service discovery", "consul", "etcd", "nancy", "asp.net" ],
+  "projectUrl": "https://github.com/rogeralsing/Microphone",
+  "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
+  "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png",
   "dependencies": {
     "Newtonsoft.Json": "8.0.2",
     "System.Net.Http": "4.0.1-beta-23516",
