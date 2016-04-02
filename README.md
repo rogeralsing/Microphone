@@ -130,3 +130,24 @@ If you are using the ETCD cluster provider, make sure you have a local ETCD clus
 ```
 etcd.exe
 ```
+
+#### Key/Value storage
+
+```csharp
+    class Person
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+
+    class Program
+    {
+        private static void Main(string[] args)
+        {
+            Cluster.Bootstrap(new WebApiProvider(), new ConsulProvider(), "orders", "v1");
+            Cluster.KVPutAsync("val1", new Person { Name = "Name", Age = 25 }).Wait();
+            var res = Cluster.KVGetAsync<Person>("val1").Result;
+            Console.ReadLine();
+        }
+    }
+```
