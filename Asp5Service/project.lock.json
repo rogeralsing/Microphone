@@ -1404,12 +1404,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -2941,12 +2941,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -5304,12 +5304,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -6947,12 +6947,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -8812,12 +8812,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -11580,12 +11580,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -13214,7 +13214,6 @@
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.CSharp.Analyzers.dll",
         "analyzers/dotnet/vb/Microsoft.CodeAnalysis.Analyzers.dll",
         "analyzers/dotnet/vb/Microsoft.CodeAnalysis.VisualBasic.Analyzers.dll",
-        "Microsoft.CodeAnalysis.Analyzers.1.1.0.nupkg",
         "Microsoft.CodeAnalysis.Analyzers.1.1.0.nupkg.sha512",
         "Microsoft.CodeAnalysis.Analyzers.nuspec",
         "ThirdPartyNotices.rtf",
@@ -13230,7 +13229,6 @@
         "lib/net45/Microsoft.CodeAnalysis.xml",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.dll",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.xml",
-        "Microsoft.CodeAnalysis.Common.1.1.1.nupkg",
         "Microsoft.CodeAnalysis.Common.1.1.1.nupkg.sha512",
         "Microsoft.CodeAnalysis.Common.nuspec",
         "ThirdPartyNotices.rtf"
@@ -13244,7 +13242,6 @@
         "lib/net45/Microsoft.CodeAnalysis.CSharp.xml",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.dll",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.xml",
-        "Microsoft.CodeAnalysis.CSharp.1.1.1.nupkg",
         "Microsoft.CodeAnalysis.CSharp.1.1.1.nupkg.sha512",
         "Microsoft.CodeAnalysis.CSharp.nuspec",
         "ThirdPartyNotices.rtf"
@@ -13252,7 +13249,6 @@
     },
     "Microsoft.CSharp/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "z/W5YaTGVQ8WX6TQDW8cCBAe2rBhHOD7NZHxLAnBIMoLWMI/upWDi+dxHYMDDWmGOM7a3di6evem2OzOdaB1fQ==",
       "files": [
         "lib/dotnet5.4/Microsoft.CSharp.dll",
@@ -13265,7 +13261,6 @@
         "lib/wpa81/_._",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "Microsoft.CSharp.4.0.1-beta-23516.nupkg",
         "Microsoft.CSharp.4.0.1-beta-23516.nupkg.sha512",
         "Microsoft.CSharp.nuspec",
         "ref/dotnet5.1/de/Microsoft.CSharp.xml",
@@ -13716,12 +13711,10 @@
     },
     "Microsoft.Win32.Registry/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "1UxMko0bXvk98vNVwbgHNZ+soSvK4LXy9nMUYW67MHdZXAfp0hbJIMj6MnRpMoKExZLCz6a7/0Kq112y+sbGxQ==",
       "files": [
         "lib/DNXCore50/Microsoft.Win32.Registry.dll",
         "lib/net46/Microsoft.Win32.Registry.dll",
-        "Microsoft.Win32.Registry.4.0.0-beta-23516.nupkg",
         "Microsoft.Win32.Registry.4.0.0-beta-23516.nupkg.sha512",
         "Microsoft.Win32.Registry.nuspec",
         "ref/dotnet5.2/de/Microsoft.Win32.Registry.xml",
@@ -14133,7 +14126,6 @@
     },
     "System.Collections/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "FSd5zsGfmG2pidC3CVizQPNGTK1Q3A2HEuRqwUPLU/AArjELLC5p4l6XIAlJ9ZBPdbp6V8vFQAxUHzkFfyVkYA==",
       "files": [
         "lib/DNXCore50/System.Collections.dll",
@@ -14188,14 +14180,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Collections.dll",
-        "System.Collections.4.0.11-beta-23516.nupkg",
         "System.Collections.4.0.11-beta-23516.nupkg.sha512",
         "System.Collections.nuspec"
       ]
     },
     "System.Collections.Concurrent/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "K+n6bC3jL5nRzwm8IM5WHxPScCnrVoPCJjpkBEmoBYY8/3j4RJdqIng/NYcpGcjvP/GIF6tAwZlh54ao2pWOvQ==",
       "files": [
         "lib/dotnet5.4/System.Collections.Concurrent.dll",
@@ -14247,7 +14237,6 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Collections.Concurrent.4.0.11-beta-23516.nupkg",
         "System.Collections.Concurrent.4.0.11-beta-23516.nupkg.sha512",
         "System.Collections.Concurrent.nuspec"
       ]
@@ -14298,7 +14287,6 @@
     },
     "System.ComponentModel/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "PWlAKIWFtb0ahyK9mXkvW+8WzKfXd9n5NAtRDduoE2JETVZtWL2jUM08lVKWU+oZr3ZGBdRPPLVbUD/K9i4uzw==",
       "files": [
         "lib/dotnet5.4/System.ComponentModel.dll",
@@ -14333,14 +14321,12 @@
         "ref/win8/_._",
         "ref/wp80/_._",
         "ref/wpa81/_._",
-        "System.ComponentModel.4.0.1-beta-23516.nupkg",
         "System.ComponentModel.4.0.1-beta-23516.nupkg.sha512",
         "System.ComponentModel.nuspec"
       ]
     },
     "System.ComponentModel.Annotations/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "VAt5IT69A0lBwY9j8FvyyiB0FLPAwxq/qQ+VZNcXS+MBroSDg/gc/4/nrJKdFGW+6HnAlm9II7TbJ7Es5UlBPw==",
       "files": [
         "lib/dotnet5.4/System.ComponentModel.Annotations.dll",
@@ -14390,7 +14376,6 @@
         "ref/win8/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.ComponentModel.Annotations.4.0.11-beta-23516.nupkg",
         "System.ComponentModel.Annotations.4.0.11-beta-23516.nupkg.sha512",
         "System.ComponentModel.Annotations.nuspec"
       ]
@@ -14459,7 +14444,6 @@
     },
     "System.ComponentModel.TypeConverter/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "VtCI6yLFRU1JcxxLBKRXkqLATN34O98wxjzlbmGV8AuGu9qTMJVeEUCOAGAuwdJRPPU+FYVAJ1Nnw6tNBAtLoQ==",
       "files": [
         "lib/dotnet5.4/System.ComponentModel.TypeConverter.dll",
@@ -14484,14 +14468,12 @@
         "ref/net46/System.ComponentModel.TypeConverter.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.ComponentModel.TypeConverter.4.0.1-beta-23516.nupkg",
         "System.ComponentModel.TypeConverter.4.0.1-beta-23516.nupkg.sha512",
         "System.ComponentModel.TypeConverter.nuspec"
       ]
     },
     "System.Console/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "tzF4Dbbv+5bcbQ7GHuuKafkaDZThiUiwxqCc1ngewnMWZ5YmIgjQZjs+E1DNhoMVAvkH0tSmLJvsDlx9dFg+Aw==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -14516,14 +14498,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Console.4.0.0-beta-23516.nupkg",
         "System.Console.4.0.0-beta-23516.nupkg.sha512",
         "System.Console.nuspec"
       ]
     },
     "System.Diagnostics.Contracts/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "y8fwR6QS7ZSUzxW2tBULWM2AfyMV/7Hvgm2L5IdcnCEa2fwoNw+bAoGTS7ItuOjS5Yb2sKtJ1QUv8nP42NfgdQ==",
       "files": [
         "lib/DNXCore50/System.Diagnostics.Contracts.dll",
@@ -14559,7 +14539,6 @@
         "ref/wp80/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Diagnostics.Contracts.dll",
-        "System.Diagnostics.Contracts.4.0.1-beta-23516.nupkg",
         "System.Diagnostics.Contracts.4.0.1-beta-23516.nupkg.sha512",
         "System.Diagnostics.Contracts.nuspec"
       ]
@@ -14613,7 +14592,6 @@
     },
     "System.Diagnostics.Debug/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "eVfSsVOIlL2tZwA24PKduDIGrPXH1OdAnRPhU4q5nGA35kX+vnFtE+IyGfiyShwlC0ldnssmQRAm9mPKmgOpyA==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -14666,21 +14644,18 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Diagnostics.Debug.4.0.11-beta-23516.nupkg",
         "System.Diagnostics.Debug.4.0.11-beta-23516.nupkg.sha512",
         "System.Diagnostics.Debug.nuspec"
       ]
     },
     "System.Diagnostics.DiagnosticSource/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "0uDR/UOmFCNPDCyHEPHhCrk6c1iRnDp00YqwSZ8Qf5aaaJjm4WXnf4Q9xZw4OoApsSiODSypDMdpQU24IxR16A==",
       "files": [
         "lib/dotnet5.2/System.Diagnostics.DiagnosticSource.dll",
         "lib/dotnet5.2/System.Diagnostics.DiagnosticSource.xml",
         "lib/portable-net45+win8+wp8+wpa81/System.Diagnostics.DiagnosticSource.dll",
         "lib/portable-net45+win8+wp8+wpa81/System.Diagnostics.DiagnosticSource.xml",
-        "System.Diagnostics.DiagnosticSource.4.0.0-beta-23516.nupkg",
         "System.Diagnostics.DiagnosticSource.4.0.0-beta-23516.nupkg.sha512",
         "System.Diagnostics.DiagnosticSource.nuspec"
       ]
@@ -14730,7 +14705,6 @@
     },
     "System.Diagnostics.StackTrace/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "ASJgVLKEhVUUU64BHj+9141ndCG3Kqk0lHKtUkDvKj9/ROBYtuPiBgBJx74OlZ28CSmiLZXIvADW+XM5E9BoUg==",
       "files": [
         "lib/DNXCore50/System.Diagnostics.StackTrace.dll",
@@ -14757,14 +14731,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Diagnostics.StackTrace.dll",
-        "System.Diagnostics.StackTrace.4.0.1-beta-23516.nupkg",
         "System.Diagnostics.StackTrace.4.0.1-beta-23516.nupkg.sha512",
         "System.Diagnostics.StackTrace.nuspec"
       ]
     },
     "System.Diagnostics.Tools/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "tbiK8p/MW8s15iO7oAVdFHRM1VkEuj6s0wC0W6N3aRcWxJm7Hta+x0aoBmO2ukm16rTKT+YhCTxbsz9SQxJ84Q==",
       "files": [
         "lib/DNXCore50/System.Diagnostics.Tools.dll",
@@ -14800,14 +14772,12 @@
         "ref/wp80/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Diagnostics.Tools.dll",
-        "System.Diagnostics.Tools.4.0.1-beta-23516.nupkg",
         "System.Diagnostics.Tools.4.0.1-beta-23516.nupkg.sha512",
         "System.Diagnostics.Tools.nuspec"
       ]
     },
     "System.Diagnostics.TraceSource/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "gvJNxObthiaV07AKZYjQV69xRBKRR7gTpEVe4qXF4Mta/2zD7sI+Zm//rRCQenLYBuL8nBxVzomtYJ4eT7w8QQ==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -14832,7 +14802,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Diagnostics.TraceSource.4.0.0-beta-23516.nupkg",
         "System.Diagnostics.TraceSource.4.0.0-beta-23516.nupkg.sha512",
         "System.Diagnostics.TraceSource.nuspec"
       ]
@@ -14884,7 +14853,6 @@
     },
     "System.Diagnostics.Tracing/4.0.21-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "NyaFelol4NcIq+aU+r6p5RV/Wi3T0uZE3edhNDrAJ01YRIP2xMeoWrGyGrisC8yA6gfgoRlyqpaux+O9IUy1EA==",
       "files": [
         "lib/DNXCore50/System.Diagnostics.Tracing.dll",
@@ -14948,14 +14916,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Diagnostics.Tracing.dll",
-        "System.Diagnostics.Tracing.4.0.21-beta-23516.nupkg",
         "System.Diagnostics.Tracing.4.0.21-beta-23516.nupkg.sha512",
         "System.Diagnostics.Tracing.nuspec"
       ]
     },
     "System.Dynamic.Runtime/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "C2GXB20I5vMcO4wemZr5pEjwwEb6H6zVkwF12JSUhripKBIKgI0YKpfp9glyDSL903cYgIXAztMQDajwCR0PmA==",
       "files": [
         "lib/DNXCore50/System.Dynamic.Runtime.dll",
@@ -15010,7 +14976,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Dynamic.Runtime.dll",
-        "System.Dynamic.Runtime.4.0.11-beta-23516.nupkg",
         "System.Dynamic.Runtime.4.0.11-beta-23516.nupkg.sha512",
         "System.Dynamic.Runtime.nuspec"
       ]
@@ -15064,7 +15029,6 @@
     },
     "System.Globalization/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "jctanC1VveBFsgOysiqFN/HH0qX+EvLNelcBU6Fb4w7m3BBu827k8RCNiwW+uAC5f5XZBTRpsXZk4cI15RCdYQ==",
       "files": [
         "lib/DNXCore50/System.Globalization.dll",
@@ -15119,7 +15083,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Globalization.dll",
-        "System.Globalization.4.0.11-beta-23516.nupkg",
         "System.Globalization.4.0.11-beta-23516.nupkg.sha512",
         "System.Globalization.nuspec"
       ]
@@ -15159,7 +15122,6 @@
     },
     "System.Globalization.Extensions/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "OUVMFv3m0OEn+p0CsKbLc9hUaRMXC4lYy/9DOynbPsbYNom98ZfDn5YaiMnXUvAufdSgfxxHm4kAUsiQsQ8YRA==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -15184,7 +15146,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Globalization.Extensions.4.0.1-beta-23516.nupkg",
         "System.Globalization.Extensions.4.0.1-beta-23516.nupkg.sha512",
         "System.Globalization.Extensions.nuspec"
       ]
@@ -15238,7 +15199,6 @@
     },
     "System.IO/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "6nJmAk4vYjN+5/haenkKk/BDGCOKw5pk5EjXAOvBnUM5PFIfO8JwUxGbcveOD4vV5Vb6TAxrmRmts/7F+BEuEw==",
       "files": [
         "lib/DNXCore50/System.IO.dll",
@@ -15293,7 +15253,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.IO.dll",
-        "System.IO.4.0.11-beta-23516.nupkg",
         "System.IO.4.0.11-beta-23516.nupkg.sha512",
         "System.IO.nuspec"
       ]
@@ -15340,7 +15299,6 @@
     },
     "System.IO.FileSystem/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "xggWMgLzKnBisYTx5HW3og8qRR7TjmorQAdsAQOaMcY4I9CQA6JUxw0r2AvCC1+ToXh0CuO7J6dymX33pkmwbA==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -15365,14 +15323,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.IO.FileSystem.4.0.1-beta-23516.nupkg",
         "System.IO.FileSystem.4.0.1-beta-23516.nupkg.sha512",
         "System.IO.FileSystem.nuspec"
       ]
     },
     "System.IO.FileSystem.Primitives/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "GQF2ywO/+KYLvxwkJZxAWT/FqX8HjntDj94nNcXtoUDKi8UBpfGpuMKqEsCfl5XRfbzxPnDPZAE+7wDVubUiCQ==",
       "files": [
         "lib/dotnet5.4/System.IO.FileSystem.Primitives.dll",
@@ -15397,14 +15353,12 @@
         "ref/net46/System.IO.FileSystem.Primitives.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.IO.FileSystem.Primitives.4.0.1-beta-23516.nupkg",
         "System.IO.FileSystem.Primitives.4.0.1-beta-23516.nupkg.sha512",
         "System.IO.FileSystem.Primitives.nuspec"
       ]
     },
     "System.IO.FileSystem.Watcher/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "y56ajBzgm7FQ2iVfB6+ylAYBwtZ/6X10/ripP5/rIQpea76JAEAyAmvU19mIYBUXzQu46Fn9MnMpBh2FcMRfiA==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -15429,7 +15383,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.IO.FileSystem.Watcher.4.0.0-beta-23516.nupkg",
         "System.IO.FileSystem.Watcher.4.0.0-beta-23516.nupkg.sha512",
         "System.IO.FileSystem.Watcher.nuspec"
       ]
@@ -15467,7 +15420,6 @@
     },
     "System.Linq/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "AJaoyeAHLpurbTWnmvOhK/QC2sswKJrIA5RlPea+UdfXpHOw3srPNEPpseZDMV/EviVqAwUfFNkc5QxpGZtsLA==",
       "files": [
         "lib/dotnet5.4/System.Linq.dll",
@@ -15502,14 +15454,12 @@
         "ref/win8/_._",
         "ref/wp80/_._",
         "ref/wpa81/_._",
-        "System.Linq.4.0.1-beta-23516.nupkg",
         "System.Linq.4.0.1-beta-23516.nupkg.sha512",
         "System.Linq.nuspec"
       ]
     },
     "System.Linq.Expressions/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "FtKytB13HabzrSvrAgBgOOnG2uxJO4s7zvP5Sk0NS3bwbJUyb5AP1p4897UWnLiB6C95jI4nIkZps51sa9In8g==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -15562,14 +15512,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Linq.Expressions.4.0.11-beta-23516.nupkg",
         "System.Linq.Expressions.4.0.11-beta-23516.nupkg.sha512",
         "System.Linq.Expressions.nuspec"
       ]
     },
     "System.Net.Http/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "A0S7LiARhMNbZTzO+1hMlkWrWJ+KnEBUQbfTOP9QoYdzCmc5vmXsJMEBYudhaKg7T+fpq1xmBzjU8x8rOB2zMA==",
       "files": [
         "lib/net45/_._",
@@ -15601,14 +15549,12 @@
         "ref/win8/_._",
         "ref/wpa81/_._",
         "runtime.json",
-        "System.Net.Http.4.0.1-beta-23516.nupkg",
         "System.Net.Http.4.0.1-beta-23516.nupkg.sha512",
         "System.Net.Http.nuspec"
       ]
     },
     "System.Net.NameResolution/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "CviNE0Jzhmk59V+DPK711HriQ+YdT/ya3rL8vMcL9vcsY7oxrqRkURWlWtW6VpHkq9VPfHjiTh6uzqvswvTwkw==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -15633,14 +15579,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Net.NameResolution.4.0.0-beta-23516.nupkg",
         "System.Net.NameResolution.4.0.0-beta-23516.nupkg.sha512",
         "System.Net.NameResolution.nuspec"
       ]
     },
     "System.Net.Primitives/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "e6bYgPSmo1n/+Ccef2OxFm5gyvhGvw/+Zvsh09iOfLNOutr/2ker4IsxC+3VMVDZc/3/glc4iOfuB5x59HzzHQ==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -15704,14 +15648,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Net.Primitives.4.0.11-beta-23516.nupkg",
         "System.Net.Primitives.4.0.11-beta-23516.nupkg.sha512",
         "System.Net.Primitives.nuspec"
       ]
     },
     "System.Net.Sockets/4.1.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "hJQxXC5OcecCG49Wg9PreHFC2tDZFwpqiGhRnQMK47eo8ozvOMl2XqISanclj1cjCIUZDUSn0XxggVC7Z2WppA==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -15747,14 +15689,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Net.Sockets.4.1.0-beta-23516.nupkg",
         "System.Net.Sockets.4.1.0-beta-23516.nupkg.sha512",
         "System.Net.Sockets.nuspec"
       ]
     },
     "System.Net.WebSockets/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "1HTK/ncmLrpKvooNRBIr6EgUY550tMM0hXh/84Ni6bc2Ia8ySGwc3UkLga27GKHSymslU7zCtFzc1UAxqxNeIw==",
       "files": [
         "lib/dotnet5.4/System.Net.WebSockets.dll",
@@ -15779,14 +15719,12 @@
         "ref/net46/System.Net.WebSockets.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Net.WebSockets.4.0.0-beta-23516.nupkg",
         "System.Net.WebSockets.4.0.0-beta-23516.nupkg.sha512",
         "System.Net.WebSockets.nuspec"
       ]
     },
     "System.Numerics.Vectors/4.1.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "FCYCEjc3BXBTpVZTxMqf2m/sGYyDzLwICy5lNKgZzT8WfshJhsTGjJuETwsh1Cwi6bksw9YiTB6yeeWBBJDnTA==",
       "files": [
         "lib/dotnet5.4/System.Numerics.Vectors.dll",
@@ -15804,7 +15742,6 @@
         "ref/net46/System.Numerics.Vectors.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Numerics.Vectors.4.1.1-beta-23516.nupkg",
         "System.Numerics.Vectors.4.1.1-beta-23516.nupkg.sha512",
         "System.Numerics.Vectors.nuspec"
       ]
@@ -15860,7 +15797,6 @@
         "ref/dnxcore50/_._",
         "ref/netcore50/_._",
         "runtime.json",
-        "System.Private.Uri.4.0.1-beta-23516.nupkg",
         "System.Private.Uri.4.0.1-beta-23516.nupkg.sha512",
         "System.Private.Uri.nuspec"
       ]
@@ -16046,7 +15982,6 @@
     },
     "System.Reflection.Extensions/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "Ph0ELqqqz218bGEtnfQ1xegANVQ3v0S/hU12AHpb4HEw8SESssbNCKWEVjeI3y2xDYaVx1aVjM4hZ1QXa4IonQ==",
       "files": [
         "lib/DNXCore50/System.Reflection.Extensions.dll",
@@ -16082,21 +16017,18 @@
         "ref/wp80/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Reflection.Extensions.dll",
-        "System.Reflection.Extensions.4.0.1-beta-23516.nupkg",
         "System.Reflection.Extensions.4.0.1-beta-23516.nupkg.sha512",
         "System.Reflection.Extensions.nuspec"
       ]
     },
     "System.Reflection.Metadata/1.1.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "RLIE4sSt2zngMLuqM6YmxBH99mTumtT4DNZE4+msfEaInUP5iCLQT+BHPl+2cjSAP1pdALyAjLB8RtCB+WGGWQ==",
       "files": [
         "lib/dotnet5.2/System.Reflection.Metadata.dll",
         "lib/dotnet5.2/System.Reflection.Metadata.xml",
         "lib/portable-net45+win8/System.Reflection.Metadata.dll",
         "lib/portable-net45+win8/System.Reflection.Metadata.xml",
-        "System.Reflection.Metadata.1.1.0.nupkg",
         "System.Reflection.Metadata.1.1.0.nupkg.sha512",
         "System.Reflection.Metadata.nuspec"
       ]
@@ -16135,7 +16067,6 @@
     },
     "System.Reflection.TypeExtensions/4.0.1-beta-23409": {
       "type": "package",
-      "serviceable": true,
       "sha512": "n8m144jjCwhN/qtLih35a2sO33fLWm1U3eg51KxqAcAjJcw0nq1zWie8FZognBTPv7BXdW/G8xGbbvDGFoJwZA==",
       "files": [
         "lib/DNXCore50/de/System.Reflection.TypeExtensions.xml",
@@ -16202,14 +16133,12 @@
         "runtimes/win8-aot/lib/netcore50/System.Reflection.TypeExtensions.xml",
         "runtimes/win8-aot/lib/netcore50/zh-hans/System.Reflection.TypeExtensions.xml",
         "runtimes/win8-aot/lib/netcore50/zh-hant/System.Reflection.TypeExtensions.xml",
-        "System.Reflection.TypeExtensions.4.0.1-beta-23409.nupkg",
         "System.Reflection.TypeExtensions.4.0.1-beta-23409.nupkg.sha512",
         "System.Reflection.TypeExtensions.nuspec"
       ]
     },
     "System.Resources.ReaderWriter/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "NQMV4xl+LGD4mfY0reS9EddaYwsvU8xif2n7ruXJw/rn0Vnq4R58eOXkPiXmpePv4Pw4GRHjrnyriWUS+cRysA==",
       "files": [
         "lib/DNXCore50/System.Resources.ReaderWriter.dll",
@@ -16234,7 +16163,6 @@
         "ref/net46/System.Resources.ReaderWriter.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Resources.ReaderWriter.4.0.0-beta-23516.nupkg",
         "System.Resources.ReaderWriter.4.0.0-beta-23516.nupkg.sha512",
         "System.Resources.ReaderWriter.nuspec"
       ]
@@ -16273,7 +16201,6 @@
     },
     "System.Resources.ResourceManager/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "KLzhgVk6aZDbU3jU+zGN3gGIU6hlhPyA8hwGqB1FmJRs/lJl7o9td34+5xm3Mk1va5vHEO8+cRj7te9WdNalHQ==",
       "files": [
         "lib/DNXCore50/System.Resources.ResourceManager.dll",
@@ -16309,7 +16236,6 @@
         "ref/wp80/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Resources.ResourceManager.dll",
-        "System.Resources.ResourceManager.4.0.1-beta-23516.nupkg",
         "System.Resources.ResourceManager.4.0.1-beta-23516.nupkg.sha512",
         "System.Resources.ResourceManager.nuspec"
       ]
@@ -16363,7 +16289,6 @@
     },
     "System.Runtime/4.0.21-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "ToYWwDgwR8fR9/8aaV+7PMFBfG2tEgGWED0l9OC9DQieaKEMAzXV3c6fOkK8FTd9YPjFcYnvx73tg21w6GuNDA==",
       "files": [
         "lib/DNXCore50/System.Runtime.dll",
@@ -16429,7 +16354,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Runtime.dll",
-        "System.Runtime.4.0.21-beta-23516.nupkg",
         "System.Runtime.4.0.21-beta-23516.nupkg.sha512",
         "System.Runtime.nuspec"
       ]
@@ -16483,7 +16407,6 @@
     },
     "System.Runtime.Extensions/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "mpKQVIySlFSvgQkeb9qvXxHOY3jV7H9x5DmPSeNac0APFOG9ROufrMozY3VP/GxBWu4AVS/HDG1lUxg/riE4ew==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -16536,14 +16459,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Runtime.Extensions.4.0.11-beta-23516.nupkg",
         "System.Runtime.Extensions.4.0.11-beta-23516.nupkg.sha512",
         "System.Runtime.Extensions.nuspec"
       ]
     },
     "System.Runtime.Handles/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "jiFQZFiSa0y8tq3dPZDHtHlR7d05oikoLpT02WRR/bqBWt6s0lPcAB7y55dnfZMf+oAZje4k+UUnPTPsKw77YA==",
       "files": [
         "lib/DNXCore50/System.Runtime.Handles.dll",
@@ -16570,7 +16491,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Runtime.Handles.dll",
-        "System.Runtime.Handles.4.0.1-beta-23516.nupkg",
         "System.Runtime.Handles.4.0.1-beta-23516.nupkg.sha512",
         "System.Runtime.Handles.nuspec"
       ]
@@ -16622,7 +16542,6 @@
     },
     "System.Runtime.InteropServices/4.0.21-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "3QodORMX/J/HMQgeBf62yYLESn4g+Gl9XGKEoFNCHGUb03yWqpSVPOD0gSksyb661kRdxR5K4/7I9xjz/GxkRg==",
       "files": [
         "lib/DNXCore50/System.Runtime.InteropServices.dll",
@@ -16686,14 +16605,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Runtime.InteropServices.dll",
-        "System.Runtime.InteropServices.4.0.21-beta-23516.nupkg",
         "System.Runtime.InteropServices.4.0.21-beta-23516.nupkg.sha512",
         "System.Runtime.InteropServices.nuspec"
       ]
     },
     "System.Runtime.Loader/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "ylccFNX65CleXtrFWSCvpGd15E1VGayCAmVK7ppZdwV8ED4Nc4X7VyudvXbw/SDIOAoiHlE/TIFFAusc1XifKQ==",
       "files": [
         "lib/DNXCore50/System.Runtime.Loader.dll",
@@ -16708,7 +16625,6 @@
         "ref/dotnet5.1/System.Runtime.Loader.xml",
         "ref/dotnet5.1/zh-hans/System.Runtime.Loader.xml",
         "ref/dotnet5.1/zh-hant/System.Runtime.Loader.xml",
-        "System.Runtime.Loader.4.0.0-beta-23516.nupkg",
         "System.Runtime.Loader.4.0.0-beta-23516.nupkg.sha512",
         "System.Runtime.Loader.nuspec"
       ]
@@ -16805,7 +16721,6 @@
     },
     "System.Security.Claims/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "uDov+92UOm6t5mShVsXoJa1HIPtxYSsF5sVc+d5WDw+GzgJEw5+VF8NZL0a1mSvvBh3epHdx+MLSrpovcPmcSw==",
       "files": [
         "lib/dotnet5.4/System.Security.Claims.dll",
@@ -16830,14 +16745,12 @@
         "ref/net46/System.Security.Claims.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Security.Claims.4.0.1-beta-23516.nupkg",
         "System.Security.Claims.4.0.1-beta-23516.nupkg.sha512",
         "System.Security.Claims.nuspec"
       ]
     },
     "System.Security.Cryptography.Algorithms/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "h0t6XvR47THFihonJfk2aC3m2YQ94hzF0bFBE9Zgs4td+G+NgIuRmIdGQMFKv3sH7jX5ItOLq/K7uX9M6dvlgQ==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -16852,7 +16765,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Security.Cryptography.Algorithms.4.0.0-beta-23516.nupkg",
         "System.Security.Cryptography.Algorithms.4.0.0-beta-23516.nupkg.sha512",
         "System.Security.Cryptography.Algorithms.nuspec"
       ]
@@ -16895,7 +16807,6 @@
     },
     "System.Security.Cryptography.Encoding/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "XSlFRqbEojrHSEffTWFLw7iPa3ZclvAJ/yjBNoCKr4F/xXvqPu4jcDeSb2loWhLTQkwRJR1AM/U7d0EHU6gxhw==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -16920,14 +16831,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Security.Cryptography.Encoding.4.0.0-beta-23516.nupkg",
         "System.Security.Cryptography.Encoding.4.0.0-beta-23516.nupkg.sha512",
         "System.Security.Cryptography.Encoding.nuspec"
       ]
     },
     "System.Security.Cryptography.Primitives/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "ztiLIQf2hl0ljLzaUeCx5tk+TU8TrHwrEatuKgSl2KoZXxeOCeXnB+oE07xQO7RnnMlPLtX7/ucHQtteh9du7A==",
       "files": [
         "lib/dotnet5.4/System.Security.Cryptography.Primitives.dll",
@@ -16942,14 +16851,12 @@
         "ref/net46/System.Security.Cryptography.Primitives.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Security.Cryptography.Primitives.4.0.0-beta-23516.nupkg",
         "System.Security.Cryptography.Primitives.4.0.0-beta-23516.nupkg.sha512",
         "System.Security.Cryptography.Primitives.nuspec"
       ]
     },
     "System.Security.Cryptography.X509Certificates/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "yIZEPChGR0OcuBjjDPm+CcwPW5HQgRQ2JQrbdRRWaYKI0p9BfbyUbQOb9te26BnBj4WFgFd5zlSxHlW3oX2BkQ==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -16974,14 +16881,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Security.Cryptography.X509Certificates.4.0.0-beta-23516.nupkg",
         "System.Security.Cryptography.X509Certificates.4.0.0-beta-23516.nupkg.sha512",
         "System.Security.Cryptography.X509Certificates.nuspec"
       ]
     },
     "System.Security.Principal/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "mtaQ15TSkjSJRgeET8h41QJQzfXCJjfQsvD5QfZ2oPQq943hM9j6ZRcdBYZ6EtjhC2IXRMUWnrMCFGGNeDLRYQ==",
       "files": [
         "lib/dotnet5.1/System.Security.Principal.dll",
@@ -17016,14 +16921,12 @@
         "ref/win8/_._",
         "ref/wp80/_._",
         "ref/wpa81/_._",
-        "System.Security.Principal.4.0.1-beta-23516.nupkg",
         "System.Security.Principal.4.0.1-beta-23516.nupkg.sha512",
         "System.Security.Principal.nuspec"
       ]
     },
     "System.Security.Principal.Windows/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "W07W6p5aX5Pnb1rmVLZgpVCoWEjVKC1jzOvtZY/s2YvTf6MdPXKmKtTc1aEeF6Rcz/H6cfUAem0jH78FoCgkuA==",
       "files": [
         "lib/DNXCore50/System.Security.Principal.Windows.dll",
@@ -17040,7 +16943,6 @@
         "ref/dotnet5.4/zh-hans/System.Security.Principal.Windows.xml",
         "ref/dotnet5.4/zh-hant/System.Security.Principal.Windows.xml",
         "ref/net46/System.Security.Principal.Windows.dll",
-        "System.Security.Principal.Windows.4.0.0-beta-23516.nupkg",
         "System.Security.Principal.Windows.4.0.0-beta-23516.nupkg.sha512",
         "System.Security.Principal.Windows.nuspec"
       ]
@@ -17094,7 +16996,6 @@
     },
     "System.Text.Encoding/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "OnM2cqPXeOKF8cwgIAygYeCSKsJL7gjBDi3tI8lEaJSdnt4nM3/k4i1+p73oXn8a8tEcFRNvrvNuqsdqxYixXQ==",
       "files": [
         "lib/DNXCore50/System.Text.Encoding.dll",
@@ -17149,7 +17050,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Text.Encoding.dll",
-        "System.Text.Encoding.4.0.11-beta-23516.nupkg",
         "System.Text.Encoding.4.0.11-beta-23516.nupkg.sha512",
         "System.Text.Encoding.nuspec"
       ]
@@ -17203,7 +17103,6 @@
     },
     "System.Text.Encoding.Extensions/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "MeicnBrDzq05un2ioMITyM/5EMvYDIl4YcwWrtQ6jtc4qA6Foe9+m/VGqNWMxCuTu99717iAqdkfPjel/VTiww==",
       "files": [
         "lib/DNXCore50/System.Text.Encoding.Extensions.dll",
@@ -17258,14 +17157,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Text.Encoding.Extensions.dll",
-        "System.Text.Encoding.Extensions.4.0.11-beta-23516.nupkg",
         "System.Text.Encoding.Extensions.4.0.11-beta-23516.nupkg.sha512",
         "System.Text.Encoding.Extensions.nuspec"
       ]
     },
     "System.Text.RegularExpressions/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "ZtarWBvDF7R6pRqo1jxo+uV46Rzxht8rRTe+qSHrr6SLLiZRL4RMncU+mDEn81wF+WL+v81ug20lnssHNHlV+Q==",
       "files": [
         "lib/dotnet5.4/System.Text.RegularExpressions.dll",
@@ -17319,7 +17216,6 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Text.RegularExpressions.4.0.11-beta-23516.nupkg",
         "System.Text.RegularExpressions.4.0.11-beta-23516.nupkg.sha512",
         "System.Text.RegularExpressions.nuspec"
       ]
@@ -17373,7 +17269,6 @@
     },
     "System.Threading/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "vZNXMOIwejg9jS/AkkCs43BIDrzONbT43yhU7X2217Ypi9EZN5X16DwtqBD7eMjDBsA23IRZxuugzUnV8icaxQ==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -17426,7 +17321,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Threading.4.0.11-beta-23516.nupkg",
         "System.Threading.4.0.11-beta-23516.nupkg.sha512",
         "System.Threading.nuspec"
       ]
@@ -17458,7 +17352,6 @@
     },
     "System.Threading.Tasks/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "kO+GZsJrZO+G7DA4xSuDZXaE1haJWia6TdzMt3xt9oTgh5GQ4bwI6UqBUVKhdTKxC3TI+snsbHXPy2+Qmd6i0g==",
       "files": [
         "lib/DNXCore50/System.Threading.Tasks.dll",
@@ -17513,14 +17406,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Threading.Tasks.dll",
-        "System.Threading.Tasks.4.0.11-beta-23516.nupkg",
         "System.Threading.Tasks.4.0.11-beta-23516.nupkg.sha512",
         "System.Threading.Tasks.nuspec"
       ]
     },
     "System.Threading.Tasks.Parallel/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "NbVZDcn2TfJKF6k74x8lOB4MfwXbkbZIPnzCdPrAYAoeisQtxWNChbobx0hqIv4T+EEkRlKdCgMb815ikn+hbA==",
       "files": [
         "lib/dotnet5.4/System.Threading.Tasks.Parallel.dll",
@@ -17553,14 +17444,12 @@
         "ref/netcore50/zh-hant/System.Threading.Tasks.Parallel.xml",
         "ref/win8/_._",
         "ref/wpa81/_._",
-        "System.Threading.Tasks.Parallel.4.0.1-beta-23516.nupkg",
         "System.Threading.Tasks.Parallel.4.0.1-beta-23516.nupkg.sha512",
         "System.Threading.Tasks.Parallel.nuspec"
       ]
     },
     "System.Threading.Thread/4.0.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "/yo7KuZ9zLrB3hdWARrvus3YTAdvvuqHWf2oMNpyG1mpoVlmhRwkZ9JqYRC+TL3hSFHa7mvHa8EItA+BBahlsA==",
       "files": [
         "lib/DNXCore50/System.Threading.Thread.dll",
@@ -17585,14 +17474,12 @@
         "ref/net46/System.Threading.Thread.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Threading.Thread.4.0.0-beta-23516.nupkg",
         "System.Threading.Thread.4.0.0-beta-23516.nupkg.sha512",
         "System.Threading.Thread.nuspec"
       ]
     },
     "System.Threading.ThreadPool/4.0.10-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "s7KzGX8skWrj2raEEWt/qbMUPZJuHlwW6XP1fC4yltuX+6FqPA/D5fag8Q0/TsbcCcC8Q50+fULuHjlCNeblow==",
       "files": [
         "lib/DNXCore50/System.Threading.ThreadPool.dll",
@@ -17617,14 +17504,12 @@
         "ref/net46/System.Threading.ThreadPool.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Threading.ThreadPool.4.0.10-beta-23516.nupkg",
         "System.Threading.ThreadPool.4.0.10-beta-23516.nupkg.sha512",
         "System.Threading.ThreadPool.nuspec"
       ]
     },
     "System.Threading.Timer/4.0.1-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "u+UgCVkiXzQCqPieVlyhI9zy5RzDp/+p4s2WKmPqczDWMnbCkS/cbKUYSlMzFfYaJ2wj4QJDzViFlvjve4lFkQ==",
       "files": [
         "lib/DNXCore50/System.Threading.Timer.dll",
@@ -17658,7 +17543,6 @@
         "ref/win81/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Threading.Timer.dll",
-        "System.Threading.Timer.4.0.1-beta-23516.nupkg",
         "System.Threading.Timer.4.0.1-beta-23516.nupkg.sha512",
         "System.Threading.Timer.nuspec"
       ]
@@ -17695,7 +17579,6 @@
     },
     "System.Xml.XDocument/4.0.11-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "1WwmI3yKK0f65rpVlP0f43LGu8aQ4mhdvkoJ9EjdL38jQuKKdTa5WIm4LlHiM9IM8BRTcwSY1yr6ardFqGGJGQ==",
       "files": [
         "lib/dotnet5.4/System.Xml.XDocument.dll",
@@ -17749,7 +17632,6 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Xml.XDocument.4.0.11-beta-23516.nupkg",
         "System.Xml.XDocument.4.0.11-beta-23516.nupkg.sha512",
         "System.Xml.XDocument.nuspec"
       ]
