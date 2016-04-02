@@ -2,7 +2,7 @@
   "authors": [ "Roger Johansson" ],
   "description": "Microphone.Asp5 Class Library",
   "tags": [ "service discovery", "consul", "etcd", "nancy", "asp.net" ],
-  "version": "1.0.0-*",
+  "version": "0.5.2-*",
   "projectUrl": "https://github.com/rogeralsing/Microphone",
   "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
   "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png",
@@ -19,7 +19,7 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
 
-    "Microphone.Core": "1.0.0-*",
+    "Microphone.Core": "0.5.2-*",
     "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final"
   },
   "frameworks": {

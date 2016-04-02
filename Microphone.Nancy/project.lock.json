@@ -80,7 +80,7 @@
           "lib/net45/_._": {}
         }
       },
-      "Microphone.Core/1.0.0": {
+      "Microphone.Core/0.5.2": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -175,7 +175,7 @@
           "lib/net45/_._": {}
         }
       },
-      "Microphone.Core/1.0.0": {
+      "Microphone.Core/0.5.2": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -270,7 +270,7 @@
           "lib/net45/_._": {}
         }
       },
-      "Microphone.Core/1.0.0": {
+      "Microphone.Core/0.5.2": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -397,7 +397,7 @@
         "runtime.json"
       ]
     },
-    "Microphone.Core/1.0.0": {
+    "Microphone.Core/0.5.2": {
       "type": "project",
       "path": "../Microphone.Core/project.json",
       "msbuildProject": "../Microphone.Core/Microphone.Core.xproj"
@@ -405,7 +405,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microphone.Core >= 1.0.0-*",
+      "Microphone.Core >= 0.5.2-*",
       "Nancy >= 1.4.3",
       "Nancy.Hosting.Self >= 1.4.1"
     ],

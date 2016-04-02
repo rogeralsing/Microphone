@@ -59,7 +59,7 @@
           "lib/net45/_._": {}
         }
       },
-      "Microphone.Core/1.0.0": {
+      "Microphone.Core/0.5.2": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -133,7 +133,7 @@
           "lib/net45/_._": {}
         }
       },
-      "Microphone.Core/1.0.0": {
+      "Microphone.Core/0.5.2": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -207,7 +207,7 @@
           "lib/net45/_._": {}
         }
       },
-      "Microphone.Core/1.0.0": {
+      "Microphone.Core/0.5.2": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -824,7 +824,7 @@
           "lib/DNXCore50/System.Threading.Thread.dll": {}
         }
       },
-      "Microphone.Core/1.0.0": {
+      "Microphone.Core/0.5.2": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -1447,7 +1447,7 @@
           "lib/DNXCore50/System.Threading.Thread.dll": {}
         }
       },
-      "Microphone.Core/1.0.0": {
+      "Microphone.Core/0.5.2": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -2070,7 +2070,7 @@
           "lib/DNXCore50/System.Threading.Thread.dll": {}
         }
       },
-      "Microphone.Core/1.0.0": {
+      "Microphone.Core/0.5.2": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -3744,7 +3744,7 @@
         "ref/xamarinmac20/_._"
       ]
     },
-    "Microphone.Core/1.0.0": {
+    "Microphone.Core/0.5.2": {
       "type": "project",
       "path": "../Microphone.Core/project.json",
       "msbuildProject": "../Microphone.Core/Microphone.Core.xproj"
@@ -3752,7 +3752,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microphone.Core >= 1.0.0-*"
+      "Microphone.Core >= 0.5.2-*"
     ],
     ".NETFramework,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": [
