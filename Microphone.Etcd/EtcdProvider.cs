@@ -26,7 +26,7 @@ namespace Microphone.Etcd
         private string KeyValueUrl(string key) => RootUrl + $"/v2/keys/microphone/values/{key}";
 
 
-        public EtcdProvider(int ttl, int heartBeat) : this("127.0.0.1", 2379, ttl, heartBeat)
+        public EtcdProvider(int ttl, int heartBeat) : this("localhost", 2379, ttl, heartBeat)
         {
         }
 
