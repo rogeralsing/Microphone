@@ -1637,7 +1637,7 @@
     "DNXCore,Version=v5.0": {
       "Microphone.AspNet/1.0.0": {
         "type": "project",
-        "framework": ".NETPlatform,Version=v5.4",
+        "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "Microphone.Core": "1.0.0",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
@@ -1659,7 +1659,7 @@
       },
       "Microphone.Core/1.0.0": {
         "type": "project",
-        "framework": ".NETPlatform,Version=v5.4",
+        "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
@@ -7176,7 +7176,7 @@
     "DNXCore,Version=v5.0/win7-x86": {
       "Microphone.AspNet/1.0.0": {
         "type": "project",
-        "framework": ".NETPlatform,Version=v5.4",
+        "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "Microphone.Core": "1.0.0",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
@@ -7198,7 +7198,7 @@
       },
       "Microphone.Core/1.0.0": {
         "type": "project",
-        "framework": ".NETPlatform,Version=v5.4",
+        "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
@@ -9944,7 +9944,7 @@
     "DNXCore,Version=v5.0/win7-x64": {
       "Microphone.AspNet/1.0.0": {
         "type": "project",
-        "framework": ".NETPlatform,Version=v5.4",
+        "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "Microphone.Core": "1.0.0",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
@@ -9966,7 +9966,7 @@
       },
       "Microphone.Core/1.0.0": {
         "type": "project",
-        "framework": ".NETPlatform,Version=v5.4",
+        "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
