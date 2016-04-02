@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -29,11 +28,8 @@ namespace Microphone.Core.ClusterProviders
         }
 
         private string RootUrl => $"http://{_consulHost}:{_consulPort}";
-        private string KeyValueUrl(string key) => RootUrl  + "/v1/kv/" + key;
         private string CriticalServicesUrl => RootUrl + "/v1/health/state/critical";
-        private string ServiceHealthUrl(string service) => RootUrl + "/v1/health/service/" + service;
         private string RegisterServiceUrl => RootUrl + "/v1/agent/service/register";
-        private string DeregisterServiceUrl(string service) => RootUrl + "/v1/agent/service/deregister/" + service;
 
         public async Task<ServiceInformation[]> FindServiceInstancesAsync(string name)
         {
@@ -65,19 +61,6 @@ namespace Microphone.Core.ClusterProviders
             }
         }
 
-        public static string GetLocalIPAddress()
-        {
-            var host = Dns.GetHostEntryAsync(Dns.GetHostName()).Result;
-            foreach (var ip in host.AddressList)
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
-            }
-            throw new Exception("Local IP Address Not Found!");
-        }
-
         public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
         {
             _serviceName = serviceName;
@@ -85,10 +68,11 @@ namespace Microphone.Core.ClusterProviders
             _version = version;
             _uri = uri;
 
-            var localIp = GetLocalIPAddress();
+            var localIp = DnsUtils.GetLocalIPAddress();
             var check = "http://" + localIp + ":" + uri.Port + "/status";
 
-            Logger.Information($"Registering service on {localIp} on Consul {_consulHost}:{_consulPort} with status check {check}");
+            Logger.Information(
+                $"Registering service on {localIp} on Consul {_consulHost}:{_consulPort} with status check {check}");
             var payload = new
             {
                 ID = serviceId,
@@ -114,10 +98,7 @@ namespace Microphone.Core.ClusterProviders
                 {
                     throw new Exception("Could not register service");
                 }
-                else
-                {
-                    Logger.Information($"Registration successful");
-                }
+                Logger.Information($"Registration successful");
             }
             StartReaper();
         }
@@ -127,6 +108,51 @@ namespace Microphone.Core.ClusterProviders
             StartReaper();
             return Task.FromResult(0);
         }
+
+        public async Task KeyValuePutAsync(string key, object value)
+        {
+            using (var client = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(value);
+                var content = new StringContent(json);
+
+                var response = await client.PutAsync(KeyValueUrl(key), content);
+
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not put value");
+                }
+            }
+        }
+
+        public async Task<T> KeyValueGetAsync<T>(string key)
+        {
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(KeyValueUrl(key));
+
+                if (response.StatusCode == HttpStatusCode.NotFound)
+                {
+                    throw new Exception($"There is no value for key \"{key}\"");
+                }
+
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not get value");
+                }
+
+                var body = await response.Content.ReadAsStringAsync();
+                var deserializedBody = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(body);
+                var bytes = Convert.FromBase64String((string) deserializedBody[0]["Value"]);
+                var strValue = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
+
+                return JsonConvert.DeserializeObject<T>(strValue);
+            }
+        }
+
+        private string KeyValueUrl(string key) => RootUrl + "/v1/kv/" + key;
+        private string ServiceHealthUrl(string service) => RootUrl + "/v1/health/service/" + service;
+        private string DeregisterServiceUrl(string service) => RootUrl + "/v1/agent/service/deregister/" + service;
 
         private void StartReaper()
         {
@@ -183,47 +209,6 @@ namespace Microphone.Core.ClusterProviders
                     await Task.Delay(5000);
                 }
             });
-        }
-
-        public async Task KeyValuePutAsync(string key, object value)
-        {
-            using (var client = new HttpClient())
-            {
-                var json = JsonConvert.SerializeObject(value);
-                var content = new StringContent(json);
-
-                var response = await client.PutAsync(KeyValueUrl(key), content);
-
-                if (response.StatusCode != HttpStatusCode.OK)
-                {
-                    throw new Exception("Could not put value");
-                }
-            }
-        }
-
-        public async Task<T> KeyValueGetAsync<T>(string key)
-        {
-            using (var client = new HttpClient())
-            {
-                var response = await client.GetAsync(KeyValueUrl(key));
-
-                if (response.StatusCode == HttpStatusCode.NotFound)
-                {
-                    throw new Exception($"There is no value for key \"{key}\"");
-                }
-
-                if (response.StatusCode != HttpStatusCode.OK)
-                {
-                    throw new Exception("Could not get value");
-                }
-
-                var body = await response.Content.ReadAsStringAsync();
-                var deserializedBody = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(body);
-                var bytes = Convert.FromBase64String((string) deserializedBody[0]["Value"]);
-                var strValue = Encoding.UTF8.GetString(bytes,0,bytes.Length);
-
-                return JsonConvert.DeserializeObject<T>(strValue);
-            }
         }
     }
 }

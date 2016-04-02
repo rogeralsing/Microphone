@@ -12,6 +12,6 @@ namespace Microphone.Nancy
                 Logger.Information("OK");
                 return "ok";
             };
-        }        
+        }
     }
 }

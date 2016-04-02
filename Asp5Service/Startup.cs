@@ -1,5 +1,4 @@
-﻿using System;
-using Microphone.AspNet;
+﻿using Microphone.AspNet;
 using Microphone.Core.ClusterProviders;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
@@ -37,7 +36,7 @@ namespace AspNetService
             app.UseIISPlatformHandler();
             app.UseMvc();
             var consulHost = Configuration["CONSULHOST"] ?? "localhost";
-            app.UseMicrophone(new ConsulProvider(consulHost: consulHost), "AspNetService", "1.0");
+            app.UseMicrophone(new ConsulProvider(consulHost), "AspNetService", "1.0");
         }
 
         // Entry point for the application.

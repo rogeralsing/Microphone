@@ -20,11 +20,6 @@ namespace Microphone.Etcd
         private string _serviceId;
         private string _serviceName;
 
-        private string RootUrl => $"http://{_etcdHost}:{_etcdPort}";
-        private string ServiceUrl(string serviceName) => RootUrl + $"/v2/keys/microphone/services/{serviceName}";
-        private string RegisterServiceUrl(string serviceName, string serviceId) => ServiceUrl(serviceName) + $"/{serviceId}";
-        private string KeyValueUrl(string key) => RootUrl + $"/v2/keys/microphone/values/{key}";
-
 
         public EtcdProvider(int ttl, int heartBeat) : this("localhost", 2379, ttl, heartBeat)
         {
@@ -37,6 +32,8 @@ namespace Microphone.Etcd
             _ectdTtl = ttl;
             _ectdHeartbeart = heartBeat;
         }
+
+        private string RootUrl => $"http://{_etcdHost}:{_etcdPort}";
 
         public async Task<ServiceInformation[]> FindServiceInstancesAsync(string serviceName)
         {
@@ -119,6 +116,13 @@ namespace Microphone.Etcd
                 return obj;
             }
         }
+
+        private string ServiceUrl(string serviceName) => RootUrl + $"/v2/keys/microphone/services/{serviceName}";
+
+        private string RegisterServiceUrl(string serviceName, string serviceId)
+            => ServiceUrl(serviceName) + $"/{serviceId}";
+
+        private string KeyValueUrl(string key) => RootUrl + $"/v2/keys/microphone/values/{key}";
 
         private void StartHeartbeat(Func<Task> registerService)
         {

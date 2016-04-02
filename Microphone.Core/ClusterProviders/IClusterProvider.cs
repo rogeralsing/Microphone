@@ -25,6 +25,4 @@ namespace Microphone.Core.ClusterProviders
             return res[ThreadLocalRandom.Current.Next(0, res.Length)];
         }
     }
-
-
 }

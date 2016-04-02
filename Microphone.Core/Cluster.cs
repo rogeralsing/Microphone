@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Net;
-using System.Reflection;
 using System.Threading.Tasks;
 using Microphone.Core.ClusterProviders;
 
@@ -21,6 +19,7 @@ namespace Microphone.Core
             return _clusterProvider.FindServiceInstanceAsync(name);
         }
 
+
         public static void BootstrapClient(IClusterProvider clusterProvider)
         {
             _clusterProvider = clusterProvider;
@@ -29,19 +28,19 @@ namespace Microphone.Core
 
         public static void Bootstrap(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider,
             string serviceName, string version)
-        {            
+        {
             Logger.Information("Bootstrapping microphone..");
             _frameworkProvider = frameworkProvider;
             var uri = _frameworkProvider.Start(serviceName, version);
-            var serviceId = serviceName + "_" + Dns.GetHostName() + "_" + uri.Port;
+            var serviceId = serviceName + "_" + DnsUtils.GetLocalEscapedIPAddress() + "_" + uri.Port;
             _clusterProvider = clusterProvider;
             try
-            {               
+            {
                 _clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri).Wait();
             }
             catch (Exception x)
             {
-                Logger.Error(x,$"Could not register service {serviceId} using {frameworkProvider.GetType().Name}");
+                Logger.Error(x, $"Could not register service {serviceId} using {frameworkProvider.GetType().Name}");
             }
         }
 
@@ -54,6 +53,5 @@ namespace Microphone.Core
         {
             return _clusterProvider.KeyValueGetAsync<T>(key);
         }
-
     }
 }

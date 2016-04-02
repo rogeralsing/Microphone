@@ -23,7 +23,7 @@ namespace Microphone.AspNet
             }
             catch
             {
-                Console.WriteLine("Error...");                
+                Console.WriteLine("Error...");
             }
             return self;
         }
