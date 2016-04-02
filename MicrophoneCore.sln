@@ -15,9 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Microphone.AspNet\global.json = Microphone.AspNet\global.json
 		Asp5Service\global.json = Asp5Service\global.json
+		Microphone.Nancy\global.json = Microphone.Nancy\global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microphone.Nancy2", "Microphone.Nancy\Microphone.Nancy2.xproj", "{401C17A4-097D-4CEF-BD3A-C476BA349FA8}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microphone.Nancy", "Microphone.Nancy\Microphone.Nancy.xproj", "{401C17A4-097D-4CEF-BD3A-C476BA349FA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
