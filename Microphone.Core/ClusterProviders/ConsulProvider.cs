@@ -80,17 +80,18 @@ namespace Microphone.Core.ClusterProviders
 
         public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
         {
-            Logger.Information($"Registering service at {_consulHost}:{_consulPort}");
             _serviceName = serviceName;
             _serviceId = serviceId;
             _version = version;
             _uri = uri;
+            var localIp = GetLocalIPAddress();
+            Logger.Information($"Registering service on {localIp} on Consul {_consulHost}:{_consulPort}");
             var payload = new
             {
                 ID = serviceId,
                 Name = serviceName,
                 Tags = new[] {$"urlprefix-/{serviceName}"},
-                Address = GetLocalIPAddress(),
+                Address = localIp,
                 // ReSharper disable once RedundantAnonymousTypePropertyName
                 Port = uri.Port,
                 Check = new
@@ -109,6 +110,10 @@ namespace Microphone.Core.ClusterProviders
                 if (res.StatusCode != HttpStatusCode.OK)
                 {
                     throw new Exception("Could not register service");
+                }
+                else
+                {
+                    Logger.Information($"Registration successful");
                 }
             }
             StartReaper();
