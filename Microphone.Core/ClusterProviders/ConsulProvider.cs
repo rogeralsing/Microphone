@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -27,7 +28,7 @@ namespace Microphone.Core.ClusterProviders
             _useEbayFabio = useEbayFabio;
         }
 
-        private string RootUrl => $"http://{_consulHost}:{_consulPort}/";
+        private string RootUrl => $"http://{_consulHost}:{_consulPort}";
         private string KeyValueUrl(string key) => RootUrl  + "/v1/kv/" + key;
         private string CriticalServicesUrl => RootUrl + "/v1/health/state/critical";
         private string ServiceHealthUrl(string service) => RootUrl + "/v1/health/service/" + service;
@@ -64,8 +65,22 @@ namespace Microphone.Core.ClusterProviders
             }
         }
 
+        public static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntryAsync(Dns.GetHostName()).Result;
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("Local IP Address Not Found!");
+        }
+
         public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
         {
+            Logger.Information($"Registering service at {_consulHost}:{_consulPort}");
             _serviceName = serviceName;
             _serviceId = serviceId;
             _version = version;
@@ -75,7 +90,7 @@ namespace Microphone.Core.ClusterProviders
                 ID = serviceId,
                 Name = serviceName,
                 Tags = new[] {$"urlprefix-/{serviceName}"},
-                Address = Dns.GetHostName(),
+                Address = GetLocalIPAddress(),
                 // ReSharper disable once RedundantAnonymousTypePropertyName
                 Port = uri.Port,
                 Check = new

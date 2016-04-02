@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microphone.Core.ClusterProviders;
 
@@ -28,7 +29,8 @@ namespace Microphone.Core
 
         public static void Bootstrap(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider,
             string serviceName, string version)
-        {
+        {            
+            Logger.Information("Bootstrapping microphone..");
             _frameworkProvider = frameworkProvider;
             var uri = _frameworkProvider.Start(serviceName, version);
             var serviceId = serviceName + "_" + Dns.GetHostName() + "_" + uri.Port;
