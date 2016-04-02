@@ -85,7 +85,7 @@ namespace Microphone.Core.ClusterProviders
             _version = version;
             _uri = uri;
             var localIp = GetLocalIPAddress();
-            Logger.Information($"Registering service on {localIp} on Consul {_consulHost}:{_consulPort}");
+            Logger.Information($"Registering service on {localIp} on Consul {_consulHost}:{_consulPort} with status check {uri}status");
             var payload = new
             {
                 ID = serviceId,
@@ -96,7 +96,7 @@ namespace Microphone.Core.ClusterProviders
                 Port = uri.Port,
                 Check = new
                 {
-                    HTTP = uri + "/status",
+                    HTTP = uri + "status",
                     Interval = "1s"
                 }
             };
@@ -129,7 +129,7 @@ namespace Microphone.Core.ClusterProviders
         {
             Task.Factory.StartNew(async () =>
             {
-                await Task.Delay(1000);
+                await Task.Delay(10000);
                 Logger.Information("Reaper: started..");
 
                 var lookup = new HashSet<string>();
