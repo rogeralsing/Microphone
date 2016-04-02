@@ -21,3 +21,6 @@ rd bin /s /q
 dotnet restore
 dotnet pack
 cd ..
+
+cd Asp5Service\
+docker build -t rogeralsing/aspnetmicrophone .
