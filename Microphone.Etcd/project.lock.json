@@ -75,7 +75,6 @@
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
           "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
@@ -841,7 +840,6 @@
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
           "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
@@ -1761,7 +1759,6 @@
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
           "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
@@ -2734,7 +2731,6 @@
     },
     "Microsoft.Win32.Primitives/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "CypEz9/lLOup8CEhiAmvr7aLs1zKPYyEU1sxQeEr6G0Ci8/F0Y6pYR1zzkROjM8j8Mq0typmbu676oYyvErQvg==",
       "files": [
         "lib/dotnet/Microsoft.Win32.Primitives.dll",
@@ -2743,7 +2739,6 @@
         "lib/net46/Microsoft.Win32.Primitives.dll",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "Microsoft.Win32.Primitives.4.0.0.nupkg",
         "Microsoft.Win32.Primitives.4.0.0.nupkg.sha512",
         "Microsoft.Win32.Primitives.nuspec",
         "ref/dotnet/de/Microsoft.Win32.Primitives.xml",
@@ -2804,7 +2799,6 @@
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
-        "Newtonsoft.Json.8.0.2.nupkg",
         "Newtonsoft.Json.8.0.2.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "tools/install.ps1"
@@ -2965,7 +2959,6 @@
         "lib/dotnet5.4/Serilog.xml",
         "lib/net45/Serilog.dll",
         "lib/net45/Serilog.xml",
-        "Serilog.2.0.0-beta-523.nupkg",
         "Serilog.2.0.0-beta-523.nupkg.sha512",
         "Serilog.nuspec"
       ]
@@ -2982,7 +2975,6 @@
         "lib/net45/Serilog.Sinks.ColoredConsole.dll",
         "lib/net45/Serilog.Sinks.ColoredConsole.xml",
         "lib/net45/Serilog.xml",
-        "Serilog.Sinks.ColoredConsole.2.0.0-beta-465.nupkg",
         "Serilog.Sinks.ColoredConsole.2.0.0-beta-465.nupkg.sha512",
         "Serilog.Sinks.ColoredConsole.nuspec"
       ]
@@ -3110,7 +3102,6 @@
     },
     "System.Collections.NonGeneric/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "rVgwrFBMkmp8LI6GhAYd6Bx+2uLIXjRfNg6Ie+ASfX8ESuh9e2HNxFy2yh1MPIXZq3OAYa+0mmULVwpnEC6UDA==",
       "files": [
         "lib/dotnet/System.Collections.NonGeneric.dll",
@@ -3135,14 +3126,12 @@
         "ref/net46/System.Collections.NonGeneric.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Collections.NonGeneric.4.0.0.nupkg",
         "System.Collections.NonGeneric.4.0.0.nupkg.sha512",
         "System.Collections.NonGeneric.nuspec"
       ]
     },
     "System.ComponentModel.EventBasedAsync/4.0.10": {
       "type": "package",
-      "serviceable": true,
       "sha512": "d6kXcHUgP0jSPXEQ6hXJYCO6CzfoCi7t9vR3BfjSQLrj4HzpuATpx1gkN7itmTW1O+wjuw6rai4378Nj6N70yw==",
       "files": [
         "lib/dotnet/System.ComponentModel.EventBasedAsync.dll",
@@ -3167,7 +3156,6 @@
         "ref/net46/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.ComponentModel.EventBasedAsync.4.0.10.nupkg",
         "System.ComponentModel.EventBasedAsync.4.0.10.nupkg.sha512",
         "System.ComponentModel.EventBasedAsync.nuspec"
       ]
@@ -3206,7 +3194,6 @@
     },
     "System.Diagnostics.Debug/4.0.10": {
       "type": "package",
-      "serviceable": true,
       "sha512": "pi2KthuvI2LWV2c2V+fwReDsDiKpNl040h6DcwFOb59SafsPT/V1fCy0z66OKwysurJkBMmp5j5CBe3Um+ub0g==",
       "files": [
         "lib/DNXCore50/System.Diagnostics.Debug.dll",
@@ -3233,14 +3220,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Diagnostics.Debug.dll",
-        "System.Diagnostics.Debug.4.0.10.nupkg",
         "System.Diagnostics.Debug.4.0.10.nupkg.sha512",
         "System.Diagnostics.Debug.nuspec"
       ]
     },
     "System.Diagnostics.Process/4.1.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "uXV0y5jByAnFDoQRHVpsMvqzjYeIhSSiKP0U++erIae/9DFULDlhxpzJsKVC2BU44QGyGoShUbgxBuFyMr3gPA==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -3278,7 +3263,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
-        "System.Diagnostics.Process.4.1.0-beta-23516.nupkg",
         "System.Diagnostics.Process.4.1.0-beta-23516.nupkg.sha512",
         "System.Diagnostics.Process.nuspec"
       ]
@@ -3317,7 +3301,6 @@
     },
     "System.Diagnostics.Tracing/4.0.20": {
       "type": "package",
-      "serviceable": true,
       "sha512": "gn/wexGHc35Fv++5L1gYHMY5g25COfiZ0PGrL+3PfwzoJd4X2LbTAm/U8d385SI6BKQBI/z4dQfvneS9J27+Tw==",
       "files": [
         "lib/DNXCore50/System.Diagnostics.Tracing.dll",
@@ -3344,7 +3327,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Diagnostics.Tracing.dll",
-        "System.Diagnostics.Tracing.4.0.20.nupkg",
         "System.Diagnostics.Tracing.4.0.20.nupkg.sha512",
         "System.Diagnostics.Tracing.nuspec"
       ]
@@ -3392,7 +3374,6 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Dynamic.Runtime.4.0.0.nupkg",
         "System.Dynamic.Runtime.4.0.0.nupkg.sha512",
         "System.Dynamic.Runtime.nuspec"
       ]
@@ -3595,7 +3576,6 @@
     },
     "System.IO.FileSystem.Primitives/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "7pJUvYi/Yq3A5nagqCCiOw3+aJp3xXc/Cjr8dnJDnER3/6kX3LEencfqmXUcPl9+7OvRNyPMNhqsLAcMK6K/KA==",
       "files": [
         "lib/dotnet/System.IO.FileSystem.Primitives.dll",
@@ -3620,7 +3600,6 @@
         "ref/net46/System.IO.FileSystem.Primitives.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.IO.FileSystem.Primitives.4.0.0.nupkg",
         "System.IO.FileSystem.Primitives.4.0.0.nupkg.sha512",
         "System.IO.FileSystem.Primitives.nuspec"
       ]
@@ -3710,7 +3689,6 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Linq.Expressions.4.0.0.nupkg",
         "System.Linq.Expressions.4.0.0.nupkg.sha512",
         "System.Linq.Expressions.nuspec"
       ]
@@ -3788,7 +3766,6 @@
     },
     "System.Net.Primitives/4.0.10": {
       "type": "package",
-      "serviceable": true,
       "sha512": "YQqIpmMhnKjIbT7rl6dlf7xM5DxaMR+whduZ9wKb9OhMLjoueAJO3HPPJI+Naf3v034kb+xZqdc3zo44o3HWcg==",
       "files": [
         "lib/DNXCore50/System.Net.Primitives.dll",
@@ -3814,7 +3791,6 @@
         "ref/net46/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Net.Primitives.4.0.10.nupkg",
         "System.Net.Primitives.4.0.10.nupkg.sha512",
         "System.Net.Primitives.nuspec"
       ]
@@ -3864,7 +3840,6 @@
     },
     "System.ObjectModel/4.0.10": {
       "type": "package",
-      "serviceable": true,
       "sha512": "Djn1wb0vP662zxbe+c3mOhvC4vkQGicsFs1Wi0/GJJpp3Eqp+oxbJ+p2Sx3O0efYueggAI5SW+BqEoczjfr1cA==",
       "files": [
         "lib/dotnet/System.ObjectModel.dll",
@@ -3889,21 +3864,18 @@
         "ref/net46/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.ObjectModel.4.0.10.nupkg",
         "System.ObjectModel.4.0.10.nupkg.sha512",
         "System.ObjectModel.nuspec"
       ]
     },
     "System.Private.Networking/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "RUEqdBdJjISC65dO8l4LdN7vTdlXH+attUpKnauDUHVtLbIKdlDB9LKoLzCQsTQRP7vzUJHWYXznHJBkjAA7yA==",
       "files": [
         "lib/DNXCore50/System.Private.Networking.dll",
         "lib/netcore50/System.Private.Networking.dll",
         "ref/dnxcore50/_._",
         "ref/netcore50/_._",
-        "System.Private.Networking.4.0.0.nupkg",
         "System.Private.Networking.4.0.0.nupkg.sha512",
         "System.Private.Networking.nuspec"
       ]
@@ -3962,7 +3934,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Reflection.dll",
-        "System.Reflection.4.0.10.nupkg",
         "System.Reflection.4.0.10.nupkg.sha512",
         "System.Reflection.nuspec"
       ]
@@ -4012,7 +3983,6 @@
     },
     "System.Reflection.Primitives/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "n9S0XpKv2ruc17FSnaiX6nV47VfHTZ1wLjKZlAirUZCvDQCH71mVp+Ohabn0xXLh5pK2PKp45HCxkqu5Fxn/lA==",
       "files": [
         "lib/DNXCore50/System.Reflection.Primitives.dll",
@@ -4039,14 +4009,12 @@
         "ref/wp80/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Reflection.Primitives.dll",
-        "System.Reflection.Primitives.4.0.0.nupkg",
         "System.Reflection.Primitives.4.0.0.nupkg.sha512",
         "System.Reflection.Primitives.nuspec"
       ]
     },
     "System.Reflection.TypeExtensions/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "YRM/msNAM86hdxPyXcuZSzmTO0RQFh7YMEPBLTY8cqXvFPYIx2x99bOyPkuU81wRYQem1c1HTkImQ2DjbOBfew==",
       "files": [
         "lib/DNXCore50/System.Reflection.TypeExtensions.dll",
@@ -4073,14 +4041,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Reflection.TypeExtensions.dll",
-        "System.Reflection.TypeExtensions.4.0.0.nupkg",
         "System.Reflection.TypeExtensions.4.0.0.nupkg.sha512",
         "System.Reflection.TypeExtensions.nuspec"
       ]
     },
     "System.Resources.ResourceManager/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "qmqeZ4BJgjfU+G2JbrZt4Dk1LsMxO4t+f/9HarNY6w8pBgweO6jT+cknUH7c3qIrGvyUqraBhU45Eo6UtA0fAw==",
       "files": [
         "lib/DNXCore50/System.Resources.ResourceManager.dll",
@@ -4107,7 +4073,6 @@
         "ref/wp80/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Resources.ResourceManager.dll",
-        "System.Resources.ResourceManager.4.0.0.nupkg",
         "System.Resources.ResourceManager.4.0.0.nupkg.sha512",
         "System.Resources.ResourceManager.nuspec"
       ]
@@ -4247,7 +4212,6 @@
     },
     "System.Runtime.Handles/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "638VhpRq63tVcQ6HDb3um3R/J2BtR1Sa96toHo6PcJGPXEPEsleCuqhBgX2gFCz0y0qkutANwW6VPPY5wQu1XQ==",
       "files": [
         "lib/DNXCore50/System.Runtime.Handles.dll",
@@ -4274,14 +4238,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Runtime.Handles.dll",
-        "System.Runtime.Handles.4.0.0.nupkg",
         "System.Runtime.Handles.4.0.0.nupkg.sha512",
         "System.Runtime.Handles.nuspec"
       ]
     },
     "System.Runtime.InteropServices/4.0.20": {
       "type": "package",
-      "serviceable": true,
       "sha512": "ZgDyBYfEnjWoz/viS6VOswA6XOkDSH2DzgbpczbW50RywhnCgTl+w3JEvtAiOGyIh8cyx1NJq80jsNBSUr8Pig==",
       "files": [
         "lib/DNXCore50/System.Runtime.InteropServices.dll",
@@ -4308,14 +4270,12 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Runtime.InteropServices.dll",
-        "System.Runtime.InteropServices.4.0.20.nupkg",
         "System.Runtime.InteropServices.4.0.20.nupkg.sha512",
         "System.Runtime.InteropServices.nuspec"
       ]
     },
     "System.Runtime.Serialization.Primitives/4.1.0-beta-23516": {
       "type": "package",
-      "serviceable": true,
       "sha512": "Dsl95PE2vyGIy9voclfTVKSqYD8O4PjsMS+TV0bM3N1xNraS2BBaChGk1stGmf04cn2/xA3cZyh80bkZL+v1/Q==",
       "files": [
         "lib/dotnet5.4/System.Runtime.Serialization.Primitives.dll",
@@ -4369,7 +4329,6 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Runtime.Serialization.Primitives.4.1.0-beta-23516.nupkg",
         "System.Runtime.Serialization.Primitives.4.1.0-beta-23516.nupkg.sha512",
         "System.Runtime.Serialization.Primitives.nuspec"
       ]
@@ -4558,7 +4517,6 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Text.Encoding.4.0.0.nupkg",
         "System.Text.Encoding.4.0.0.nupkg.sha512",
         "System.Text.Encoding.nuspec"
       ]
@@ -4752,7 +4710,6 @@
     },
     "System.Threading.Overlapped/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "X5LuQFhM5FTqaez3eXKJ9CbfSGZ7wj6j4hSVtxct3zmwQXLqG95qoWdvILcgN7xtrDOBIFtpiyDg0vmoI0jE2A==",
       "files": [
         "lib/DNXCore50/System.Threading.Overlapped.dll",
@@ -4770,14 +4727,12 @@
         "ref/dotnet/zh-hans/System.Threading.Overlapped.xml",
         "ref/dotnet/zh-hant/System.Threading.Overlapped.xml",
         "ref/net46/System.Threading.Overlapped.dll",
-        "System.Threading.Overlapped.4.0.0.nupkg",
         "System.Threading.Overlapped.4.0.0.nupkg.sha512",
         "System.Threading.Overlapped.nuspec"
       ]
     },
     "System.Threading.Tasks/4.0.10": {
       "type": "package",
-      "serviceable": true,
       "sha512": "NOwJGDfk79jR0bnzosbXLVD/PdI8KzBeESoa3CofEM5v9R5EBfcI0Jyf18stx+0IYV9okmDIDxVtxq9TbnR9bQ==",
       "files": [
         "lib/DNXCore50/System.Threading.Tasks.dll",
@@ -4804,7 +4759,6 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Threading.Tasks.dll",
-        "System.Threading.Tasks.4.0.10.nupkg",
         "System.Threading.Tasks.4.0.10.nupkg.sha512",
         "System.Threading.Tasks.nuspec"
       ]
@@ -4880,7 +4834,6 @@
     ],
     ".NETFramework,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": [
-      "Microsoft.CSharp >= 4.0.1-beta-23516",
       "System.Collections >= 4.0.11-beta-23516",
       "System.Linq >= 4.0.1-beta-23516",
       "System.Runtime >= 4.0.21-beta-23516",

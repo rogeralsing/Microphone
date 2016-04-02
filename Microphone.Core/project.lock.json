@@ -39,12 +39,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         }
       },
       "System.Net.Http/4.0.1-beta-23516": {
@@ -143,12 +143,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         }
       },
       "System.Collections/4.0.11-beta-23516": {
@@ -704,12 +704,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         }
       },
       "System.Net.Http/4.0.1-beta-23516": {
@@ -768,12 +768,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         }
       },
       "System.Net.Http/4.0.1-beta-23516": {
@@ -1061,12 +1061,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         }
       },
       "System.Collections/4.0.11-beta-23516": {
@@ -1964,12 +1964,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.dll": {},
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/dotnet5.1/Serilog.dll": {}
         }
       },
       "System.Collections/4.0.11-beta-23516": {
@@ -2649,7 +2649,6 @@
     },
     "Microsoft.Win32.Primitives/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "CypEz9/lLOup8CEhiAmvr7aLs1zKPYyEU1sxQeEr6G0Ci8/F0Y6pYR1zzkROjM8j8Mq0typmbu676oYyvErQvg==",
       "files": [
         "lib/dotnet/Microsoft.Win32.Primitives.dll",
@@ -2658,7 +2657,6 @@
         "lib/net46/Microsoft.Win32.Primitives.dll",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "Microsoft.Win32.Primitives.4.0.0.nupkg",
         "Microsoft.Win32.Primitives.4.0.0.nupkg.sha512",
         "Microsoft.Win32.Primitives.nuspec",
         "ref/dotnet/de/Microsoft.Win32.Primitives.xml",
@@ -2895,7 +2893,6 @@
         "lib/net45/Serilog.Sinks.ColoredConsole.dll",
         "lib/net45/Serilog.Sinks.ColoredConsole.xml",
         "lib/net45/Serilog.xml",
-        "Serilog.Sinks.ColoredConsole.2.0.0-beta-465.nupkg",
         "Serilog.Sinks.ColoredConsole.2.0.0-beta-465.nupkg.sha512",
         "Serilog.Sinks.ColoredConsole.nuspec"
       ]
@@ -3023,7 +3020,6 @@
     },
     "System.Collections.NonGeneric/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "rVgwrFBMkmp8LI6GhAYd6Bx+2uLIXjRfNg6Ie+ASfX8ESuh9e2HNxFy2yh1MPIXZq3OAYa+0mmULVwpnEC6UDA==",
       "files": [
         "lib/dotnet/System.Collections.NonGeneric.dll",
@@ -3048,14 +3044,12 @@
         "ref/net46/System.Collections.NonGeneric.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Collections.NonGeneric.4.0.0.nupkg",
         "System.Collections.NonGeneric.4.0.0.nupkg.sha512",
         "System.Collections.NonGeneric.nuspec"
       ]
     },
     "System.ComponentModel.EventBasedAsync/4.0.10": {
       "type": "package",
-      "serviceable": true,
       "sha512": "d6kXcHUgP0jSPXEQ6hXJYCO6CzfoCi7t9vR3BfjSQLrj4HzpuATpx1gkN7itmTW1O+wjuw6rai4378Nj6N70yw==",
       "files": [
         "lib/dotnet/System.ComponentModel.EventBasedAsync.dll",
@@ -3080,7 +3074,6 @@
         "ref/net46/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.ComponentModel.EventBasedAsync.4.0.10.nupkg",
         "System.ComponentModel.EventBasedAsync.4.0.10.nupkg.sha512",
         "System.ComponentModel.EventBasedAsync.nuspec"
       ]
@@ -3795,14 +3788,12 @@
     },
     "System.Private.Networking/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "RUEqdBdJjISC65dO8l4LdN7vTdlXH+attUpKnauDUHVtLbIKdlDB9LKoLzCQsTQRP7vzUJHWYXznHJBkjAA7yA==",
       "files": [
         "lib/DNXCore50/System.Private.Networking.dll",
         "lib/netcore50/System.Private.Networking.dll",
         "ref/dnxcore50/_._",
         "ref/netcore50/_._",
-        "System.Private.Networking.4.0.0.nupkg",
         "System.Private.Networking.4.0.0.nupkg.sha512",
         "System.Private.Networking.nuspec"
       ]
@@ -4637,7 +4628,6 @@
     },
     "System.Threading.Overlapped/4.0.0": {
       "type": "package",
-      "serviceable": true,
       "sha512": "X5LuQFhM5FTqaez3eXKJ9CbfSGZ7wj6j4hSVtxct3zmwQXLqG95qoWdvILcgN7xtrDOBIFtpiyDg0vmoI0jE2A==",
       "files": [
         "lib/DNXCore50/System.Threading.Overlapped.dll",
@@ -4655,7 +4645,6 @@
         "ref/dotnet/zh-hans/System.Threading.Overlapped.xml",
         "ref/dotnet/zh-hant/System.Threading.Overlapped.xml",
         "ref/net46/System.Threading.Overlapped.dll",
-        "System.Threading.Overlapped.4.0.0.nupkg",
         "System.Threading.Overlapped.4.0.0.nupkg.sha512",
         "System.Threading.Overlapped.nuspec"
       ]
@@ -4766,7 +4755,6 @@
     ],
     ".NETFramework,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": [
-      "Microsoft.CSharp >= 4.0.1-beta-23516",
       "System.Collections >= 4.0.11-beta-23516",
       "System.Linq >= 4.0.1-beta-23516",
       "System.Runtime >= 4.0.21-beta-23516",

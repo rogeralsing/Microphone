@@ -1645,7 +1645,6 @@
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
           "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
           "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
           "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
           "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
@@ -1661,7 +1660,6 @@
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
           "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
@@ -7184,7 +7182,6 @@
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
           "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
           "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
           "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
           "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
@@ -7200,7 +7197,6 @@
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
           "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
@@ -9952,7 +9948,6 @@
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
           "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
           "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
           "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
           "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
@@ -9968,7 +9963,6 @@
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
           "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
