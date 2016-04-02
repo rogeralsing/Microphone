@@ -7,8 +7,8 @@
   "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
   "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png",
   "dependencies": {
-    "Microphone.Core": "1.0.0-*",
-    "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
+    "Microsoft.CodeAnalysis.Common": "1.1.1",
+    "Microsoft.CodeAnalysis.CSharp": "1.1.1",
     "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
     "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
     "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
@@ -17,7 +17,10 @@
     "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final"
+    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
+
+    "Microphone.Core": "1.0.0-*",
+    "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final"
   },
   "frameworks": {
     "net451": { },

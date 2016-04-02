@@ -3,16 +3,6 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5.1": {
-      "Microphone.Core/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Newtonsoft.Json": "8.0.2",
-          "Serilog": "2.0.0-beta-523",
-          "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
-          "System.Net.Http": "4.0.1-beta-23516"
-        }
-      },
       "Nancy/1.4.3": {
         "type": "package",
         "compile": {
@@ -47,9 +37,9 @@
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp",
-          "mscorlib",
           "System",
-          "System.Core"
+          "System.Core",
+          "mscorlib"
         ],
         "compile": {
           "lib/net45/Serilog.dll": {}
@@ -65,17 +55,17 @@
         },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
-          "mscorlib",
           "System",
-          "System.Core"
+          "System.Core",
+          "mscorlib"
         ],
         "compile": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         }
       },
       "System.Net.Http/4.0.1-beta-23516": {
@@ -89,9 +79,7 @@
         "runtime": {
           "lib/net45/_._": {}
         }
-      }
-    },
-    ".NETFramework,Version=v4.5.1/win7-x86": {
+      },
       "Microphone.Core/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
@@ -100,103 +88,16 @@
           "Serilog": "2.0.0-beta-523",
           "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
           "System.Net.Http": "4.0.1-beta-23516"
-        }
-      },
-      "Nancy/1.4.3": {
-        "type": "package",
+        },
         "compile": {
-          "lib/net40/Nancy.dll": {}
+          "net451/Microphone.Core.dll": {}
         },
         "runtime": {
-          "lib/net40/Nancy.dll": {}
-        }
-      },
-      "Nancy.Hosting.Self/1.4.1": {
-        "type": "package",
-        "dependencies": {
-          "Nancy": "1.4.1"
-        },
-        "compile": {
-          "lib/net40/Nancy.Hosting.Self.dll": {}
-        },
-        "runtime": {
-          "lib/net40/Nancy.Hosting.Self.dll": {}
-        }
-      },
-      "Newtonsoft.Json/8.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      },
-      "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
-        "type": "package",
-        "compile": {
-          "ref/dotnet/_._": {}
-        }
-      },
-      "Serilog/2.0.0-beta-523": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net45/Serilog.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Serilog.dll": {}
-        }
-      },
-      "Serilog.Sinks.ColoredConsole/2.0.0-beta-465": {
-        "type": "package",
-        "dependencies": {
-          "Serilog": "2.0.0-beta-465"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
-        }
-      },
-      "System.Net.Http/4.0.1-beta-23516": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "ref/net45/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
+          "net451/Microphone.Core.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x64": {
-      "Microphone.Core/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Newtonsoft.Json": "8.0.2",
-          "Serilog": "2.0.0-beta-523",
-          "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
-          "System.Net.Http": "4.0.1-beta-23516"
-        }
-      },
       "Nancy/1.4.3": {
         "type": "package",
         "compile": {
@@ -227,19 +128,13 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
-        "type": "package",
-        "compile": {
-          "ref/dotnet/_._": {}
-        }
-      },
       "Serilog/2.0.0-beta-523": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp",
-          "mscorlib",
           "System",
-          "System.Core"
+          "System.Core",
+          "mscorlib"
         ],
         "compile": {
           "lib/net45/Serilog.dll": {}
@@ -255,17 +150,17 @@
         },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
-          "mscorlib",
           "System",
-          "System.Core"
+          "System.Core",
+          "mscorlib"
         ],
         "compile": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.dll": {},
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
         }
       },
       "System.Net.Http/4.0.1-beta-23516": {
@@ -278,41 +173,148 @@
         },
         "runtime": {
           "lib/net45/_._": {}
+        }
+      },
+      "Microphone.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.2",
+          "Serilog": "2.0.0-beta-523",
+          "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
+          "System.Net.Http": "4.0.1-beta-23516"
+        },
+        "compile": {
+          "net451/Microphone.Core.dll": {}
+        },
+        "runtime": {
+          "net451/Microphone.Core.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.1/win7-x86": {
+      "Nancy/1.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Nancy.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Nancy.dll": {}
+        }
+      },
+      "Nancy.Hosting.Self/1.4.1": {
+        "type": "package",
+        "dependencies": {
+          "Nancy": "1.4.1"
+        },
+        "compile": {
+          "lib/net40/Nancy.Hosting.Self.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Nancy.Hosting.Self.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Serilog/2.0.0-beta-523": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Core",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net45/Serilog.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.dll": {}
+        }
+      },
+      "Serilog.Sinks.ColoredConsole/2.0.0-beta-465": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.0.0-beta-465"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Core",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
+          "lib/net45/Serilog.dll": {}
+        }
+      },
+      "System.Net.Http/4.0.1-beta-23516": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Net.Http"
+        ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "Microphone.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.2",
+          "Serilog": "2.0.0-beta-523",
+          "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
+          "System.Net.Http": "4.0.1-beta-23516"
+        },
+        "compile": {
+          "net451/Microphone.Core.dll": {}
+        },
+        "runtime": {
+          "net451/Microphone.Core.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Microphone.Core/1.0.0": {
-      "type": "project",
-      "path": "../Microphone.Core/project.json"
-    },
     "Nancy/1.4.3": {
-      "type": "package",
       "sha512": "4ZqIS2ZpFbQ5hgv1W/3qBz/gJd0J81+/3S31Hs6bATsexi3UDFvMrjL/i0qlrZRE0dquRHRztYDWoGl9jeb0aQ==",
+      "type": "package",
       "files": [
-        "lib/net40/Nancy.dll",
-        "lib/net40/Nancy.xml",
-        "Nancy.1.4.3.nupkg",
         "Nancy.1.4.3.nupkg.sha512",
-        "Nancy.nuspec"
+        "Nancy.nuspec",
+        "lib/net40/Nancy.dll",
+        "lib/net40/Nancy.xml"
       ]
     },
     "Nancy.Hosting.Self/1.4.1": {
-      "type": "package",
       "sha512": "SeXsB2pK/lSMy0uGZ188R1txwjCeg2ChxY51NQYeKzzayFIEYfqfjho2XMdjm15acyH4rBfgpOfaCt0dq4ZXUw==",
+      "type": "package",
       "files": [
-        "lib/net40/Nancy.Hosting.Self.dll",
-        "lib/net40/Nancy.Hosting.Self.xml",
-        "Nancy.Hosting.Self.1.4.1.nupkg",
         "Nancy.Hosting.Self.1.4.1.nupkg.sha512",
-        "Nancy.Hosting.Self.nuspec"
+        "Nancy.Hosting.Self.nuspec",
+        "lib/net40/Nancy.Hosting.Self.dll",
+        "lib/net40/Nancy.Hosting.Self.xml"
       ]
     },
     "Newtonsoft.Json/8.0.2": {
-      "type": "package",
       "sha512": "e5yWmEfu68rmtG431zl9N/7PlNKQDIuiDW5MHlEFAZcecakcxrIGnKqrPAtWNILzK2oNanRB5cD150MYhECK3g==",
+      "type": "package",
       "files": [
+        "Newtonsoft.Json.8.0.2.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -325,65 +327,50 @@
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
-        "Newtonsoft.Json.8.0.2.nupkg",
-        "Newtonsoft.Json.8.0.2.nupkg.sha512",
-        "Newtonsoft.Json.nuspec",
         "tools/install.ps1"
       ]
     },
-    "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "bCVvitLtx/FGp/F14Yvq6Zkb05n6dwRleYNCSAnnX8YpNTKuKYpBJhEpMBUaOjalsM4lqMfE/kd99LtbZRHaiw==",
-      "files": [
-        "ref/dotnet/_._",
-        "runtime.win7.System.Net.Http.4.0.1-beta-23516.nupkg",
-        "runtime.win7.System.Net.Http.4.0.1-beta-23516.nupkg.sha512",
-        "runtime.win7.System.Net.Http.nuspec",
-        "runtimes/win7/lib/DNXCore50/System.Net.Http.dll",
-        "runtimes/win7/lib/netcore50/System.Net.Http.dll"
-      ]
-    },
     "Serilog/2.0.0-beta-523": {
-      "type": "package",
       "sha512": "Rms2FBbnkT8/Vyb5tYwWkzGKAyXDLgHNKXmWBfcQ11MzEzg/BwDUDHyFp9HRpr7N0R4GP0KyOkMU/boC/5i4fQ==",
+      "type": "package",
       "files": [
+        "Serilog.2.0.0-beta-523.nupkg.sha512",
+        "Serilog.nuspec",
         "lib/dotnet5.1/Serilog.dll",
         "lib/dotnet5.1/Serilog.xml",
         "lib/dotnet5.4/Serilog.dll",
         "lib/dotnet5.4/Serilog.xml",
         "lib/net45/Serilog.dll",
-        "lib/net45/Serilog.xml",
-        "Serilog.2.0.0-beta-523.nupkg",
-        "Serilog.2.0.0-beta-523.nupkg.sha512",
-        "Serilog.nuspec"
+        "lib/net45/Serilog.xml"
       ]
     },
     "Serilog.Sinks.ColoredConsole/2.0.0-beta-465": {
-      "type": "package",
       "sha512": "BM7sYdva21ZciTKEFcHXtWgM5jlRsEoduFkXImLINsuapAaN10GMUfQTXlGl2Tjg8R5mZTXFMCvwHSsHWNj6Cw==",
+      "type": "package",
       "files": [
-        "lib/dotnet5.1/Serilog.dll",
+        "Serilog.Sinks.ColoredConsole.2.0.0-beta-465.nupkg.sha512",
+        "Serilog.Sinks.ColoredConsole.nuspec",
         "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll",
         "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.xml",
+        "lib/dotnet5.1/Serilog.dll",
         "lib/dotnet5.1/Serilog.xml",
-        "lib/net45/Serilog.dll",
         "lib/net45/Serilog.Sinks.ColoredConsole.dll",
         "lib/net45/Serilog.Sinks.ColoredConsole.xml",
-        "lib/net45/Serilog.xml",
-        "Serilog.Sinks.ColoredConsole.2.0.0-beta-465.nupkg",
-        "Serilog.Sinks.ColoredConsole.2.0.0-beta-465.nupkg.sha512",
-        "Serilog.Sinks.ColoredConsole.nuspec"
+        "lib/net45/Serilog.dll",
+        "lib/net45/Serilog.xml"
       ]
     },
     "System.Net.Http/4.0.1-beta-23516": {
+      "sha512": "A0S7LiARhMNbZTzO+1hMlkWrWJ+KnEBUQbfTOP9QoYdzCmc5vmXsJMEBYudhaKg7T+fpq1xmBzjU8x8rOB2zMA==",
       "type": "package",
-      "serviceable": true,
-      "sha512": "WbmX0jo84S72GVhRbKtBBUkx2dQ1hzb4TRSLfaiktRh7QKnSP9ctzTxBvXghWQ6GnswBzTHnuc69msImZH5b6A==",
       "files": [
+        "System.Net.Http.4.0.1-beta-23516.nupkg.sha512",
+        "System.Net.Http.nuspec",
         "lib/net45/_._",
         "lib/win8/_._",
         "lib/wpa81/_._",
+        "ref/dotnet5.2/System.Net.Http.dll",
+        "ref/dotnet5.2/System.Net.Http.xml",
         "ref/dotnet5.2/de/System.Net.Http.xml",
         "ref/dotnet5.2/es/System.Net.Http.xml",
         "ref/dotnet5.2/fr/System.Net.Http.xml",
@@ -391,11 +378,11 @@
         "ref/dotnet5.2/ja/System.Net.Http.xml",
         "ref/dotnet5.2/ko/System.Net.Http.xml",
         "ref/dotnet5.2/ru/System.Net.Http.xml",
-        "ref/dotnet5.2/System.Net.Http.dll",
-        "ref/dotnet5.2/System.Net.Http.xml",
         "ref/dotnet5.2/zh-hans/System.Net.Http.xml",
         "ref/dotnet5.2/zh-hant/System.Net.Http.xml",
         "ref/net45/_._",
+        "ref/netcore50/System.Net.Http.dll",
+        "ref/netcore50/System.Net.Http.xml",
         "ref/netcore50/de/System.Net.Http.xml",
         "ref/netcore50/es/System.Net.Http.xml",
         "ref/netcore50/fr/System.Net.Http.xml",
@@ -403,17 +390,17 @@
         "ref/netcore50/ja/System.Net.Http.xml",
         "ref/netcore50/ko/System.Net.Http.xml",
         "ref/netcore50/ru/System.Net.Http.xml",
-        "ref/netcore50/System.Net.Http.dll",
-        "ref/netcore50/System.Net.Http.xml",
         "ref/netcore50/zh-hans/System.Net.Http.xml",
         "ref/netcore50/zh-hant/System.Net.Http.xml",
         "ref/win8/_._",
         "ref/wpa81/_._",
-        "runtime.json",
-        "System.Net.Http.4.0.1-beta-23516.nupkg",
-        "System.Net.Http.4.0.1-beta-23516.nupkg.sha512",
-        "System.Net.Http.nuspec"
+        "runtime.json"
       ]
+    },
+    "Microphone.Core/1.0.0": {
+      "type": "project",
+      "path": "../Microphone.Core/project.json",
+      "msbuildProject": "../Microphone.Core/Microphone.Core.xproj"
     }
   },
   "projectFileDependencyGroups": {
