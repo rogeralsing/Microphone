@@ -96,7 +96,7 @@ namespace Microphone.Core.ClusterProviders
                 Port = uri.Port,
                 Check = new
                 {
-                    HTTP = uri + "status",
+                    HTTP = uri + "/status",
                     Interval = "1s"
                 }
             };

@@ -3,11 +3,11 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "Microphone.AspNet/0.5.4": {
+      "Microphone.AspNet/0.5.5": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
-          "Microphone.Core": "0.5.4",
+          "Microphone.Core": "0.5.5",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -22,7 +22,7 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final"
         }
       },
-      "Microphone.Core/0.5.4": {
+      "Microphone.Core/0.5.5": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -1404,12 +1404,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -1637,11 +1637,11 @@
       }
     },
     "DNXCore,Version=v5.0": {
-      "Microphone.AspNet/0.5.4": {
+      "Microphone.AspNet/0.5.5": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microphone.Core": "0.5.4",
+          "Microphone.Core": "0.5.5",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -1660,7 +1660,7 @@
           "System.Threading": "4.0.11-beta-23516"
         }
       },
-      "Microphone.Core/0.5.4": {
+      "Microphone.Core/0.5.5": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -2941,12 +2941,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -3894,11 +3894,11 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "Microphone.AspNet/0.5.4": {
+      "Microphone.AspNet/0.5.5": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
-          "Microphone.Core": "0.5.4",
+          "Microphone.Core": "0.5.5",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -3913,7 +3913,7 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final"
         }
       },
-      "Microphone.Core/0.5.4": {
+      "Microphone.Core/0.5.5": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -5304,12 +5304,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -5537,11 +5537,11 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "Microphone.AspNet/0.5.4": {
+      "Microphone.AspNet/0.5.5": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
-          "Microphone.Core": "0.5.4",
+          "Microphone.Core": "0.5.5",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -5556,7 +5556,7 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final"
         }
       },
-      "Microphone.Core/0.5.4": {
+      "Microphone.Core/0.5.5": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -6947,12 +6947,12 @@
           "System.Core"
         ],
         "compile": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/net45/Serilog.dll": {}
+          "lib/net45/Serilog.dll": {},
+          "lib/net45/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -7180,11 +7180,11 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
-      "Microphone.AspNet/0.5.4": {
+      "Microphone.AspNet/0.5.5": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microphone.Core": "0.5.4",
+          "Microphone.Core": "0.5.5",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -7203,7 +7203,7 @@
           "System.Threading": "4.0.11-beta-23516"
         }
       },
-      "Microphone.Core/0.5.4": {
+      "Microphone.Core/0.5.5": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -8812,12 +8812,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -9948,11 +9948,11 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
-      "Microphone.AspNet/0.5.4": {
+      "Microphone.AspNet/0.5.5": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "Microphone.Core": "0.5.4",
+          "Microphone.Core": "0.5.5",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -9971,7 +9971,7 @@
           "System.Threading": "4.0.11-beta-23516"
         }
       },
-      "Microphone.Core/0.5.4": {
+      "Microphone.Core/0.5.5": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -11580,12 +11580,12 @@
           "System.Console": "4.0.0-beta-23516"
         },
         "compile": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         },
         "runtime": {
-          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {},
-          "lib/dotnet5.1/Serilog.dll": {}
+          "lib/dotnet5.1/Serilog.dll": {},
+          "lib/dotnet5.1/Serilog.Sinks.ColoredConsole.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -12717,11 +12717,11 @@
     }
   },
   "libraries": {
-    "Microphone.AspNet/0.5.4": {
+    "Microphone.AspNet/0.5.5": {
       "type": "project",
       "path": "../Microphone.AspNet/project.json"
     },
-    "Microphone.Core/0.5.4": {
+    "Microphone.Core/0.5.5": {
       "type": "project",
       "path": "../Microphone.Core/project.json"
     },
@@ -17639,7 +17639,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microphone.AspNet >= 0.5.4-*",
+      "Microphone.AspNet >= 0.5.5-*",
       "Microsoft.AspNet.IISPlatformHandler >= 1.0.0-rc1-final",
       "Microsoft.AspNet.Mvc >= 6.0.0-rc1-final",
       "Microsoft.AspNet.Server.Kestrel >= 1.0.0-rc1-final",
