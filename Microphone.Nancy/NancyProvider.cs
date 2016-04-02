@@ -8,12 +8,11 @@ namespace Microphone.Nancy
 {
     public class NancyProvider : IFrameworkProvider
     {
-
         public Uri Start(string serviceName, string version)
-        {            
+        {
             var uri = Configuration.GetUri();
             var conf = GetConfiguration();
-            var host = GetHost(uri, conf);            
+            var host = GetHost(uri, conf);
             return uri;
         }
 

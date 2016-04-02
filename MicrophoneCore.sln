@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Asp5Service\global.json = Asp5Service\global.json
 	EndProjectSection
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microphone.Nancy2", "Microphone.Nancy\Microphone.Nancy2.xproj", "{401C17A4-097D-4CEF-BD3A-C476BA349FA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4839A4BB-B806-4B04-9F49-808A34DBA808}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4839A4BB-B806-4B04-9F49-808A34DBA808}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4839A4BB-B806-4B04-9F49-808A34DBA808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{401C17A4-097D-4CEF-BD3A-C476BA349FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{401C17A4-097D-4CEF-BD3A-C476BA349FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{401C17A4-097D-4CEF-BD3A-C476BA349FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{401C17A4-097D-4CEF-BD3A-C476BA349FA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

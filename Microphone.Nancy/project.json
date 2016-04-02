@@ -1,0 +1,17 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "Microphone.Nancy2 Class Library",
+  "authors": [ "ralsing" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "dependencies": {
+    "Microphone.Core": "1.0.0-*",
+    "Nancy": "1.4.3",
+    "Nancy.Hosting.Self": "1.4.1"
+  },
+
+  "frameworks": {
+    "net451": { }
+  }
+}
