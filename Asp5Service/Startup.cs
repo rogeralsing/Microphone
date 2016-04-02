@@ -1,4 +1,5 @@
-﻿using Microphone.AspNet;
+﻿using System;
+using Microphone.AspNet;
 using Microphone.Core.ClusterProviders;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;

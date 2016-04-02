@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using Microphone.Core.ClusterProviders;
 
@@ -32,7 +33,14 @@ namespace Microphone.Core
             var uri = _frameworkProvider.Start(serviceName, version);
             var serviceId = serviceName + "_" + Dns.GetHostName() + "_" + uri.Port;
             _clusterProvider = clusterProvider;
-            _clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri).Wait();
+            try
+            {               
+                _clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri).Wait();
+            }
+            catch (Exception x)
+            {
+                Logger.Error(x,$"Could not register service {serviceId} using {frameworkProvider.GetType().Name}");
+            }
         }
 
         public static Task KeyValuePutAsync(string key, object value)

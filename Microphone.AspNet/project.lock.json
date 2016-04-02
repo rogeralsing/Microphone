@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5.1": {
-      "Microphone.Core/0.5.2": {
+      "Microphone.Core/0.5.3": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -1617,7 +1617,7 @@
       }
     },
     "DNXCore,Version=v5.0": {
-      "Microphone.Core/0.5.2": {
+      "Microphone.Core/0.5.3": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -3851,7 +3851,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x86": {
-      "Microphone.Core/0.5.2": {
+      "Microphone.Core/0.5.3": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -5474,7 +5474,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x64": {
-      "Microphone.Core/0.5.2": {
+      "Microphone.Core/0.5.3": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -7097,7 +7097,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
-      "Microphone.Core/0.5.2": {
+      "Microphone.Core/0.5.3": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -9842,7 +9842,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
-      "Microphone.Core/0.5.2": {
+      "Microphone.Core/0.5.3": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -12588,7 +12588,7 @@
     }
   },
   "libraries": {
-    "Microphone.Core/0.5.2": {
+    "Microphone.Core/0.5.3": {
       "type": "project",
       "path": "../Microphone.Core/project.json"
     },
@@ -17632,7 +17632,7 @@
       "Microsoft.Extensions.Logging >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
-      "Microphone.Core >= 0.5.2-*",
+      "Microphone.Core >= 0.5.3-*",
       "Microsoft.AspNet.Http.Abstractions >= 1.0.0-rc1-final"
     ],
     ".NETFramework,Version=v4.5.1": [],
