@@ -9,8 +9,8 @@ namespace Microphone.Core.ClusterProviders
         Task<ServiceInformation[]> FindServiceInstancesAsync(string name);
         Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri);
         Task BootstrapClientAsync();
-        Task KVPutAsync(string key, object value);
-        Task<T> KVGetAsync<T>(string key);
+        Task KeyValuePutAsync(string key, object value);
+        Task<T> KeyValueGetAsync<T>(string key);
     }
 
     public static class ClusterProviderExtensions

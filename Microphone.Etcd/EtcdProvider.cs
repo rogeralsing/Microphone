@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microphone.Core;
 using Microphone.Core.ClusterProviders;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Microphone.Etcd
@@ -35,18 +36,20 @@ namespace Microphone.Etcd
             _ectdHeartbeart = heartBeat;
         }
 
+        private string RootUrl => $"http://{_etcdHost}:{_etcdPort}";
+
         public async Task<ServiceInformation[]> FindServiceInstancesAsync(string serviceName)
         {
-            var url = $"http://{_etcdHost}:{_etcdPort}/v2/keys/services/{serviceName}";
+            var url =RootUrl + $"/v2/keys/services/{serviceName}";
             using (var client = new HttpClient())
             {
-                var response = await client.GetAsync(url).ConfigureAwait(false);
+                var response = await client.GetAsync(url);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
                     throw new Exception("Could not find services");
                 }
                 Logger.Information("{ServiceName} lookup {OtherServiceName}", _serviceName, serviceName);
-                var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var body = await response.Content.ReadAsStringAsync();
                 var res = JObject.Parse(body);
                 var nodes = res["node"]["nodes"];
                 return (from node in nodes
@@ -65,7 +68,7 @@ namespace Microphone.Etcd
 
             Func<Task> registerService = async () =>
             {
-                var url = $"http://{_etcdHost}:{_etcdPort}/v2/keys/services/{serviceName}/{serviceId}";
+                var url = RootUrl + $"/v2/keys/services/{serviceName}/{serviceId}";
                 using (var client = new HttpClient())
                 {
                     var content = new FormUrlEncodedContent(new[]
@@ -73,11 +76,11 @@ namespace Microphone.Etcd
                         new KeyValuePair<string, string>("value", uri.ToString()),
                         new KeyValuePair<string, string>("ttl", _ectdTtl.ToString())
                     });
-                    await client.PutAsync(url, content).ConfigureAwait(false);
+                    await client.PutAsync(url, content);
                 }
             };
 
-            await registerService().ConfigureAwait(false);
+            await registerService();
 
             StartHeartbeat(registerService);
         }
@@ -93,21 +96,41 @@ namespace Microphone.Etcd
             {
                 while (true)
                 {
-                    await registerService().ConfigureAwait(false);
-                    await Task.Delay(TimeSpan.FromSeconds(_ectdHeartbeart)).ConfigureAwait(false);
+                    await registerService();
+                    await Task.Delay(TimeSpan.FromSeconds(_ectdHeartbeart));
                     Logger.Information("OK");
                 }
             });
         }
 
-        public Task KVPutAsync(string key, object value)
+        public async Task KeyValuePutAsync(string key, object value)
         {
-            throw new NotImplementedException();
+            var url = RootUrl + $"/v2/keys/values/{key}";
+            var json = JsonConvert.SerializeObject(value);
+            using (var client = new HttpClient())
+            {
+                var content = new FormUrlEncodedContent(new[]
+                {
+                    new KeyValuePair<string, string>("value", json),
+                });
+                await client.PutAsync(url, content);
+            }
         }
 
-        public Task<T> KVGetAsync<T>(string key)
+        public async Task<T> KeyValueGetAsync<T>(string key)
         {
-            throw new NotImplementedException();
+            var url = RootUrl + $"/v2/keys/values/{key}";
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(url);
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception("Could not find services");
+                }
+                var body = await response.Content.ReadAsStringAsync();
+                var obj = JsonConvert.DeserializeObject<T>(body);
+                return obj;
+            }
         }
     }
 }

@@ -27,6 +27,13 @@ namespace Microphone.Core.ClusterProviders
             _useEbayFabio = useEbayFabio;
         }
 
+        private string RootUrl => $"http://{_consulHost}:{_consulPort}/";
+        private string KeyValueUrl(string key) => RootUrl  + "/v1/kv/" + key;
+        private string CriticalServicesUrl => RootUrl + "/v1/health/state/critical";
+        private string ServiceHealthUrl(string service) => RootUrl + "/v1/health/service/" + service;
+        private string RegisterServiceUrl => RootUrl + "/v1/agent/service/register";
+        private string DeregisterServiceUrl(string service) => RootUrl + "/v1/agent/service/deregister/" + service;
+
         public async Task<ServiceInformation[]> FindServiceInstancesAsync(string name)
         {
             if (_useEbayFabio)
@@ -37,16 +44,13 @@ namespace Microphone.Core.ClusterProviders
 
             using (var client = new HttpClient())
             {
-                var response =
-                    await
-                        client.GetAsync($"http://{_consulHost}:{_consulPort}/v1/health/service/" + name)
-                            .ConfigureAwait(false);
+                var response = await client.GetAsync(ServiceHealthUrl(name));
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
                     throw new Exception("Could not find services");
                 }
 
-                var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var body = await response.Content.ReadAsStringAsync();
                 var res1 = JArray.Parse(body);
                 var res =
                     res1.Select(
@@ -86,10 +90,7 @@ namespace Microphone.Core.ClusterProviders
                 var json = JsonConvert.SerializeObject(payload);
                 var content = new StringContent(json);
 
-                var res =
-                    await
-                        client.PostAsync($"http://{_consulHost}:{_consulPort}/v1/agent/service/register", content)
-                            .ConfigureAwait(false);
+                var res = await client.PostAsync(RegisterServiceUrl, content);
                 if (res.StatusCode != HttpStatusCode.OK)
                 {
                     throw new Exception("Could not register service");
@@ -108,7 +109,7 @@ namespace Microphone.Core.ClusterProviders
         {
             Task.Factory.StartNew(async () =>
             {
-                await Task.Delay(1000).ConfigureAwait(false);
+                await Task.Delay(1000);
                 Logger.Information("Reaper: started..");
 
                 var lookup = new HashSet<string>();
@@ -119,15 +120,12 @@ namespace Microphone.Core.ClusterProviders
                         IEnumerable<string> res;
                         using (var client1 = new HttpClient())
                         {
-                            var response1 =
-                                await
-                                    client1.GetAsync($"http://{_consulHost}:{_consulPort}/v1/health/state/critical")
-                                        .ConfigureAwait(false);
+                            var response1 = await client1.GetAsync(CriticalServicesUrl);
                             if (response1.StatusCode != HttpStatusCode.OK)
                             {
                                 throw new Exception("Could not get service health");
                             }
-                            var body = await response1.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            var body = await response1.Content.ReadAsStringAsync();
                             var res1 = JArray.Parse(body);
                             res = res1.Select(service => service["ServiceID"].Value<string>()).ToArray();
                         }
@@ -137,11 +135,7 @@ namespace Microphone.Core.ClusterProviders
                             {
                                 using (var client = new HttpClient())
                                 {
-                                    var response =
-                                        await
-                                            client.GetAsync(
-                                                $"http://{_consulHost}:{_consulPort}/v1/agent/service/deregister/" +
-                                                criticalServiceId).ConfigureAwait(false);
+                                    var response = await client.GetAsync(DeregisterServiceUrl(criticalServiceId));
                                     if (response.StatusCode != HttpStatusCode.OK)
                                     {
                                         throw new Exception("Could not de register service");
@@ -163,22 +157,19 @@ namespace Microphone.Core.ClusterProviders
                         Logger.Error(x, "Crashed");
                     }
 
-                    await Task.Delay(5000).ConfigureAwait(false);
+                    await Task.Delay(5000);
                 }
             });
         }
 
-        public async Task KVPutAsync(string key, object value)
+        public async Task KeyValuePutAsync(string key, object value)
         {
             using (var client = new HttpClient())
             {
                 var json = JsonConvert.SerializeObject(value);
                 var content = new StringContent(json);
 
-                var response =
-                    await
-                        client.PutAsync($"http://{_consulHost}:{_consulPort}/v1/kv/" + key, content)
-                            .ConfigureAwait(false);
+                var response = await client.PutAsync(KeyValueUrl(key), content);
 
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
@@ -187,12 +178,11 @@ namespace Microphone.Core.ClusterProviders
             }
         }
 
-        public async Task<T> KVGetAsync<T>(string key)
+        public async Task<T> KeyValueGetAsync<T>(string key)
         {
             using (var client = new HttpClient())
             {
-                var response =
-                    await client.GetAsync($"http://{_consulHost}:{_consulPort}/v1/kv/" + key).ConfigureAwait(false);
+                var response = await client.GetAsync(KeyValueUrl(key));
 
                 if (response.StatusCode == HttpStatusCode.NotFound)
                 {
@@ -204,7 +194,7 @@ namespace Microphone.Core.ClusterProviders
                     throw new Exception("Could not get value");
                 }
 
-                var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var body = await response.Content.ReadAsStringAsync();
                 var deserializedBody = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(body);
                 var bytes = Convert.FromBase64String((string) deserializedBody[0]["Value"]);
                 var strValue = Encoding.UTF8.GetString(bytes,0,bytes.Length);

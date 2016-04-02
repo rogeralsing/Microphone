@@ -35,14 +35,14 @@ namespace Microphone.Core
             _clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri).Wait();
         }
 
-        public static Task KVPutAsync(string key, object value)
+        public static Task KeyValuePutAsync(string key, object value)
         {
-            return _clusterProvider.KVPutAsync(key, value);
+            return _clusterProvider.KeyValuePutAsync(key, value);
         }
 
-        public static Task<T> KVGetAsync<T>(string key)
+        public static Task<T> KeyValueGetAsync<T>(string key)
         {
-            return _clusterProvider.KVGetAsync<T>(key);
+            return _clusterProvider.KeyValueGetAsync<T>(key);
         }
 
     }
