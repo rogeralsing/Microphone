@@ -8,7 +8,7 @@
   "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png",
   "frameworks": {
     "net451": { },
-    "dnxcore50": {
+    "dotnet5.4": {
       "dependencies": {
         "System.Collections": "4.0.11-beta-23516",
         "System.Linq": "4.0.1-beta-23516",

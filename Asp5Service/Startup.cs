@@ -35,7 +35,7 @@ namespace AspNetService
             loggerFactory.AddDebug();
             app.UseIISPlatformHandler();
             app.UseMvc();
-            var consulHost = Configuration["CONSULHOST"] ?? "localhost";
+            var consulHost = Configuration["CONSULHOST"] ?? "localhost";           
             app.UseMicrophone(new ConsulProvider(consulHost), "AspNetService", "1.0");
         }
 

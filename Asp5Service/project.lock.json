@@ -1639,7 +1639,7 @@
     "DNXCore,Version=v5.0": {
       "Microphone.AspNet/0.5.7": {
         "type": "project",
-        "framework": "DNXCore,Version=v5.0",
+        "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
           "Microphone.Core": "0.5.7",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
@@ -1662,8 +1662,9 @@
       },
       "Microphone.Core/0.5.7": {
         "type": "project",
-        "framework": "DNXCore,Version=v5.0",
+        "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
           "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
@@ -7182,7 +7183,7 @@
     "DNXCore,Version=v5.0/win7-x86": {
       "Microphone.AspNet/0.5.7": {
         "type": "project",
-        "framework": "DNXCore,Version=v5.0",
+        "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
           "Microphone.Core": "0.5.7",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
@@ -7205,8 +7206,9 @@
       },
       "Microphone.Core/0.5.7": {
         "type": "project",
-        "framework": "DNXCore,Version=v5.0",
+        "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
           "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
@@ -9950,7 +9952,7 @@
     "DNXCore,Version=v5.0/win7-x64": {
       "Microphone.AspNet/0.5.7": {
         "type": "project",
-        "framework": "DNXCore,Version=v5.0",
+        "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
           "Microphone.Core": "0.5.7",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
@@ -9973,8 +9975,9 @@
       },
       "Microphone.Core/0.5.7": {
         "type": "project",
-        "framework": "DNXCore,Version=v5.0",
+        "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516",
           "Newtonsoft.Json": "8.0.2",
           "Serilog": "2.0.0-beta-523",
           "Serilog.Sinks.ColoredConsole": "2.0.0-beta-465",
@@ -15558,6 +15561,7 @@
     },
     "System.Net.NameResolution/4.0.0-beta-23516": {
       "type": "package",
+      "serviceable": true,
       "sha512": "CviNE0Jzhmk59V+DPK711HriQ+YdT/ya3rL8vMcL9vcsY7oxrqRkURWlWtW6VpHkq9VPfHjiTh6uzqvswvTwkw==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -15582,6 +15586,7 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
+        "System.Net.NameResolution.4.0.0-beta-23516.nupkg",
         "System.Net.NameResolution.4.0.0-beta-23516.nupkg.sha512",
         "System.Net.NameResolution.nuspec"
       ]
@@ -15657,6 +15662,7 @@
     },
     "System.Net.Sockets/4.1.0-beta-23516": {
       "type": "package",
+      "serviceable": true,
       "sha512": "hJQxXC5OcecCG49Wg9PreHFC2tDZFwpqiGhRnQMK47eo8ozvOMl2XqISanclj1cjCIUZDUSn0XxggVC7Z2WppA==",
       "files": [
         "lib/MonoAndroid10/_._",
@@ -15692,6 +15698,7 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtime.json",
+        "System.Net.Sockets.4.1.0-beta-23516.nupkg",
         "System.Net.Sockets.4.1.0-beta-23516.nupkg.sha512",
         "System.Net.Sockets.nuspec"
       ]
