@@ -1,5 +1,5 @@
 ﻿{
-  "version": "0.5.7-*",
+  "version": "0.5.8-*",
   "description": "Microphone.Core Class Library",
   "authors": [ "Roger Johansson" ],
   "tags": [ "service discovery", "consul", "etcd", "nancy", "asp.net" ],

@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5.1": {
-      "Microphone.Core/0.5.7": {
+      "Microphone.Core/0.5.8": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -71,7 +71,7 @@
       }
     },
     ".NETPlatform,Version=v5.4": {
-      "Microphone.Core/0.5.7": {
+      "Microphone.Core/0.5.8": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -543,7 +543,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x86": {
-      "Microphone.Core/0.5.7": {
+      "Microphone.Core/0.5.8": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -617,7 +617,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x64": {
-      "Microphone.Core/0.5.7": {
+      "Microphone.Core/0.5.8": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -691,7 +691,7 @@
       }
     },
     ".NETPlatform,Version=v5.4/win7-x86": {
-      "Microphone.Core/0.5.7": {
+      "Microphone.Core/0.5.8": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -1281,7 +1281,7 @@
       }
     },
     ".NETPlatform,Version=v5.4/win7-x64": {
-      "Microphone.Core/0.5.7": {
+      "Microphone.Core/0.5.8": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -1872,7 +1872,7 @@
     }
   },
   "libraries": {
-    "Microphone.Core/0.5.7": {
+    "Microphone.Core/0.5.8": {
       "type": "project",
       "path": "../Microphone.Core/project.json"
     },
@@ -3618,7 +3618,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microphone.Core >= 0.5.7-*"
+      "Microphone.Core >= 0.5.8-*"
     ],
     ".NETFramework,Version=v4.5.1": [],
     ".NETPlatform,Version=v5.4": [
