@@ -8,9 +8,9 @@
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
           "Microphone.Core": "0.5.8",
+          "Microsoft.AspNet.Hosting.Server.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final"
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
         }
       },
       "Microphone.Core/0.5.8": {
@@ -1633,9 +1633,9 @@
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
           "Microphone.Core": "0.5.8",
+          "Microsoft.AspNet.Hosting.Server.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -3882,9 +3882,9 @@
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
           "Microphone.Core": "0.5.8",
+          "Microsoft.AspNet.Hosting.Server.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final"
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
         }
       },
       "Microphone.Core/0.5.8": {
@@ -5516,9 +5516,9 @@
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
           "Microphone.Core": "0.5.8",
+          "Microsoft.AspNet.Hosting.Server.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final"
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
         }
       },
       "Microphone.Core/0.5.8": {
@@ -7150,9 +7150,9 @@
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
           "Microphone.Core": "0.5.8",
+          "Microsoft.AspNet.Hosting.Server.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -9910,9 +9910,9 @@
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
           "Microphone.Core": "0.5.8",
+          "Microsoft.AspNet.Hosting.Server.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",

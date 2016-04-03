@@ -8,7 +8,7 @@
   "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png",
   "dependencies": {
     "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Hosting.Server.Abstractions": "1.0.0-rc1-final",
     "Microphone.Core": "0.5.8-*",
     "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final"
   },
@@ -19,7 +19,7 @@
         "System.Collections": "4.0.11-beta-23516",
         "System.Linq": "4.0.1-beta-23516",
         "System.Runtime": "4.0.21-beta-23516",
-        "System.Threading": "4.0.11-beta-23516"
+        "System.Threading": "4.0.11-beta-23516",
       }
     }
   }
