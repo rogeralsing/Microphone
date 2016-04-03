@@ -9,17 +9,8 @@
         "dependencies": {
           "Microphone.Core": "0.5.8",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-          "Microsoft.CodeAnalysis.Common": "2.0.0-beta1",
-          "Microsoft.CodeAnalysis.CSharp": "2.0.0-beta1",
-          "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final"
+          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final"
         }
       },
       "Microphone.Core/0.5.8": {
@@ -820,18 +811,18 @@
           "lib/net451/Microsoft.AspNet.WebUtilities.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
+      "Microsoft.CodeAnalysis.Analyzers/1.0.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System"
         ]
       },
-      "Microsoft.CodeAnalysis.Common/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.Common/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "1.1.0",
+          "Microsoft.CodeAnalysis.Analyzers": "[1.0.0, 1.2.0)",
           "System.Collections.Immutable": "1.1.37",
-          "System.Reflection.Metadata": "1.2.0"
+          "System.Reflection.Metadata": "1.1.0"
         },
         "compile": {
           "lib/net45/Microsoft.CodeAnalysis.dll": {}
@@ -840,10 +831,10 @@
           "lib/net45/Microsoft.CodeAnalysis.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.CSharp/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.CSharp/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Common": "[2.0.0-beta1]"
+          "Microsoft.CodeAnalysis.Common": "[1.1.0-rc1-20151109-01]"
         },
         "compile": {
           "lib/net45/Microsoft.CodeAnalysis.CSharp.dll": {}
@@ -1538,14 +1529,13 @@
           "lib/net45/_._": {}
         }
       },
-      "System.Reflection.Metadata/1.2.0": {
+      "System.Reflection.Metadata/1.1.0": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.0",
           "System.Collections.Immutable": "1.1.37",
           "System.Diagnostics.Debug": "4.0.0",
           "System.IO": "4.0.0",
-          "System.Linq": "4.0.0",
           "System.Reflection": "4.0.0",
           "System.Reflection.Extensions": "4.0.0",
           "System.Reflection.Primitives": "4.0.0",
@@ -1558,10 +1548,10 @@
           "System.Threading": "4.0.0"
         },
         "compile": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         }
       },
       "System.Reflection.Primitives/4.0.0": {
@@ -1644,17 +1634,8 @@
         "dependencies": {
           "Microphone.Core": "0.5.8",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
           "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-          "Microsoft.CodeAnalysis.Common": "2.0.0-beta1",
-          "Microsoft.CodeAnalysis.CSharp": "2.0.0-beta1",
-          "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -2350,15 +2331,15 @@
           "lib/dotnet5.4/Microsoft.AspNet.WebUtilities.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
+      "Microsoft.CodeAnalysis.Analyzers/1.0.0": {
         "type": "package"
       },
-      "Microsoft.CodeAnalysis.Common/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.Common/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "1.1.0",
+          "Microsoft.CodeAnalysis.Analyzers": "[1.0.0, 1.2.0)",
           "System.Collections.Immutable": "1.1.37",
-          "System.Reflection.Metadata": "1.2.0"
+          "System.Reflection.Metadata": "1.1.0"
         },
         "compile": {
           "lib/portable-net45+win8/Microsoft.CodeAnalysis.dll": {}
@@ -2367,10 +2348,10 @@
           "lib/portable-net45+win8/Microsoft.CodeAnalysis.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.CSharp/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.CSharp/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Common": "[2.0.0-beta1]"
+          "Microsoft.CodeAnalysis.Common": "[1.1.0-rc1-20151109-01]"
         },
         "compile": {
           "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.dll": {}
@@ -3465,14 +3446,13 @@
           "lib/DNXCore50/System.Reflection.Extensions.dll": {}
         }
       },
-      "System.Reflection.Metadata/1.2.0": {
+      "System.Reflection.Metadata/1.1.0": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.0",
           "System.Collections.Immutable": "1.1.37",
           "System.Diagnostics.Debug": "4.0.0",
           "System.IO": "4.0.0",
-          "System.Linq": "4.0.0",
           "System.Reflection": "4.0.0",
           "System.Reflection.Extensions": "4.0.0",
           "System.Reflection.Primitives": "4.0.0",
@@ -3485,10 +3465,10 @@
           "System.Threading": "4.0.0"
         },
         "compile": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         }
       },
       "System.Reflection.Primitives/4.0.0": {
@@ -3903,17 +3883,8 @@
         "dependencies": {
           "Microphone.Core": "0.5.8",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-          "Microsoft.CodeAnalysis.Common": "2.0.0-beta1",
-          "Microsoft.CodeAnalysis.CSharp": "2.0.0-beta1",
-          "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final"
+          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final"
         }
       },
       "Microphone.Core/0.5.8": {
@@ -4717,18 +4688,18 @@
           "lib/net451/Microsoft.AspNet.WebUtilities.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
+      "Microsoft.CodeAnalysis.Analyzers/1.0.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System"
         ]
       },
-      "Microsoft.CodeAnalysis.Common/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.Common/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "1.1.0",
+          "Microsoft.CodeAnalysis.Analyzers": "[1.0.0, 1.2.0)",
           "System.Collections.Immutable": "1.1.37",
-          "System.Reflection.Metadata": "1.2.0"
+          "System.Reflection.Metadata": "1.1.0"
         },
         "compile": {
           "lib/net45/Microsoft.CodeAnalysis.dll": {}
@@ -4737,10 +4708,10 @@
           "lib/net45/Microsoft.CodeAnalysis.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.CSharp/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.CSharp/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Common": "[2.0.0-beta1]"
+          "Microsoft.CodeAnalysis.Common": "[1.1.0-rc1-20151109-01]"
         },
         "compile": {
           "lib/net45/Microsoft.CodeAnalysis.CSharp.dll": {}
@@ -5441,14 +5412,13 @@
           "lib/net45/_._": {}
         }
       },
-      "System.Reflection.Metadata/1.2.0": {
+      "System.Reflection.Metadata/1.1.0": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.0",
           "System.Collections.Immutable": "1.1.37",
           "System.Diagnostics.Debug": "4.0.0",
           "System.IO": "4.0.0",
-          "System.Linq": "4.0.0",
           "System.Reflection": "4.0.0",
           "System.Reflection.Extensions": "4.0.0",
           "System.Reflection.Primitives": "4.0.0",
@@ -5461,10 +5431,10 @@
           "System.Threading": "4.0.0"
         },
         "compile": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         }
       },
       "System.Reflection.Primitives/4.0.0": {
@@ -5547,17 +5517,8 @@
         "dependencies": {
           "Microphone.Core": "0.5.8",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-          "Microsoft.CodeAnalysis.Common": "2.0.0-beta1",
-          "Microsoft.CodeAnalysis.CSharp": "2.0.0-beta1",
-          "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final"
+          "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final"
         }
       },
       "Microphone.Core/0.5.8": {
@@ -6361,18 +6322,18 @@
           "lib/net451/Microsoft.AspNet.WebUtilities.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
+      "Microsoft.CodeAnalysis.Analyzers/1.0.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System"
         ]
       },
-      "Microsoft.CodeAnalysis.Common/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.Common/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "1.1.0",
+          "Microsoft.CodeAnalysis.Analyzers": "[1.0.0, 1.2.0)",
           "System.Collections.Immutable": "1.1.37",
-          "System.Reflection.Metadata": "1.2.0"
+          "System.Reflection.Metadata": "1.1.0"
         },
         "compile": {
           "lib/net45/Microsoft.CodeAnalysis.dll": {}
@@ -6381,10 +6342,10 @@
           "lib/net45/Microsoft.CodeAnalysis.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.CSharp/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.CSharp/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Common": "[2.0.0-beta1]"
+          "Microsoft.CodeAnalysis.Common": "[1.1.0-rc1-20151109-01]"
         },
         "compile": {
           "lib/net45/Microsoft.CodeAnalysis.CSharp.dll": {}
@@ -7085,14 +7046,13 @@
           "lib/net45/_._": {}
         }
       },
-      "System.Reflection.Metadata/1.2.0": {
+      "System.Reflection.Metadata/1.1.0": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.0",
           "System.Collections.Immutable": "1.1.37",
           "System.Diagnostics.Debug": "4.0.0",
           "System.IO": "4.0.0",
-          "System.Linq": "4.0.0",
           "System.Reflection": "4.0.0",
           "System.Reflection.Extensions": "4.0.0",
           "System.Reflection.Primitives": "4.0.0",
@@ -7105,10 +7065,10 @@
           "System.Threading": "4.0.0"
         },
         "compile": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         }
       },
       "System.Reflection.Primitives/4.0.0": {
@@ -7191,17 +7151,8 @@
         "dependencies": {
           "Microphone.Core": "0.5.8",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
           "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-          "Microsoft.CodeAnalysis.Common": "2.0.0-beta1",
-          "Microsoft.CodeAnalysis.CSharp": "2.0.0-beta1",
-          "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -7900,15 +7851,15 @@
           "lib/dotnet5.4/Microsoft.AspNet.WebUtilities.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
+      "Microsoft.CodeAnalysis.Analyzers/1.0.0": {
         "type": "package"
       },
-      "Microsoft.CodeAnalysis.Common/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.Common/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "1.1.0",
+          "Microsoft.CodeAnalysis.Analyzers": "[1.0.0, 1.2.0)",
           "System.Collections.Immutable": "1.1.37",
-          "System.Reflection.Metadata": "1.2.0"
+          "System.Reflection.Metadata": "1.1.0"
         },
         "compile": {
           "lib/portable-net45+win8/Microsoft.CodeAnalysis.dll": {}
@@ -7917,10 +7868,10 @@
           "lib/portable-net45+win8/Microsoft.CodeAnalysis.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.CSharp/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.CSharp/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Common": "[2.0.0-beta1]"
+          "Microsoft.CodeAnalysis.Common": "[1.1.0-rc1-20151109-01]"
         },
         "compile": {
           "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.dll": {}
@@ -9452,14 +9403,13 @@
           "lib/DNXCore50/System.Reflection.Extensions.dll": {}
         }
       },
-      "System.Reflection.Metadata/1.2.0": {
+      "System.Reflection.Metadata/1.1.0": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.0",
           "System.Collections.Immutable": "1.1.37",
           "System.Diagnostics.Debug": "4.0.0",
           "System.IO": "4.0.0",
-          "System.Linq": "4.0.0",
           "System.Reflection": "4.0.0",
           "System.Reflection.Extensions": "4.0.0",
           "System.Reflection.Primitives": "4.0.0",
@@ -9472,10 +9422,10 @@
           "System.Threading": "4.0.0"
         },
         "compile": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         }
       },
       "System.Reflection.Primitives/4.0.0": {
@@ -9961,17 +9911,8 @@
         "dependencies": {
           "Microphone.Core": "0.5.8",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
           "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-          "Microsoft.CodeAnalysis.Common": "2.0.0-beta1",
-          "Microsoft.CodeAnalysis.CSharp": "2.0.0-beta1",
-          "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
@@ -10670,15 +10611,15 @@
           "lib/dotnet5.4/Microsoft.AspNet.WebUtilities.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
+      "Microsoft.CodeAnalysis.Analyzers/1.0.0": {
         "type": "package"
       },
-      "Microsoft.CodeAnalysis.Common/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.Common/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "1.1.0",
+          "Microsoft.CodeAnalysis.Analyzers": "[1.0.0, 1.2.0)",
           "System.Collections.Immutable": "1.1.37",
-          "System.Reflection.Metadata": "1.2.0"
+          "System.Reflection.Metadata": "1.1.0"
         },
         "compile": {
           "lib/portable-net45+win8/Microsoft.CodeAnalysis.dll": {}
@@ -10687,10 +10628,10 @@
           "lib/portable-net45+win8/Microsoft.CodeAnalysis.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.CSharp/2.0.0-beta1": {
+      "Microsoft.CodeAnalysis.CSharp/1.1.0-rc1-20151109-01": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Common": "[2.0.0-beta1]"
+          "Microsoft.CodeAnalysis.Common": "[1.1.0-rc1-20151109-01]"
         },
         "compile": {
           "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.dll": {}
@@ -12222,14 +12163,13 @@
           "lib/DNXCore50/System.Reflection.Extensions.dll": {}
         }
       },
-      "System.Reflection.Metadata/1.2.0": {
+      "System.Reflection.Metadata/1.1.0": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.0",
           "System.Collections.Immutable": "1.1.37",
           "System.Diagnostics.Debug": "4.0.0",
           "System.IO": "4.0.0",
-          "System.Linq": "4.0.0",
           "System.Reflection": "4.0.0",
           "System.Reflection.Extensions": "4.0.0",
           "System.Reflection.Primitives": "4.0.0",
@@ -12242,10 +12182,10 @@
           "System.Threading": "4.0.0"
         },
         "compile": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.1/System.Reflection.Metadata.dll": {}
+          "lib/dotnet5.2/System.Reflection.Metadata.dll": {}
         }
       },
       "System.Reflection.Primitives/4.0.0": {
@@ -13215,46 +13155,46 @@
         "Microsoft.AspNet.WebUtilities.nuspec"
       ]
     },
-    "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
+    "Microsoft.CodeAnalysis.Analyzers/1.0.0": {
       "type": "package",
-      "sha512": "HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
+      "sha512": "E7VdmGw6xO3VHWapC+pNLZmo6yncS53UY3bmb5WZm9wliJBB1A6brgzKA4fcqiLrmJFx71r0M2zEbRDphRLUNg==",
       "files": [
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.Analyzers.dll",
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.CSharp.Analyzers.dll",
         "analyzers/dotnet/vb/Microsoft.CodeAnalysis.Analyzers.dll",
         "analyzers/dotnet/vb/Microsoft.CodeAnalysis.VisualBasic.Analyzers.dll",
-        "Microsoft.CodeAnalysis.Analyzers.1.1.0.nupkg",
-        "Microsoft.CodeAnalysis.Analyzers.1.1.0.nupkg.sha512",
+        "Microsoft.CodeAnalysis.Analyzers.1.0.0.nupkg",
+        "Microsoft.CodeAnalysis.Analyzers.1.0.0.nupkg.sha512",
         "Microsoft.CodeAnalysis.Analyzers.nuspec",
         "ThirdPartyNotices.rtf",
         "tools/install.ps1",
         "tools/uninstall.ps1"
       ]
     },
-    "Microsoft.CodeAnalysis.Common/2.0.0-beta1": {
+    "Microsoft.CodeAnalysis.Common/1.1.0-rc1-20151109-01": {
       "type": "package",
-      "sha512": "MuAKqJy2kih1zbHyO/Q2cjzAYd3y2Rvwx44E2qq5D9iJuznM+F/vNRIvf3PT4ZX05K/1aWLk43CBfg99UnpZyw==",
+      "sha512": "gC9zpQARTjIOht1dZM5Bp0fbOKA40yh0wHBMG2psLGquche0URbfdB9i1pnCusLospEsRIrNvYl75647BcBVug==",
       "files": [
         "lib/net45/Microsoft.CodeAnalysis.dll",
         "lib/net45/Microsoft.CodeAnalysis.xml",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.dll",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.xml",
-        "Microsoft.CodeAnalysis.Common.2.0.0-beta1.nupkg",
-        "Microsoft.CodeAnalysis.Common.2.0.0-beta1.nupkg.sha512",
+        "Microsoft.CodeAnalysis.Common.1.1.0-rc1-20151109-01.nupkg",
+        "Microsoft.CodeAnalysis.Common.1.1.0-rc1-20151109-01.nupkg.sha512",
         "Microsoft.CodeAnalysis.Common.nuspec",
         "ThirdPartyNotices.rtf"
       ]
     },
-    "Microsoft.CodeAnalysis.CSharp/2.0.0-beta1": {
+    "Microsoft.CodeAnalysis.CSharp/1.1.0-rc1-20151109-01": {
       "type": "package",
-      "sha512": "W8u6QVZ8VoH4Hio0/a0hZ1o8NLJoooIbHJGs/5lFPOpPSytcupm7mcAukkCXl4Wzr+PpgCIBK254CiFpGj6tIg==",
+      "sha512": "BFhSWMMlp0xLN/ogn71ULN7N0yy/yqJf/wu63x3KjV497n+8OlyiX7ZnbaQiUeafjW5P2vLzvZH99+5s+dH3Dg==",
       "files": [
         "lib/net45/Microsoft.CodeAnalysis.CSharp.dll",
         "lib/net45/Microsoft.CodeAnalysis.CSharp.xml",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.dll",
         "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.xml",
-        "Microsoft.CodeAnalysis.CSharp.2.0.0-beta1.nupkg",
-        "Microsoft.CodeAnalysis.CSharp.2.0.0-beta1.nupkg.sha512",
+        "Microsoft.CodeAnalysis.CSharp.1.1.0-rc1-20151109-01.nupkg",
+        "Microsoft.CodeAnalysis.CSharp.1.1.0-rc1-20151109-01.nupkg.sha512",
         "Microsoft.CodeAnalysis.CSharp.nuspec",
         "ThirdPartyNotices.rtf"
       ]
@@ -16037,20 +15977,18 @@
         "System.Reflection.Extensions.nuspec"
       ]
     },
-    "System.Reflection.Metadata/1.2.0": {
+    "System.Reflection.Metadata/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "ubQKFCNYPwhqPXPLjRKCvTDR2UvL5L5+Tm181D/5kl/df7264AuXDi2j2Bf5DxplBxevq8eUH9LRomcFCXTQKw==",
+      "sha512": "RLIE4sSt2zngMLuqM6YmxBH99mTumtT4DNZE4+msfEaInUP5iCLQT+BHPl+2cjSAP1pdALyAjLB8RtCB+WGGWQ==",
       "files": [
-        "dotnet_library_license.txt",
-        "lib/netstandard1.1/System.Reflection.Metadata.dll",
-        "lib/netstandard1.1/System.Reflection.Metadata.xml",
+        "lib/dotnet5.2/System.Reflection.Metadata.dll",
+        "lib/dotnet5.2/System.Reflection.Metadata.xml",
         "lib/portable-net45+win8/System.Reflection.Metadata.dll",
         "lib/portable-net45+win8/System.Reflection.Metadata.xml",
-        "System.Reflection.Metadata.1.2.0.nupkg",
-        "System.Reflection.Metadata.1.2.0.nupkg.sha512",
-        "System.Reflection.Metadata.nuspec",
-        "ThirdPartyNotices.txt"
+        "System.Reflection.Metadata.1.1.0.nupkg",
+        "System.Reflection.Metadata.1.1.0.nupkg.sha512",
+        "System.Reflection.Metadata.nuspec"
       ]
     },
     "System.Reflection.Primitives/4.0.0": {
