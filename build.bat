@@ -1,3 +1,5 @@
+msbuild microphonecore.sln /p:Configuration=Debug
+
 cd Microphone.Core
 rd bin /s /q
 dotnet pack
