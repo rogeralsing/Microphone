@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>@project@</id>
-    <version>@build.number@</version>
-    <title>@project@@title@</title>
-    <authors>@authors@</authors>
-    <owners>@authors@</owners>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
     <licenseUrl>https://github.com/rogeralsing/Microphone/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/rogeralsing/Microphone</projectUrl>
     <iconUrl>http://icons.iconarchive.com/icons/pelfusion/long-shadow-media/512/Microphone-icon.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>@description@</description>
+    <description>$description$</description>
     <releaseNotes>Initial release of Microphone microservice framework</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>Nancy WebApi Microservices Services ServiceDiscovery</tags>
