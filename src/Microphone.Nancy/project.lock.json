@@ -78,7 +78,7 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Nancy/2.0.0-alpha": {
+      "Nancy/1.4.3": {
         "type": "package"
       },
       "NETStandard.Library/1.5.0-rc2-24027": {
@@ -1401,14 +1401,14 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Nancy/2.0.0-alpha": {
-      "sha512": "tyhPxxsXtH5qlAj+EbytDuBam/sFs39qrgVDLEiirLblBfmPPGes6fhwrsfGmFGzwDv4yjREPiK7X4tPxYWgYg==",
+    "Nancy/1.4.3": {
+      "sha512": "4ZqIS2ZpFbQ5hgv1W/3qBz/gJd0J81+/3S31Hs6bATsexi3UDFvMrjL/i0qlrZRE0dquRHRztYDWoGl9jeb0aQ==",
       "type": "package",
       "files": [
-        "Nancy.2.0.0-alpha.nupkg.sha512",
+        "Nancy.1.4.3.nupkg.sha512",
         "Nancy.nuspec",
-        "lib/net45/Nancy.dll",
-        "lib/net45/Nancy.xml"
+        "lib/net40/Nancy.dll",
+        "lib/net40/Nancy.xml"
       ]
     },
     "NETStandard.Library/1.5.0-rc2-24027": {
@@ -4554,7 +4554,7 @@
     "": [
       "Microphone.Core >= 0.6.0",
       "NETStandard.Library >= 1.5.0-rc2-24027",
-      "Nancy >= 2.0.0-alpha"
+      "Nancy >= 1.4.3"
     ],
     ".NETStandard,Version=v1.5": []
   },
