@@ -1,0 +1,31 @@
+﻿using System;
+using System.Linq;
+using Microphone.Core;
+using Microphone.Core.ClusterProviders;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting.Server.Features;
+using Microsoft.AspNetCore.Http.Features;
+
+namespace Microphone.AspNet
+{
+    public static class Extensions
+    {
+        public static IApplicationBuilder UseMicrophone(this IApplicationBuilder self, IClusterProvider clusterProvider,
+            string serviceName, string version)
+        {
+            try
+            {
+                var features = self.Properties["server.Features"] as FeatureCollection;
+                var addresses = features.Get<IServerAddressesFeature>();
+                var address = addresses.Addresses.First().Replace("*", "localhost");
+                var uri = new Uri(address);
+                Cluster.Bootstrap(new AspNetProvider(uri.Port), clusterProvider, serviceName, version);
+            }
+            catch
+            {
+                Console.WriteLine("Error...");
+            }
+            return self;
+        }
+    }
+}

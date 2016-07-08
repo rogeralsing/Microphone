@@ -1,0 +1,32 @@
+{
+  "authors": [ "Roger Johansson" ],
+  "description": "Microphone.Asp5 Class Library",
+  "packOptions": {
+    "tags": [ "service discovery", "consul", "etcd", "nancy", "asp.net" ],
+    "projectUrl": "https://github.com/rogeralsing/Microphone",
+    "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
+    "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png"
+  },
+  "version": "0.6.0-*",
+
+  "dependencies": {
+    "NETStandard.Library": "1.5.0-rc2-24027",
+    "Microphone.Core": "0.6.0",
+    "Microsoft.ApplicationInsights.AspNetCore": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Logging": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-final"
+  },
+
+  "frameworks": {
+    "netstandard1.5": {
+      "imports": "dnxcore50"
+    }
+  }
+}
