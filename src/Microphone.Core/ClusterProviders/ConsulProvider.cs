@@ -100,12 +100,10 @@ namespace Microphone.Core.ClusterProviders
                 }
                 Logger.Information($"Registration successful");
             }
-            StartReaper();
         }
 
         public Task BootstrapClientAsync()
         {
-            StartReaper();
             return Task.FromResult(0);
         }
 
@@ -153,62 +151,5 @@ namespace Microphone.Core.ClusterProviders
         private string KeyValueUrl(string key) => RootUrl + "/v1/kv/" + key;
         private string ServiceHealthUrl(string service) => RootUrl + "/v1/health/service/" + service;
         private string DeregisterServiceUrl(string service) => RootUrl + "/v1/agent/service/deregister/" + service;
-
-        private void StartReaper()
-        {
-            Task.Factory.StartNew(async () =>
-            {
-                await Task.Delay(10000);
-                Logger.Information("Reaper: started..");
-
-                var lookup = new HashSet<string>();
-                while (true)
-                {
-                    try
-                    {
-                        IEnumerable<string> res;
-                        using (var client1 = new HttpClient())
-                        {
-                            var response1 = await client1.GetAsync(CriticalServicesUrl);
-                            if (response1.StatusCode != HttpStatusCode.OK)
-                            {
-                                throw new Exception("Could not get service health");
-                            }
-                            var body = await response1.Content.ReadAsStringAsync();
-                            var res1 = JArray.Parse(body);
-                            res = res1.Select(service => service["ServiceID"].Value<string>()).ToArray();
-                        }
-                        foreach (var criticalServiceId in res)
-                        {
-                            if (lookup.Contains(criticalServiceId))
-                            {
-                                using (var client = new HttpClient())
-                                {
-                                    var response = await client.GetAsync(DeregisterServiceUrl(criticalServiceId));
-                                    if (response.StatusCode != HttpStatusCode.OK)
-                                    {
-                                        throw new Exception("Could not de register service");
-                                    }
-                                }
-                                Logger.Information("Reaper: Removing {ServiceId}", criticalServiceId);
-                            }
-                            else
-                            {
-                                lookup.Add(criticalServiceId);
-                                Logger.Information("Reaper: Marking {ServiceId}", criticalServiceId);
-                            }
-                        }
-                        //remove entries that are no longer critical
-                        lookup.RemoveWhere(i => !res.Contains(i));
-                    }
-                    catch (Exception x)
-                    {
-                        Logger.Error(x, "Crashed");
-                    }
-
-                    await Task.Delay(5000);
-                }
-            });
-        }
     }
 }

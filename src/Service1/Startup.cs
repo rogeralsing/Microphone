@@ -36,7 +36,7 @@ namespace AspNetService
             app.UseMvc();
            app.UseMvcWithDefaultRoute();
            var consulHost = Configuration["CONSULHOST"] ?? "localhost";           
-           app.UseMicrophone(new ConsulProvider(consulHost), "AspNetService", "1.0");
+           app.UseMicrophone(new ConsulProvider(consulHost), "Service1", "1.0");
         }
 
         public static void Main(string[] args)
