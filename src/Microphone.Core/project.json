@@ -1,5 +1,5 @@
 ﻿{
-  "version": "0.6.0-*",
+  "version": "0.6.1-*",
   "description": "Microphone.Core Class Library",
   "authors": [ "Roger Johansson" ],
   "packOptions": {
@@ -10,7 +10,7 @@
   },
  
   "dependencies": {
-    "NETStandard.Library": "1.5.0-rc2-24027",
+    "NETStandard.Library": "1.6.0",
     "Newtonsoft.Json": "9.0.1-beta1",
     "Serilog" : "2.1.0-dev-00670",
     "System.Net.NameResolution" : "4.0.0"

@@ -10,7 +10,7 @@ Each service will start out by allocating a free port to run on, once the servic
 **WebApi bootstrapper**
 
 ```bat
-PM> Install-Package Microphone.WebApi
+PM> Install-Package Microphone.AspNet
 ```
 
 **NancyFx bootstrapper**
