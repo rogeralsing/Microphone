@@ -12,19 +12,21 @@ namespace Microphone.AspNet
 {
     public static class Extensions
     {
-        public static void AddMicrophone(this IServiceCollection services) 
+        public static void AddMicrophone<TCluster>(this IServiceCollection services) where TCluster:class, IClusterProvider 
         {
-            ServiceDescriptor s = new ServiceDescriptor(typeof(IClusterAgent),provider => Cluster.Agent, ServiceLifetime.Transient);
+            services.AddSingleton<IClusterProvider,TCluster>();
+            ServiceDescriptor s = new ServiceDescriptor(typeof(IClusterAgent),provider =>provider.GetService<IClusterProvider>(), ServiceLifetime.Singleton);
             services.Add(s);
         }
-        public static void AddMicrophone<THealthCheck>(this IServiceCollection services) where THealthCheck:class,IHealthCheck 
+        public static void AddMicrophone<TCluster,THealthCheck>(this IServiceCollection services) where TCluster:class, IClusterProvider where THealthCheck:class,IHealthCheck 
         {
-            services.AddMicrophone();
+            services.AddMicrophone<TCluster>();
             services.AddSingleton<IHealthCheck,THealthCheck>();
         }
-        public static IApplicationBuilder UseMicrophone(this IApplicationBuilder self, ILoggerFactory loggingFactory, IClusterProvider clusterProvider,
-            string serviceName, string version)
+        public static IApplicationBuilder UseMicrophone(this IApplicationBuilder self, string serviceName, string version)
         {
+            var loggingFactory = self.ApplicationServices.GetRequiredService<ILoggerFactory>();
+            var clusterProvider = self.ApplicationServices.GetRequiredService<IClusterProvider>();
             var features = self.Properties["server.Features"] as FeatureCollection;
             var logger = loggingFactory.CreateLogger("Microphone.AspNet");
             try

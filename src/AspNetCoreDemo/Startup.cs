@@ -16,6 +16,7 @@ namespace AspNetService
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
+                .AddEnvironmentVariables()
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
@@ -28,7 +29,8 @@ namespace AspNetService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddMicrophone<MyHealthChecker>(); //use additional healthchecks
+            services.AddSingleton<IConfiguration>(sp => Configuration);
+            services.AddMicrophone<ConsulProvider,MyHealthChecker>(); 
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -36,7 +38,7 @@ namespace AspNetService
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
             app.UseMvc();
-            app.UseMicrophone(loggerFactory, new ConsulProvider(loggerFactory, Configuration), "AspNetService", "1.0");
+            app.UseMicrophone( "AspNetService", "1.0");
         }
 
         public static void Main(string[] args)
