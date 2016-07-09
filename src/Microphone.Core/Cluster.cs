@@ -10,6 +10,12 @@ namespace Microphone.Core
         private static IClusterProvider _clusterProvider;
         private static IFrameworkProvider _frameworkProvider;
 
+        public static IClusterAgent Agent {
+            get
+            {
+                return _clusterProvider;
+            }
+        }
         public static Task<ServiceInformation[]> FindServiceInstancesAsync(string name)
         {
             return _clusterProvider.FindServiceInstancesAsync(name);

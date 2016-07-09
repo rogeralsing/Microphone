@@ -8,9 +8,9 @@ namespace Microphone.AspNet
     public class StatusController : Controller
     {
         private ILogger _log;
-        private ICheckHealth _checkHealth;
+        private IHealthCheck _checkHealth;
 
-        public StatusController(ILoggerFactory loggerFactory, ICheckHealth checkHealth=null) {
+        public StatusController(ILoggerFactory loggerFactory, IHealthCheck checkHealth=null) {
             _log = loggerFactory.CreateLogger("Microphone");
             _checkHealth = checkHealth;
         }

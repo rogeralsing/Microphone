@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microphone.Core.ClusterProviders;
+using System.Linq;
 
 namespace AspNetService.Controllers
 {
@@ -8,7 +10,7 @@ namespace AspNetService.Controllers
     {
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> Get([FromServices]IClusterAgent agent)
         {
             return new[] {"value1", "value2"};
         }

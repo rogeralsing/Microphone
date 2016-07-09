@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
 
-public interface ICheckHealth{
+public interface IHealthCheck{
     Task CheckHealth();
 }

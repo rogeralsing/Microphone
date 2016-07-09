@@ -28,7 +28,8 @@ namespace AspNetService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddTransient<ICheckHealth,MyHealthChecker>(); //use additional healthchecks
+            services.AddMicrophoneHealthCheck<MyHealthChecker>(); //use additional healthchecks
+            services.AddMicrophone();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -36,7 +37,6 @@ namespace AspNetService
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
             app.UseMvc();
-            app.UseMvcWithDefaultRoute();
             var consulHost = Configuration["CONSULHOST"] ?? "localhost"; 
             var consulPort = int.Parse(Configuration["CONSULPORT"] ?? "8500");   
             var consulProvider = new ConsulProvider(loggerFactory,consulHost,consulPort);       
@@ -58,7 +58,7 @@ namespace AspNetService
 
     //adding this kind of extra healthcheck will allow you to
     //do additional service healthcheck, e.g. ping database
-    public class MyHealthChecker : ICheckHealth
+    public class MyHealthChecker : IHealthCheck
     {
         private ILogger _logger;
         public MyHealthChecker(ILoggerFactory loggerFactory){
