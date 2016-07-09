@@ -36,17 +36,14 @@ namespace AspNetService
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
             app.UseMvc();
-            var consulHost = Configuration["CONSULHOST"] ?? "localhost"; 
-            var consulPort = int.Parse(Configuration["CONSULPORT"] ?? "8500");   
-            var consulProvider = new ConsulProvider(loggerFactory,consulHost,consulPort);       
-            app.UseMicrophone(loggerFactory,consulProvider, "AspNetService", "1.0");
+            app.UseMicrophone(loggerFactory, new ConsulProvider(loggerFactory, Configuration), "AspNetService", "1.0");
         }
 
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
-                .UseUrls(new []{"http://0.0.0.0:5000"})
+                .UseUrls(new[] { "http://0.0.0.0:5000" })
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .Build();
@@ -60,7 +57,8 @@ namespace AspNetService
     public class MyHealthChecker : IHealthCheck
     {
         private ILogger _logger;
-        public MyHealthChecker(ILoggerFactory loggerFactory){
+        public MyHealthChecker(ILoggerFactory loggerFactory)
+        {
             //use the default aspnet core DI support
             _logger = loggerFactory.CreateLogger("MyHealthCheck");
         }

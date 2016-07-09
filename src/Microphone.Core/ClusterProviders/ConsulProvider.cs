@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microphone.Core;
 using Microphone.Core.ClusterProviders;
 using Microphone.Core.Util;
+using Microsoft.Extensions.Configuration;
 
 namespace Microphone.Consul
 {
@@ -24,6 +25,18 @@ namespace Microphone.Consul
         private Uri _uri;
         private string _version;
         private ILogger _log;
+
+        public ConsulProvider(ILoggerFactory loggerFactory,IConfigurationRoot configuration)
+        {
+            var consulHost = configuration["CONSULHOST"] ?? "localhost"; 
+            var consulPort = int.Parse(configuration["CONSULPORT"] ?? "8500");  
+            var consulFabio = bool.Parse(configuration["CONSULFABIO"] ?? "false");
+
+            _log = loggerFactory.CreateLogger("Microphone.ConsulProvider");
+            _consulHost = consulHost;
+            _consulPort = consulPort;
+            _useEbayFabio = consulFabio;
+        }
 
         public ConsulProvider(ILoggerFactory loggerFactory, string consulHost = "localhost", int consulPort = 8500, bool useEbayFabio = false)
         {
