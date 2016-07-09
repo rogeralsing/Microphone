@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microphone.Core;
 using Microphone.Core.ClusterProviders;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -20,20 +21,22 @@ namespace Microphone.Etcd
         private readonly int _etcdPort;
         private string _serviceId;
         private string _serviceName;
+        private readonly ILogger _log;
+        private readonly IHealthCheck _healthCheck;
 
-        private ILogger _log;
-        public EtcdProvider(ILoggerFactory loggerFactory,int ttl, int heartBeat) : this(loggerFactory,"localhost", 2379, ttl, heartBeat)
+        public EtcdProvider(ILoggerFactory loggerFactory, IConfiguration configuration,IHealthCheck healthCheck = null)
         {
-        }
-
-        public EtcdProvider(ILoggerFactory loggerFactory, string host, int port, int ttl, int heartBeat)
-        {
-
             _log = loggerFactory.CreateLogger("Microphone.EtcdProvider");
-            _etcdHost = host;
-            _etcdPort = port;
-            _ectdTtl = ttl;
-            _ectdHeartbeart = heartBeat;
+            var etcdHost = configuration["EtcdHost"] ?? "localhost"; 
+            var etcdPort = int.Parse(configuration["EtcdPort"] ?? "2379");  
+            var etcdTtl = int.Parse(configuration["EtcdTtl"] ?? "3");  
+            var etcdHeartbeat = int.Parse(configuration["EtcdHeartbeat"] ?? "1");  
+
+            _etcdHost = etcdHost;
+            _etcdPort = etcdPort;
+            _ectdTtl = etcdTtl;
+            _ectdHeartbeart = etcdHeartbeat;
+            _healthCheck = healthCheck;
         }
 
         private string RootUrl => $"http://{_etcdHost}:{_etcdPort}";
@@ -120,12 +123,11 @@ namespace Microphone.Etcd
             }
         }
 
-        private string ServiceUrl(string serviceName) => RootUrl + $"/v2/keys/microphone/services/{serviceName}";
+        private string ServiceUrl(string serviceName) => $"{RootUrl}/v2/keys/microphone/services/{serviceName}";
 
-        private string RegisterServiceUrl(string serviceName, string serviceId)
-            => ServiceUrl(serviceName) + $"/{serviceId}";
+        private string RegisterServiceUrl(string serviceName, string serviceId) => $"{ServiceUrl(serviceName)}/{serviceId}";
 
-        private string KeyValueUrl(string key) => RootUrl + $"/v2/keys/microphone/values/{key}";
+        private string KeyValueUrl(string key) => $"{RootUrl}/v2/keys/microphone/values/{key}";
 
         private void StartHeartbeat(Func<Task> registerService)
         {
@@ -133,9 +135,20 @@ namespace Microphone.Etcd
             {
                 while (true)
                 {
-                    await registerService();
+                    try{
+                        if (_healthCheck != null)
+                        {
+                            await _healthCheck.CheckHealth();
+                        }
+                        await registerService();
+                        _log.LogInformation("OK");
+                    }
+                    catch{
+
+                    }
+                    
                     await Task.Delay(TimeSpan.FromSeconds(_ectdHeartbeart));
-                    _log.LogInformation("OK");
+                    
                 }
             });
         }
