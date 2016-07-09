@@ -47,6 +47,7 @@ namespace AspNetService
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
+                .UseUrls(new []{"http://0.0.0.0:5000"})
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .Build();
