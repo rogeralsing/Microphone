@@ -14,22 +14,18 @@ namespace Microphone.AspNet
         public static IApplicationBuilder UseMicrophone(this IApplicationBuilder self, ILoggerFactory loggingFactory, IClusterProvider clusterProvider,
             string serviceName, string version)
         {
-             var features = self.Properties["server.Features"] as FeatureCollection;
-             
-             var logger = loggingFactory.CreateLogger("Microphone");
+            var features = self.Properties["server.Features"] as FeatureCollection;
+            var logger = loggingFactory.CreateLogger("Microphone.AspNet");
             try
             {
-               
                 var addresses = features.Get<IServerAddressesFeature>();
                 var address = addresses.Addresses.First().Replace("*", "localhost");
                 var uri = new Uri(address);
-                
-                Microphone.Core.Logger.SetLogger(logger);
-                Cluster.Bootstrap(new AspNetProvider(uri.Port), clusterProvider, serviceName, version);
+                Cluster.Bootstrap(new AspNetProvider(uri.Port), clusterProvider, serviceName, version, logger);
             }
             catch(Exception x)
             {
-               logger.LogCritical(x.ToString());
+                logger.LogCritical(x.ToString());
             }
             return self;
         }

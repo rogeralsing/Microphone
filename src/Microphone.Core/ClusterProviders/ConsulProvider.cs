@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
-using static Microphone.Core.Logger;
 
 namespace Microphone.Core.ClusterProviders
 {
@@ -21,9 +20,11 @@ namespace Microphone.Core.ClusterProviders
         private string _serviceName;
         private Uri _uri;
         private string _version;
+        private ILogger _log;
 
-        public ConsulProvider(string consulHost = "localhost", int consulPort = 8500, bool useEbayFabio = false)
+        public ConsulProvider(ILoggerFactory loggerFactory, string consulHost = "localhost", int consulPort = 8500, bool useEbayFabio = false)
         {
+            _log = loggerFactory.CreateLogger("Microphone.Core.ConsulProvider");
             _consulHost = consulHost;
             _consulPort = consulPort;
             _useEbayFabio = useEbayFabio;
@@ -73,7 +74,7 @@ namespace Microphone.Core.ClusterProviders
             var localIp = DnsUtils.GetLocalIPAddress();
             var check = "http://" + localIp + ":" + uri.Port + "/status";
 
-            Log.LogInformation(
+            _log.LogInformation(
                 $"Registering service on {localIp} on Consul {_consulHost}:{_consulPort} with status check {check}");
             var payload = new
             {
@@ -100,7 +101,7 @@ namespace Microphone.Core.ClusterProviders
                 {
                     throw new Exception("Could not register service");
                 }
-                Log.LogInformation($"Registration successful");
+                _log.LogInformation($"Registration successful");
             }
         }
 

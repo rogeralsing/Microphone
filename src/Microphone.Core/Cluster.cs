@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Microphone.Core.ClusterProviders;
-using static Microphone.Core.Logger;
 using Microsoft.Extensions.Logging;
 
 namespace Microphone.Core
@@ -28,9 +27,9 @@ namespace Microphone.Core
         }
 
         public static void Bootstrap(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider,
-            string serviceName, string version)
+            string serviceName, string version, ILogger log)
         {
-            Log.LogInformation("Bootstrapping microphone..");
+            log.LogInformation("Bootstrapping microphone..");
             _frameworkProvider = frameworkProvider;
             var uri = _frameworkProvider.Start(serviceName, version);
             var serviceId = serviceName + "_" + DnsUtils.GetLocalEscapedIPAddress() + "_" + uri.Port;
@@ -41,7 +40,7 @@ namespace Microphone.Core
             }
             catch
             {
-                Log.LogError($"Could not register service {serviceId} using {frameworkProvider.GetType().Name}");
+                log.LogError($"Could not register service {serviceId} using {frameworkProvider.GetType().Name}");
             }
         }
 
