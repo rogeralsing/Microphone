@@ -5,8 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microphone.AspNet;
-using Microphone.Core.ClusterProviders;
 using System.Threading.Tasks;
+using Microphone.Consul;
 
 namespace AspNetService
 {

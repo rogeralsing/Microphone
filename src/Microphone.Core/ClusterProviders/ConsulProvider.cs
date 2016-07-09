@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
+using Microphone.Core;
+using Microphone.Core.ClusterProviders;
 
-namespace Microphone.Core.ClusterProviders
+namespace Microphone.Consul
 {
     public class ConsulProvider : IClusterProvider
     {
@@ -24,7 +26,7 @@ namespace Microphone.Core.ClusterProviders
 
         public ConsulProvider(ILoggerFactory loggerFactory, string consulHost = "localhost", int consulPort = 8500, bool useEbayFabio = false)
         {
-            _log = loggerFactory.CreateLogger("Microphone.Core.ConsulProvider");
+            _log = loggerFactory.CreateLogger("Microphone.ConsulProvider");
             _consulHost = consulHost;
             _consulPort = consulPort;
             _useEbayFabio = useEbayFabio;
