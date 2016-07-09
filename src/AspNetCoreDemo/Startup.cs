@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microphone.AspNet;
 using Microphone.Core.ClusterProviders;
+using System.Threading.Tasks;
 
 namespace AspNetService
 {
@@ -27,6 +28,7 @@ namespace AspNetService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+         //   services.AddTransient<ICheckHealth,MyHealthChecker>(); //use additional healthchecks
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -50,6 +52,20 @@ namespace AspNetService
                 .Build();
 
             host.Run();
+        }
+    }
+
+    //adding this kind of extra healthcheck will allow you to do additional service healthcheck, e.g. ping database
+    public class MyHealthChecker : ICheckHealth
+    {
+        private ILogger _logger;
+        public MyHealthChecker(ILoggerFactory loggerFactory){
+            _logger = loggerFactory.CreateLogger("MyHealthCheck");
+        }
+        public async Task CheckHealth()
+        {
+            await Task.Yield(); //just to show we can do async
+            _logger.LogInformation("Additional HealthCheck");
         }
     }
 }
