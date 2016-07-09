@@ -115,11 +115,6 @@ namespace Microphone.Consul
             }
         }
 
-        public Task BootstrapClientAsync()
-        {
-            return Task.FromResult(0);
-        }
-
         public async Task KeyValuePutAsync(string key, object value)
         {
             using (var client = new HttpClient())

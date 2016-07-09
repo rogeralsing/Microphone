@@ -18,7 +18,6 @@ namespace Microphone.Core.ClusterProviders
     public interface IClusterProvider : IClusterAgent
     {
         Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri);
-        Task BootstrapClientAsync();
     }
 
     public static class ClusterProviderExtensions
