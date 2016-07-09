@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microphone.Core;
 using Microphone.Core.ClusterProviders;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -20,13 +21,15 @@ namespace Microphone.Etcd
         private string _serviceId;
         private string _serviceName;
 
-
-        public EtcdProvider(int ttl, int heartBeat) : this("localhost", 2379, ttl, heartBeat)
+        private ILogger _log;
+        public EtcdProvider(ILoggerFactory loggerFactory,int ttl, int heartBeat) : this(loggerFactory,"localhost", 2379, ttl, heartBeat)
         {
         }
 
-        public EtcdProvider(string host, int port, int ttl, int heartBeat)
+        public EtcdProvider(ILoggerFactory loggerFactory, string host, int port, int ttl, int heartBeat)
         {
+
+            _log = loggerFactory.CreateLogger("Microphone.EtcdProvider");
             _etcdHost = host;
             _etcdPort = port;
             _ectdTtl = ttl;
@@ -45,7 +48,7 @@ namespace Microphone.Etcd
                 {
                     throw new Exception("Could not find services");
                 }
-                Logger.Information("{ServiceName} lookup {OtherServiceName}", _serviceName, serviceName);
+                _log.LogInformation($"{_serviceName} lookup {serviceName}");
                 var body = await response.Content.ReadAsStringAsync();
                 var res = JObject.Parse(body);
                 var nodes = res["node"]["nodes"];
@@ -132,7 +135,7 @@ namespace Microphone.Etcd
                 {
                     await registerService();
                     await Task.Delay(TimeSpan.FromSeconds(_ectdHeartbeart));
-                    Logger.Information("OK");
+                    _log.LogInformation("OK");
                 }
             });
         }
