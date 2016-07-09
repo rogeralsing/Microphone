@@ -28,7 +28,7 @@ namespace Microphone.Core.ClusterProviders
         {
             var res = await self.FindServiceInstancesAsync(serviceName).ConfigureAwait(false);
             if (res.Length == 0)
-                throw new Exception("Could not find service");
+                throw new Exception($"No healthy instance of the service '{serviceName}' was found");
 
             return res[ThreadLocalRandom.Current.Next(0, res.Length)];
         }

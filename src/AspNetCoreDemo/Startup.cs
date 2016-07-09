@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Microphone.AspNet;
 using System.Threading.Tasks;
 using Microphone.Consul;
+using Microphone.Core;
 
 namespace AspNetService
 {
@@ -38,7 +39,7 @@ namespace AspNetService
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
             app.UseMvc();
-            app.UseMicrophone( "AspNetService", "1.0");
+            app.UseMicrophone("AspNetService", "1.0");
         }
 
         public static void Main(string[] args)

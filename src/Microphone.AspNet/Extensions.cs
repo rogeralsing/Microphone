@@ -27,14 +27,14 @@ namespace Microphone.AspNet
         {
             var loggingFactory = self.ApplicationServices.GetRequiredService<ILoggerFactory>();
             var clusterProvider = self.ApplicationServices.GetRequiredService<IClusterProvider>();
-            var features = self.Properties["server.Features"] as FeatureCollection;
             var logger = loggingFactory.CreateLogger("Microphone.AspNet");
             try
             {
+                var features = self.Properties["server.Features"] as FeatureCollection;
                 var addresses = features.Get<IServerAddressesFeature>();
                 var address = addresses.Addresses.First().Replace("*", "localhost");
                 var uri = new Uri(address);
-                Cluster.Bootstrap(new AspNetProvider(uri.Port), clusterProvider, serviceName, version, logger);
+                Cluster.RegisterService(new AspNetProvider(uri), clusterProvider, serviceName, version, logger);
             }
             catch(Exception x)
             {
