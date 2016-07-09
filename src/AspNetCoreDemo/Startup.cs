@@ -34,10 +34,11 @@ namespace AspNetService
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
             app.UseMvc();
-           app.UseMvcWithDefaultRoute();
-           var consulHost = Configuration["CONSULHOST"] ?? "localhost"; 
-           var consulProvider = int.Parse(Configuration["CONSULPROVIDER"] ?? "8500");          
-           app.UseMicrophone(loggerFactory,new ConsulProvider(consulHost,consulProvider), "AspNetService", "1.0");
+            app.UseMvcWithDefaultRoute();
+            var consulHost = Configuration["CONSULHOST"] ?? "localhost"; 
+            var consulPort = int.Parse(Configuration["CONSULPORT"] ?? "8500");   
+            var consulProvider = new ConsulProvider(consulHost,consulPort);       
+            app.UseMicrophone(loggerFactory,consulProvider, "AspNetService", "1.0");
         }
 
         public static void Main(string[] args)
