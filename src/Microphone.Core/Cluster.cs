@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microphone.Core.ClusterProviders;
 using static Microphone.Core.Logger;
 using Microsoft.Extensions.Logging;
