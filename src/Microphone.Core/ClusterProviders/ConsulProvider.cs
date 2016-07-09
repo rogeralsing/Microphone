@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+using static Microphone.Core.Logger;
 
 namespace Microphone.Core.ClusterProviders
 {
@@ -28,8 +30,8 @@ namespace Microphone.Core.ClusterProviders
         }
 
         private string RootUrl => $"http://{_consulHost}:{_consulPort}";
-        private string CriticalServicesUrl => RootUrl + "/v1/health/state/critical";
-        private string RegisterServiceUrl => RootUrl + "/v1/agent/service/register";
+        private string CriticalServicesUrl => $"{RootUrl}/v1/health/state/critical";
+        private string RegisterServiceUrl => $"{RootUrl}/v1/agent/service/register";
 
         public async Task<ServiceInformation[]> FindServiceInstancesAsync(string name)
         {
@@ -71,7 +73,7 @@ namespace Microphone.Core.ClusterProviders
             var localIp = DnsUtils.GetLocalIPAddress();
             var check = "http://" + localIp + ":" + uri.Port + "/status";
 
-            Logger.Information(
+            Log.LogInformation(
                 $"Registering service on {localIp} on Consul {_consulHost}:{_consulPort} with status check {check}");
             var payload = new
             {
@@ -98,7 +100,7 @@ namespace Microphone.Core.ClusterProviders
                 {
                     throw new Exception("Could not register service");
                 }
-                Logger.Information($"Registration successful");
+                Log.LogInformation($"Registration successful");
             }
         }
 
