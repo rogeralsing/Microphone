@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microphone.Core.ClusterProviders;
+using Microphone.Core.Util;
 using Microsoft.Extensions.Logging;
 
 namespace Microphone.Core
@@ -29,7 +30,7 @@ namespace Microphone.Core
         public static void Bootstrap(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider,
             string serviceName, string version, ILogger log)
         {
-            log.LogInformation("Bootstrapping microphone..");
+            log.LogInformation("Bootstrapping Microphone");
             _frameworkProvider = frameworkProvider;
             var uri = _frameworkProvider.Start(serviceName, version);
             var serviceId = serviceName + "_" + DnsUtils.GetLocalEscapedIPAddress() + "_" + uri.Port;

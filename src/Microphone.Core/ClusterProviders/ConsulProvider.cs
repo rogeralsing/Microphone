@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
 using Microphone.Core;
 using Microphone.Core.ClusterProviders;
+using Microphone.Core.Util;
 
 namespace Microphone.Consul
 {
@@ -72,12 +73,14 @@ namespace Microphone.Consul
             _serviceId = serviceId;
             _version = version;
             _uri = uri;
+            var port = uri.Port;
 
             var localIp = DnsUtils.GetLocalIPAddress();
-            var check = "http://" + localIp + ":" + uri.Port + "/status";
+            var check = $"http://{localIp}:{port}/status";
 
-            _log.LogInformation(
-                $"Registering service on {localIp} on Consul {_consulHost}:{_consulPort} with status check {check}");
+            _log.LogInformation($"Using Consul at {_consulHost}:{_consulPort}");
+            _log.LogInformation($"Registering service {serviceId} at http://{localIp}:{port}");
+            _log.LogInformation($"Registering health check at http://{localIp}:{port}/status");
             var payload = new
             {
                 ID = serviceId,

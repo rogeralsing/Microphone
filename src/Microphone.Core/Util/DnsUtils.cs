@@ -2,7 +2,7 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 
-namespace Microphone.Core.ClusterProviders
+namespace Microphone.Core.Util
 {
     public class DnsUtils
     {
