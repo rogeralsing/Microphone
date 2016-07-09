@@ -28,8 +28,7 @@ namespace AspNetService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddMicrophoneHealthCheck<MyHealthChecker>(); //use additional healthchecks
-            services.AddMicrophone();
+            services.AddMicrophone<MyHealthChecker>(); //use additional healthchecks
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

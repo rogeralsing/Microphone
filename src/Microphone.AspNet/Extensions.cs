@@ -17,8 +17,9 @@ namespace Microphone.AspNet
             ServiceDescriptor s = new ServiceDescriptor(typeof(IClusterAgent),provider => Cluster.Agent, ServiceLifetime.Transient);
             services.Add(s);
         }
-        public static void AddMicrophoneHealthCheck<THealthCheck>(this IServiceCollection services) where THealthCheck:class,IHealthCheck 
+        public static void AddMicrophone<THealthCheck>(this IServiceCollection services) where THealthCheck:class,IHealthCheck 
         {
+            services.AddMicrophone();
             services.AddSingleton<IHealthCheck,THealthCheck>();
         }
         public static IApplicationBuilder UseMicrophone(this IApplicationBuilder self, ILoggerFactory loggingFactory, IClusterProvider clusterProvider,
