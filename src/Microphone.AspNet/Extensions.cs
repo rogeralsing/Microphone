@@ -10,19 +10,31 @@ using Microsoft.Extensions.Logging;
 
 namespace Microphone.AspNet
 {
+    public class MicrophoneBuilder
+    {
+        private IServiceCollection services;
+
+        public MicrophoneBuilder(IServiceCollection services)
+        {
+            this.services = services;
+        }
+
+        public MicrophoneBuilder AddHealthCheck<THealthCheck>() where THealthCheck:class,IHealthCheck
+        {
+            services.AddSingleton<IHealthCheck,THealthCheck>();
+            return this;
+        }
+    }
     public static class Extensions
     {
-        public static void AddMicrophone<TCluster>(this IServiceCollection services) where TCluster:class, IClusterProvider 
+        public static MicrophoneBuilder AddMicrophone<TCluster>(this IServiceCollection services) where TCluster:class, IClusterProvider 
         {
             services.AddSingleton<IClusterProvider,TCluster>();
             ServiceDescriptor s = new ServiceDescriptor(typeof(IClusterAgent),provider =>provider.GetService<IClusterProvider>(), ServiceLifetime.Singleton);
             services.Add(s);
+            return new MicrophoneBuilder(services);
         }
-        public static void AddMicrophone<TCluster,THealthCheck>(this IServiceCollection services) where TCluster:class, IClusterProvider where THealthCheck:class,IHealthCheck 
-        {
-            services.AddMicrophone<TCluster>();
-            services.AddSingleton<IHealthCheck,THealthCheck>();
-        }
+
         public static IApplicationBuilder UseMicrophone(this IApplicationBuilder self, string serviceName, string version)
         {
             var loggingFactory = self.ApplicationServices.GetRequiredService<ILoggerFactory>();
