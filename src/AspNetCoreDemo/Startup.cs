@@ -28,7 +28,7 @@ namespace AspNetService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-         //   services.AddTransient<ICheckHealth,MyHealthChecker>(); //use additional healthchecks
+            services.AddTransient<ICheckHealth,MyHealthChecker>(); //use additional healthchecks
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -55,11 +55,13 @@ namespace AspNetService
         }
     }
 
-    //adding this kind of extra healthcheck will allow you to do additional service healthcheck, e.g. ping database
+    //adding this kind of extra healthcheck will allow you to
+    //do additional service healthcheck, e.g. ping database
     public class MyHealthChecker : ICheckHealth
     {
         private ILogger _logger;
         public MyHealthChecker(ILoggerFactory loggerFactory){
+            //use the default aspnet core DI support
             _logger = loggerFactory.CreateLogger("MyHealthCheck");
         }
         public async Task CheckHealth()
