@@ -6,7 +6,7 @@ namespace Microphone
     public static class Cluster
     {
         private static IClusterClient agent;
-        public static IClusterClient Agent => agent;
+        public static IClusterClient Client => agent;
 
         public static void RegisterService(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider,
             string serviceName, string version, ILogger log)

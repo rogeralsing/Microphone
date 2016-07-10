@@ -37,7 +37,8 @@ namespace Microphone.AspNet
 
             key = key.Substring("Microphone".Length);
 
-            value = Cluster.Agent.KeyValueGetAsync(key).Result;
+            //HACK: if we could use DI to get the cluster client it would be nicer
+            value = Cluster.Client.KeyValueGet(key);
             return true;
         }
     }
