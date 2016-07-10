@@ -13,6 +13,13 @@ using Microsoft.Extensions.Configuration;
 
 namespace Microphone.Consul
 {
+    public class ConsulOptions
+    {
+        public string Host { get; set; } = "localhost";
+        public int Port { get; set; } = 8500;
+        public bool UseFabio { get; set; } = false;
+
+    }
     public class ConsulProvider : IClusterProvider
     {
         private readonly string _consulHost;
@@ -24,11 +31,13 @@ namespace Microphone.Consul
         private string _version;
         private ILogger _log;
 
-        public ConsulProvider(ILoggerFactory loggerFactory, IConfiguration configuration)
+        public ConsulProvider(ILoggerFactory loggerFactory, ConsulOptions configuration=null)
         {
-            var consulHost = configuration["ConsulHost"] ?? "localhost";
-            var consulPort = int.Parse(configuration["ConsulPort"] ?? "8500");
-            var consulFabio = bool.Parse(configuration["ConsulFabio"] ?? "false");
+            configuration = configuration ?? new ConsulOptions();
+
+            var consulHost = configuration.Host;
+            var consulPort = configuration.Port;
+            var consulFabio = configuration.UseFabio;
 
             _log = loggerFactory.CreateLogger("Microphone.ConsulProvider");
             _consulHost = consulHost;
