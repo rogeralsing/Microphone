@@ -29,10 +29,10 @@ namespace Microphone.AspNet
         public bool TryGet(string key, out string value)
         {
             value = null;
-            if (!key.StartsWith("Microphone"))
+            if (!key.StartsWith("Microphone:"))
                 return false;
 
-            key = key.Substring("Microphone".Length);
+            key = key.Substring("Microphone:".Length);
 
             //HACK: if we could use DI to get the cluster client it would be nicer
             value = Cluster.Client.KeyValueGet(key);
