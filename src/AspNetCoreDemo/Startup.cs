@@ -17,10 +17,10 @@ namespace AspNetService
         {
             Configuration = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddMicrophoneKeyValueStore()
                 .AddEnvironmentVariables()
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddMicrophoneKeyValueStore()
                 .Build();
         }
 

@@ -22,15 +22,8 @@ namespace AspNetService.Controllers
         [HttpGet("{id}")]
         public string Get(string id, [FromServices]IConfiguration config)
         {
-            try
-            {
-                var res = config[$"Microphone{id}"];
-                return "start" + res + "end";
-            }
-            catch (Exception x)
-            {
-                return "Error";
-            }
+            var res = config[$"Microphone{id}"];
+            return res;
         }
 
         // POST api/values

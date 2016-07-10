@@ -36,10 +36,6 @@ namespace Microphone.Consul
             _useEbayFabio = consulFabio;
         }
 
-        private string RootUrl => $"http://{_consulHost}:{_consulPort}";
-        private string CriticalServicesUrl => $"{RootUrl}/v1/health/state/critical";
-        private string RegisterServiceUrl => $"{RootUrl}/v1/agent/service/register";
-
         public async Task<ServiceInformation[]> FindServiceInstancesAsync(string name)
         {
             if (_useEbayFabio)
@@ -142,7 +138,7 @@ namespace Microphone.Consul
 
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
-                    throw new Exception("Could not get value");
+                    throw new Exception($"Could not get value for key \"{key}\"");
                 }
 
                 var body = await response.Content.ReadAsStringAsync();
@@ -153,8 +149,11 @@ namespace Microphone.Consul
             }
         }
 
-        private string KeyValueUrl(string key) => RootUrl + "/v1/kv/" + key;
-        private string ServiceHealthUrl(string service) => RootUrl + "/v1/health/service/" + service;
-        private string DeregisterServiceUrl(string service) => RootUrl + "/v1/agent/service/deregister/" + service;
+	    private string RootUrl => $"http://{_consulHost}:{_consulPort}";
+        private string CriticalServicesUrl => $"{RootUrl}/v1/health/state/critical";
+        private string RegisterServiceUrl => $"{RootUrl}/v1/agent/service/register";
+        private string KeyValueUrl(string key) => $"{RootUrl}/v1/kv/{key}";
+        private string ServiceHealthUrl(string service) => $"{RootUrl}/v1/health/service/{service}";
+        private string DeregisterServiceUrl(string service) => $"{RootUrl}/v1/agent/service/deregister/{service}";
     }
 }
