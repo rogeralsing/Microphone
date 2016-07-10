@@ -6,6 +6,9 @@ namespace Microphone.Core
 {
     public static class Cluster
     {
+        private static IClusterClient agent;
+        public static IClusterClient Agent => agent;
+
         public static void RegisterService(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider,
             string serviceName, string version, ILogger log)
         {
@@ -20,6 +23,7 @@ namespace Microphone.Core
             {
                 log.LogError($"Could not register service {serviceId} using {frameworkProvider.GetType().Name}");
             }
+            agent = clusterProvider;
         }
     }
 }

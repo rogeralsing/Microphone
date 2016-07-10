@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microphone.Core.ClusterProviders;
+using System.Linq;
+using Microsoft.Extensions.Configuration;
+using System;
 
 namespace AspNetService.Controllers
 {
@@ -9,16 +12,25 @@ namespace AspNetService.Controllers
     {
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get([FromServices]IClusterAgent agent)
+        public IEnumerable<string> Get([FromServices]IClusterClient client)
         {
-            return new[] {"value1", "value2"};
+            var res = client.FindServiceInstancesAsync("AspNetService").Result.Select(s => s.Address).ToArray();
+            return res;
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public string Get(string id, [FromServices]IConfiguration config)
         {
-            return "value";
+            try
+            {
+                var res = config[$"Microphone{id}"];
+                return "start" + res + "end";
+            }
+            catch (Exception x)
+            {
+                return "Error";
+            }
         }
 
         // POST api/values

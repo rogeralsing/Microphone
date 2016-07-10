@@ -12,17 +12,17 @@ namespace Microphone.Core.ClusterProviders
 	    Task KeyValuePutAsync(string key, object value);
         Task<T> KeyValueGetAsync<T>(string key);
     }
-    public interface IClusterAgent : IServiceDiscovery, IKeyValueStore {
+    public interface IClusterClient : IServiceDiscovery, IKeyValueStore {
     }
     
-    public interface IClusterProvider : IClusterAgent
+    public interface IClusterProvider : IClusterClient
     {
         Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri);
     }
 
     public static class ClusterProviderExtensions
     {
-        public static async Task<ServiceInformation> FindServiceInstanceAsync(this IClusterAgent self,
+        public static async Task<ServiceInformation> FindServiceInstanceAsync(this IClusterClient self,
             string serviceName)
         {
             var res = await self.FindServiceInstancesAsync(serviceName).ConfigureAwait(false);

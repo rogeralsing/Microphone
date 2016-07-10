@@ -152,6 +152,7 @@ namespace Microphone.Consul
                 var bytes = Convert.FromBase64String((string) deserializedBody[0]["Value"]);
                 var strValue = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
 
+                _log.LogError("Fail" + strValue);
                 return JsonConvert.DeserializeObject<T>(strValue);
             }
         }

@@ -15,14 +15,13 @@ namespace AspNetService
     {
         public Startup(IHostingEnvironment env)
         {
-            var builder = new ConfigurationBuilder()
+            Configuration = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
+                .AddMicrophoneKeyValueStore()
                 .AddEnvironmentVariables()
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
-
-            builder.AddEnvironmentVariables();
-            Configuration = builder.Build();
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .Build();
         }
 
         public IConfigurationRoot Configuration { get; set; }
@@ -38,10 +37,13 @@ namespace AspNetService
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-            app.UseMvc();
-            app.UseMicrophone("AspNetService", "1.0");
+            loggerFactory
+            .AddConsole(Configuration.GetSection("Logging"))
+            .AddDebug();
+
+            app
+            .UseMvc()
+            .UseMicrophone("AspNetService", "1.0");
         }
 
         public static void Main(string[] args)

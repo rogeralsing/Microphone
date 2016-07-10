@@ -5,6 +5,7 @@ using Microphone.Core.ClusterProviders;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -27,10 +28,15 @@ namespace Microphone.AspNet
     }
     public static class Extensions
     {
+        public static IConfigurationBuilder AddMicrophoneKeyValueStore(this IConfigurationBuilder self)
+        {
+            self.Add(new MicrophoneConfigurationSource());
+            return self;
+        }
         public static MicrophoneBuilder AddMicrophone<TCluster>(this IServiceCollection services) where TCluster:class, IClusterProvider 
         {
             services.AddSingleton<IClusterProvider,TCluster>();
-            ServiceDescriptor s = new ServiceDescriptor(typeof(IClusterAgent),provider =>provider.GetService<IClusterProvider>(), ServiceLifetime.Singleton);
+            ServiceDescriptor s = new ServiceDescriptor(typeof(IClusterClient),provider =>provider.GetService<IClusterProvider>(), ServiceLifetime.Singleton);
             services.Add(s);
             return new MicrophoneBuilder(services);
         }
