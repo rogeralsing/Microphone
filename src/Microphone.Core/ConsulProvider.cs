@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
 using Microphone.Core.Util;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace Microphone.Consul
 {
@@ -31,13 +32,11 @@ namespace Microphone.Consul
         private string _version;
         private ILogger _log;
 
-        public ConsulProvider(ILoggerFactory loggerFactory, ConsulOptions configuration=null)
+        public ConsulProvider(ILoggerFactory loggerFactory, IOptions<ConsulOptions> configuration)
         {
-            configuration = configuration ?? new ConsulOptions();
-
-            var consulHost = configuration.Host;
-            var consulPort = configuration.Port;
-            var consulFabio = configuration.UseFabio;
+            var consulHost = configuration.Value.Host;
+            var consulPort = configuration.Value.Port;
+            var consulFabio = configuration.Value.UseFabio;
 
             _log = loggerFactory.CreateLogger("Microphone.ConsulProvider");
             _consulHost = consulHost;

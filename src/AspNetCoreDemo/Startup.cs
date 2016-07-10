@@ -28,7 +28,6 @@ namespace AspNetService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddOptions();
             services
                 .AddMicrophone<ConsulProvider>()
                 .AddHealthCheck<MyHealthChecker>();

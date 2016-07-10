@@ -33,6 +33,7 @@ namespace Microphone.AspNet
         }
         public static MicrophoneBuilder AddMicrophone<TCluster>(this IServiceCollection services) where TCluster:class, IClusterProvider 
         {
+            services.AddOptions();
             services.AddSingleton<IClusterProvider,TCluster>();
             ServiceDescriptor s = new ServiceDescriptor(typeof(IClusterClient),provider =>provider.GetService<IClusterProvider>(), ServiceLifetime.Singleton);
             services.Add(s);

@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 
 namespace Microphone.Etcd
@@ -27,14 +28,13 @@ namespace Microphone.Etcd
         private readonly ILogger _log;
         private readonly IHealthCheck _healthCheck;
 
-        public EtcdProvider(ILoggerFactory loggerFactory, EtcdOptions configuration = null,IHealthCheck healthCheck = null)
+        public EtcdProvider(ILoggerFactory loggerFactory, IOptions<EtcdOptions> configuration,IHealthCheck healthCheck = null)
         {
-            configuration = configuration ?? new EtcdOptions();
             _log = loggerFactory.CreateLogger("Microphone.EtcdProvider");
-            var etcdHost = configuration.Host;
-            var etcdPort = configuration.Port;
-            var etcdTtl = configuration.TimeToLive;
-            var etcdHeartbeat = configuration.Heartbeat;
+            var etcdHost = configuration.Value.Host;
+            var etcdPort = configuration.Value.Port;
+            var etcdTtl = configuration.Value.TimeToLive;
+            var etcdHeartbeat = configuration.Value.Heartbeat;
 
             _etcdHost = etcdHost;
             _etcdPort = etcdPort;
