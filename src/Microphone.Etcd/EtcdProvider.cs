@@ -4,12 +4,18 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 namespace Microphone.Etcd
 {
+    public class EtcdOptions
+    {
+        public string Host { get; set; } = "localhost";
+        public int Port { get; set; } = 2379;
+        public int Heartbeat { get; set; } = 1;
+        public int TimeToLive { get; set; } = 3;
+    }
     public class EtcdProvider : IClusterProvider
     {
         private readonly int _ectdHeartbeart;
@@ -21,13 +27,14 @@ namespace Microphone.Etcd
         private readonly ILogger _log;
         private readonly IHealthCheck _healthCheck;
 
-        public EtcdProvider(ILoggerFactory loggerFactory, IConfiguration configuration,IHealthCheck healthCheck = null)
+        public EtcdProvider(ILoggerFactory loggerFactory, EtcdOptions configuration = null,IHealthCheck healthCheck = null)
         {
+            configuration = configuration ?? new EtcdOptions();
             _log = loggerFactory.CreateLogger("Microphone.EtcdProvider");
-            var etcdHost = configuration["EtcdHost"] ?? "localhost";
-            var etcdPort = int.Parse(configuration["EtcdPort"] ?? "2379");
-            var etcdTtl = int.Parse(configuration["EtcdTtl"] ?? "3");
-            var etcdHeartbeat = int.Parse(configuration["EtcdHeartbeat"] ?? "1");
+            var etcdHost = configuration.Host;
+            var etcdPort = configuration.Port;
+            var etcdTtl = configuration.TimeToLive;
+            var etcdHeartbeat = configuration.Heartbeat;
 
             _etcdHost = etcdHost;
             _etcdPort = etcdPort;

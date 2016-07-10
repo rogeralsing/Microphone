@@ -20,7 +20,6 @@ namespace AspNetService
                 .AddEnvironmentVariables()
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddMicrophoneKeyValueStore()
                 .Build();
         }
 
