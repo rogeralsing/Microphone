@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microphone;
 using System.Linq;
-using Microsoft.Extensions.Configuration;
 
 namespace AspNetService.Controllers
 {
@@ -19,10 +18,9 @@ namespace AspNetService.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(string id, [FromServices]IConfiguration config)
+        public string Get(string id)
         {
-            var res = config[$"Microphone{id}"];
-            return res;
+            return "hello";
         }
 
         // POST api/values

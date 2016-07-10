@@ -13,7 +13,7 @@ namespace Microphone.AspNet
         private ConfigurationReloadToken _reloadToken = new ConfigurationReloadToken();
         public IEnumerable<string> GetChildKeys(IEnumerable<string> earlierKeys, string parentPath)
         {
-            return new string[]{};
+            return new string[] { };
         }
 
         public IChangeToken GetReloadToken() => _reloadToken;
