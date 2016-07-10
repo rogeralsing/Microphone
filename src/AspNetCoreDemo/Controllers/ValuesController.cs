@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microphone;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
-using System;
 
 namespace AspNetService.Controllers
 {

@@ -6,10 +6,7 @@ namespace Microphone.AspNet
 {
     public class MicrophoneConfigurationSource : IConfigurationSource
     {
-        public IConfigurationProvider Build(IConfigurationBuilder builder)
-        {
-            return new MicrophoneConfigurationProvider();
-        }
+        public IConfigurationProvider Build(IConfigurationBuilder builder) => new MicrophoneConfigurationProvider();
     }
     public class MicrophoneConfigurationProvider : IConfigurationProvider
     {
