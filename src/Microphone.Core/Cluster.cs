@@ -1,8 +1,7 @@
-﻿using Microphone.Core.ClusterProviders;
-using Microphone.Core.Util;
+﻿using Microphone.Core.Util;
 using Microsoft.Extensions.Logging;
 
-namespace Microphone.Core
+namespace Microphone
 {
     public static class Cluster
     {

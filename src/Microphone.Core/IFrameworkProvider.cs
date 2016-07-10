@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microphone.Core
+namespace Microphone
 {
     public interface IFrameworkProvider
     {

@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Microphone.Core
+namespace Microphone
 {
     public interface IHealthCheck
     {

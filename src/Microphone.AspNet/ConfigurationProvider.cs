@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Microphone.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Primitives;
 
@@ -38,7 +37,7 @@ namespace Microphone.AspNet
 
             key = key.Substring("Microphone".Length);
 
-            value = Cluster.Agent.KeyValueGetAsync<string>(key).Result;
+            value = Cluster.Agent.KeyValueGetAsync(key).Result;
             return true;
         }
     }

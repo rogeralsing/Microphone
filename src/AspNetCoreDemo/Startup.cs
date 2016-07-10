@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using Microphone.AspNet;
 using System.Threading.Tasks;
 using Microphone.Consul;
-using Microphone.Core;
+using Microphone;
 
 namespace AspNetService
 {

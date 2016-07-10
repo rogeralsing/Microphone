@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Microphone.Core.ClusterProviders;
+using Microphone;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 using System;

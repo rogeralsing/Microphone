@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.Sockets;
 
-namespace Microphone.Core
+namespace Microphone
 {
     public static class Configuration
     {

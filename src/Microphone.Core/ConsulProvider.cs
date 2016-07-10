@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
-using Microphone.Core;
-using Microphone.Core.ClusterProviders;
 using Microphone.Core.Util;
 using Microsoft.Extensions.Configuration;
 
@@ -26,10 +24,10 @@ namespace Microphone.Consul
         private string _version;
         private ILogger _log;
 
-        public ConsulProvider(ILoggerFactory loggerFactory,IConfiguration configuration)
+        public ConsulProvider(ILoggerFactory loggerFactory, IConfiguration configuration)
         {
-            var consulHost = configuration["ConsulHost"] ?? "localhost"; 
-            var consulPort = int.Parse(configuration["ConsulPort"] ?? "8500");  
+            var consulHost = configuration["ConsulHost"] ?? "localhost";
+            var consulPort = int.Parse(configuration["ConsulPort"] ?? "8500");
             var consulFabio = bool.Parse(configuration["ConsulFabio"] ?? "false");
 
             _log = loggerFactory.CreateLogger("Microphone.ConsulProvider");
@@ -46,7 +44,7 @@ namespace Microphone.Consul
         {
             if (_useEbayFabio)
             {
-                return new[] {new ServiceInformation($"http://{_consulHost}", 9999)};
+                return new[] { new ServiceInformation($"http://{_consulHost}", 9999) };
             }
 
 
@@ -90,7 +88,7 @@ namespace Microphone.Consul
             {
                 ID = serviceId,
                 Name = serviceName,
-                Tags = new[] {$"urlprefix-/{serviceName}"},
+                Tags = new[] { $"urlprefix-/{serviceName}" },
                 Address = localIp,
                 // ReSharper disable once RedundantAnonymousTypePropertyName
                 Port = uri.Port,
@@ -115,12 +113,12 @@ namespace Microphone.Consul
             }
         }
 
-        public async Task KeyValuePutAsync(string key, object value)
+        public async Task KeyValuePutAsync(string key, string value)
         {
             using (var client = new HttpClient())
             {
-                var json = JsonConvert.SerializeObject(value);
-                var content = new StringContent(json);
+
+                var content = new StringContent(value);
 
                 var response = await client.PutAsync(KeyValueUrl(key), content);
 
@@ -131,7 +129,7 @@ namespace Microphone.Consul
             }
         }
 
-        public async Task<T> KeyValueGetAsync<T>(string key)
+        public async Task<string> KeyValueGetAsync(string key)
         {
             using (var client = new HttpClient())
             {
@@ -149,11 +147,9 @@ namespace Microphone.Consul
 
                 var body = await response.Content.ReadAsStringAsync();
                 var deserializedBody = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(body);
-                var bytes = Convert.FromBase64String((string) deserializedBody[0]["Value"]);
+                var bytes = Convert.FromBase64String((string)deserializedBody[0]["Value"]);
                 var strValue = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
-
-                _log.LogError("Fail" + strValue);
-                return JsonConvert.DeserializeObject<T>(strValue);
+                return strValue;
             }
         }
 

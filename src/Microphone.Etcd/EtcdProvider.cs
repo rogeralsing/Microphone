@@ -4,11 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microphone.Core;
-using Microphone.Core.ClusterProviders;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Microphone.Etcd
@@ -93,21 +90,20 @@ namespace Microphone.Etcd
             return Task.FromResult(0);
         }
 
-        public async Task KeyValuePutAsync(string key, object value)
+        public async Task KeyValuePutAsync(string key, string value)
         {
             var url = KeyValueUrl(key);
-            var json = JsonConvert.SerializeObject(value);
             using (var client = new HttpClient())
             {
                 var content = new FormUrlEncodedContent(new[]
                 {
-                    new KeyValuePair<string, string>("value", json)
+                    new KeyValuePair<string, string>("value", value)
                 });
                 await client.PutAsync(url, content);
             }
         }
 
-        public async Task<T> KeyValueGetAsync<T>(string key)
+        public async Task<string> KeyValueGetAsync(string key)
         {
             var url = KeyValueUrl(key);
             using (var client = new HttpClient())
@@ -118,8 +114,7 @@ namespace Microphone.Etcd
                     throw new Exception("Could not find services");
                 }
                 var body = await response.Content.ReadAsStringAsync();
-                var obj = JsonConvert.DeserializeObject<T>(body);
-                return obj;
+                return body;
             }
         }
 

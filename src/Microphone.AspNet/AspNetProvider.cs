@@ -1,5 +1,4 @@
 ﻿using System;
-using Microphone.Core;
 
 namespace Microphone.AspNet
 {
