@@ -27,10 +27,10 @@ namespace Microphone.Etcd
         public EtcdProvider(ILoggerFactory loggerFactory, IConfiguration configuration,IHealthCheck healthCheck = null)
         {
             _log = loggerFactory.CreateLogger("Microphone.EtcdProvider");
-            var etcdHost = configuration["EtcdHost"] ?? "localhost"; 
-            var etcdPort = int.Parse(configuration["EtcdPort"] ?? "2379");  
-            var etcdTtl = int.Parse(configuration["EtcdTtl"] ?? "3");  
-            var etcdHeartbeat = int.Parse(configuration["EtcdHeartbeat"] ?? "1");  
+            var etcdHost = configuration["EtcdHost"] ?? "localhost";
+            var etcdPort = int.Parse(configuration["EtcdPort"] ?? "2379");
+            var etcdTtl = int.Parse(configuration["EtcdTtl"] ?? "3");
+            var etcdHeartbeat = int.Parse(configuration["EtcdHeartbeat"] ?? "1");
 
             _etcdHost = etcdHost;
             _etcdPort = etcdPort;
@@ -123,7 +123,7 @@ namespace Microphone.Etcd
             }
         }
 
-        private string ServiceUrl(string serviceName) => $"{RootUrl}/v2/keys/microphone/services/{serviceName}";
+        private string ServiceUrl(string serviceName) => $"{RootUrl}{serviceName}";
 
         private string RegisterServiceUrl(string serviceName, string serviceId) => $"{ServiceUrl(serviceName)}/{serviceId}";
 
@@ -146,9 +146,9 @@ namespace Microphone.Etcd
                     catch{
 
                     }
-                    
+
                     await Task.Delay(TimeSpan.FromSeconds(_ectdHeartbeart));
-                    
+
                 }
             });
         }

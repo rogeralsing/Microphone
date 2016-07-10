@@ -16,13 +16,6 @@
     "Microphone.AspNet": "0.6.1"
   },
 
-  "tools": {
-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
-      "version": "1.0.0-preview1-final",
-      "imports": "portable-net45+win8+dnxcore50"
-    }
-  },
-
   "frameworks": {
     "netcoreapp1.0": {
       "imports": [
@@ -49,9 +42,5 @@
       "appsettings.json",
       "web.config"
     ]
-  },
-
-  "scripts": {
-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }
 }

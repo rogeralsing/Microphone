@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microphone.Core.ClusterProviders;
-using System.Linq;
 
 namespace AspNetService.Controllers
 {

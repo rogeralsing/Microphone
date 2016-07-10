@@ -5,9 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microphone.AspNet;
-using Microphone.Core.ClusterProviders;
+using Microphone.Consul;
 
-namespace AspNetService
+namespace Service1
 {
     public class Startup
     {
@@ -15,6 +15,7 @@ namespace AspNetService
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
+                .AddEnvironmentVariables()
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
@@ -27,6 +28,9 @@ namespace AspNetService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton<IConfiguration>(_ => Configuration);
+            services
+                .AddMicrophone<ConsulProvider>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -34,21 +38,18 @@ namespace AspNetService
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
             app.UseMvc();
-           app.UseMvcWithDefaultRoute();
-           var consulHost = Configuration["CONSULHOST"] ?? "localhost";           
-           app.UseMicrophone(loggerFactory, new ConsulProvider(consulHost), "Service1", "1.0");
+            app.UseMicrophone("Service1", "1.0");
         }
 
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
+            new WebHostBuilder()
                 .UseKestrel()
+                .UseUrls(new[] { "http://0.0.0.0:5000" })
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
                 .UseStartup<Startup>()
-                .Build();
-
-            host.Run();
+                .Build()
+                .Run();
         }
     }
 }

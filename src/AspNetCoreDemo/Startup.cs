@@ -31,7 +31,9 @@ namespace AspNetService
         {
             services.AddMvc();
             services.AddSingleton<IConfiguration>(_ => Configuration);
-            services.AddMicrophone<ConsulProvider>().AddHealthCheck<MyHealthChecker>();
+            services
+                .AddMicrophone<ConsulProvider>()
+                .AddHealthCheck<MyHealthChecker>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -44,14 +46,13 @@ namespace AspNetService
 
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
+            new WebHostBuilder()
                 .UseKestrel()
                 .UseUrls(new[] { "http://0.0.0.0:5000" })
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
-                .Build();
-
-            host.Run();
+                .Build()
+                .Run();
         }
     }
 

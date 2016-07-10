@@ -11,7 +11,8 @@ namespace Microphone.AspNet
         private ILogger _log;
         private IHealthCheck _checkHealth;
 
-        public StatusController(ILoggerFactory loggerFactory, IHealthCheck checkHealth=null) {
+        public StatusController(ILoggerFactory loggerFactory, IHealthCheck checkHealth = null)
+        {
             _log = loggerFactory.CreateLogger("Microphone");
             _checkHealth = checkHealth;
         }
