@@ -15,6 +15,7 @@ namespace Microphone.AspNet
             _log = loggerFactory.CreateLogger("Microphone");
             _checkHealth = checkHealth;
         }
+        
         [HttpGet]
         public async Task<object> Get()
         {

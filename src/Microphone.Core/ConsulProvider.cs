@@ -24,6 +24,7 @@ namespace Microphone.Consul
         public string Host { get; set; } = "localhost";
         public int Port { get; set; } = 8500;
         public ConsulNameResolution NameResolution { get; set; } = ConsulNameResolution.HttpApi;
+        public int Heartbeat { get; set; } = 1;
     }
     public class ConsulProvider : IClusterProvider
     {
@@ -35,6 +36,7 @@ namespace Microphone.Consul
         private Uri _uri;
         private string _version;
         private ILogger _log;
+        private int _heartbeat;
 
         public ConsulProvider(ILoggerFactory loggerFactory, IOptions<ConsulOptions> configuration)
         {
@@ -42,6 +44,7 @@ namespace Microphone.Consul
             _consulHost = configuration.Value.Host;
             _consulPort = configuration.Value.Port;
             _nameResolution = configuration.Value.NameResolution;
+            _heartbeat = configuration.Value.Heartbeat;
         }
 
         public async Task<ServiceInformation[]> ResolveServicesAsync(string serviceName)
@@ -98,7 +101,7 @@ namespace Microphone.Consul
                 Check = new
                 {
                     HTTP = check,
-                    Interval = "1s"
+                    Interval = $"{_heartbeat}s"
                 }
             };
 
