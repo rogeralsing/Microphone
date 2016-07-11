@@ -10,7 +10,7 @@ namespace Microphone
 
         public static void RegisterService(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider,
             string serviceName, string version, ILogger log)
-        {
+        {          
             log.LogInformation("Bootstrapping Microphone");
             var uri = frameworkProvider.GetUri();
             var serviceId = $"{serviceName}_{DnsUtils.GetLocalEscapedIPAddress()}_{uri.Port}";

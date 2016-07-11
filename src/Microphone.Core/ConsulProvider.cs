@@ -9,23 +9,27 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
 using Microphone.Core.Util;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 namespace Microphone.Consul
 {
+    public enum ConsulNameResolution
+    {
+        HttpApi,
+        EbayFabio,
+    }
+
     public class ConsulOptions
     {
         public string Host { get; set; } = "localhost";
         public int Port { get; set; } = 8500;
-        public bool UseFabio { get; set; } = false;
-
+        public ConsulNameResolution NameResolution { get; set; } = ConsulNameResolution.HttpApi;
     }
     public class ConsulProvider : IClusterProvider
     {
         private readonly string _consulHost;
         private readonly int _consulPort;
-        private readonly bool _useEbayFabio;
+        private readonly ConsulNameResolution _nameResolution;
         private string _serviceId;
         private string _serviceName;
         private Uri _uri;
@@ -34,27 +38,22 @@ namespace Microphone.Consul
 
         public ConsulProvider(ILoggerFactory loggerFactory, IOptions<ConsulOptions> configuration)
         {
-            var consulHost = configuration.Value.Host;
-            var consulPort = configuration.Value.Port;
-            var consulFabio = configuration.Value.UseFabio;
-
             _log = loggerFactory.CreateLogger("Microphone.ConsulProvider");
-            _consulHost = consulHost;
-            _consulPort = consulPort;
-            _useEbayFabio = consulFabio;
+            _consulHost = configuration.Value.Host;
+            _consulPort = configuration.Value.Port;
+            _nameResolution = configuration.Value.NameResolution;
         }
 
-        public async Task<ServiceInformation[]> FindServiceInstancesAsync(string name)
+        public async Task<ServiceInformation[]> ResolveServicesAsync(string serviceName)
         {
-            if (_useEbayFabio)
+            if (_nameResolution == ConsulNameResolution.EbayFabio)
             {
                 return new[] { new ServiceInformation($"http://{_consulHost}", 9999) };
             }
 
-
             using (var client = new HttpClient())
             {
-                var response = await client.GetAsync(ServiceHealthUrl(name));
+                var response = await client.GetAsync(ServiceHealthUrl(serviceName));
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
                     throw new Exception("Could not find services");

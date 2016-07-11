@@ -8,20 +8,20 @@ namespace Microphone
     public static class ClusterProviderExtensions
     {
         //Sync API
-        public static ServiceInformation[] FindServiceInstances(this IServiceDiscovery self, string serviceName)
+        public static ServiceInformation[] ResolveServices(this IServiceDiscovery self, string serviceName)
         {
-            return self.FindServiceInstancesAsync(serviceName).Result;
+            return self.ResolveServicesAsync(serviceName).Result;
         }
 
-        public static ServiceInformation FindServiceInstance(this IServiceDiscovery self, string serviceName)
+        public static ServiceInformation ResolveService(this IServiceDiscovery self, string serviceName)
         {
-            return self.FindServiceInstanceAsync(serviceName).Result;
+            return self.ResolveServiceAsync(serviceName).Result;
         }
 
         //Single instance
-        public static async Task<ServiceInformation> FindServiceInstanceAsync(this IServiceDiscovery self, string serviceName)
+        public static async Task<ServiceInformation> ResolveServiceAsync(this IServiceDiscovery self, string serviceName)
         {
-            var res = await self.FindServiceInstancesAsync(serviceName).ConfigureAwait(false);
+            var res = await self.ResolveServicesAsync(serviceName).ConfigureAwait(false);
             if (res.Length == 0)
                 throw new Exception($"No healthy instance of the service '{serviceName}' was found");
 
