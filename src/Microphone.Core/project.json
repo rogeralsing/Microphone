@@ -8,7 +8,7 @@
     "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
     "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png"
   },
- 
+
   "dependencies": {
     "NETStandard.Library": "1.6.0",
     "Newtonsoft.Json": "9.0.1-beta1",
@@ -16,9 +16,9 @@
 	  "Microsoft.Extensions.Logging": "1.0.0",
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
-     "Microsoft.Extensions.Options": "1.0.0"
+    "Microsoft.Extensions.Options": "1.0.0"
   },
-
+  
   "frameworks": {
     "netstandard1.5": {
       "imports": "dnxcore50"
