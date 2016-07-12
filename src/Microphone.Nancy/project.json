@@ -1,6 +1,6 @@
 {
   "authors": [ "Roger Johansson" ],
-  "description": "Microphone.Asp5 Class Library",
+  "description": "Microphone.Nancy Class Library",
   "packOptions": {
     "tags": [ "service discovery", "consul", "etcd", "nancy", "asp.net" ],
     "projectUrl": "https://github.com/rogeralsing/Microphone",
@@ -10,8 +10,8 @@
   "version": "0.6.2-*",
 
   "dependencies": {
+    "Nancy" : "2.0.0-barneyrubble",
     "Microphone.Core": "0.6.2",
-    "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.Extensions.Configuration": "1.0.0",
     "Microsoft.Extensions.Logging": "1.0.0"
   },
@@ -20,7 +20,7 @@
     "netstandard1.6": {
       "imports": "dnxcore50"
     },
-    "net451": {
+    "net452": {
       "imports": "dotnet5.4",
       "dependencies": {}
     }
