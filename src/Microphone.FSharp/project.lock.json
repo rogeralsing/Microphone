@@ -1806,9 +1806,9 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Microphone.Core/0.6.1": {
+      "Microphone.Core/0.6.2": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.5",
+        "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
           "Microsoft.Extensions.Logging": "1.0.0",
           "Microsoft.Extensions.Logging.Console": "1.0.0",
@@ -1816,13 +1816,14 @@
           "Microsoft.Extensions.Options": "1.0.0",
           "NETStandard.Library": "1.6.0",
           "Newtonsoft.Json": "9.0.1-beta1",
+          "System.Net.Http": "4.1.0",
           "System.Net.NameResolution": "4.0.0"
         },
         "compile": {
-          "netstandard1.5/Microphone.Core.dll": {}
+          "netstandard1.6/Microphone.Core.dll": {}
         },
         "runtime": {
-          "netstandard1.5/Microphone.Core.dll": {}
+          "netstandard1.6/Microphone.Core.dll": {}
         }
       }
     }
@@ -6021,7 +6022,7 @@
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
-    "Microphone.Core/0.6.1": {
+    "Microphone.Core/0.6.2": {
       "type": "project",
       "path": "../Microphone.Core/project.json",
       "msbuildProject": "../Microphone.Core/Microphone.Core.xproj"

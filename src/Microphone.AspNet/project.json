@@ -7,11 +7,11 @@
     "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
     "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png"
   },
-  "version": "0.6.1-*",
+  "version": "0.6.2-*",
 
   "dependencies": {
     "NETStandard.Library": "1.6.0",
-    "Microphone.Core": "0.6.1",
+    "Microphone.Core": "0.6.2",
     "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
@@ -27,6 +27,10 @@
   "frameworks": {
     "netstandard1.6": {
       "imports": "dnxcore50"
+    },
+    "net451": {
+      "imports": "dotnet5.4",
+      "dependencies": {}
     }
   }
 }

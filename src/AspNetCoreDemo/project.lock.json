@@ -3483,11 +3483,11 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "Microphone.AspNet/0.6.1": {
+      "Microphone.AspNet/0.6.2": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
-          "Microphone.Core": "0.6.1",
+          "Microphone.Core": "0.6.2",
           "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.0",
           "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
@@ -3507,7 +3507,7 @@
           "netstandard1.6/Microphone.AspNet.dll": {}
         }
       },
-      "Microphone.Core/0.6.1": {
+      "Microphone.Core/0.6.2": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
@@ -9309,12 +9309,12 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Microphone.AspNet/0.6.1": {
+    "Microphone.AspNet/0.6.2": {
       "type": "project",
       "path": "../Microphone.AspNet/project.json",
       "msbuildProject": "../Microphone.AspNet/Microphone.AspNet.xproj"
     },
-    "Microphone.Core/0.6.1": {
+    "Microphone.Core/0.6.2": {
       "type": "project",
       "path": "../Microphone.Core/project.json",
       "msbuildProject": "../Microphone.Core/Microphone.Core.xproj"
@@ -9322,7 +9322,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microphone.AspNet >= 0.6.1",
+      "Microphone.AspNet >= 0.6.2",
       "Microsoft.ApplicationInsights.AspNetCore >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 1.0.0",
       "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0",
