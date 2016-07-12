@@ -2,7 +2,7 @@
   "locked": false,
   "version": 2,
   "targets": {
-    ".NETCoreApp,Version=v1.0": {
+    ".NETCoreApp,Version=v1.6": {
       "Libuv/1.9.0": {
         "type": "package",
         "dependencies": {
@@ -3509,7 +3509,7 @@
       },
       "Microphone.Core/0.6.1": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.5",
+        "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
           "Microsoft.Extensions.Logging": "1.0.0",
           "Microsoft.Extensions.Logging.Console": "1.0.0",
@@ -3517,13 +3517,14 @@
           "Microsoft.Extensions.Options": "1.0.0",
           "NETStandard.Library": "1.6.0",
           "Newtonsoft.Json": "9.0.1-beta1",
+          "System.Net.Http": "4.1.0",
           "System.Net.NameResolution": "4.0.0"
         },
         "compile": {
-          "netstandard1.5/Microphone.Core.dll": {}
+          "netstandard1.6/Microphone.Core.dll": {}
         },
         "runtime": {
-          "netstandard1.5/Microphone.Core.dll": {}
+          "netstandard1.6/Microphone.Core.dll": {}
         }
       }
     }
@@ -9335,7 +9336,7 @@
       "Microsoft.Extensions.Options >= 1.0.0",
       "Microsoft.NETCore.App >= 1.0.0"
     ],
-    ".NETCoreApp,Version=v1.0": []
+    ".NETCoreApp,Version=v1.6": []
   },
   "tools": {},
   "projectFileToolGroups": {}

@@ -18,7 +18,7 @@
     "Microphone.AspNet": "0.6.1"
   },
   "frameworks": {
-    "netcoreapp1.0": {
+    "netcoreapp1.6": {
       "imports": [
         "dotnet5.6",
         "dnxcore50",
