@@ -24,6 +24,15 @@ namespace Microphone
 
         public static async Task<Uri> ResolveUriAsync(this IServiceDiscovery self, string serviceName, Uri relativeUri, string scheme = "http")
         {
+            if (relativeUri.IsAbsoluteUri)
+                throw new ArgumentException($"{nameof(relativeUri)} should be relative",nameof(relativeUri));
+
+            if (string.IsNullOrWhiteSpace(scheme))
+                throw new ArgumentException($"{nameof(scheme)} may not be null or whitespace",nameof(scheme));
+
+	        if (string.IsNullOrWhiteSpace(serviceName))
+                throw new ArgumentException($"{nameof(serviceName)} may not be null or whitespace",nameof(serviceName));
+
             var res = await self.ResolveServicesAsync(serviceName).ConfigureAwait(false);
             if (res.Length == 0)
                 throw new Exception($"No healthy instance of the service '{serviceName}' was found");
@@ -34,7 +43,7 @@ namespace Microphone
             if (!Uri.TryCreate(baseUri,relativeUri,out uri)){
                 return uri;
             }
-            throw new Exception("fail");
+            throw new Exception("Failed to combine absolute and relative Uri");
         }
         //Single instance
         public static Task<Uri> ResolveUriAsync(this IServiceDiscovery self, string serviceName, string relativeUri, string scheme = "http")
