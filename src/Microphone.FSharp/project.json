@@ -1,5 +1,14 @@
 {
-  "version": "1.0.0-*",
+  "version": "0.6.2-*",
+  "description": "Microphone.Core Class Library",
+  "authors": [ "Roger Johansson" ],
+  "packOptions": {
+    "tags": [ "service discovery", "consul", "etcd", "nancy", "asp.net" ],
+    "projectUrl": "https://github.com/rogeralsing/Microphone",
+    "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
+    "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png"
+  },
+
   "buildOptions": {
     "compilerName": "fsc",
     "compile": {
@@ -9,9 +18,7 @@
     }
   },
   "dependencies": {
-    "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-160629",
-    "Microphone.Core": "0.6.1",
-    "Suave": "2.0.0-alpha4"
+    "Microphone.Core": "0.6.2"
   },
   "tools": {
     "dotnet-compile-fsc": {
@@ -25,7 +32,14 @@
   },
   "frameworks": {
     "netstandard1.6": {
+      "dependencies": {
+        "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-160629"
+      },
       "imports": "dnxcore50"
+    },
+    "net451": {
+      "imports": "dotnet5.4",
+      "dependencies": {}
     }
   }
 }

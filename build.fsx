@@ -14,8 +14,8 @@ cd __SOURCE_DIRECTORY__
 
 //RestorePackages()
 
-let copyright = "Copyright © 2013-2015 Akka.NET Team"
-let authors = [ "Akka.NET Team" ]
+let copyright = "Copyright Roger Johansson"
+let authors = [ "Roger Johansson" ]
 let description = "Microphone is a lightweight framework to run self hosting REST services using Web Api or NancyFx ontop of a Consul or ETCD cluster."
 let tags = ["microphone"]
 
