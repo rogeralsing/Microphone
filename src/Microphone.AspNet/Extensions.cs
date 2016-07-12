@@ -51,7 +51,7 @@ namespace Microphone.AspNet
                 var addresses = features.Get<IServerAddressesFeature>();
                 var address = addresses.Addresses.First().Replace("*", "localhost");
                 var uri = new Uri(address);
-                Cluster.RegisterService(new AspNetProvider(uri), clusterProvider, serviceName, version, logger);
+                Cluster.RegisterService(uri, clusterProvider, serviceName, version, logger);
             }
             catch(Exception x)
             {

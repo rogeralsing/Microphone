@@ -781,32 +781,6 @@
           "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.Logging.Console/1.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
-        },
-        "compile": {
-          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Logging.Debug/1.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Logging.Abstractions": "1.0.0"
-        },
-        "compile": {
-          "lib/net451/Microsoft.Extensions.Logging.Debug.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.Extensions.Logging.Debug.dll": {}
-        }
-      },
       "Microsoft.Extensions.ObjectPool/1.0.0": {
         "type": "package",
         "compile": {
@@ -1161,25 +1135,6 @@
           "lib/net45/_._": {}
         }
       },
-      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          },
-          "runtimes/win/lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
       "System.Runtime.Serialization.Primitives/4.1.1": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1249,8 +1204,6 @@
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
           "Microsoft.Extensions.Logging": "1.0.0",
-          "Microsoft.Extensions.Logging.Console": "1.0.0",
-          "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options": "1.0.0",
           "Newtonsoft.Json": "9.0.1-beta1",
           "System.Net.Http": "4.1.0"
@@ -2179,35 +2132,6 @@
         },
         "runtime": {
           "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Logging.Console/1.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
-          "System.Console": "4.0.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
-          "System.Threading": "4.0.11"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Extensions.Logging.Console.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Extensions.Logging.Console.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Logging.Debug/1.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
-          "System.Diagnostics.Debug": "4.0.11"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Extensions.Logging.Debug.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Extensions.Logging.Debug.dll": {}
         }
       },
       "Microsoft.Extensions.ObjectPool/1.0.0": {
@@ -4027,8 +3951,6 @@
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
           "Microsoft.Extensions.Logging": "1.0.0",
-          "Microsoft.Extensions.Logging.Console": "1.0.0",
-          "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options": "1.0.0",
           "NETStandard.Library": "1.6.0",
           "Newtonsoft.Json": "9.0.1-beta1",
@@ -4749,30 +4671,6 @@
         "Microsoft.Extensions.Logging.Abstractions.nuspec",
         "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.xml"
-      ]
-    },
-    "Microsoft.Extensions.Logging.Console/1.0.0": {
-      "sha512": "GN4gFFONP12KbFEG9rNFpXuz6D2Tybcm8+c1wilaQ1eSl9zVX0gVRrKw/YRwxdwbM3eK7nWfRRqJaQPzOjtLnA==",
-      "type": "package",
-      "files": [
-        "Microsoft.Extensions.Logging.Console.1.0.0.nupkg.sha512",
-        "Microsoft.Extensions.Logging.Console.nuspec",
-        "lib/net451/Microsoft.Extensions.Logging.Console.dll",
-        "lib/net451/Microsoft.Extensions.Logging.Console.xml",
-        "lib/netstandard1.3/Microsoft.Extensions.Logging.Console.dll",
-        "lib/netstandard1.3/Microsoft.Extensions.Logging.Console.xml"
-      ]
-    },
-    "Microsoft.Extensions.Logging.Debug/1.0.0": {
-      "sha512": "V8fP8pGJxieGa1DAYOF1RX+cCGGqdOGNoAQUzxmy27+qNzbHB/cUXc7mCZT72jPZMB4U12zSVWlIt26GMsUIOg==",
-      "type": "package",
-      "files": [
-        "Microsoft.Extensions.Logging.Debug.1.0.0.nupkg.sha512",
-        "Microsoft.Extensions.Logging.Debug.nuspec",
-        "lib/net451/Microsoft.Extensions.Logging.Debug.dll",
-        "lib/net451/Microsoft.Extensions.Logging.Debug.xml",
-        "lib/netstandard1.3/Microsoft.Extensions.Logging.Debug.dll",
-        "lib/netstandard1.3/Microsoft.Extensions.Logging.Debug.xml"
       ]
     },
     "Microsoft.Extensions.ObjectPool/1.0.0": {

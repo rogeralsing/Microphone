@@ -1,4 +1,5 @@
-﻿using Microphone.Core.Util;
+﻿using System;
+using Microphone.Core.Util;
 using Microsoft.Extensions.Logging;
 
 namespace Microphone
@@ -8,11 +9,10 @@ namespace Microphone
         private static IClusterClient agent;
         public static IClusterClient Client => agent;
 
-        public static void RegisterService(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider,
+        public static void RegisterService(Uri uri, IClusterProvider clusterProvider,
             string serviceName, string version, ILogger log)
         {          
             log.LogInformation("Bootstrapping Microphone");
-            var uri = frameworkProvider.GetUri();
             var serviceId = $"{serviceName}_{DnsUtils.GetLocalEscapedIPAddress()}_{uri.Port}";
             try
             {
@@ -20,7 +20,7 @@ namespace Microphone
             }
             catch
             {
-                log.LogError($"Could not register service {serviceId} using {frameworkProvider.GetType().Name}");
+                log.LogError($"Could not register service {serviceId}");
             }
             agent = clusterProvider;
         }
