@@ -14,7 +14,8 @@
     "Microsoft.Extensions.Logging": "1.0.0",
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
-    "Microsoft.Extensions.Options": "1.0.0"
+    "Microsoft.Extensions.Options": "1.0.0",
+    "System.Net.Http": "4.1.0"
   },
 
   "frameworks": {
@@ -27,9 +28,7 @@
     },
     "net451": {
       "imports": "dotnet5.4",
-      "dependencies": {
-        "System.Net.Http": "4.1.0"
-      }
+      "dependencies": {}
     }
   },
   "runtimes": {
