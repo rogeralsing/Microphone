@@ -17,18 +17,19 @@ namespace Microphone.Etcd
         public int Heartbeat { get; set; } = 1;
         public int TimeToLive { get; set; } = 3;
     }
+
     public class EtcdProvider : IClusterProvider
     {
         private readonly int _ectdHeartbeart;
         private readonly int _ectdTtl;
         private readonly string _etcdHost;
         private readonly int _etcdPort;
-        private string _serviceId;
-        private string _serviceName;
-        private readonly ILogger _log;
         private readonly IHealthCheck _healthCheck;
+        private readonly ILogger _log;
+        private string _serviceName;
 
-        public EtcdProvider(ILoggerFactory loggerFactory, IOptions<EtcdOptions> configuration,IHealthCheck healthCheck = null)
+        public EtcdProvider(ILoggerFactory loggerFactory, IOptions<EtcdOptions> configuration,
+            IHealthCheck healthCheck = null)
         {
             _log = loggerFactory.CreateLogger("Microphone.EtcdProvider");
             var etcdHost = configuration.Value.Host;
@@ -71,7 +72,6 @@ namespace Microphone.Etcd
         public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
         {
             _serviceName = serviceName;
-            _serviceId = serviceId;
 
             Func<Task> registerService = async () =>
             {
@@ -90,11 +90,6 @@ namespace Microphone.Etcd
             await registerService();
 
             StartHeartbeat(registerService);
-        }
-
-        public Task BootstrapClientAsync()
-        {
-            return Task.FromResult(0);
         }
 
         public async Task KeyValuePutAsync(string key, string value)
@@ -125,9 +120,15 @@ namespace Microphone.Etcd
             }
         }
 
+        public Task BootstrapClientAsync()
+        {
+            return Task.FromResult(0);
+        }
+
         private string ServiceUrl(string serviceName) => $"{RootUrl}{serviceName}";
 
-        private string RegisterServiceUrl(string serviceName, string serviceId) => $"{ServiceUrl(serviceName)}/{serviceId}";
+        private string RegisterServiceUrl(string serviceName, string serviceId)
+            => $"{ServiceUrl(serviceName)}/{serviceId}";
 
         private string KeyValueUrl(string key) => $"{RootUrl}/v2/keys/microphone/values/{key}";
 
@@ -137,7 +138,8 @@ namespace Microphone.Etcd
             {
                 while (true)
                 {
-                    try{
+                    try
+                    {
                         if (_healthCheck != null)
                         {
                             await _healthCheck.CheckHealth();
@@ -145,12 +147,11 @@ namespace Microphone.Etcd
                         await registerService();
                         _log.LogInformation("OK");
                     }
-                    catch{
-
+                    catch
+                    {
                     }
 
                     await Task.Delay(TimeSpan.FromSeconds(_ectdHeartbeart));
-
                 }
             });
         }

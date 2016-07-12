@@ -5,18 +5,18 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Microphone.Core.Util;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
-using Microphone.Core.Util;
-using Microsoft.Extensions.Options;
 
 namespace Microphone.Consul
 {
     public enum ConsulNameResolution
     {
         HttpApi,
-        EbayFabio,
+        EbayFabio
     }
 
     public class ConsulOptions
@@ -26,17 +26,14 @@ namespace Microphone.Consul
         public ConsulNameResolution NameResolution { get; set; } = ConsulNameResolution.HttpApi;
         public int Heartbeat { get; set; } = 1;
     }
+
     public class ConsulProvider : IClusterProvider
     {
         private readonly string _consulHost;
         private readonly int _consulPort;
+        private readonly int _heartbeat;
+        private readonly ILogger _log;
         private readonly ConsulNameResolution _nameResolution;
-        private string _serviceId;
-        private string _serviceName;
-        private Uri _uri;
-        private string _version;
-        private ILogger _log;
-        private int _heartbeat;
 
         public ConsulProvider(ILoggerFactory loggerFactory, IOptions<ConsulOptions> configuration)
         {
@@ -47,11 +44,15 @@ namespace Microphone.Consul
             _heartbeat = configuration.Value.Heartbeat;
         }
 
+        private string RootUrl => $"http://{_consulHost}:{_consulPort}";
+        private string CriticalServicesUrl => $"{RootUrl}/v1/health/state/critical";
+        private string RegisterServiceUrl => $"{RootUrl}/v1/agent/service/register";
+
         public async Task<ServiceInformation[]> GetServiceInstancesAsync(string serviceName)
         {
             if (_nameResolution == ConsulNameResolution.EbayFabio)
             {
-                return new[] { new ServiceInformation($"http://{_consulHost}", 9999) };
+                return new[] {new ServiceInformation($"http://{_consulHost}", 9999)};
             }
 
             using (var client = new HttpClient())
@@ -78,10 +79,6 @@ namespace Microphone.Consul
 
         public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
         {
-            _serviceName = serviceName;
-            _serviceId = serviceId;
-            _version = version;
-            _uri = uri;
             var port = uri.Port;
 
             var localIp = DnsUtils.GetLocalIPAddress();
@@ -94,7 +91,7 @@ namespace Microphone.Consul
             {
                 ID = serviceId,
                 Name = serviceName,
-                Tags = new[] { $"urlprefix-/{serviceName}" },
+                Tags = new[] {$"urlprefix-/{serviceName}"},
                 Address = localIp,
                 Port = port,
                 Check = new
@@ -114,7 +111,7 @@ namespace Microphone.Consul
                 {
                     throw new Exception("Could not register service");
                 }
-                _log.LogInformation($"Registration successful");
+                _log.LogInformation("Registration successful");
             }
         }
 
@@ -122,7 +119,6 @@ namespace Microphone.Consul
         {
             using (var client = new HttpClient())
             {
-
                 var content = new StringContent(value);
 
                 var response = await client.PutAsync(KeyValueUrl(key), content);
@@ -152,15 +148,12 @@ namespace Microphone.Consul
 
                 var body = await response.Content.ReadAsStringAsync();
                 var deserializedBody = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(body);
-                var bytes = Convert.FromBase64String((string)deserializedBody[0]["Value"]);
+                var bytes = Convert.FromBase64String((string) deserializedBody[0]["Value"]);
                 var strValue = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
                 return strValue;
             }
         }
 
-	    private string RootUrl => $"http://{_consulHost}:{_consulPort}";
-        private string CriticalServicesUrl => $"{RootUrl}/v1/health/state/critical";
-        private string RegisterServiceUrl => $"{RootUrl}/v1/agent/service/register";
         private string KeyValueUrl(string key) => $"{RootUrl}/v1/kv/{key}";
         private string ServiceHealthUrl(string service) => $"{RootUrl}/v1/health/service/{service}";
         private string DeregisterServiceUrl(string service) => $"{RootUrl}/v1/agent/service/deregister/{service}";
