@@ -5,7 +5,7 @@ namespace Microphone
 {
     public interface IServiceDiscovery
     {
-        Task<ServiceInformation[]> ResolveServicesAsync(string name);
+        Task<ServiceInformation[]> GetServiceInstancesAsync(string name);
     }
     public interface IKeyValueStore
     {

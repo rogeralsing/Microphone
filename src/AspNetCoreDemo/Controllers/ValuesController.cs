@@ -11,8 +11,8 @@ namespace AspNetService.Controllers
         // GET: api/values
         [HttpGet]
         public IEnumerable<string> Get([FromServices]IClusterClient client)
-        {
-            var res = client.ResolveServicesAsync("AspNetService").Result.Select(s => s.Host).ToArray();
+        {            
+            var res = client.GetServiceInstancesAsync("AspNetService").Result.Select(s => s.Host).ToArray();
             return res;
         }
 

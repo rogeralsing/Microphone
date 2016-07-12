@@ -8,9 +8,9 @@ namespace Microphone
     public static class ClusterProviderExtensions
     {
         //Sync API
-        public static ServiceInformation[] ResolveServices(this IServiceDiscovery self, string serviceName)
+        public static ServiceInformation[] GetServiceInstances(this IServiceDiscovery self, string serviceName)
         {
-            return self.ResolveServicesAsync(serviceName).Result;
+            return self.GetServiceInstancesAsync(serviceName).Result;
         }
 
         public static Uri ResolveUri(this IServiceDiscovery self, string serviceName, Uri relativeUri, string scheme = "http")
@@ -33,7 +33,7 @@ namespace Microphone
 	        if (string.IsNullOrWhiteSpace(serviceName))
                 throw new ArgumentException($"{nameof(serviceName)} may not be null or whitespace",nameof(serviceName));
 
-            var res = await self.ResolveServicesAsync(serviceName).ConfigureAwait(false);
+            var res = await self.GetServiceInstancesAsync(serviceName).ConfigureAwait(false);
             if (res.Length == 0)
                 throw new Exception($"No healthy instance of the service '{serviceName}' was found");
 

@@ -47,7 +47,7 @@ namespace Microphone.Consul
             _heartbeat = configuration.Value.Heartbeat;
         }
 
-        public async Task<ServiceInformation[]> ResolveServicesAsync(string serviceName)
+        public async Task<ServiceInformation[]> GetServiceInstancesAsync(string serviceName)
         {
             if (_nameResolution == ConsulNameResolution.EbayFabio)
             {
