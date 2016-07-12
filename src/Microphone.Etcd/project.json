@@ -10,11 +10,8 @@
   },
 
   "dependencies": {
-    "NETStandard.Library": "1.6.0",
     "Microphone.Core": "0.6.2",
 	  "Microsoft.Extensions.Logging": "1.0.0",
-    "Microsoft.Extensions.Logging.Console": "1.0.0",
-    "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options": "1.0.0",
     "System.Net.Http": "4.1.0"
   },
