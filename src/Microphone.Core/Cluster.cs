@@ -21,6 +21,7 @@ namespace Microphone
             catch
             {
                 log.LogError($"Could not register service {serviceId}");
+                throw;
             }
             agent = clusterProvider;
         }
