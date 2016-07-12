@@ -4,11 +4,11 @@ namespace Microphone
     {
         public ServiceInformation(string serviceAddress, int servicePort)
         {
-            Address = serviceAddress;
+            Host = serviceAddress;
             Port = servicePort;
         }
 
-        public string Address { get; }
+        public string Host { get; }
         public int Port { get; }
     }
 }

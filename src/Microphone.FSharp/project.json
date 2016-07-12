@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-160629",
-    "Microphone.Core": "0.6.1"
+    "Microphone.Core": "0.6.1",
+    "Suave": "2.0.0-alpha4"
   },
   "tools": {
     "dotnet-compile-fsc": {

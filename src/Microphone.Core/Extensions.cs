@@ -13,19 +13,33 @@ namespace Microphone
             return self.ResolveServicesAsync(serviceName).Result;
         }
 
-        public static ServiceInformation ResolveService(this IServiceDiscovery self, string serviceName)
+        public static Uri ResolveUri(this IServiceDiscovery self, string serviceName, Uri relativeUri, string scheme = "http")
         {
-            return self.ResolveServiceAsync(serviceName).Result;
+            return self.ResolveUriAsync(serviceName,relativeUri,scheme).Result;
+        }
+        public static Uri ResolveUri(this IServiceDiscovery self, string serviceName, string relativeUri, string scheme = "http")
+        {
+            return self.ResolveUriAsync(serviceName,relativeUri,scheme).Result;
         }
 
-        //Single instance
-        public static async Task<ServiceInformation> ResolveServiceAsync(this IServiceDiscovery self, string serviceName)
+        public static async Task<Uri> ResolveUriAsync(this IServiceDiscovery self, string serviceName, Uri relativeUri, string scheme = "http")
         {
             var res = await self.ResolveServicesAsync(serviceName).ConfigureAwait(false);
             if (res.Length == 0)
                 throw new Exception($"No healthy instance of the service '{serviceName}' was found");
 
-            return res[ThreadLocalRandom.Current.Next(0, res.Length)];
+            var service = res[ThreadLocalRandom.Current.Next(0, res.Length)];
+            var baseUri = new Uri($"{scheme}://{service.Host}:{service.Port}");
+            Uri uri;
+            if (!Uri.TryCreate(baseUri,relativeUri,out uri)){
+                return uri;
+            }
+            throw new Exception("fail");
+        }
+        //Single instance
+        public static Task<Uri> ResolveUriAsync(this IServiceDiscovery self, string serviceName, string relativeUri, string scheme = "http")
+        {
+            return self.ResolveUriAsync(serviceName,new Uri(relativeUri,UriKind.Relative),scheme);         
         }
         public static async Task<T> KeyValueGetAsync<T>(this IKeyValueStore self, string key)
         {

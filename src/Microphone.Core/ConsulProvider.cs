@@ -96,8 +96,7 @@ namespace Microphone.Consul
                 Name = serviceName,
                 Tags = new[] { $"urlprefix-/{serviceName}" },
                 Address = localIp,
-                // ReSharper disable once RedundantAnonymousTypePropertyName
-                Port = uri.Port,
+                Port = port,
                 Check = new
                 {
                     HTTP = check,
