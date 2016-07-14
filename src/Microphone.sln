@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microphone.Core", "Micropho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microphone.Etcd", "Microphone.Etcd\Microphone.Etcd.csproj", "{9BB9BD2B-82D8-4EBF-823D-8D4AC5FB8F5C}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Microphone.Suave", "Microphone.Suave\Microphone.Suave.fsproj", "{EEB92EF8-1404-4E37-AEA3-B2F54BCAC267}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9BB9BD2B-82D8-4EBF-823D-8D4AC5FB8F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BB9BD2B-82D8-4EBF-823D-8D4AC5FB8F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BB9BD2B-82D8-4EBF-823D-8D4AC5FB8F5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB92EF8-1404-4E37-AEA3-B2F54BCAC267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB92EF8-1404-4E37-AEA3-B2F54BCAC267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB92EF8-1404-4E37-AEA3-B2F54BCAC267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB92EF8-1404-4E37-AEA3-B2F54BCAC267}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

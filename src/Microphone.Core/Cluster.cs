@@ -6,8 +6,7 @@ namespace Microphone
 {
     public static class Cluster
     {
-        private static IClusterClient agent;
-        public static IClusterClient Client => agent;
+        public static IClusterClient Client { get; private set; }
 
         public static void RegisterService(Uri uri, IClusterProvider clusterProvider,
             string serviceName, string version, ILogger log)
@@ -20,10 +19,10 @@ namespace Microphone
             }
             catch
             {
-                log.LogError($"Could not register service {serviceId}");
+                log.LogError($"Could not register service '{serviceId}'");
                 throw;
             }
-            agent = clusterProvider;
+            Client = clusterProvider;
         }
     }
 }
