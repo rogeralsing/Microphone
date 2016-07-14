@@ -10,12 +10,16 @@ namespace Microphone
 
         public static void RegisterService(Uri uri, IClusterProvider clusterProvider,
             string serviceName, string version, ILogger log)
-        {          
+        {
+            var port = uri.Port;
+            var host = DnsUtils.GetLocalIPAddress();
+            var publicUri = new Uri($"{uri.Scheme}://{host}:{port}",UriKind.Absolute);
+                 
             log.LogInformation("Bootstrapping Microphone");
-            var serviceId = $"{serviceName}_{DnsUtils.GetLocalEscapedIPAddress()}_{uri.Port}";
+            var serviceId = $"{serviceName}_{EscapeHost(host)}_{port}";
             try
             {
-                clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri).Wait();
+                clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, publicUri).Wait();
             }
             catch
             {
@@ -23,6 +27,11 @@ namespace Microphone
                 throw;
             }
             Client = clusterProvider;
+        }
+
+        internal static string EscapeHost(string host)
+        {
+            return host.Replace(".", "_");
         }
     }
 }

@@ -18,10 +18,5 @@ namespace Microphone.Core.Util
             }
             throw new Exception("Local IP Address Not Found!");
         }
-
-        public static string GetLocalEscapedIPAddress()
-        {
-            return GetLocalIPAddress().Replace(".", "_");
-        }
     }
 }

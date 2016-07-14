@@ -5,7 +5,6 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Microphone.Core.Util;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -80,19 +79,18 @@ namespace Microphone.Consul
         public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
         {
             var port = uri.Port;
-
-            var localIp = DnsUtils.GetLocalIPAddress();
-            var check = $"http://{localIp}:{port}/status";
+            var host = uri.Host;
+            var check = $"http://{host}:{port}/status";
 
             _log.LogInformation($"Using Consul at {_consulHost}:{_consulPort}");
-            _log.LogInformation($"Registering service {serviceId} at http://{localIp}:{port}");
-            _log.LogInformation($"Registering health check at http://{localIp}:{port}/status");
+            _log.LogInformation($"Registering service {serviceId} at http://{host}:{port}");
+            _log.LogInformation($"Registering health check at http://{host}:{port}/status");
             var payload = new
             {
                 ID = serviceId,
                 Name = serviceName,
                 Tags = new[] {$"urlprefix-/{serviceName}"},
-                Address = localIp,
+                Address = host,
                 Port = port,
                 Check = new
                 {
@@ -138,12 +136,12 @@ namespace Microphone.Consul
 
                 if (response.StatusCode == HttpStatusCode.NotFound)
                 {
-                    throw new Exception($"There is no value for key \"{key}\"");
+                    throw new Exception($"There is no value for key '{key}'");
                 }
 
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
-                    throw new Exception($"Could not get value for key \"{key}\"");
+                    throw new Exception($"Could not get value for key '{key}'");
                 }
 
                 var body = await response.Content.ReadAsStringAsync();
