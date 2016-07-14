@@ -12,14 +12,15 @@ namespace NancyDemo
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             base.ConfigureApplicationContainer(container);
-            container.RegisterMicrophone<ConsulProvider>();
+            container.RegisterMicrophone<ConsulProvider>("Myservice",new Uri("http://localhost:5555"));
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
-           new NancyHost(new Uri("http://127.0.0.1:5555")).Start();
+            HostConfiguration hostConf = new HostConfiguration {RewriteLocalhost = true};
+            new NancyHost(hostConf,new Uri("http://localhost:5555")).Start();
             Console.ReadLine();
         }
     }
@@ -28,10 +29,7 @@ namespace NancyDemo
     {
         public NancyExample()
         {
-            Get("/hello", req =>
-            {
-                return "hello";
-            });
+            Get("/hello", req => "hello");
         }
     }
 }
