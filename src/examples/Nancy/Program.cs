@@ -1,26 +1,25 @@
 ﻿using System;
-using Microphone;
 using Microphone.Consul;
-using Microsoft.Extensions.DependencyInjection;
+using Microphone.Nancy;
 using Nancy;
 using Nancy.Hosting.Self;
+using Nancy.TinyIoc;
 
 namespace NancyDemo
 {
+    public class MyBootstrapper : DefaultNancyBootstrapper
+    {
+        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
+        {
+            base.ConfigureApplicationContainer(container);
+            container.RegisterMicrophone<ConsulProvider>();
+        }
+    }
     class Program
     {
         static void Main(string[] args)
         {
-            var services = new ServiceCollection();
-            services.AddSingleton<IClusterProvider, ConsulProvider>();
-            services.AddLogging();
-            services.AddOptions();
-            var ioc = services.BuildServiceProvider();
-
-            ioc.GetService<IClusterProvider>();
-            var config = new HostConfiguration();
-            var host = new NancyHost(config, new Uri("http://127.0.0.1:5555"));
-            host.Start();
+           new NancyHost(new Uri("http://127.0.0.1:5555")).Start();
             Console.ReadLine();
         }
     }
