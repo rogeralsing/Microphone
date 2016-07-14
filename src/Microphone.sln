@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microphone.Etcd", "Micropho
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Microphone.Suave", "Microphone.Suave\Microphone.Suave.fsproj", "{EEB92EF8-1404-4E37-AEA3-B2F54BCAC267}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{5D1DDEDF-5EAA-4C10-9A28-756025BC03B0}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suave", "examples\Suave\Suave.fsproj", "{19B3109D-197A-48DC-88D5-4A9EAD0C255F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microphone.Nancy", "Microphone.Nancy\Microphone.Nancy.csproj", "{3988EEBA-A664-4815-91F8-B4E63287D9EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy", "examples\Nancy\Nancy.csproj", "{246C633C-BEBF-4BFE-B724-CC484273A806}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +35,24 @@ Global
 		{EEB92EF8-1404-4E37-AEA3-B2F54BCAC267}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEB92EF8-1404-4E37-AEA3-B2F54BCAC267}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEB92EF8-1404-4E37-AEA3-B2F54BCAC267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19B3109D-197A-48DC-88D5-4A9EAD0C255F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B3109D-197A-48DC-88D5-4A9EAD0C255F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B3109D-197A-48DC-88D5-4A9EAD0C255F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B3109D-197A-48DC-88D5-4A9EAD0C255F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3988EEBA-A664-4815-91F8-B4E63287D9EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3988EEBA-A664-4815-91F8-B4E63287D9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3988EEBA-A664-4815-91F8-B4E63287D9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3988EEBA-A664-4815-91F8-B4E63287D9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{246C633C-BEBF-4BFE-B724-CC484273A806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{246C633C-BEBF-4BFE-B724-CC484273A806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{246C633C-BEBF-4BFE-B724-CC484273A806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{246C633C-BEBF-4BFE-B724-CC484273A806}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{19B3109D-197A-48DC-88D5-4A9EAD0C255F} = {5D1DDEDF-5EAA-4C10-9A28-756025BC03B0}
+		{246C633C-BEBF-4BFE-B724-CC484273A806} = {5D1DDEDF-5EAA-4C10-9A28-756025BC03B0}
 	EndGlobalSection
 EndGlobal

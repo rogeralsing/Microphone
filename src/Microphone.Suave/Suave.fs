@@ -15,7 +15,7 @@ module SuaveApi =
     let resolveUri serviceName (relativeUri: string) scheme =
         Cluster.Client.ResolveUri(serviceName,relativeUri,scheme)
 
-    let app : WebPart =
+    let healthCheck : WebPart =
         GET 
             >=> path "/status" 
             >=> OK System.Environment.MachineName
@@ -33,7 +33,8 @@ module SuaveApi =
                                                     | LogLevel.Critical -> LogaryLogLevel.Fatal
                                                     | _ -> Suave.Logging.LogLevel.Debug
                                 0 |> ignore
+                                //I have no clue how to wrap the suave logger in the ILogger extension
 
                       }
-        Cluster.RegisterService(uri,clusterProvider,serviceName,version,ilogger)
-
+        Cluster.RegisterService(uri,clusterProvider,serviceName,version,ilogger)      
+    //TODO: we need some way to register the healthCheck above in suave
