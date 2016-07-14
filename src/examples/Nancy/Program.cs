@@ -2,9 +2,10 @@
 using Microphone;
 using Microphone.Consul;
 using Microsoft.Extensions.DependencyInjection;
+using Nancy;
 using Nancy.Hosting.Self;
 
-namespace Nancy
+namespace NancyDemo
 {
     class Program
     {
@@ -18,7 +19,7 @@ namespace Nancy
 
             ioc.GetService<IClusterProvider>();
             var config = new HostConfiguration();
-            var host = new Hosting.Self.NancyHost(config,new Uri("http://0.0.0.0:5555"));
+            var host = new NancyHost(config, new Uri("http://127.0.0.1:5555"));
             host.Start();
             Console.ReadLine();
         }

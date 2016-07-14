@@ -11,11 +11,11 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Microphone.Suave", "Microph
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{5D1DDEDF-5EAA-4C10-9A28-756025BC03B0}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suave", "examples\Suave\Suave.fsproj", "{19B3109D-197A-48DC-88D5-4A9EAD0C255F}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SuaveDemo", "examples\Suave\SuaveDemo.fsproj", "{19B3109D-197A-48DC-88D5-4A9EAD0C255F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microphone.Nancy", "Microphone.Nancy\Microphone.Nancy.csproj", "{3988EEBA-A664-4815-91F8-B4E63287D9EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy", "examples\Nancy\Nancy.csproj", "{246C633C-BEBF-4BFE-B724-CC484273A806}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NancyDemo", "examples\Nancy\NancyDemo.csproj", "{246C633C-BEBF-4BFE-B724-CC484273A806}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

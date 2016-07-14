@@ -8,11 +8,11 @@
     <ProjectGuid>19b3109d-197a-48dc-88d5-4a9ead0c255f</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Suave</RootNamespace>
-    <AssemblyName>Suave</AssemblyName>
+    <AssemblyName>SuaveDemo</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
-    <Name>Suave</Name>
+    <Name>SuaveDemo</Name>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
