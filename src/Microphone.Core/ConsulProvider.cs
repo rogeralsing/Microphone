@@ -153,7 +153,7 @@ namespace Microphone.Consul
         }
 
         private string KeyValueUrl(string key) => $"{RootUrl}/v1/kv/{key}";
-        private string ServiceHealthUrl(string service) => $"{RootUrl}/v1/health/service/{service}";
+        private string ServiceHealthUrl(string service) => $"{RootUrl}/v1/health/service/{service}?passing";
         private string DeregisterServiceUrl(string service) => $"{RootUrl}/v1/agent/service/deregister/{service}";
     }
 }
