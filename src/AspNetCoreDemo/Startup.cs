@@ -17,9 +17,9 @@ namespace AspNetService
         {
             Configuration = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddEnvironmentVariables()
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables()
                 .Build();
         }
 
@@ -31,6 +31,10 @@ namespace AspNetService
             services
                 .AddMicrophone<ConsulProvider>()
                 .AddHealthCheck<MyHealthChecker>();
+
+                services.Configure<ConsulOptions>(o => {
+                    o.Host = Configuration["ConsulHost"];
+                });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
