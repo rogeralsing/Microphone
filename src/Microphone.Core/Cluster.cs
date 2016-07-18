@@ -12,7 +12,7 @@ namespace Microphone
             string serviceName, string version, ILogger log)
         {
             var port = uri.Port;
-            var host = DnsUtils.GetLocalIPAddress();
+            var host = DnsUtils.GetLocalIPAddress(uri);
             var publicUri = new Uri($"{uri.Scheme}://{host}:{port}",UriKind.Absolute);
                  
             log.LogInformation("Bootstrapping Microphone");
