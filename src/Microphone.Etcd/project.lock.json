@@ -263,7 +263,7 @@
           "lib/net45/_._": {}
         }
       },
-      "Microphone.Core/0.6.3": {
+      "Microphone.Core/0.6.4": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -1639,7 +1639,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Microphone.Core/0.6.3": {
+      "Microphone.Core/0.6.4": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
@@ -5098,7 +5098,7 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Microphone.Core/0.6.3": {
+    "Microphone.Core/0.6.4": {
       "type": "project",
       "path": "../Microphone.Core/project.json",
       "msbuildProject": "../Microphone.Core/Microphone.Core.xproj"
@@ -5106,7 +5106,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microphone.Core >= 0.6.3",
+      "Microphone.Core >= 0.6.4",
       "Microsoft.Extensions.Logging >= 1.0.0",
       "Microsoft.Extensions.Options >= 1.0.0",
       "System.Net.Http >= 4.1.0"
