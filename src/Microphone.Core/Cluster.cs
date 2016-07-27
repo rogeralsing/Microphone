@@ -9,10 +9,11 @@ namespace Microphone
         public static IClusterClient Client { get; private set; }
 
         public static void RegisterService(Uri uri, IClusterProvider clusterProvider,
-            string serviceName, string version, ILogger log)
+            string serviceName, string version, ILogger log, bool useUriHost = false)
         {
             var port = uri.Port;
-            var host = DnsUtils.GetLocalIPAddress();
+            var host = useUriHost ? DnsUtils.GetLocalIPAddress(uri) 
+                                  : DnsUtils.GetLocalIPAddress();
             var publicUri = new Uri($"{uri.Scheme}://{host}:{port}",UriKind.Absolute);
                  
             log.LogInformation("Bootstrapping Microphone");
