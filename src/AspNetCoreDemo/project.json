@@ -15,7 +15,7 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options": "1.0.0",
-    "Microphone.AspNet": "0.6.2"
+    "Microphone.AspNet": "0.6.3"
   },
   "frameworks": {
     "netcoreapp1.6": {

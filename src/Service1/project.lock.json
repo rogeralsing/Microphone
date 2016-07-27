@@ -1613,28 +1613,6 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Serilog/2.1.0-dev-00670": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.CSharp": "4.0.1",
-          "System.Collections": "4.0.11",
-          "System.Dynamic.Runtime": "4.0.11",
-          "System.Globalization": "4.0.11",
-          "System.Linq": "4.1.0",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Text.RegularExpressions": "4.1.0",
-          "System.Threading": "4.0.11"
-        },
-        "compile": {
-          "lib/netstandard1.3/Serilog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Serilog.dll": {}
-        }
-      },
       "System.AppContext/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -3493,22 +3471,14 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "Microphone.AspNet/0.6.1": {
+      "Microphone.AspNet/0.6.3": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
-          "Microphone.Core": "0.6.1",
-          "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
+          "Microphone.Core": "0.6.3",
           "Microsoft.AspNetCore.Mvc": "1.0.0",
-          "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
-          "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
-          "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0",
-          "Microsoft.Extensions.Logging": "1.0.0",
-          "Microsoft.Extensions.Logging.Console": "1.0.0",
-          "Microsoft.Extensions.Logging.Debug": "1.0.0",
-          "NETStandard.Library": "1.6.0"
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.Logging": "1.0.0"
         },
         "compile": {
           "netstandard1.6/Microphone.AspNet.dll": {}
@@ -3517,20 +3487,23 @@
           "netstandard1.6/Microphone.AspNet.dll": {}
         }
       },
-      "Microphone.Core/0.6.1": {
+      "Microphone.Core/0.6.2": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.5",
+        "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Logging": "1.0.0",
+          "Microsoft.Extensions.Options": "1.0.0",
           "NETStandard.Library": "1.6.0",
           "Newtonsoft.Json": "9.0.1-beta1",
-          "Serilog": "2.1.0-dev-00670",
+          "System.Net.Http": "4.1.0",
           "System.Net.NameResolution": "4.0.0"
         },
         "compile": {
-          "netstandard1.5/Microphone.Core.dll": {}
+          "netstandard1.6/Microphone.Core.dll": {}
         },
         "runtime": {
-          "netstandard1.5/Microphone.Core.dll": {}
+          "netstandard1.6/Microphone.Core.dll": {}
         }
       }
     }
@@ -4826,20 +4799,6 @@
         "lib/netstandard1.0/_._",
         "runtime.native.System.Security.Cryptography.4.0.0.nupkg.sha512",
         "runtime.native.System.Security.Cryptography.nuspec"
-      ]
-    },
-    "Serilog/2.1.0-dev-00670": {
-      "sha512": "zhr+srO8U7hUeI3sKW346goHEuJ41/BsnxABP/Mx2aERPIxPVleEsE07aL4pNROnxoG46PRclhsIwBFtoExUhA==",
-      "type": "package",
-      "files": [
-        "Serilog.2.1.0-dev-00670.nupkg.sha512",
-        "Serilog.nuspec",
-        "lib/net45/Serilog.dll",
-        "lib/net45/Serilog.xml",
-        "lib/netstandard1.0/Serilog.dll",
-        "lib/netstandard1.0/Serilog.xml",
-        "lib/netstandard1.3/Serilog.dll",
-        "lib/netstandard1.3/Serilog.xml"
       ]
     },
     "System.AppContext/4.1.0": {
@@ -9318,12 +9277,12 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Microphone.AspNet/0.6.1": {
+    "Microphone.AspNet/0.6.3": {
       "type": "project",
       "path": "../Microphone.AspNet/project.json",
       "msbuildProject": "../Microphone.AspNet/Microphone.AspNet.xproj"
     },
-    "Microphone.Core/0.6.1": {
+    "Microphone.Core/0.6.2": {
       "type": "project",
       "path": "../Microphone.Core/project.json",
       "msbuildProject": "../Microphone.Core/Microphone.Core.xproj"
