@@ -3471,22 +3471,14 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "Microphone.AspNet/0.6.1": {
+      "Microphone.AspNet/0.6.3": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
-          "Microphone.Core": "0.6.1",
-          "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
+          "Microphone.Core": "0.6.3",
           "Microsoft.AspNetCore.Mvc": "1.0.0",
-          "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
-          "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
-          "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0",
-          "Microsoft.Extensions.Logging": "1.0.0",
-          "Microsoft.Extensions.Logging.Console": "1.0.0",
-          "Microsoft.Extensions.Logging.Debug": "1.0.0",
-          "NETStandard.Library": "1.6.0"
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.Logging": "1.0.0"
         },
         "compile": {
           "netstandard1.6/Microphone.AspNet.dll": {}
@@ -3495,22 +3487,23 @@
           "netstandard1.6/Microphone.AspNet.dll": {}
         }
       },
-      "Microphone.Core/0.6.1": {
+      "Microphone.Core/0.6.2": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.5",
+        "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
           "Microsoft.Extensions.Logging": "1.0.0",
-          "Microsoft.Extensions.Logging.Console": "1.0.0",
-          "Microsoft.Extensions.Logging.Debug": "1.0.0",
+          "Microsoft.Extensions.Options": "1.0.0",
           "NETStandard.Library": "1.6.0",
           "Newtonsoft.Json": "9.0.1-beta1",
+          "System.Net.Http": "4.1.0",
           "System.Net.NameResolution": "4.0.0"
         },
         "compile": {
-          "netstandard1.5/Microphone.Core.dll": {}
+          "netstandard1.6/Microphone.Core.dll": {}
         },
         "runtime": {
-          "netstandard1.5/Microphone.Core.dll": {}
+          "netstandard1.6/Microphone.Core.dll": {}
         }
       }
     }
@@ -9284,12 +9277,12 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Microphone.AspNet/0.6.1": {
+    "Microphone.AspNet/0.6.3": {
       "type": "project",
       "path": "../Microphone.AspNet/project.json",
       "msbuildProject": "../Microphone.AspNet/Microphone.AspNet.xproj"
     },
-    "Microphone.Core/0.6.1": {
+    "Microphone.Core/0.6.2": {
       "type": "project",
       "path": "../Microphone.Core/project.json",
       "msbuildProject": "../Microphone.Core/Microphone.Core.xproj"
