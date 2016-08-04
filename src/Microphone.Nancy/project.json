@@ -1,6 +1,6 @@
-﻿{
+{
   "version": "0.6.4-*",
-  "description": "Microphone.Etcd Class Library",
+  "description": "Microphone.Nancy Class Library",
   "authors": [ "Roger Johansson" ],
   "packOptions": {
     "tags": [ "service discovery", "consul", "etcd", "nancy", "asp.net" ],
@@ -11,9 +11,10 @@
 
   "dependencies": {
     "Microphone.Core": "0.6.4",
-	  "Microsoft.Extensions.Logging": "1.0.0",
+	"Microsoft.Extensions.Logging": "1.0.0",
     "Microsoft.Extensions.Options": "1.0.0",
-    "System.Net.Http": "4.1.0"
+    "System.Net.Http": "4.1.0",
+    "Nancy": "2.0.0-barneyrubble"    
   },
 
   "frameworks": {
@@ -23,7 +24,7 @@
         "NETStandard.Library": "1.6.0"
       }
     },
-    "net451": {
+    "net452": {
       "imports": "dotnet5.4",
       "dependencies": {}
     }

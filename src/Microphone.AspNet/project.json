@@ -7,10 +7,10 @@
     "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
     "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png"
   },
-  "version": "0.6.2-*",
+  "version": "0.6.4-*",
 
   "dependencies": {
-    "Microphone.Core": "0.6.2",
+    "Microphone.Core": "0.6.4",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.Extensions.Configuration": "1.0.0",
     "Microsoft.Extensions.Logging": "1.0.0"
