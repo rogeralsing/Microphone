@@ -41,23 +41,29 @@ namespace Microphone.AspNet
         }
 
         public static IApplicationBuilder UseMicrophone(this IApplicationBuilder self, string serviceName, string version)
+        public static IApplicationBuilder UseMicrophone(this IApplicationBuilder self, string serviceName, string version, Uri serviceUri = null)
         {
             var loggingFactory = self.ApplicationServices.GetRequiredService<ILoggerFactory>();
             var clusterProvider = self.ApplicationServices.GetRequiredService<IClusterProvider>();
             var logger = loggingFactory.CreateLogger("Microphone.AspNet");
             try
             {
-                var features = self.Properties["server.Features"] as FeatureCollection;
-                var addresses = features.Get<IServerAddressesFeature>();
-                var address = addresses.Addresses.First().Replace("*", "localhost");
-                var uri = new Uri(address);
-                Cluster.RegisterService(uri, clusterProvider, serviceName, version, logger);
+                var uri = serviceUri ?? self.GetDefaultServerAddressUri(); 
+                Cluster.RegisterService(uri, clusterProvider, serviceName, version, logger, serviceUri != null);
             }
             catch(Exception x)
             {
                 logger.LogCritical(x.ToString());
             }
             return self;
+        }
+
+        private static IApplicationBuilder GetDefaultServerAddressUri(this IApplicationBuilder self)
+        {
+            var features = self.Properties["server.Features"] as FeatureCollection;
+            var addresses = features.Get<IServerAddressesFeature>();
+            var address = addresses.Addresses.First().Replace("*", "localhost");
+            return new Uri(address);
         }
     }
 }
