@@ -42,22 +42,11 @@ namespace Microphone.AspNet
 
         public static IApplicationBuilder UseMicrophone(this IApplicationBuilder self, string serviceName, string version)
         {
-            var loggingFactory = self.ApplicationServices.GetRequiredService<ILoggerFactory>();
-            var clusterProvider = self.ApplicationServices.GetRequiredService<IClusterProvider>();
-            var logger = loggingFactory.CreateLogger("Microphone.AspNet");
-            try
-            {
-                var features = self.Properties["server.Features"] as FeatureCollection;
-                var addresses = features.Get<IServerAddressesFeature>();
-                var address = addresses.Addresses.First().Replace("*", "localhost");
-                var uri = new Uri(address);
-                Cluster.RegisterService(uri, clusterProvider, serviceName, version, logger);
-            }
-            catch(Exception x)
-            {
-                logger.LogCritical(x.ToString());
-            }
-            return self;
+            var features = self.Properties["server.Features"] as FeatureCollection;
+            var addresses = features.Get<IServerAddressesFeature>();
+            var address = addresses.Addresses.First().Replace("*", "localhost");
+            var uri = new Uri(address);
+            return self.UseMicrophone(serviceName,version,uri);
         }
 
         public static IApplicationBuilder UseMicrophone(this IApplicationBuilder self, string serviceName, string version, Uri serviceUri)
@@ -67,7 +56,7 @@ namespace Microphone.AspNet
             var logger = loggingFactory.CreateLogger("Microphone.AspNet");
             try
             {
-                Cluster.RegisterService(uri, clusterProvider, serviceName, version, logger, serviceUri != null);
+                Cluster.RegisterService(serviceUri, clusterProvider, serviceName, version, logger);
             }
             catch(Exception x)
             {
