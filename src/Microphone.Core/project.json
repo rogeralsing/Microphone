@@ -20,8 +20,7 @@
     "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
     "Microsoft.Extensions.Logging": "1.0.0",
     "Microsoft.Extensions.Options": "1.0.0",
-    "Newtonsoft.Json": "9.0.1",
-    
+    "Newtonsoft.Json": "9.0.1"    
   },
   "frameworks": {
     "netstandard1.6": {
