@@ -40,7 +40,7 @@ namespace Microphone
             var service = res[ThreadLocalRandom.Current.Next(0, res.Length)];
             var baseUri = new Uri($"{scheme}://{service.Host}:{service.Port}");
             Uri uri;
-            if (!Uri.TryCreate(baseUri,relativeUri,out uri)){
+            if (Uri.TryCreate(baseUri,relativeUri,out uri)){
                 return uri;
             }
             throw new Exception("Failed to combine absolute and relative Uri");
