@@ -45,7 +45,10 @@ namespace Microphone.AspNet
             var features = self.Properties["server.Features"] as FeatureCollection;
             var addresses = features.Get<IServerAddressesFeature>();
             var address = addresses.Addresses.First().Replace("*", "localhost");
-            var uri = new Uri(address);
+            var tmpuri = new Uri(address);
+            var host = Microphone.Util.DnsUtils.GetLocalIPAddress();
+            var port = tmpuri.Port;
+            var uri = new Uri($"http://{host}:{port}");
             return self.UseMicrophone(serviceName,version,uri);
         }
 
