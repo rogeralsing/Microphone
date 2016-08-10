@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using Microphone.Core.Util;
+using Microphone.Util;
 using Newtonsoft.Json;
 
 namespace Microphone

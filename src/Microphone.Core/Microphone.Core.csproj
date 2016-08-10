@@ -7,7 +7,7 @@
     <ProjectGuid>{7A418687-1FFB-45C6-89BD-C0F0D9910C0D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microphone.Core</RootNamespace>
+    <RootNamespace>Microphone</RootNamespace>
     <AssemblyName>Microphone.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -64,7 +64,9 @@
   <ItemGroup>
     <Compile Include="Cluster.cs" />
     <Compile Include="Configuration.cs" />
-    <Compile Include="ConsulProvider.cs" />
+    <Compile Include="Consul\ConsulNameResolution.cs" />
+    <Compile Include="Consul\ConsulOptions.cs" />
+    <Compile Include="Consul\ConsulProvider.cs" />
     <Compile Include="EmptyHealthCheck.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="IClusterProvider.cs" />

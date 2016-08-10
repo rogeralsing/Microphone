@@ -1,8 +1,9 @@
 using System;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 
-namespace Microphone.Core.Util
+namespace Microphone.Util
 {
     public class DnsUtils
     {
@@ -15,7 +16,7 @@ namespace Microphone.Core.Util
         public static string GetLocalIPAddress(string hostName)
         {
             var host = Dns.GetHostEntryAsync(hostName).Result;
-            foreach (var ip in host.AddressList)
+            foreach (var ip in host.AddressList.OrderBy(ip => ip.ToString()))
             {
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {

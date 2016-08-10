@@ -1,5 +1,4 @@
 ﻿using System;
-using Microphone.Core.Util;
 using Microsoft.Extensions.Logging;
 
 namespace Microphone
@@ -8,12 +7,10 @@ namespace Microphone
     {
         public static IClusterClient Client { get; private set; }
 
-        public static void RegisterService(Uri uri, IClusterProvider clusterProvider,
-            string serviceName, string version, ILogger log, bool useUriHost = false)
+        public static void RegisterService(Uri uri, IClusterProvider clusterProvider, string serviceName, string version, ILogger log)
         {
             var port = uri.Port;
-            var host = useUriHost ? DnsUtils.GetLocalIPAddress(uri) 
-                                  : DnsUtils.GetLocalIPAddress();
+            var host = uri.Host;
             var publicUri = new Uri($"{uri.Scheme}://{host}:{port}",UriKind.Absolute);
                  
             log.LogInformation("Bootstrapping Microphone");

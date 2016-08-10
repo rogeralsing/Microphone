@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Threading;
 
-namespace Microphone.Core.Util
+namespace Microphone.Util
 {
-    public static class ThreadLocalRandom
+    internal static class ThreadLocalRandom
     {
         private static int _seed = Environment.TickCount;
 
-        private static readonly ThreadLocal<Random> _rnd =
+        private static readonly ThreadLocal<Random> Rnd =
             new ThreadLocal<Random>(() => new Random(Interlocked.Increment(ref _seed)));
 
         /// <summary>
         ///     The current random number seed available to this thread
         /// </summary>
-        public static Random Current => _rnd.Value;
+        public static Random Current => Rnd.Value;
     }
 }

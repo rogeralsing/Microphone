@@ -12,26 +12,13 @@ using Newtonsoft.Json.Linq;
 
 namespace Microphone.Consul
 {
-    public enum ConsulNameResolution
-    {
-        HttpApi,
-        EbayFabio
-    }
-
-    public class ConsulOptions
-    {
-        public string Host { get; set; } = "localhost";
-        public int Port { get; set; } = 8500;
-        public ConsulNameResolution NameResolution { get; set; } = ConsulNameResolution.HttpApi;
-        public int Heartbeat { get; set; } = 1;
-    }
-
     public class ConsulProvider : IClusterProvider
     {
         private readonly string _consulHost;
         private readonly int _consulPort;
         private readonly int _heartbeat;
         private readonly ILogger _log;
+        private readonly string _consulHealthCheckPath;
         private readonly ConsulNameResolution _nameResolution;
 
         public ConsulProvider(ILoggerFactory loggerFactory, IOptions<ConsulOptions> configuration)
@@ -39,12 +26,12 @@ namespace Microphone.Consul
             _log = loggerFactory.CreateLogger("Microphone.ConsulProvider");
             _consulHost = configuration.Value.Host;
             _consulPort = configuration.Value.Port;
+            _consulHealthCheckPath = configuration.Value.HealthCheckPath;
             _nameResolution = configuration.Value.NameResolution;
             _heartbeat = configuration.Value.Heartbeat;
         }
 
         private string RootUrl => $"http://{_consulHost}:{_consulPort}";
-        private string CriticalServicesUrl => $"{RootUrl}/v1/health/state/critical";
         private string RegisterServiceUrl => $"{RootUrl}/v1/agent/service/register";
 
         public async Task<ServiceInformation[]> GetServiceInstancesAsync(string serviceName)
@@ -80,16 +67,20 @@ namespace Microphone.Consul
         {
             var port = uri.Port;
             var host = uri.Host;
-            var check = $"http://{host}:{port}/status";
+            var check = $"http://{host}:{port}{_consulHealthCheckPath}";
+            var tags = _nameResolution == ConsulNameResolution.EbayFabio ?
+                new[] { $"urlprefix-/{serviceName}" } :
+                null;
 
             _log.LogInformation($"Using Consul at {_consulHost}:{_consulPort}");
             _log.LogInformation($"Registering service {serviceId} at http://{host}:{port}");
             _log.LogInformation($"Registering health check at http://{host}:{port}/status");
+
             var payload = new
             {
                 ID = serviceId,
                 Name = serviceName,
-                Tags = new[] {$"urlprefix-/{serviceName}"},
+                Tags = tags,
                 Address = host,
                 Port = port,
                 Check = new
@@ -154,6 +145,9 @@ namespace Microphone.Consul
 
         private string KeyValueUrl(string key) => $"{RootUrl}/v1/kv/{key}";
         private string ServiceHealthUrl(string service) => $"{RootUrl}/v1/health/service/{service}?passing";
+
+        //used by reaper, now removed. TODO: replace reaper
+        private string CriticalServicesUrl => $"{RootUrl}/v1/health/state/critical";
         private string DeregisterServiceUrl(string service) => $"{RootUrl}/v1/agent/service/deregister/{service}";
     }
 }
