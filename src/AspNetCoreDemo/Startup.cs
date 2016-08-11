@@ -9,10 +9,6 @@ using Microphone.AspNet;
 using System.Threading.Tasks;
 using Microphone.Consul;
 using Microphone;
-using System.Net;
-using System.Net.Sockets;
-using System.Linq;
-using System.Collections.Generic;
 using System.Net.Http;
 
 namespace AspNetService
@@ -49,8 +45,7 @@ namespace AspNetService
             .AddConsole(Configuration.GetSection("Logging"))
             .AddDebug();
 
-            var localIp = Labb.GetLocalIPAddress();
-
+            string localIp = null;
             if (Configuration["rancher"]=="true")
             {
                 var rancherUri = new Uri("http://rancher-metadata/2015-12-19/self/container/primary_ip");
@@ -61,6 +56,7 @@ namespace AspNetService
             }
             else
             {
+                localIp = Microphone.Util.DnsUtils.GetLocalIPAddress();
                 Console.WriteLine($"Running locally, {localIp}");
             }
 
@@ -78,28 +74,6 @@ namespace AspNetService
                 .UseStartup<Startup>()
                 .Build()
                 .Run();
-        }
-    }
-
-    public static class Labb
-    {
-        public static string GetLocalIPAddress() => GetLocalIPAddress(Dns.GetHostName());
-
-        public static string GetLocalIPAddress(Uri uri) => GetLocalIPAddress(uri.Host);
-
-        public static string GetLocalIPAddress(string hostName)
-        {
-            var host = Dns.GetHostEntryAsync(hostName).Result;
-            var l = new List<string>();
-            foreach (var ip in host.AddressList.OrderByDescending(ip => ip.ToString()))
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    l.Add(ip.ToString());
-                }
-            }
-
-            return l.First();
         }
     }
 
