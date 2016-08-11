@@ -34,9 +34,10 @@ namespace AspNetService
                 .AddMicrophone<ConsulProvider>()
                 .AddHealthCheck<MyHealthChecker>();
 
-                services.Configure<ConsulOptions>(o => {
-                    o.Host = Configuration["ConsulHost"];
-                });
+            services.Configure<ConsulOptions>(o =>
+            {
+                o.Host = Configuration["ConsulHost"];
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -45,24 +46,44 @@ namespace AspNetService
             .AddConsole(Configuration.GetSection("Logging"))
             .AddDebug();
 
-            string localIp = null;
-            if (Configuration["rancher"]=="true")
+            string host = null;
+            string port = null;
+            switch (Configuration["rancher"])
             {
-                var rancherUri = new Uri("http://rancher-metadata/2015-12-19/self/container/primary_ip");
-                var http = new HttpClient();
-                http.BaseAddress = rancherUri;
-                localIp = http.GetStringAsync("").Result;
-                Console.WriteLine($"Running on rancher, {localIp}");
-            }
-            else
-            {
-                localIp = Microphone.Util.DnsUtils.GetLocalIPAddress();
-                Console.WriteLine($"Running locally, {localIp}");
+                case "true":
+                case "container":
+                    {
+                        port = "5000";
+                        host = HttpGet("http://rancher-metadata/2015-12-19/self/container/primary_ip");
+                        Console.WriteLine($"Running on rancher container IP {host}");
+                        break;
+                    }
+                case "host":
+                    {                                                                         
+                        port = HttpGet("http://rancher-metadata/2015-12-19/self/service/ports/0").Split(':')[0];
+                        host = HttpGet("http://rancher-metadata/2015-12-19/self/host/agent_ip");
+                        Console.WriteLine($"Running on rancher host IP {host}");
+                        break;
+                    }
+                default:
+                    {
+                        port = "5000";
+                        host = Microphone.Util.DnsUtils.GetLocalIPAddress();
+                        Console.WriteLine($"Running locally, {host}");
+                        break;
+                    }
             }
 
             app
             .UseMvc()
-            .UseMicrophone("AspNetService", "1.0",new Uri($"http://{localIp}:5000"));
+            .UseMicrophone("AspNetService", "1.0", new Uri($"http://{host}:{port}"));
+        }
+
+        private static string HttpGet(string uri){
+             var http = new HttpClient();
+             http.BaseAddress =  new Uri(uri);
+             var res = http.GetStringAsync("").Result;
+             return res;
         }
 
         public static void Main(string[] args)
