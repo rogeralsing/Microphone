@@ -1,4 +1,5 @@
 using System.IO;
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +9,11 @@ using Microphone.AspNet;
 using System.Threading.Tasks;
 using Microphone.Consul;
 using Microphone;
+using System.Net;
+using System.Net.Sockets;
+using System.Linq;
+using System.Collections.Generic;
+using System.Net.Http;
 
 namespace AspNetService
 {
@@ -43,9 +49,24 @@ namespace AspNetService
             .AddConsole(Configuration.GetSection("Logging"))
             .AddDebug();
 
+            var localIp = Labb.GetLocalIPAddress();
+
+            if (Configuration["rancher"]=="true")
+            {
+                var rancherUri = new Uri("http://rancher-metadata/2015-12-19/self/container/primary_ip");
+                var http = new HttpClient();
+                http.BaseAddress = rancherUri;
+                localIp = http.GetStringAsync("").Result;
+                Console.WriteLine($"Running on rancher, {localIp}");
+            }
+            else
+            {
+                Console.WriteLine($"Running locally, {localIp}");
+            }
+
             app
             .UseMvc()
-            .UseMicrophone("AspNetService", "1.0");
+            .UseMicrophone("AspNetService", "1.0",new Uri($"http://{localIp}:5000"));
         }
 
         public static void Main(string[] args)
@@ -57,6 +78,28 @@ namespace AspNetService
                 .UseStartup<Startup>()
                 .Build()
                 .Run();
+        }
+    }
+
+    public static class Labb
+    {
+        public static string GetLocalIPAddress() => GetLocalIPAddress(Dns.GetHostName());
+
+        public static string GetLocalIPAddress(Uri uri) => GetLocalIPAddress(uri.Host);
+
+        public static string GetLocalIPAddress(string hostName)
+        {
+            var host = Dns.GetHostEntryAsync(hostName).Result;
+            var l = new List<string>();
+            foreach (var ip in host.AddressList.OrderByDescending(ip => ip.ToString()))
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    l.Add(ip.ToString());
+                }
+            }
+
+            return l.First();
         }
     }
 
