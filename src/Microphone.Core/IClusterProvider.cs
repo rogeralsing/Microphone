@@ -5,7 +5,7 @@ namespace Microphone
 {
     public interface IServiceDiscovery
     {
-        Task<ServiceInformation[]> GetServiceInstancesAsync(string name);
+        Task<ServiceInformation[]> GetServiceInstancesAsync(string name, params string[] tags);
     }
     public interface IKeyValueStore
     {
@@ -18,6 +18,6 @@ namespace Microphone
 
     public interface IClusterProvider : IClusterClient
     {
-        Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri);
+        Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri, params string[] tags);
     }
 }

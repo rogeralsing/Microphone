@@ -1,0 +1,29 @@
+{
+  "version": "0.6.6-*",
+  "description": "Microphone.Rancher Class Library",
+  "authors": [
+    "Roger Johansson"
+  ],
+  "packOptions": {
+    "tags": [
+      "rancher",
+      "docker",
+      "asp.net"
+    ],
+    "projectUrl": "https://github.com/rogeralsing/Microphone",
+    "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
+    "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png"
+  },
+  "dependencies": {
+  
+  },
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50",
+      "dependencies": {
+        "NETStandard.Library": "1.6.0",
+        "System.Net.Http": "4.1.0"
+      }
+    }
+  }
+}

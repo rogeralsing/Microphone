@@ -3451,11 +3451,11 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "Microphone.AspNet/0.6.3": {
+      "Microphone.AspNet/0.6.6": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
-          "Microphone.Core": "0.6.3",
+          "Microphone.Core": "0.6.6",
           "Microsoft.AspNetCore.Mvc": "1.0.0",
           "Microsoft.Extensions.Configuration": "1.0.0",
           "Microsoft.Extensions.Logging": "1.0.0"
@@ -3467,7 +3467,7 @@
           "netstandard1.6/Microphone.AspNet.dll": {}
         }
       },
-      "Microphone.Core/0.6.2": {
+      "Microphone.Core/0.6.6": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
@@ -3475,7 +3475,7 @@
           "Microsoft.Extensions.Logging": "1.0.0",
           "Microsoft.Extensions.Options": "1.0.0",
           "NETStandard.Library": "1.6.0",
-          "Newtonsoft.Json": "9.0.1-beta1",
+          "Newtonsoft.Json": "9.0.1",
           "System.Net.Http": "4.1.0",
           "System.Net.NameResolution": "4.0.0"
         },
@@ -3484,6 +3484,19 @@
         },
         "runtime": {
           "netstandard1.6/Microphone.Core.dll": {}
+        }
+      },
+      "Microphone.Rancher/0.6.6": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Logging": "1.0.0",
+          "Microsoft.Extensions.Options": "1.0.0",
+          "NETStandard.Library": "1.6.0",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Net.Http": "4.1.0",
+          "System.Net.NameResolution": "4.0.0"
         }
       }
     }
@@ -9242,20 +9255,25 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Microphone.AspNet/0.6.3": {
+    "Microphone.AspNet/0.6.6": {
       "type": "project",
       "path": "../Microphone.AspNet/project.json",
       "msbuildProject": "../Microphone.AspNet/Microphone.AspNet.xproj"
     },
-    "Microphone.Core/0.6.2": {
+    "Microphone.Core/0.6.6": {
       "type": "project",
       "path": "../Microphone.Core/project.json",
       "msbuildProject": "../Microphone.Core/Microphone.Core.xproj"
+    },
+    "Microphone.Rancher/0.6.6": {
+      "type": "project",
+      "path": "../Microphone.Rancher/project.json"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microphone.AspNet >= 0.6.3",
+      "Microphone.AspNet >= 0.6.6",
+      "Microphone.Rancher >= 0.6.6",
       "Microsoft.ApplicationInsights.AspNetCore >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 1.0.0",
       "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0",

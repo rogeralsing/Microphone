@@ -14,11 +14,11 @@ namespace Microphone.Consul
 {
     public class ConsulProvider : IClusterProvider
     {
+        private readonly string _consulHealthCheckPath;
         private readonly string _consulHost;
         private readonly int _consulPort;
         private readonly int _heartbeat;
         private readonly ILogger _log;
-        private readonly string _consulHealthCheckPath;
         private readonly ConsulNameResolution _nameResolution;
 
         public ConsulProvider(ILoggerFactory loggerFactory, IOptions<ConsulOptions> configuration)
@@ -34,7 +34,10 @@ namespace Microphone.Consul
         private string RootUrl => $"http://{_consulHost}:{_consulPort}";
         private string RegisterServiceUrl => $"{RootUrl}/v1/agent/service/register";
 
-        public async Task<ServiceInformation[]> GetServiceInstancesAsync(string serviceName)
+        //used by reaper, now removed. TODO: replace reaper
+        private string CriticalServicesUrl => $"{RootUrl}/v1/health/state/critical";
+
+        public async Task<ServiceInformation[]> GetServiceInstancesAsync(string serviceName, params string[] tags)
         {
             if (_nameResolution == ConsulNameResolution.EbayFabio)
             {
@@ -52,25 +55,37 @@ namespace Microphone.Consul
                 var body = await response.Content.ReadAsStringAsync();
                 var res1 = JArray.Parse(body);
                 var res =
-                    res1.Select(
-                        entry =>
-                            new ServiceInformation(
-                                entry["Service"]["Address"].Value<string>(),
-                                entry["Service"]["Port"].Value<int>())
+                    res1.
+                        Where(entry =>
+                        {
+                            if (tags.Length == 0)
+                                return true;
+
+                            var arr = entry["Service"]["Tags"].Select(i => i.Value<string>()).ToArray();
+                            return tags.All(arr.Contains);
+                        }).
+                        Select(
+                            entry =>
+                                new ServiceInformation(
+                                    entry["Service"]["Address"].Value<string>(),
+                                    entry["Service"]["Port"].Value<int>())
                         ).ToArray();
 
                 return res;
             }
         }
 
-        public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
+        public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri,
+            params string[] tags)
         {
             var port = uri.Port;
             var host = uri.Host;
             var check = $"http://{host}:{port}{_consulHealthCheckPath}";
-            var tags = _nameResolution == ConsulNameResolution.EbayFabio ?
-                new[] { $"urlprefix-/{serviceName}" } :
-                null;
+            var t = new List<string>(tags);
+            if (_nameResolution == ConsulNameResolution.EbayFabio)
+            {
+                t.Add($"urlprefix-/{serviceName}");
+            }
 
             _log.LogInformation($"Using Consul at {_consulHost}:{_consulPort}");
             _log.LogInformation($"Registering service {serviceId} at http://{host}:{port}");
@@ -80,7 +95,7 @@ namespace Microphone.Consul
             {
                 ID = serviceId,
                 Name = serviceName,
-                Tags = tags,
+                Tags = t,
                 Address = host,
                 Port = port,
                 Check = new
@@ -145,9 +160,6 @@ namespace Microphone.Consul
 
         private string KeyValueUrl(string key) => $"{RootUrl}/v1/kv/{key}";
         private string ServiceHealthUrl(string service) => $"{RootUrl}/v1/health/service/{service}?passing";
-
-        //used by reaper, now removed. TODO: replace reaper
-        private string CriticalServicesUrl => $"{RootUrl}/v1/health/state/critical";
         private string DeregisterServiceUrl(string service) => $"{RootUrl}/v1/agent/service/deregister/{service}";
     }
 }

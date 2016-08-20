@@ -12,7 +12,7 @@ namespace AspNetService.Controllers
         [HttpGet]
         public IEnumerable<string> Get([FromServices]IClusterClient client)
         {            
-            var res = client.GetServiceInstancesAsync("AspNetService").Result.Select(s => s.Host).ToArray();
+            var res = client.GetServiceInstancesAsync("AspNetService","foo","bar").Result.Select(s => s.Host).ToArray();
             return res;
         }
 

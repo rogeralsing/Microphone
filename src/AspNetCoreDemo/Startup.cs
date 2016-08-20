@@ -53,15 +53,17 @@ namespace AspNetService
                 case "true":
                 case "container":
                     {
-                        port = "5000";
-                        host = HttpGet("http://rancher-metadata/2015-12-19/self/container/primary_ip");
+                        var uri = Microphone.Rancher.UriResolver.GetContainerUri("http","5000");
+                        port = uri.Port.ToString();
+                        host = uri.Host;
                         Console.WriteLine($"Running on rancher container IP {host}");
                         break;
                     }
                 case "host":
                     {                                                                         
-                        port = HttpGet("http://rancher-metadata/2015-12-19/self/service/ports/0").Split(':')[0];
-                        host = HttpGet("http://rancher-metadata/2015-12-19/self/host/agent_ip");
+                        var uri = Microphone.Rancher.UriResolver.GetHostPortMapUri("http");
+                        port = uri.Port.ToString();
+                        host = uri.Host;
                         Console.WriteLine($"Running on rancher host IP {host}");
                         break;
                     }
@@ -73,17 +75,11 @@ namespace AspNetService
                         break;
                     }
             }
+            var tags = new []{"foo","bar"};
 
             app
             .UseMvc()
-            .UseMicrophone("AspNetService", "1.0", new Uri($"http://{host}:{port}"));
-        }
-
-        private static string HttpGet(string uri){
-             var http = new HttpClient();
-             http.BaseAddress =  new Uri(uri);
-             var res = http.GetStringAsync("").Result;
-             return res;
+            .UseMicrophone("AspNetService", "1.0", new Uri($"http://{host}:{port}"),tags);
         }
 
         public static void Main(string[] args)

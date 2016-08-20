@@ -46,7 +46,7 @@ namespace Microphone.Etcd
 
         private string RootUrl => $"http://{_etcdHost}:{_etcdPort}";
 
-        public async Task<ServiceInformation[]> GetServiceInstancesAsync(string serviceName)
+        public async Task<ServiceInformation[]> GetServiceInstancesAsync(string serviceName,params string[] tags)
         {
             var url = ServiceUrl(serviceName);
             using (var client = new HttpClient())
@@ -69,7 +69,7 @@ namespace Microphone.Etcd
             }
         }
 
-        public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri)
+        public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri,params string[] tags)
         {
             _serviceName = serviceName;
 

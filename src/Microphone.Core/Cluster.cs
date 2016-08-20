@@ -7,7 +7,7 @@ namespace Microphone
     {
         public static IClusterClient Client { get; private set; }
 
-        public static void RegisterService(Uri uri, IClusterProvider clusterProvider, string serviceName, string version, ILogger log)
+        public static void RegisterService(Uri uri, IClusterProvider clusterProvider, string serviceName, string version, ILogger log, params string[] tags)
         {
             var port = uri.Port;
             var host = uri.Host;
@@ -17,7 +17,7 @@ namespace Microphone
             var serviceId = $"{serviceName}_{EscapeHost(host)}_{port}";
             try
             {
-                clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, publicUri).Wait();
+                clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, publicUri,tags).Wait();
             }
             catch
             {
