@@ -36,7 +36,8 @@ namespace AspNetService
 
             services.Configure<ConsulOptions>(o =>
             {
-                o.Host = Configuration["ConsulHost"];
+                var host = UriResolver.GetHost();
+                o.Host = host;
             });
         }
 
@@ -46,44 +47,20 @@ namespace AspNetService
             .AddConsole(Configuration.GetSection("Logging"))
             .AddDebug();
 
-            string host = null;
-            string port = null;
-            switch (Configuration["rancher"])
-            {
-                case "true":
-                case "container":
-                    {
-                        var uri = Microphone.Rancher.UriResolver.GetContainerUri("http","5000");
-                        port = uri.Port.ToString();
-                        host = uri.Host;
-                        Console.WriteLine($"Running on rancher container IP {host}");
-                        break;
-                    }
-                case "host":
-                    {                                                                         
-                        var uri = Microphone.Rancher.UriResolver.GetHostPortMapUri("http");
-                        port = uri.Port.ToString();
-                        host = uri.Host;
-                        Console.WriteLine($"Running on rancher host IP {host}");
-                        break;
-                    }
-                default:
-                    {
-                        port = "5000";
-                        host = Microphone.Util.DnsUtils.GetLocalIPAddress();
-                        Console.WriteLine($"Running locally, {host}");
-                        break;
-                    }
-            }
-            var tags = new []{"foo","bar"};
+            string port = "5000";
+            var host = UriResolver.GetHost();
+            Console.WriteLine($"Running on rancher host IP {host}");
+            var tags = new[] { "foo", "bar" };
 
             app
             .UseMvc()
-            .UseMicrophone("AspNetService", "1.0", new Uri($"http://{host}:{port}"),tags);
+            .UseMicrophone("AspNetService", "1.0", new Uri($"http://{host}:{port}"), tags);
         }
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Starting...");
+            System.Threading.Thread.Sleep(20000);
             new WebHostBuilder()
                 .UseKestrel()
                 .UseUrls(new[] { "http://0.0.0.0:5000" })
@@ -108,6 +85,25 @@ namespace AspNetService
         {
             await Task.Yield(); //just to show we can do async
             _logger.LogInformation("Additional HealthCheck");
+        }
+    }
+
+    public static class UriResolver
+    {
+
+
+        public static string GetHost()
+        {
+            var host = HttpGet("http://rancher-metadata/2015-12-19/self/host/agent_ip");
+            return host;
+        }
+
+        private static string HttpGet(string uri)
+        {
+            var http = new HttpClient();
+            http.BaseAddress = new Uri(uri);
+            var res = http.GetStringAsync("").Result;
+            return res;
         }
     }
 }
