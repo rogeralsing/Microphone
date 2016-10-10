@@ -6,15 +6,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microphone.AspNet;
-using System.Threading.Tasks;
 using Microphone.Consul;
-using Microphone;
 using System.Net.Http;
 
 namespace AspNetService
 {
     public class Startup
     {
+        private static readonly Lazy<string> Host = new Lazy<string>(() => RancherMetadata.GetHost());
+        private static readonly Lazy<string> Port = new Lazy<string>(() => RancherMetadata.GetPort());
         public Startup(IHostingEnvironment env)
         {
             Configuration = new ConfigurationBuilder()
@@ -30,14 +30,11 @@ namespace AspNetService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services
-                .AddMicrophone<ConsulProvider>()
-                .AddHealthCheck<MyHealthChecker>();
+            services.AddMicrophone<ConsulProvider>();
 
             services.Configure<ConsulOptions>(o =>
             {
-                var host = UriResolver.GetHost();
-                o.Host = host;
+                o.Host = Startup.Host.Value;
             });
         }
 
@@ -47,20 +44,19 @@ namespace AspNetService
             .AddConsole(Configuration.GetSection("Logging"))
             .AddDebug();
 
-            string port = "5000";
-            var host = UriResolver.GetHost();
+            var port = Startup.Port.Value;
+            var host = Startup.Port.Value;
             Console.WriteLine($"Running on rancher host IP {host}");
-            var tags = new[] { "foo", "bar" };
 
             app
             .UseMvc()
-            .UseMicrophone("AspNetService", "1.0", new Uri($"http://{host}:{port}"), tags);
+            .UseMicrophone("AspNetService", "1.0", new Uri($"http://{host}:{port}"));
         }
 
         public static void Main(string[] args)
         {
             Console.WriteLine("Starting...");
-            System.Threading.Thread.Sleep(20000);
+            System.Threading.Thread.Sleep(20000); //Rancher metadata is not ready directly at startup :-(
             new WebHostBuilder()
                 .UseKestrel()
                 .UseUrls(new[] { "http://0.0.0.0:5000" })
@@ -71,24 +67,7 @@ namespace AspNetService
         }
     }
 
-    //adding this kind of extra healthcheck will allow you to
-    //do additional service healthcheck, e.g. ping database
-    public class MyHealthChecker : IHealthCheck
-    {
-        private ILogger _logger;
-        public MyHealthChecker(ILoggerFactory loggerFactory)
-        {
-            //use the default aspnet core DI support
-            _logger = loggerFactory.CreateLogger("MyHealthCheck");
-        }
-        public async Task CheckHealth()
-        {
-            await Task.Yield(); //just to show we can do async
-            _logger.LogInformation("Additional HealthCheck");
-        }
-    }
-
-    public static class UriResolver
+    public static class RancherMetadata
     {
 
 
@@ -96,6 +75,11 @@ namespace AspNetService
         {
             var host = HttpGet("http://rancher-metadata/2015-12-19/self/host/agent_ip");
             return host;
+        }
+
+        public static string GetPort() {
+            var port = HttpGet("http://rancher-metadata/2015-12-19/self/service/ports/0").Split(':')[0];
+            return port;
         }
 
         private static string HttpGet(string uri)
