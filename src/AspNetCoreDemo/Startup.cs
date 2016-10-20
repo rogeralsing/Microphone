@@ -45,7 +45,7 @@ namespace AspNetService
             .AddDebug();
 
             var port = Startup.Port.Value;
-            var host = Startup.Port.Value;
+            var host = Startup.Host.Value;
             Console.WriteLine($"Running on rancher host IP {host}");
 
             app
@@ -56,7 +56,7 @@ namespace AspNetService
         public static void Main(string[] args)
         {
             Console.WriteLine("Starting...");
-            System.Threading.Thread.Sleep(20000); //Rancher metadata is not ready directly at startup :-(
+            System.Threading.Thread.Sleep(10000); //Rancher metadata is not ready directly at startup :-(
             new WebHostBuilder()
                 .UseKestrel()
                 .UseUrls(new[] { "http://0.0.0.0:5000" })

@@ -81,6 +81,7 @@
     <Compile Include="Util\ThreadLocalRandom.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Microphone.Core.project.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

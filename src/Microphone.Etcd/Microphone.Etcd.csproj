@@ -71,6 +71,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Microphone.Etcd.project.json" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

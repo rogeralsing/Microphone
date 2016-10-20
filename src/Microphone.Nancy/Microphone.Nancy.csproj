@@ -82,6 +82,7 @@
     <Compile Include="TinyIoCContainerExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Microphone.Nancy.project.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

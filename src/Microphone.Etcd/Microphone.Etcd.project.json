@@ -1,0 +1,34 @@
+﻿{
+  "version": "0.6.6-*",
+  "description": "Microphone.Etcd Class Library",
+  "authors": [ "Roger Johansson" ],
+  "packOptions": {
+    "tags": [ "service discovery", "consul", "etcd", "nancy", "asp.net" ],
+    "projectUrl": "https://github.com/rogeralsing/Microphone",
+    "licenseUrl": "https://github.com/rogeralsing/Microphone/blob/master/LICENSE",
+    "iconUrl": "https://raw.githubusercontent.com/rogeralsing/Microphone/master/Resources/microphone.png"
+  },
+
+  "dependencies": {
+    "Microphone.Core": "0.6.6",
+    "Microsoft.Extensions.Logging": "1.0.0",
+    "Microsoft.Extensions.Options": "1.0.0",
+    "System.Net.Http": "4.1.0"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50",
+      "dependencies": {
+        "NETStandard.Library": "1.6.0"
+      }
+    },
+    "net451": {
+      "imports": "dotnet5.4",
+      "dependencies": {}
+    }
+  },
+  "runtimes": {
+    "win": {}
+  }
+}

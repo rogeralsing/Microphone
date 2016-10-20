@@ -34,9 +34,6 @@ namespace Microphone.Consul
         private string RootUrl => $"http://{_consulHost}:{_consulPort}";
         private string RegisterServiceUrl => $"{RootUrl}/v1/agent/service/register";
 
-        //used by reaper, now removed. TODO: replace reaper
-        private string CriticalServicesUrl => $"{RootUrl}/v1/health/state/critical";
-
         public async Task<ServiceInformation[]> GetServiceInstancesAsync(string serviceName, params string[] tags)
         {
             if (_nameResolution == ConsulNameResolution.EbayFabio)
@@ -160,6 +157,5 @@ namespace Microphone.Consul
 
         private string KeyValueUrl(string key) => $"{RootUrl}/v1/kv/{key}";
         private string ServiceHealthUrl(string service) => $"{RootUrl}/v1/health/service/{service}?passing";
-        private string DeregisterServiceUrl(string service) => $"{RootUrl}/v1/agent/service/deregister/{service}";
     }
 }
