@@ -27,7 +27,11 @@ PM> Install-Package Microphone.Nancy
     {
         static void Main(string[] args)
         {
-            Cluster.Bootstrap(new WebApiProvider(), new ConsulProvider(), "orders", "v1");
+            var options = new ConsulOptions();
+            var loggerFactory = new LoggerFactory();
+            var logger = loggerFactory.CreateLogger("logger");
+            var provider = new ConsulProvider(loggerFactory, Options.Create(options));
+            Cluster.RegisterService(new Uri($"http://localhost"), provider, "oders", "v1", logger);
             Console.ReadLine();
         }
     }
