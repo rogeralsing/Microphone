@@ -105,7 +105,7 @@ Before you start your services, make sure you have an active cluster running on 
 
 If you are new to Consul, you can bootstrap your test environment using this command:
 ```
-consul agent -server -bootstrap -data-dir /tmp/consul
+consul agent -server -bootstrap -data-dir /tmp/consul -bind=127.0.0.1
 ```
 
 This will give you a single server Consul cluster, this is not recommended for production usage, but it will allow you to use service discovery on your dev machine.
