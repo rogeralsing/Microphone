@@ -38,7 +38,7 @@ namespace Microphone.Consul
         {
             if (_nameResolution == ConsulNameResolution.EbayFabio)
             {
-                return new[] {new ServiceInformation($"http://{_consulHost}", 9999)};
+                return new[] { new ServiceInformation($"http://{_consulHost}", 9999) };
             }
 
             using (var client = new HttpClient())
@@ -75,9 +75,11 @@ namespace Microphone.Consul
         public async Task RegisterServiceAsync(string serviceName, string serviceId, string version, Uri uri,
             params string[] tags)
         {
+            var schema = uri.Scheme;
             var port = uri.Port;
             var host = uri.Host;
-            var check = $"http://{host}:{port}{_consulHealthCheckPath}";
+
+            var check = $"{schema}://{host}:{port}{_consulHealthCheckPath}";
             var t = new List<string>(tags);
             if (_nameResolution == ConsulNameResolution.EbayFabio)
             {
@@ -85,8 +87,8 @@ namespace Microphone.Consul
             }
 
             _log.LogInformation($"Using Consul at {_consulHost}:{_consulPort}");
-            _log.LogInformation($"Registering service {serviceId} at http://{host}:{port}");
-            _log.LogInformation($"Registering health check at http://{host}:{port}/status");
+            _log.LogInformation($"Registering service {serviceId} at {schema}://{host}:{port}");
+            _log.LogInformation($"Registering health check at {schema}://{host}:{port}/status");
 
             var payload = new
             {
@@ -149,7 +151,7 @@ namespace Microphone.Consul
 
                 var body = await response.Content.ReadAsStringAsync();
                 var deserializedBody = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(body);
-                var bytes = Convert.FromBase64String((string) deserializedBody[0]["Value"]);
+                var bytes = Convert.FromBase64String((string)deserializedBody[0]["Value"]);
                 var strValue = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
                 return strValue;
             }
