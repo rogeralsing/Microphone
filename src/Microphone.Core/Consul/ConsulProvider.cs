@@ -88,7 +88,7 @@ namespace Microphone.Consul
 
             _log.LogInformation($"Using Consul at {_consulHost}:{_consulPort}");
             _log.LogInformation($"Registering service {serviceId} at {schema}://{host}:{port}");
-            _log.LogInformation($"Registering health check at {schema}://{host}:{port}/status");
+            _log.LogInformation($"Registering health check at {check}");
 
             var payload = new
             {
