@@ -7,5 +7,6 @@ namespace Microphone.Consul
         public ConsulNameResolution NameResolution { get; set; } = ConsulNameResolution.HttpApi;
         public int Heartbeat { get; set; } = 1;
         public string HealthCheckPath { get; set; } = "/status";
+        public int DeregisterCriticalServiceAfter { get; set; } = 10;
     }
 }
