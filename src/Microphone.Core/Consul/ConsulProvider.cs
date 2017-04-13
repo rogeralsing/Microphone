@@ -18,6 +18,7 @@ namespace Microphone.Consul
         private readonly string _consulHost;
         private readonly int _consulPort;
         private readonly int _heartbeat;
+        private readonly int _deregisterCriticalServiceAfter;
         private readonly ILogger _log;
         private readonly ConsulNameResolution _nameResolution;
 
@@ -29,6 +30,7 @@ namespace Microphone.Consul
             _consulHealthCheckPath = configuration.Value.HealthCheckPath;
             _nameResolution = configuration.Value.NameResolution;
             _heartbeat = configuration.Value.Heartbeat;
+            _deregisterCriticalServiceAfter = configuration.Value.DeregisterCriticalServiceAfter;
         }
 
         private string RootUrl => $"http://{_consulHost}:{_consulPort}";
@@ -100,7 +102,8 @@ namespace Microphone.Consul
                 Check = new
                 {
                     HTTP = check,
-                    Interval = $"{_heartbeat}s"
+                    Interval = $"{_heartbeat}s",
+                    DeregisterCriticalServiceAfter = $"{_deregisterCriticalServiceAfter}m"
                 }
             };
 
