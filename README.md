@@ -31,7 +31,7 @@ PM> Install-Package Microphone.Nancy
             var loggerFactory = new LoggerFactory();
             var logger = loggerFactory.CreateLogger("logger");
             var provider = new ConsulProvider(loggerFactory, Options.Create(options));
-            Cluster.RegisterService(new Uri($"http://localhost"), provider, "oders", "v1", logger);
+            Cluster.RegisterService(new Uri($"http://localhost"), provider, "orders", "v1", logger);
             Console.ReadLine();
         }
     }
