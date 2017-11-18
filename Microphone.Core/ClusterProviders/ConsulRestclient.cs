@@ -103,7 +103,7 @@ namespace Microphone.Core.ClusterProviders
             {
                 var response =
                     await
-                        client.GetAsync($"http://localhost:{consulPort}/v1/agent/service/deregister/" + serviceId)
+                        client.PutAsync($"http://localhost:{consulPort}/v1/agent/service/deregister/" + serviceId, null)
                             .ConfigureAwait(false);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
