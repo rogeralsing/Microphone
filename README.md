@@ -5,6 +5,8 @@
 **Microphone** is a lightweight framework to run self hosting REST services using **Web Api** or **NancyFx** ontop of a **Consul** or **ETCD** cluster.
 Each service will start out by allocating a free port to run on, once the service is started, it will register itself in the local cluster provider.
 
+[![Build Status](https://img.shields.io/appveyor/ci/thiagoloureiro/microphone/master.svg)](https://ci.appveyor.com/project/thiagoloureiro/microphone) 
+
 ## Install from Nuget
 
 **WebApi bootstrapper**
