@@ -26,7 +26,7 @@ namespace Microphone.Core.ClusterProviders
             consulPort = port;
         }
 
-        public async Task RegisterServiceAsync(string serviceName,string serviceId,Uri address)
+        public async Task RegisterServiceAsync(string serviceName, string serviceId, Uri address)
         {
             var payload = new
             {
@@ -50,7 +50,7 @@ namespace Microphone.Core.ClusterProviders
 
                 var res =
                     await
-                        client.PostAsync($"http://localhost:{consulPort}/v1/agent/service/register", content)
+                        client.PutAsync($"http://localhost:{consulPort}/v1/agent/service/register", content)
                             .ConfigureAwait(false);
                 if (res.StatusCode != HttpStatusCode.OK)
                 {
@@ -103,7 +103,7 @@ namespace Microphone.Core.ClusterProviders
             {
                 var response =
                     await
-                        client.GetAsync($"http://localhost:{consulPort}/v1/agent/service/deregister/" + serviceId)
+                        client.PutAsync($"http://localhost:{consulPort}/v1/agent/service/deregister/" + serviceId, null)
                             .ConfigureAwait(false);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
@@ -150,7 +150,7 @@ namespace Microphone.Core.ClusterProviders
 
                 var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                 var deserializedBody = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(body);
-                var bytes = Convert.FromBase64String((string) deserializedBody[0]["Value"]);
+                var bytes = Convert.FromBase64String((string)deserializedBody[0]["Value"]);
                 var strValue = Encoding.UTF8.GetString(bytes);
 
                 return JsonConvert.DeserializeObject<T>(strValue);
